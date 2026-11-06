@@ -1168,6 +1168,16 @@ small.srcl{display:block;font-size:11px;color:var(--faint);font-weight:400;margi
 .vres .sens-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .vres .chartbox svg{max-height:260px}
 .widget .ptag{white-space:nowrap}
+
+/* matrizes de sensibilidade sempre inteiras */
+.vres .sens-2{grid-template-columns:minmax(0,1fr)}
+table.sens2{table-layout:fixed;width:100%}
+table.sens2 th:first-child,table.sens2 td:first-child{width:26%}
+table.sens2 td,table.sens2 th{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.vres .sens-2 .tblwrap{overflow:visible}
+.rs .sens-2.big{grid-template-columns:1fr 1fr}
+.rs .sens-2.big table.sens2 td,.rs .sens-2.big table.sens2 th{font-size:clamp(8px,1.05cqw,14px);padding:clamp(5px,.9cqw,12px) 4px}
+.rs .concl3 table.sens2 th:first-child,.rs .concl3 table.sens2 td:first-child{width:30%}
 </style>
 
 <div class="site" id="v-landing">
