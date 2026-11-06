@@ -1,0 +1,23 @@
+Eventos de cópia Status Registro de hora e data
+Termos de Assinatura e Registro Eletrônico:
+Não oferecido através da Docusign
+Geovanna Araujo Copiado Enviado: 26 de outubro de 2026 | 17:38
+geovanna.araujo@pwc.com
+Nível de segurança: E-mail, Autenticação da conta
+(Nenhuma)
+Termos de Assinatura e Registro Eletrônico:
+Não oferecido através da Docusign
+Jaqueline Franke Copiado Enviado: 26 de outubro de 2026 | 17:52
+jaqueline.franke@pwc.com Visualizado: 26 de outubro de 2026 | 17:52
+Nível de segurança: E-mail, Autenticação da conta Assinado: 26 de outubro de 2026 | 17:52
+(Nenhuma)
+Termos de Assinatura e Registro Eletrônico:
+Não oferecido através da Docusign
+Eventos com testemunhas Assinatura Registro de hora e data
+Eventos do tabelião Assinatura Registro de hora e data
+Eventos de resumo do envelope Status Carimbo de data/hora
+Envelope enviado Com hash/criptografado 26 de outubro de 2026 | 17:38
+Entrega certificada Segurança verificada 26 de outubro de 2026 | 17:51
+Assinatura concluída Segurança verificada 26 de outubro de 2026 | 17:52
+Concluído Segurança verificada 26 de outubro de 2026 | 17:52
+Eventos de pagamento Status Carimbo de data/hora

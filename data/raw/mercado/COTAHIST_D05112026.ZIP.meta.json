@@ -1,0 +1,10 @@
+{
+  "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+  "consultado_em": "2026-11-06T15:20:11+00:00",
+  "http_status": 200,
+  "last_modified": "Thu, 05 Nov 2026 23:36:48 GMT",
+  "content_type": "application/x-zip-compressed",
+  "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+  "bytes": 452711,
+  "sha256": "d86568278023a7381ef5397650d3cb5ff77cfcf6f2e7ba13104ec31c98555ced"
+}

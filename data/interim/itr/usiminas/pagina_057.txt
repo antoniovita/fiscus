@@ -1,0 +1,30 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+4 Objetivos e políticas para gestão de risco financeiro
+Conforme apresentado na Nota 3.4, mesmo com a adoção do dólar norte-americano
+(USD) como a moeda funcional da Companhia, não ocorreram alterações significativas
+nas políticas e na gestão dos riscos financeiros em relação às divulgadas nas
+demonstrações financeiras da Companhia do exercício findo em 31 de dezembro de
+2025.
+4.1 Risco cambial
+(i) Exposição em reais (BRL)
+No período de nove meses findo em 30 de setembro de 2026, após a adoção da moeda
+funcional USD, o resultado da companhia está exposto ao risco cambial decorrente das
+operações contratadas em reais (BRL). O risco cambial decorre, principalmente, de ativos
+e passivos reconhecidos e investimentos líquidos, conforme demonstrado a seguir:
+Controladora Consolidado
+30/09/2026 30/09/2026
+Ativos em reais (BRL)
+Caixa e equivalentes de caixa 1.342.883 2.694.353
+Títulos e valores mobiliários 368.683 891.280
+Contas a receber (i) 2.915.355 2.745.924
+4.626.921 6.331.557
+Passivos em reais (BRL)
+Empréstimos e financiamentos (3.604.637) (3.604.637)
+Fornecedores, empreiteiros e fretes (1.910.177) (2.132.645)
+(5.514.814) (5.737.282)
+Exposição cambial (887.893) 594.275
+(i) Na Controladora e no Consolidado, as contas a receber de clientes estão apresentadas líquidas da provisão para perdas
+de crédito esperadas, nos montantes de R$73.983 e R$100.284, conforme Nota 8.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 56 de 109

@@ -1,0 +1,55 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 8 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Individuais / Demonstração do Fluxo de Caixa (Método Indireto)
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+6.01 Caixa Líquido Atividades Operacionais 5.135.425 3.314.383
+6.01.01 Caixa Gerado nas Operações 579.002 987.822
+6.01.01.01 Lucro líquido do período 4.009.996 2.685.174
+6.01.01.02 Depreciação e amortização 227.562 207.296
+6.01.01.03 Equivalência patrimonial -3.854.021 -2.342.579
+6.01.01.04 Variação cambial, líquida -60.201 -153.587
+6.01.01.05 Ganhos com instrumentos financeiros, líquido -29.843 -336
+6.01.01.06 Benefícios pós-emprego 7.581 7.226
+6.01.01.07 Planos de incentivos de longo prazo 18.202 18.662
+6.01.01.08 Imposto de renda e contribuição social 57.575 263.892
+6.01.01.09 (Ganhos) Perdas na alienação de imobilizado -3.807 3.478
+6.01.01.10 Perdas pela não recuperabilidade de ativos financeiros 2.111 164
+6.01.01.11 Reversão Provisão de passivos tributários, cíveis, -1.590 -74.387
+trabalhistas e ambientais, líquido
+6.01.01.12 Receita de juros de aplicações financeiras -70.610 -132.627
+6.01.01.13 Despesa de juros sobre dívidas financeiras 478.230 443.676
+6.01.01.14 Juros sobre mútuos com empresas ligadas 33.865 51.456
+6.01.01.15 Reversão de ajuste ao valor líquido realizável de estoque, -1.320 -499
+líquido
+6.01.01.17 Despesa de juros sobre arrendamento mercantil 9.026 10.813
+6.01.01.20 Ganho na remensuração da participação anteriormente -243.754 0
+detida
+6.01.02 Variações nos Ativos e Passivos 4.956.126 2.644.187
+6.01.02.01 Redução de contas a receber 65.518 416.135
+6.01.02.02 Redução de estoques 10.251 128.264
+6.01.02.03 Aumento (Redução) de contas a pagar 43.335 -241.202
+6.01.02.04 Redução de outros ativos 19.436 1.573
+6.01.02.05 Aumento de outros passivos 34.992 69.502
+6.01.02.06 Recebimento de dividendos/juros sobre o capital próprio 2.672.013 445.207
+6.01.02.07 Aplicações financeiras -160.135 -830.173
+6.01.02.08 Resgate de aplicações financeiras 2.270.716 2.654.881
+6.01.03 Outros -399.703 -317.626
+6.01.03.01 Pagamento de juros de empréstimos e financiamentos -350.755 -268.646
+6.01.03.02 Pagamento de juros de arrendamento mercantil -9.026 -10.813
+6.01.03.03 Pagamento de imposto de renda e contribuição social -39.922 -38.167
+6.02 Caixa Líquido Atividades de Investimento -540.732 -551.103
+6.02.01 Adições de imobilizado -309.844 -363.313
+6.02.02 Recebimento pela venda de imobilizado, investimento e 82.128 10.956
+íntangíveis, líquido do caixa desconsolidado
+6.02.03 Adições de outros ativos intangíveis -13.016 -10.115
+6.02.04 Pagamento na aquisição de controle de empresa, líquido do -300.000 -188.631
+caixa consolidado
+6.03 Caixa Líquido Atividades de Financiamento -4.418.324 -4.010.272
+6.03.01 Pagamento arrendamento mercantil -33.072 -30.491
+6.03.02 Dividendos e juros sobre o capital próprio pagos -949.007 -680.859
+6.03.03 Deposito para futuro aumento de capital em controlada -1.100.000 -2.350.000
+ITR - InfoDrmFsa çInõedsiv Tidrimuaeisst r/a Dise -m 3o0n/0s9t/r2a0ç2ã6o - d GoE FRlDuAxoU dSe.A C.aixa 16

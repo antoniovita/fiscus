@@ -1,0 +1,34 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+22
+23
+21 Tributos parcelados
+A composição dos tributos parcelados pode ser apresentada como segue:
+Controladora e Consolidado
+30/09/2026 31/12/2025
+Tributos Depósitos Saldo Tributos Depósitos Saldo
+Parcelados Judiciais líquido Parcelados Judiciais líquido
+IPI 105.834 (100.079) 5.755 105.602 (100.079) 5.523
+ICMS 89.578 - 89.578 103.593 - 103.593
+Refis – Lei nº 11.941/09 – IPI e CIDE 6.059 (6.059) - 6.059 (6.059) -
+Refis – Lei nº 11.941/09 - IRPJ/CSLL
+Expurgo Plano Verão 57.089 (57.089) - 57.089 (57.089) -
+Outros 17 (17) - 17 (17) -
+258.577 (163.244) 95.333 272.360 (163.244) 109.116
+A movimentação dos tributos parcelados está demonstrada a seguir:
+Controladora e
+Consolidado
+Saldos em 31 de dezembro de 2025 (i) 272.360
+Amortização de principal (18.269)
+Amortização de encargos (5.684)
+Encargos provisionados 10.575
+Ajustes de conversão (405)
+Subtotal 258.577
+(-) Compensação com depósitos judiciais (163.244)
+Saldos em 30 de setembro de 2026 95.333
+Passivo circulante 34.665
+Passivo não circulante 60.668
+(i) Ao valor total de tributos parcelados deve-se deduzir o valor de R$163.244, correspondente à compensação com
+depósitos judiciais, que possuem o mesmo valor, prazo de liquidação e natureza desses tributos.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 85 de 109

@@ -1,0 +1,56 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 39 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+GERDAU S.A.
+NOTAS EXPLICATIVAS DA ADMINISTRAÇÃO ÀS INFORMAÇÕES INTERMEDIÁRIAS DA
+CONTROLADORA E DO CONSOLIDADO EM 30 DE SETEMBRO DE 2026 E DE 2025
+(Valores expressos em milhares de reais, exceto quando especificado)
+Revisadas pelo auditor independente na extensão descrita no relatório de 26 de outubro de 2026
+período de 9 meses findo em 30/09/2025). Por sua vez, uma valorização de 5% do Real em relação ao Dólar produziria um
+efeito inverso, correspondente a uma receita de igual valor. Os valores líquidos de outros ativos e outros passivos em moedas
+estrangeiras não apresentam riscos relevantes de impactos em virtude da oscilação na taxa de câmbio.
+Análise de sensibilidade das variações na taxa de juros (Interest rate sensitivity analysis): a análise de sensibilidade de
+variações nas taxas de juros considera os efeitos de um aumento ou de uma redução de 10 basis points (bps) sobre a taxa de
+juros média aplicável à parte flutuante de sua dívida. Em 30/09/2026, o impacto estimado da variação na taxa de juros
+corresponde a R$ 40.228 para o período de 9 meses findo em 30/09/2026 (R$ 47.930 para o período de 9 meses findo em
+30/09/2025) com reflexo direto nas Despesas financeiras na Demonstração Consolidada dos Resultados. As exposições da
+Companhia às variações das taxas de juros estão relacionadas principalmente aos saldos de Empréstimos e financiamentos e
+Debêntures, cujas condições estão detalhadas nas Notas 12 e 13. As taxas de referência às quais a Companhia está
+predominantemente exposta são a SOFR (Secured Overnight Financing Rate) e o CDI (Certificado de Depósito
+Interbancário).
+Análise de sensibilidade das variações no preço de venda das mercadorias e no preço das matérias-primas e demais
+insumos utilizados no processo de produção: a Companhia está exposta a variações no preço de seus produtos. Esta
+exposição está relacionada à oscilação do preço de venda dos produtos da Companhia e ao preço das matérias-primas e
+demais insumos utilizados no processo de produção, principalmente por operar em um mercado de commodities. A análise
+de sensibilidade efetuada pela Companhia considera os efeitos de um aumento ou uma redução de 1% sobre ambos os preços.
+O impacto calculado para os 9 meses findo em 30/09/2026 considerando uma variação de 1% nos preços dos produtos
+vendidos leva em consideração os efeitos sobre receitas e custos representando R$ 186.905 (R$ 179.831 para o período de 9
+meses findo em 30/09/2025). Já para uma variação de 1% nos preços das matérias-primas e demais insumos, o impacto
+calculado para o período de 9 meses findo em 30/09/2026 representam R$ 107.815 (R$ 114.105 para o período de 9 meses
+findo em 30/09/2025). O impacto no preço dos produtos vendidos e matérias-primas seriam registrados nas linhas de Receita
+líquida de vendas e Custo das vendas, respectivamente, na Demonstração Consolidada dos Resultados. A Companhia não
+espera estar mais vulnerável à mudança em um ou mais produtos específicos ou matérias-primas.
+Análise de sensibilidade dos contratos a termo de moedas: a Companhia possui exposição a contratos a termo de Dólar
+para alguns de seus ativos e passivos. A análise de sensibilidade efetuada pela Companhia considera os efeitos de um aumento
+ou de uma redução de 5% do Dólar frente ao Real, e os seus efeitos na marcação a mercado desses derivativos.
+Nesse cenário, uma valorização de 5% do Dólar frente ao Real resultaria em uma despesa de R$ 33.434 para o período de 9
+meses findo em 30/09/2026 (despesa de R$ 2.631 para o período de 9 meses findo em 30/09/2025), enquanto uma
+desvalorização de 5% geraria uma receita de igual valor. Os contratos a termo de Dólar/Real foram utilizados para proteção
+das posições ativas e passivas denominadas em moeda estrangeira, sendo os ganhos e perdas decorrentes da marcação a
+mercado reconhecidos na Demonstração Consolidada do Resultado.
+Análise de sensibilidade de derivativos de Commodities: a Companhia estava exposta a instrumentos derivativos
+vinculados a commodities, (carvão e energia). A análise de sensibilidade realizada considera os efeitos de uma variação de
+5% nos preços dessas commodities sobre o valor justo dos respectivos instrumentos derivativos, refletido por meio da
+marcação a mercado. Com base na análise, um aumento de 5% nos preços das commodities resultaria em uma despesa de R$
+734 para o período de 9 meses findo em 30/09/2026 (despesa de R$ 4.535 para período de 9 meses findo em 30/09/2025).
+Da mesma forma, uma redução de 5% nos preços das commodities resultaria em uma receita de igual valor. Os ganhos e
+perdas decorrentes da marcação a mercado desses instrumentos derivativos foram reconhecidos na Demonstração
+Consolidada do Resultado. Informações adicionais sobre os derivativos de commodities aos quais a Companhia está exposta
+são apresentadas na Nota 14.e.
+Análise de sensibilidade dos swaps USD x CDI (operação de troca da variação do Dólar por uma taxa de juros em Reais):
+a Companhia possui swaps USD x CDI contratados com o objetivo de proteger parte de suas exposições relacionadas a
+empréstimos e financiamentos. A análise de sensibilidade efetuada pela Companhia considera o impacto no valor justo dos
+instrumentos derivativos decorrente de um aumento de 5% do Dólar frente ao Real para todos os vértices das respectivas
+operações. Em 30/09/2026, a Companhia não possuía swaps USD x CDI para proteção de parte de seus Empréstimos e
+financiamentos. No mesmo período de 2025, o saldo dessas operações era de R$ 8.344.
+ITR - Infoirnmdaícçeõ e| sN Tortimase sEtxrapisli c-a 3t0iv/0a9s/2026 - GERDAU S.A. 47

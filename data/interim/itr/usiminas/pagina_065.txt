@@ -1,0 +1,27 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+Em 30 de setembro de 2026, as operações de hedge de proteção de preço do minério de
+ferro designadas como instrumento de hedge estão apresentadas a seguir:
+Consolidado
+Valor de
+Indexador
+Vencimento referência Ganho
+Objeto de hedge (mês/ano) ativo passivo (Nocional) (perda)
+Minério de ferro (CFR China 62% Fe) 11/26 Minério FWD USD 98,13 Minério_Fut_SCOV6 R$ 63.345 3.142
+Minério de ferro (CFR China 62% Fe) 11/26 Minério FWD USD 99,2 Minério_Fut_SCOV6 R$ 2.568 153
+3.295
+Em 30 de setembro de 2026, a movimentação do valor reconhecido como hedge
+accounting no patrimônio líquido pode ser demonstrada como segue:
+Consolidado
+Saldo em 31 de dezembro de 2025, reconhecido no patrimônio líquido (a) 19
+Ganho (perda) reconhecido como instrumento de hedge no período (3.315)
+Ganho (perda) reconhecido como objeto de hedge no período 3.295
+Ganho (perda) reconhecido no período, líquido (20)
+Saldo antes dos tributos diferidos sobre o ganho (perda) (1)
+Tributos diferidos sobre o ganho (perda) reconhecido no período (34%) 7
+Ganho (perda) reconhecido no período, líquido dos tributos diferidos (b) (32)
+Saldo em 30 de setembro de 2026, reconhecido no patrimônio líquido (a + b) (13)
+Ganho (perda) revertido do patrimônio líquido para receita de
+exportação (resgates) 25.688
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 64 de 109

@@ -1,0 +1,439 @@
+{
+  "verificado_em": "2026-11-06T15:19:25+00:00",
+  "resumo": {
+    "metricas": 85,
+    "aprovadas": 85,
+    "reprovadas": 0,
+    "cruzamentos_ok": 7,
+    "cruzamentos": 7,
+    "armadilhas_barradas": 3,
+    "armadilhas": 3
+  },
+  "metricas": {
+    "g_receita_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebit_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebit_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_lucro_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_lucro_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_lucro_ctrl_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_lucro_ctrl_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_aj_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_aj_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_da_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_an_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_an_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_br_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_br_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_as_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_an_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_an_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_br_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_br_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_as_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_caixa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_aplic": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_div_cp": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_div_lp": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_pl": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_minor": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebit_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebit_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_lucro_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_lucro_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_lucro_ctrl_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_lucro_ctrl_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebitda_aj_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebitda_aj_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_da_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_impairment_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_aco_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_aco_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_min_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_min_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_mi_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_exp_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_sid_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_min_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebitda_sid_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebitda_min_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_dl_reportada": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_caixa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_aplic": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_div_cp": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_div_lp": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_pl": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_minor": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_aj_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_aj_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_liq_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_an_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_br_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_peso_an_ebitda_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_div_bruta": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_dl": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_margem_aj_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_margem_aj_3t25": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_margem_liq_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_margem_sid_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_t_sid_3t26": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_div_bruta": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_dl": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_aj_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_lucro_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_an_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_ebitda_br_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_an_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_receita_br_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "g_margem_aj_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_receita_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_ebitda_aj_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_lucro_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_aco_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_vol_min_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    },
+    "u_margem_aj_var_aa": {
+      "status": "aprovado",
+      "falhas": []
+    }
+  },
+  "cruzamentos": [
+    {
+      "checagem": "Gerdau · soma dos segmentos = EBITDA ajustado consolidado",
+      "calculado": 3770.176,
+      "publicado": 3770.176,
+      "fonte": "ITR Gerdau, pág. 72 (eliminações −42.411)",
+      "tolerancia": 0.01,
+      "ok": true
+    },
+    {
+      "checagem": "Gerdau · receita da nota de segmentos = DRE consolidada",
+      "calculado": 18690.518,
+      "publicado": 18690.518,
+      "fonte": "ITR Gerdau, pág. 72 × pág. 29",
+      "tolerancia": 0.01,
+      "ok": true
+    },
+    {
+      "checagem": "Usiminas · margem EBITDA ajustada 3T26 = publicada (9,0%)",
+      "calculado": 9.0,
+      "publicado": 9.0,
+      "fonte": "ITR Usiminas, pág. 28",
+      "tolerancia": 0.05,
+      "ok": true
+    },
+    {
+      "checagem": "Usiminas · margem EBITDA ajustada 3T25 = publicada (6,6%)",
+      "calculado": 6.57,
+      "publicado": 6.6,
+      "fonte": "ITR Usiminas, pág. 28",
+      "tolerancia": 0.05,
+      "ok": true
+    },
+    {
+      "checagem": "Usiminas · EBITDA CVM 156 − equivalência + EBITDA de controladas em conjunto = ajustado",
+      "calculado": 558.017,
+      "publicado": 558.017,
+      "fonte": "ITR Usiminas, pág. 28",
+      "tolerancia": 0.01,
+      "ok": true
+    },
+    {
+      "checagem": "Usiminas · soma dos segmentos = EBITDA ajustado (R$ milhão)",
+      "calculado": 558.0,
+      "publicado": 558,
+      "fonte": "ITR Usiminas, pág. 33",
+      "tolerancia": 1,
+      "ok": true
+    },
+    {
+      "checagem": "Usiminas · dívida líquida calculada (BP) vs reportada no release",
+      "calculado": -566.0,
+      "publicado": -471.0,
+      "fonte": "ITR Usiminas, pág. 12–13 × pág. 24",
+      "tolerancia": 150,
+      "ok": true
+    }
+  ],
+  "armadilhas": [
+    {
+      "caso": "Holding no lugar do consolidado",
+      "explicacao": "O comentário de desempenho da Gerdau (pág. 3) fala da holding: R$ 1.078,8 milhões, 17 vezes menos que o consolidado.",
+      "reprovado": true,
+      "motivos": [
+        "página não é consolidada"
+      ]
+    },
+    {
+      "caso": "R$ mil lido como R$ milhões",
+      "explicacao": "A tabela de reconciliação da Usiminas está em R$ mil; o resumo da pág. 24 está em R$ milhões.",
+      "reprovado": true,
+      "motivos": [
+        "escala: como aparece 558.017 (R$ mil) ≠ 558017.0 R$ mi",
+        "margem fora da faixa plausível (−50% a 80%): 8996.759652922681"
+      ]
+    },
+    {
+      "caso": "Página errada para o número",
+      "explicacao": "O valor existe, mas na pág. 72, não na 71. Citação errada também reprova.",
+      "reprovado": true,
+      "motivos": [
+        "trecho não encontrado na página"
+      ]
+    }
+  ]
+}

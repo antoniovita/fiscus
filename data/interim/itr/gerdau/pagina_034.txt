@@ -1,0 +1,32 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 21 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração das Mutações do Patrimônio Líquido / DMPL - 01/01/2026 à 30/09/2026
+(Reais Mil)
+Código da Descrição da Conta Capital Social Reservas de Capital, Reservas de Lucro Lucros ou Prejuízos Outros Resultados Patrimônio Líquido Participação dos Não Patrimônio Líquido
+Conta Integralizado Opções Outorgadas e Acumulados Abrangentes Controladores Consolidado
+Ações em Tesouraria
+5.01 Saldos Iniciais 24.273.225 -508.470 23.054.501 0 6.766.137 53.585.393 213.096 53.798.489
+5.02 Ajustes de Exercícios Anteriores 0 0 0 0 0 0 0 0
+5.03 Saldos Iniciais Ajustados 24.273.225 -508.470 23.054.501 0 6.766.137 53.585.393 213.096 53.798.489
+5.04 Transações de Capital com os Sócios 0 112.734 -604.848 -805.463 0 -1.297.577 -38.893 -1.336.470
+5.04.08 Planos de incentivos de longo prazo 0 39.553 9.057 0 0 48.610 19 48.629
+exercidos durante o período
+5.04.11 Dividendos / Juros sobre capital próprio 0 0 0 -805.463 0 -805.463 -29.783 -835.246
+5.04.13 Efeitos do programa de recompra de 0 -342.833 0 0 0 -342.833 0 -342.833
+ações
+5.04.14 Cancelamento de ações em tesouraria 0 416.014 -416.014 0 0 0 0 0
+5.04.16 Dividendos excedentes ao mínimo 0 0 -197.891 0 0 -197.891 0 -197.891
+estatutário não distribuídos em 2025
+5.04.18 Efeitos de alterações de participação em 0 0 0 0 0 0 -9.129 -9.129
+controladas
+5.05 Resultado Abrangente Total 0 0 0 4.009.996 -1.642.792 2.367.204 19.021 2.386.225
+5.05.01 Lucro Líquido do Período 0 0 0 4.009.996 0 4.009.996 32.502 4.042.498
+5.05.02 Outros Resultados Abrangentes 0 0 0 0 -1.642.792 -1.642.792 -13.481 -1.656.273
+5.05.02.06 Efeitos com plano de incentivo de longo 0 0 0 0 23.717 23.717 -3 23.714
+prazo reconhecido no período
+5.05.02.07 Outros resultados abrangentes 0 0 0 0 -1.666.509 -1.666.509 -13.478 -1.679.987
+reconhecidos no período
+5.06 Mutações Internas do Patrimônio Líquido 0 0 0 0 0 0 0 0
+5.07 Saldos Finais 24.273.225 -395.736 22.449.653 3.204.533 5.123.345 54.655.020 193.224 54.848.244
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dRaDsA MU uSt.aAç.ões do Patrimônio Líquido / DMPL - %1% à %2% 29

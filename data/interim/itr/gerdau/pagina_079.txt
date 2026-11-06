@@ -1,0 +1,49 @@
+Certificado de Conclusão
+Identificação de envelope: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Status: Concluído
+Assunto: Complete com a Docusign: GERDAUSET26.ITR.pdf
+LoS / Área: Assurance (Audit, CMAAS)
+Tipo de Documento: Relatórios ou Deliverables
+Envelope fonte:
+Documentar páginas: 78 Assinaturas: 1 Remetente do envelope:
+Certificar páginas: 2 Rubrica: 0 Jaqueline Franke
+Assinatura guiada: Ativado Avenida Brigadeiro Faria Lima, 3732, 16º e 17º
+Selo com EnvelopeId (ID do envelope): Ativado andares, Edifício Adalmiro Dellape Baptista B32, Itai
+Fuso horário: (UTC-03:00) Brasília São Paulo, São Paulo 04538-132
+jaqueline.franke@pwc.com
+Endereço IP: 134.238.160.207
+Rastreamento de registros
+Status: Original Portador: Jaqueline Franke Local: DocuSign
+26 de outubro de 2026 | 17:36 jaqueline.franke@pwc.com
+Status: Original Portador: CEDOC Brasil Local: DocuSign
+26 de outubro de 2026 | 17:52 BR_Sao-Paulo-Arquivo-Atendimento-Team
+@pwc.com
+Eventos do signatário Assinatura Registro de hora e data
+Emerson Lima de Macedo Enviado: 26 de outubro de 2026 | 17:38
+ID: 497.470.295-53 Visualizado: 26 de outubro de 2026 | 17:51
+Cargo do Signatário: Partner Assinado: 26 de outubro de 2026 | 17:52
+emerson.macedo@pwc.com
+Adoção de assinatura: Estilo pré-selecionado
+Sócio
+Usando endereço IP: 134.238.160.24
+PwC BR
+Nível de segurança: E-mail, Autenticação da conta
+(Nenhuma), Certificado Digital Política de certificado:
+Detalhes do provedor de assinatura: [1]Certificate Policy:
+Tipo de assinatura: ICP-Brasil Policy Identifier=2.16.76.1.2.3.10
+Emissor: AC SERASA RFB v5 [1,1]Policy Qualifier Info:
+CPF do signatário: 49747029553 Policy Qualifier Id=CPS
+Cargo do Signatário: Partner Qualifier:
+Assunto: CN=EMERSON LIMA DE http://publicacao.certificadodigital.com.br/r
+MACEDO:49747029553 epositorio/dpc/declaracao-rfb.pdf
+Termos de Assinatura e Registro Eletrônico:
+Não oferecido através da Docusign
+Eventos do signatário presencial Assinatura Registro de hora e data
+Eventos de entrega do editor Status Registro de hora e data
+Evento de entrega do agente Status Registro de hora e data
+Eventos de entrega intermediários Status Registro de hora e data
+Eventos de entrega certificados Status Registro de hora e data
+Eventos de cópia Status Registro de hora e data
+Camila Fagundes Copiado Enviado: 26 de outubro de 2026 | 17:38
+camila.fagundes@pwc.com
+Nível de segurança: E-mail, Autenticação da conta
+(Nenhuma)

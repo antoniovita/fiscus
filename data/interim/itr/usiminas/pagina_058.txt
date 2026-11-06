@@ -1,0 +1,33 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+(ii) Análise de sensibilidade - risco cambial dos ativos e passivos em reais (BRL)
+A Companhia elabora análise de sensibilidade com base nos saldos dos ativos e dos
+passivos contratados em reais (BRL), em aberto no final do período, considerando o
+câmbio vigente para a moeda USD em 30 de setembro de 2026. Como referência para a
+adoção das taxas na análise de sensibilidade, são observados os dados divulgados pelo
+Banco Central do Brasil (Relatório Focus), principalmente sobre a paridade cambial do
+USD em relação ao BRL.
+Em 30 de setembro de 2026, na Controladora, os cenários I, II e III foram calculados com
+desvalorização da moeda BRL em 5%, 25% e 50%, respectivamente, frente à moeda
+USD. No Consolidado, os cenários I, II e III foram calculados com valorização da moeda
+BRL de 5%, 25% e 50%, respectivamente, em relação à moeda USD.
+Os efeitos da análise de sensibilidade com base nos seus respectivos cenários estão
+demonstrados a seguir:
+Controladora
+30/09/2026
+Taxa de câmbio
+Moeda final do período Cenário I Cenário II Cenário III
+USD/BRL 5,1809 5,4399 6,4761 7,7714
+Consolidado
+30/09/2026
+Taxa de câmbio
+Moeda final do período Cenário I Cenário II Cenário III
+USD/BRL 5,1809 4,9219 3,8857 2,591
+Os ganhos (perdas) no resultado financeiro, considerando os cenários I, II e III, estão
+demonstrados a seguir:
+Controladora Consolidado
+30/09/2026 30/09/2026
+Moeda Cenário I Cenário II Cenário III Cenário I Cenário II Cenário III
+USD/BRL (44.387) (221.969) (443.955) (29.709) (148.566) (297.132)
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 57 de 109

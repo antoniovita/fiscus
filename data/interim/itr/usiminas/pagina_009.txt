@@ -1,0 +1,21 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Individuais / Demonstração das Mutações do Patrimônio Líquido / DMPL - 01/01/2026 à 30/09/2026
+(Reais Mil)
+Código da Descrição da Conta Capital Social Reservas de Capital, Reservas de Lucro Lucros ou Prejuízos Outros Resultados Patrimônio Líquido
+Conta Integralizado Opções Outorgadas e Acumulados Abrangentes
+Ações em Tesouraria
+5.01 Saldos Iniciais 13.200.295 312.665 7.414.547 0 -113.628 20.813.879
+5.02 Ajustes de Exercícios Anteriores 0 0 0 0 0 0
+5.03 Saldos Iniciais Ajustados 13.200.295 312.665 7.414.547 0 -113.628 20.813.879
+5.04 Transações de Capital com os Sócios 0 0 0 5.338 -4.793 545
+5.04.08 Realização do Ajuste do IAS 29 no Ativo Imobilizado 0 0 0 4.793 -4.793 0
+5.04.09 Dividendos Prescritos 0 0 0 545 0 545
+5.05 Resultado Abrangente Total 0 0 0 1.383.002 -1.143.175 239.827
+5.05.01 Lucro Líquido do Período 0 0 0 1.383.002 0 1.383.002
+5.05.02 Outros Resultados Abrangentes 0 0 0 0 -1.143.175 -1.143.175
+5.05.02.03 Equiv. Patrim. s/Result. Abrang. Controladas e Coligadas 0 0 0 0 -134 -134
+5.05.02.04 Ajustes de Conversão do Período 0 0 0 0 -1.162.841 -1.162.841
+5.05.02.06 Ganho (Perda) Atuarial com Benefícios de Aposentadoria 0 0 0 0 19.800 19.800
+5.06 Mutações Internas do Patrimônio Líquido 0 0 0 0 0 0
+5.07 Saldos Finais 13.200.295 312.665 7.414.547 1.388.340 -1.261.596 21.054.251
+PÁGINA: 8 de 109

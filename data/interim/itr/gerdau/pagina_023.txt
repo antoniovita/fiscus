@@ -1,0 +1,28 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 10 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Individuais / Demonstração das Mutações do Patrimônio Líquido / DMPL - 01/01/2026 à 30/09/2026
+(Reais Mil)
+Código da Descrição da Conta Capital Social Reservas de Capital, Reservas de Lucro Lucros ou Prejuízos Outros Resultados Patrimônio Líquido
+Conta Integralizado Opções Outorgadas e Acumulados Abrangentes
+Ações em Tesouraria
+5.01 Saldos Iniciais 24.273.225 -508.470 23.054.501 0 6.766.137 53.585.393
+5.02 Ajustes de Exercícios Anteriores 0 0 0 0 0 0
+5.03 Saldos Iniciais Ajustados 24.273.225 -508.470 23.054.501 0 6.766.137 53.585.393
+5.04 Transações de Capital com os Sócios 0 112.734 -604.848 -805.463 0 -1.297.577
+5.04.08 Planos de incentivos de longo prazo exercidos durante o 0 39.553 9.057 0 0 48.610
+período
+5.04.11 Dividendos / Juros sobre capital próprio 0 0 0 -805.463 0 -805.463
+5.04.13 Efeitos do programa de recompra de ações 0 -342.833 0 0 0 -342.833
+5.04.14 Cancelamento de ações em tesouraria 0 416.014 -416.014 0 0 0
+5.04.16 Dividendos excedentes ao mínimo estatutário não 0 0 -197.891 0 0 -197.891
+distribuídos em 2025
+5.05 Resultado Abrangente Total 0 0 0 4.009.996 -1.642.792 2.367.204
+5.05.01 Lucro Líquido do Período 0 0 0 4.009.996 0 4.009.996
+5.05.02 Outros Resultados Abrangentes 0 0 0 0 -1.642.792 -1.642.792
+5.05.02.06 Efeitos com plano de incentivo de longo prazo reconhecido 0 0 0 0 23.717 23.717
+no período
+5.05.02.07 Outros resultados abrangentes reconhecidos no período 0 0 0 0 -1.666.509 -1.666.509
+5.06 Mutações Internas do Patrimônio Líquido 0 0 0 0 0 0
+5.07 Saldos Finais 24.273.225 -395.736 22.449.653 3.204.533 5.123.345 54.655.020
+ITR - InfoDrmFsa çInõedsiv Tidrimuaeisst r/a Dise -m 3o0n/0s9t/r2a0ç2ã6o - d GaEsR MDAutUa çSõ.Ae.s do Patrimônio Líquido / DMPL - %1% à %2% 18

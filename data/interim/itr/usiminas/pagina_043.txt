@@ -1,0 +1,44 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Comentário do Desempenho
+Release de Resultados 3T26 23
+BALANÇO PATRIMONIAL – ATIVO | IFRS R$ mil 30-set-26 30-jun-26 30-set-25
+CIRCULANTE 16.594.884 16.781.145 16.354.384
+Caixa e Aplicações 6.747.169 6.822.557 6.035.997
+Contas a Receber 2.907.498 3.069.628 3.307.415
+Impostos a Recuperar 651.997 631.323 748.682
+Estoques 6.016.979 5.920.457 6.089.520
+Adiantamento a fornecedores 39.903 7.496 3.103
+Outros Títulos e Valores a Receber 231.338 329.684 169.667
+NÃO CIRCULANTE 18.241.142 18.325.511 18.955.491
+Realizável a Longo Prazo 4.521.854 4.701.093 4.786.967
+ Tributos Diferidos 2.143.970 2.196.520 1.941.462
+ Depósitos Judiciais 658.747 642.416 587.842
+ Impostos a Recuperar 826.322 978.285 1.409.273
+Outros 892.815 883.872 848.390
+Participações Societárias 1.676.700 1.629.739 1.626.679
+Propriedade para Investimentos 149.422 149.485 147.559
+Imobilizado 9.968.187 9.906.195 10.387.747
+Intangível 1.924.979 1.938.999 2.006.539
+TOTAL DO ATIVO 34.836.026 35.106.656 35.309.875
+BALANÇO PATRIMONIAL – PASSIVO | IFRS R$ mil 30-set-26 30-jun-26 30-set-25
+CIRCULANTE 3.212.685 3.777.846 3.885.371
+Empréstimos e Financiamentos e Tributos Parcelados 162.073 207.965 162.926
+Fornecedores, Empreiteiros e Fretes 2.370.116 2.816.693 2.246.795
+Salários e Encargos Sociais 388.009 334.174 391.790
+Tributos e Impostos a Recolher 131.994 144.573 159.634
+Títulos a Pagar Forfaiting 0 143.697 674.565
+Proventos a Pagar 616 1.268 20.086
+Adiantamento de Clientes 67.449 53.319 69.083
+Outros 92.428 76.157 160.492
+NÃO CIRCULANTE 7.652.715 7.683.719 7.787.177
+Empréstimos e Financiamentos e Tributos Parcelados 6.114.426 6.115.614 6.200.078
+Passivo Atuarial 504.190 535.778 554.397
+Provisões para Demandas Judiciais 507.527 507.374 549.286
+Provisão para Recuperação Ambiental 270.490 266.181 243.971
+Outros 256.082 258.772 239.445
+PATRIMÔNIO LÍQUIDO 23.970.626 23.645.091 23.637.327
+Capital Social 13.200.295 13.200.295 13.200.295
+Reservas e Lucro Acumulados 7.853.956 7.550.859 7.551.032
+Participação dos Acionistas não Controladores 2.916.375 2.893.937 2.886.000
+TOTAL DO PASSIVO 34.836.026 35.106.656 35.309.875
+PÁGINA: 42 de 109

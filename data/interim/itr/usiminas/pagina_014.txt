@@ -1,0 +1,33 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Consolidadas / Demonstração do Resultado
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+3.01 Receita de Venda de Bens e/ou Serviços 6.202.422 18.204.789 6.604.238 20.088.363
+3.02 Custo dos Bens e/ou Serviços Vendidos -5.559.948 -16.047.302 -6.157.734 -18.375.873
+3.03 Resultado Bruto 642.474 2.157.487 446.504 1.712.490
+3.04 Despesas/Receitas Operacionais -290.092 -851.508 -2.516.357 -3.210.322
+3.04.01 Despesas com Vendas -109.206 -327.881 -131.034 -386.865
+3.04.02 Despesas Gerais e Administrativas -192.646 -580.371 -184.955 -558.868
+3.04.04 Outras Receitas Operacionais 45.253 182.131 54.832 201.596
+3.04.05 Outras Despesas Operacionais -113.945 -324.964 -2.346.416 -2.696.962
+3.04.06 Resultado de Equivalência Patrimonial 80.452 199.577 91.216 230.777
+3.05 Resultado Antes do Resultado Financeiro e dos Tributos 352.382 1.305.979 -2.069.853 -1.497.832
+3.06 Resultado Financeiro -21.770 43.426 -72.297 -108.044
+3.07 Resultado Antes dos Tributos sobre o Lucro 330.612 1.349.405 -2.142.150 -1.605.876
+3.08 Imposto de Renda e Contribuição Social sobre o Lucro -87.171 218.368 -1.361.188 -1.432.840
+3.08.01 Corrente 4.182 -72.243 -15.675 -117.108
+3.08.02 Diferido -91.353 290.611 -1.345.513 -1.315.732
+3.09 Resultado Líquido das Operações Continuadas 243.441 1.567.773 -3.503.338 -3.038.716
+3.11 Lucro/Prejuízo Consolidado do Período 243.441 1.567.773 -3.503.338 -3.038.716
+3.11.01 Atribuído a Sócios da Empresa Controladora 229.193 1.383.002 -3.539.981 -3.143.946
+3.11.02 Atribuído a Sócios Não Controladores 14.248 184.771 36.643 105.230
+3.99 Lucro por Ação - (Reais / Ação)
+3.99.01 Lucro Básico por Ação
+3.99.01.01 ON 0,18 1,08 -2,86 -2,55
+3.99.01.02 PN 0,2 1,19 -2,89 -2,55
+3.99.02 Lucro Diluído por Ação
+3.99.02.01 ON 0,18 1,08 -2,86 -2,55
+3.99.02.02 PN 0,2 1,19 -2,89 -2,55
+PÁGINA: 13 de 109

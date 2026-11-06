@@ -1,0 +1,16 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 20 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração do Fluxo de Caixa (Método Indireto)
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+6.03.03 Pagamentos de empréstimos e financiamentos -847.487 -3.190.133
+6.03.04 Pagamento de arrendamento mercantil -374.250 -352.346
+6.03.09 Compras de ações em tesouraria -342.833 -985.822
+6.04 Variação Cambial s/ Caixa e Equivalentes -257.825 -846.805
+6.05 Aumento (Redução) de Caixa e Equivalentes -233.278 1.621.759
+6.05.01 Saldo Inicial de Caixa e Equivalentes 5.929.170 7.767.813
+6.05.02 Saldo Final de Caixa e Equivalentes 5.695.892 9.389.572
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dRoD FAlUu xSo.A d.e Caixa 28

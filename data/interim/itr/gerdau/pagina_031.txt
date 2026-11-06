@@ -1,0 +1,19 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 18 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração do Resultado Abrangente
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+4.01 Lucro Líquido Consolidado do Período 1.563.097 4.042.498 1.089.880 2.712.181
+4.02 Outros Resultados Abrangentes 11.805 -1.679.987 -1.044.702 -4.522.242
+4.02.01 Outros result. abrang. de empresas controladas em conjunto e coligadas reconhecidas -86.032 -178.618 -2.981 -88.727
+por equivalência
+4.02.02 Ajustes cumulativos de conversão para moeda estrangeira 100.617 -1.713.847 -1.155.463 -4.831.278
+4.02.03 (Perdas) Ganhos não realizados em hedge de investimento líquido -2.780 207.468 113.742 397.763
+4.02.05 Ganhos atuariais líquidos não realizadas com plano de pensão de benefício definido 0 5.010 0 0
+4.03 Resultado Abrangente Consolidado do Período 1.574.902 2.362.511 45.178 -1.810.061
+4.03.01 Atribuído a Sócios da Empresa Controladora 1.566.645 2.343.487 36.371 -1.821.622
+4.03.02 Atribuído a Sócios Não Controladores 8.257 19.024 8.807 11.561
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dRoD RAeUs Su.lAta.do Abrangente 26

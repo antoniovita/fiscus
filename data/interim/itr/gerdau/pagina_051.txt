@@ -1,0 +1,110 @@
+GERDAU S.A.
+NOTAS EXPLICATIVAS DA ADMINISTRAÇÃO ÀS INFORMAÇÕES INTERMEDIÁRIAS DA
+CONTROLADORA E DO CONSOLIDADO EM 30 DE SETEMBRO DE 2026 E DE 2025
+(Valores expressos em milhares de reais, exceto quando especificado)
+Revisadas pelo auditor independente na extensão descrita no relatório de 26 de outubro de 2026
+Risco de gerenciamento de capital: advém da escolha da Companhia em adotar uma estrutura de financiamentos para suas
+operações. A Companhia administra sua estrutura de capital, a qual consiste em uma relação entre as dívidas financeiras e o
+capital próprio (Patrimônio Líquido), baseada em políticas internas e benchmarks. Os indicadores chave (KPI – Key
+Performance Indicators) relacionados ao objetivo “Gestão da Estrutura de Capital” são: WACC (Custo Médio Ponderado do
+Capital), Dívida Líquida/EBITDA, Índice de Cobertura das Despesas Financeiras Líquidas (Ebitda/Despesa Financeira
+Líquida) e Relação Dívida/Capitalização Total. A Dívida Líquida é formada pelo principal da dívida reduzida pelo caixa,
+equivalentes de caixa e aplicações financeiras (Notas 4, 12 e 13). A Capitalização Total é formada pela Dívida Total
+(composta pelo principal da dívida) e pelo Patrimônio Líquido (Nota 17). A Companhia pode alterar sua estrutura de capital,
+conforme condições econômico-financeiras, visando otimizar sua alavancagem financeira e sua gestão de dívida. Ao mesmo
+tempo, a Companhia procura melhorar seu ROCE (Retorno sobre Capital Empregado) através da implementação de uma
+gestão de capital de giro e de um programa eficiente de investimentos em imobilizado. No longo prazo, a Companhia busca
+manter-se dentro dos parâmetros abaixo, admitindo variações pontuais no curto prazo:
+Estes indicadores chave são usados para monitorar os objetivos descritos acima e podem não ser utilizados como indicadores
+para outras finalidades, tais como testes de recuperabilidade de ativos.
+Risco de liquidez: as diretrizes internas da Companhia preveem limites de carência e determina a utilização de linhas
+compromissadas e de disponibilidade efetiva de linhas de crédito, com ou sem lastro em recebíveis de exportação, para
+gerenciar níveis adequados de liquidez de curto, médio e longo prazo. Os cronogramas de pagamento das parcelas de longo
+prazo dos Empréstimos e financiamentos e Debêntures são apresentados nas Notas 12 e 13, respectivamente.
+Análises de sensibilidade:
+A Companhia efetuou testes de análises de sensibilidade que podem ser assim resumidos:
+Análise de sensibilidade das variações na moeda estrangeira (Foreign currency sensitivity analysis): a Companhia em
+30/09/2026, estava exposta principalmente às oscilações entre o Real e o Dólar. A análise de sensibilidade realizada considera
+os efeitos de uma variação de 5% do Real em relação ao Dólar sobre as dívidas (empréstimos e financiamentos) não
+protegidas por operações de hedge, bem como sobre os saldos líquidos de contas a receber de exportações realizadas a partir
+do Brasil e de fornecedores importações (importações/exportações, líquidas). As exposições decorrentes das variações entre
+as moedas locais dos demais países e o Dólar não são consideradas materiais. No que se refere às dívidas em moeda
+estrangeira (empréstimos e financiamentos), uma desvalorização de 5% do Real frente ao Dólar resultaria em uma despesa
+financeira de R$ 2.375 para o período de 9 meses findo em 30/09/2026 (despesa de R$ 14.096 para o período de 9 meses
+findo em 30/09/2025). Por outro lado, uma valorização de 5% do Real em relação ao Dólar geraria uma receita financeira de
+igual valor. Em relação às operações líquidas de importação e exportação, uma desvalorização de 5% do Real frente ao Dólar
+resultaria em uma despesa de R$ 63.709 para o período de 9 meses findo em 30/09/2026 (despesa de R$ 84.863 para o
+D ív id a L íq u id a /E B IT D A
+L im ite n o m in a l d a D ív id a B r u ta
+P r a z o M é d io
+Im p a c to n a D e m o n s tr a ç ã o d o s R e s u lta d o s
+P r e m is s a
+V a ria ç õ e s n a m o e d a e s tra n g e ira - E m p ré s tim o s e F in a n c
+V a ria ç õ e s n a m o e d a e s tra n g e ira - Im p o rta ç õ e s / E x p o rta
+V a ria ç õ e s n a s ta x a s d e ju ro s
+V a ria ç õ e s n o p re ç o d o s p ro d u to s v e n d id o s
+V a ria ç õ e s n o p re ç o d a s m a té ria s -p rim a s e d e m a is in s u m
+C o n tra to s a te rm o d e m o e d a s
+D e riv a tiv o s d e C o m m o d itie s
+S w a p s U S D x C D I
+S w a p s IP C A x C D I
+S w a p s E U R x C D I
+ia m
+ç õ e
+o s
+es n to
+, líq
+< 1 ,5
+R $ 1
+> 6 a
+s
+u id a s
+x
+2
+n
+B
+o s
+ilh õ e s
+V a r ia
+1 0 b
+ç
+55p1
+1
+5555
+5
+ã o
+%%s%
+%
+%%%%
+%
+3 0 /0 9 /2 0 2 6
+2 .3 7 5
+6 3 .7 0 9
+4 0 .2 2 8
+1 8 6 .9 0 5
+1 0 7 .8 1 5
+3 3 .4 3 4
+7 3 4
+-
+-
+-
+3 0 /0 9 /2 0 2
+1 4 .0 9
+8 4 .8 6
+4 7 .9 3
+1 7 9 .8 3
+1 1 4 .1 0
+2 .6 3
+4 .5 3
+8 .3 4
+3
+2 0 .7 5
+5
+6301
+51
+547
+8
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 38 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+ITR - Infoirnmdaícçeõ e| sN Tortimase sEtxrapisli c-a 3t0iv/0a9s/2026 - GERDAU S.A. 46

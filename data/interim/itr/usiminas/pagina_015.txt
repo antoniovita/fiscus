@@ -1,0 +1,15 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Consolidadas / Demonstração do Resultado Abrangente
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+4.01 Lucro Líquido Consolidado do Período 243.441 1.567.773 -3.503.338 -3.038.716
+4.02 Outros Resultados Abrangentes 81.551 -1.298.474 12.133 12.681
+4.02.01 Ganho (Perda) Atuarial com Benefícios de Aposentadoria 21.555 19.800 13.537 11.000
+4.02.03 Hedge Accounting 3.180 -185 -1.404 1.681
+4.02.04 Ajustes de Conversão 56.816 -1.318.089 0 0
+4.03 Resultado Abrangente Consolidado do Período 324.992 269.299 -3.491.205 -3.026.035
+4.03.01 Atribuído a Sócios da Empresa Controladora 302.552 239.827 -3.527.426 -3.131.769
+4.03.02 Atribuído a Sócios Não Controladores 22.440 29.472 36.221 105.734
+PÁGINA: 14 de 109

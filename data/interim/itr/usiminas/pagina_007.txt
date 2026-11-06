@@ -1,0 +1,51 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Individuais / Demonstração do Fluxo de Caixa (Método Indireto)
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+6.01 Caixa Líquido Atividades Operacionais 373.827 689.922
+6.01.01 Caixa Gerado nas Operações 1.796.852 1.182.056
+6.01.01.01 Lucro (Prejuízo) Liquido do Exercício 1.383.002 -3.143.946
+6.01.01.02 Encargos e Variações Monetárias/Cambiais, Líquidas -13.024 -325.379
+6.01.01.03 Despesas de Juros 569.108 593.623
+6.01.01.04 Depreciação e Amortização 494.006 663.725
+6.01.01.05 Resultado na Venda de Imobilizado -18.278 -53.131
+6.01.01.07 Resultado de Equivalência Patrimonial -481.258 -357.256
+6.01.01.09 Imposto de Renda e Contribuição Social Diferidos -152.596 1.410.195
+6.01.01.10 Constituição (Reversão) de Provisões -18.259 118.844
+6.01.01.11 Ganhos (Perdas) Atuariais 43.219 49.049
+6.01.01.12 Perda por Valor Recuperável de Ativos (Impairment) 0 2.226.332
+6.01.01.13 Imposto de Renda e Contribuição Social Correntes -9.068 0
+6.01.02 Variações nos Ativos e Passivos -732.664 235.104
+6.01.02.01 Adiantamentos a Fornecedores -32.822 0
+6.01.02.02 Contas a receber de Clientes -258.168 8.064
+6.01.02.03 Estoques -368.017 1.306.060
+6.01.02.04 Impostos a Recuperar 430.079 101.289
+6.01.02.05 Valores a Receber de Empresas Ligadas -1.098 0
+6.01.02.06 Depósitos Judiciais 691 723
+6.01.02.08 Outros (Acréscimos) Decréscimos de Ativos 34.744 -20.991
+6.01.02.09 Fornecedores, Empreiteiros e Fretes 30.499 -931.803
+6.01.02.10 Adiantamentos de Clientes 4.621 -2.034
+6.01.02.11 Valores a Pagar a Sociedades Ligadas -1.559 -1.897
+6.01.02.12 Tributos a Recolher 65.287 97.452
+6.01.02.13 Títulos a Pagar - Forfaiting -536.798 -189.538
+6.01.02.14 Outros Acréscimos (Decréscimos) Passivos -100.123 -132.221
+6.01.03 Outros -690.361 -727.238
+6.01.03.01 Juros Pagos -605.424 -657.906
+6.01.03.02 Imposto de Renda e Contribuição Social Pagos -12.909 -2.340
+6.01.03.03 Pagamento de Passivo Atuarial -72.028 -66.992
+6.02 Caixa Líquido Atividades de Investimento -1.217.162 -735.476
+6.02.01 Valor Recebido pela Alienação de Imobilizado 19.764 53.658
+6.02.02 Compras de Imobilizado -653.111 -622.195
+6.02.04 Dividendos Recebidos 124.027 30.604
+6.02.06 Compras de Softwares -64.982 -73.937
+6.02.07 Títulos e valores mobiliários -642.860 -123.606
+6.03 Caixa Líquido Atividades de Financiamento -30.349 -75.380
+6.03.01 Ingressos de Empréstimos, Financiamentos e Debêntures 0 410.172
+6.03.02 Pagamento de empréstimos e Financiamentos e Debêntures 0 -460.190
+6.03.03 Pagamento de Tributos Parcelados -23.952 -19.037
+6.03.05 Dividendos e Juros s/Capital Próprio Pagos -8 -18
+6.03.08 Pagamento de Passivo de Arrendamento -6.389 -6.307
+6.04 Variação Cambial s/ Caixa e Equivalentes -131.692 -96.393
+PÁGINA: 6 de 109

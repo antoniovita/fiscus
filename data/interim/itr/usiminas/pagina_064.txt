@@ -1,0 +1,30 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+Os saldos contábeis das operações de instrumentos financeiros derivativos estão
+descritos a seguir:
+Consolidado
+30/09/2026 31/12/2025
+Ativo circulante 8.331 -
+Passivo circulante - 5.680
+Consolidado
+30/09/2026 30/09/2025
+Ganho (perda) na receita bruta - mercado externo (i) 25.688 (32.027)
+(i) Refere-se a operações de hedge de preço de minério de ferro contratadas pela controlada Mineração Usiminas S.A..
+Em 30 de setembro de 2026 e 31 de dezembro de 2025, a Controladora não possuía
+operações de instrumentos financeiros derivativos vigentes.
+Atividades de hedge – hedge de fluxo de caixa (hedge accounting)
+Em 30 de setembro de 2026 e 31 de dezembro de 2025, a controlada Mineração
+Usiminas S.A.:
+• Contratou operações de hedge de preço de minério de ferro como instrumento de
+proteção contra a oscilação da cotação dessa commodity, que incide sobre as suas
+vendas ao mercado externo.
+• Designou algumas operações de instrumentos financeiros derivativos como hedge
+accounting. A aplicação do hedge accounting envolve o reconhecimento do efeito
+líquido no resultado de ganhos e perdas das mudanças do valor justo do instrumento
+de hedge e do objeto de hedge em um mesmo momento.
+• Efetuou testes de efetividade retrospectivo e prospectivo em conformidade com a
+Norma IFRS 9/CPC 48. Esses testes apresentaram 100% de efetividade para as
+operações de instrumentos financeiros derivativos definidas como instrumento de
+hedge, bem como para as exportações definidas como objeto de hedge.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 63 de 109

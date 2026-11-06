@@ -1,0 +1,12 @@
+```json
+{
+  "gerdau_receita_liquida_3T26": {"valor": 18690.5, "pagina": 29},
+  "gerdau_ebitda_ajustado_3T26": {"valor": 3770.2, "pagina": 72},
+  "gerdau_lucro_liquido_3T26": {"valor": 1563.1, "pagina": 29},
+  "gerdau_margem_ebitda_ajustada_3T26_pct": {"valor": 20.2, "pagina": 72},
+  "usiminas_receita_liquida_3T26": {"valor": 6202.4, "pagina": 14},
+  "usiminas_ebitda_ajustado_3T26": {"valor": 558.0, "pagina": 28},
+  "usiminas_lucro_liquido_3T25": {"valor": -3503.3, "pagina": 14},
+  "usiminas_margem_ebitda_ajustada_3T25_pct": {"valor": 6.6, "pagina": 28}
+}
+```

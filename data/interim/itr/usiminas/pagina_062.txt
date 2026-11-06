@@ -1,0 +1,21 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+4.3 Gestão de capital
+Os objetivos das Empresas Usiminas ao administrar o seu capital são os de assegurar a
+continuidade das operações, honrar os seus compromissos e aumentar os seus ganhos,
+oferecendo assim retorno aos acionistas e benefícios às outras partes interessadas.
+A seguir está demonstrado o cálculo do índice de alavancagem financeira considerando a
+dívida líquida como um percentual do capital total.
+Controladora Consolidado
+30/09/2026 31/12/2025 30/09/2026 31/12/2025
+Total dos empréstimos e financiamentos, debêntures
+e tributos parcelados 6.276.499 6.499.255 6.276.499 6.499.255
+Caixa e equivalentes de caixa e títulos e
+valores mobiliários (3.764.099) (4.126.615) (6.747.169) (6.943.595)
+Dívida líquida 2.512.400 2.372.640 (470.670) (444.340)
+Total do patrimônio líquido 21.054.251 20.813.879 23.970.626 23.701.381
+Capital total 23.566.651 23.186.519 23.499.956 23.257.041
+Índice de alavancagem financeira
+(dívida líquida/capital total) 10,66% 10,23% (2,00%) (1,91%)
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 61 de 109

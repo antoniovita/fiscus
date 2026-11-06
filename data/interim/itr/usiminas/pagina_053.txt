@@ -1,0 +1,41 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+(a) Critérios de adoção da Moeda Funcional
+Na data de encerramento do período, os saldos contábeis foram convertidos com base
+nos seguintes critérios:
+(i) Os saldos patrimoniais (ativos e passivos) são convertidos para o real com base na
+taxa de câmbio da data de encerramento do período (PTAX de venda do Banco
+Central do Brasil (BACEN));
+(ii) Os saldos das demonstrações do resultado, do resultado abrangente, do fluxo de
+caixa e do valor adicionado foram convertidos de USD para BRL com base na taxa de
+câmbio média mensal; e
+(iii) Os saldos do patrimônio líquido são convertidos pela taxa de câmbio histórica da data
+de registro.
+A taxa de conversão dos saldos de abertura, de 1º de janeiro de 2026, foi de R$5,5024. A
+conversão foi efetuada de maneira prospectiva, conforme item 35 do CPC 02 (R2) -
+Efeitos das mudanças nas taxas de câmbio e conversão de demonstrações contábeis
+(IAS 21 – Os Efeitos das Mudanças nas Taxas de Câmbio). Com isso, os saldos dos itens
+não monetários foram considerados à essa taxa, na data de abertura, como custo
+histórico. No período de nove meses findo em 30 de setembro de 2026, a taxa de
+conversão dos saldos de encerramento foi de R$5,1809.
+As operações relacionadas aos ativos e passivos monetários realizadas em moedas
+diferentes da moeda funcional da Companhia, foram convertidas para o USD com base
+na taxa de câmbio da sua data de registro ou pela taxa vigente ao final do período de
+apresentação.
+A moeda funcional das controladas Usiminas Mecânica S.A., Mineração Usiminas S.A.,
+Soluções Usiminas S.A. e Usiminas International S.A.R.L, bem como da controlada em
+conjunto Unigal Ltda., foi alterada do real para o dólar norte-americano na mesma data,
+considerando critérios, eventos e circunstâncias aplicados à Companhia.
+Os valores apurados no processo de conversão da moeda funcional para moeda de
+apresentação foram contabilizados nas respectivas rubricas patrimoniais, em
+contrapartida do patrimônio líquido, na rubrica “ajustes acumulados de conversão”, no
+grupo “ajustes de avaliação patrimonial”.
+Na preparação das notas explicativas dessas informações contábeis intermediárias as
+variações decorrentes da conversão da moeda funcional para moeda de apresentação
+possuem as seguintes terminologias:
+• “Ajustes de conversão”: para a conversão de saldos das informações contábeis
+intermediárias para a moeda de apresentação (BRL), sem efeito no resultado; e
+• “Variação cambial”: para a conversão dos saldos pelo câmbio, afetando o resultado do
+período.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 52 de 109

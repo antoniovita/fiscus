@@ -1,0 +1,41 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Individuais / Demonstração de Valor Adicionado
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+7.01 Receitas 18.716.832 20.380.452
+7.01.01 Vendas de Mercadorias, Produtos e Serviços 18.698.816 20.307.594
+7.01.02 Outras Receitas 25.332 70.529
+7.01.04 Provisão/Reversão de Créds. Liquidação Duvidosa -7.316 2.329
+7.02 Insumos Adquiridos de Terceiros -17.800.348 -18.176.697
+7.02.01 Custos Prods., Mercs. e Servs. Vendidos -17.586.063 -15.584.917
+7.02.02 Materiais, Energia, Servs. de Terceiros e Outros -214.285 -365.448
+7.02.03 Perda/Recuperação de Valores Ativos 0 -2.226.332
+7.03 Valor Adicionado Bruto 916.484 2.203.755
+7.04 Retenções -494.006 -663.725
+7.04.01 Depreciação, Amortização e Exaustão -494.006 -663.725
+7.05 Valor Adicionado Líquido Produzido 422.478 1.540.030
+7.06 Vlr Adicionado Recebido em Transferência 1.183.641 407.486
+7.06.01 Resultado de Equivalência Patrimonial 481.258 357.256
+7.06.02 Receitas Financeiras 362.127 324.890
+7.06.03 Outros 340.256 -274.660
+7.06.03.01 Ganhos (Perdas) Atuariais -43.219 -49.049
+7.06.03.02 Variações Cambiais 383.475 -225.611
+7.07 Valor Adicionado Total a Distribuir 1.606.119 1.947.516
+7.08 Distribuição do Valor Adicionado 1.606.119 1.947.516
+7.08.01 Pessoal 854.593 903.684
+7.08.01.01 Remuneração Direta 722.395 801.104
+7.08.01.02 Benefícios 78.088 62.201
+7.08.01.03 F.G.T.S. 54.110 40.379
+7.08.02 Impostos, Taxas e Contribuições -1.649.095 3.985.937
+7.08.02.01 Federais 402.919 1.715.354
+7.08.02.02 Estaduais -2.143.537 2.185.386
+7.08.02.03 Municipais 91.523 85.197
+7.08.03 Remuneração de Capitais de Terceiros 1.017.619 201.841
+7.08.03.01 Juros 641.672 733.347
+7.08.03.03 Outras 375.947 -531.506
+7.08.03.03.01 Variações Cambiais 375.947 -531.506
+7.08.04 Remuneração de Capitais Próprios 1.383.002 -3.143.946
+7.08.04.03 Lucros Retidos / Prejuízo do Período 1.383.002 -3.143.946
+PÁGINA: 10 de 109

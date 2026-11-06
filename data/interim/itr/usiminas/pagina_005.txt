@@ -1,0 +1,31 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Individuais / Demonstração do Resultado
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+3.01 Receita de Venda de Bens e/ou Serviços 5.448.354 15.638.347 5.539.104 17.072.417
+3.02 Custo dos Bens e/ou Serviços Vendidos -4.933.393 -14.022.210 -5.296.262 -16.113.048
+3.03 Resultado Bruto 514.961 1.616.137 242.842 959.369
+3.04 Despesas/Receitas Operacionais -155.806 -122.782 -2.319.231 -2.590.558
+3.04.01 Despesas com Vendas -37.926 -90.803 -30.621 -100.023
+3.04.02 Despesas Gerais e Administrativas -160.133 -477.213 -153.813 -463.641
+3.04.04 Outras Receitas Operacionais 38.803 171.107 54.678 206.978
+3.04.05 Outras Despesas Operacionais -77.796 -207.131 -2.317.236 -2.591.128
+3.04.06 Resultado de Equivalência Patrimonial 81.246 481.258 127.761 357.256
+3.05 Resultado Antes do Resultado Financeiro e dos Tributos 359.155 1.493.355 -2.076.389 -1.631.189
+3.06 Resultado Financeiro -79.500 -272.017 -100.910 -102.562
+3.07 Resultado Antes dos Tributos sobre o Lucro 279.655 1.221.338 -2.177.299 -1.733.751
+3.08 Imposto de Renda e Contribuição Social sobre o Lucro -50.462 161.664 -1.362.682 -1.410.195
+3.08.01 Corrente 20.126 9.068 0 0
+3.08.02 Diferido -70.588 152.596 -1.362.682 -1.410.195
+3.09 Resultado Líquido das Operações Continuadas 229.193 1.383.002 -3.539.981 -3.143.946
+3.11 Lucro/Prejuízo do Período 229.193 1.383.002 -3.539.981 -3.143.946
+3.99 Lucro por Ação - (Reais / Ação)
+3.99.01 Lucro Básico por Ação
+3.99.01.01 ON 0,18 1,08 -2,86 -2,55
+3.99.01.02 PN 0,2 1,19 -2,89 -2,55
+3.99.02 Lucro Diluído por Ação
+3.99.02.01 ON 0,18 1,08 -2,86 -2,55
+3.99.02.02 PN 0,2 1,19 -2,89 -2,55
+PÁGINA: 4 de 109

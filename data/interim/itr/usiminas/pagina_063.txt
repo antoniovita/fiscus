@@ -1,0 +1,49 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+5 Instrumentos financeiros derivativos
+A controlada Mineração Usiminas S.A participa em operações de hedge com o objetivo de
+proteger e gerenciar, principalmente, o risco de preços, quando visam reduzir a
+volatilidade dos preços de suas commodities. A Mineração Usiminas S.A. não possui
+instrumentos financeiros com fins especulativos. Adicionalmente, adota a política de não
+liquidar as suas operações antes dos seus respectivos vencimentos originais e de não
+efetuar pagamentos antecipados de seus instrumentos financeiros derivativos.
+Em 30 de setembro de 2026 e 31 de dezembro de 2025, a controlada Mineração
+Usiminas S.A. possuía operações de instrumentos financeiros derivativos, apresentadas a
+seguir:
+VALOR JUSTO (MERCADO) - Resultado do
+INDEXADOR VALOR DE REFERÊNCIA (valor contratado - Nocional)
+CONTÁBIL período
+Faixas de
+Objeto de hedge vencimento 30/09/2026 31/12/2025 30/09/2026 31/12/2025 30/09/2026
+mês/ano Posição
+Posição ativa
+Posição ativa Posição passiva Posição ativa Posição passiva Posição ativa Posição passiva ativa Ganho (perda)
+(passiva)
+(passiva)
+PROTEÇÃO DE PREÇO DE COMMODITIES
+minério de ferro (CFR China 62% Fe) 01/26 Minério FWD USD 102,25 Minério_Fut_SCOZ5 - - R$ 84.393 R$ 84.393 - ( 4.066) -
+minério de ferro (CFR China 62% Fe) 02/26 Minério FWD USD 99,02 Minério_Fut_SCOF6 - - R$ 6.211 R$ 6.211 - ( 394) ( 396)
+minério de ferro (CFR China 62% Fe) 02/26 Minério FWD USD 102,16 Minério_Fut_SCOF6 - - R$ 11.243 R$ 11.243 - ( 349) ( 363)
+minério de ferro (CFR China 62% Fe) 03/26 Minério FWD USD 101,41 Minério_Fut_SCOG6 - - R$ 11.159 R$ 11.159 - ( 403) 2 41
+minério de ferro (CFR China 62% Fe) 02/26 Minério FWD USD 103,94 Minério_Fut_SCOF6 - - R$ 34.890 R$ 34.890 - ( 467) ( 535)
+minério de ferro (CFR China 62% Fe) 04/26 Minério FWD USD 106,92 Minério_Fut_SCOH6 - - - - - - 4 21
+minério de ferro (CFR China 62% Fe) 05/26 Minério FWD USD 106,52 Minério_Fut_SCOJ6 R$ 83.396 R$ 83.396 - - - - ( 490)
+minério de ferro (CFR China 62% Fe) 06/26 Minério FWD USD 97,55 Minério_Fut_SCOK6 R$ 4.175 R$ 4.175 - - - - ( 466)
+minério de ferro (CFR China 62% Fe) 06/26 Minério FWD USD 99,00 Minério_Fut_SCOK6 R$ 11.626 R$ 11.626 - - - - ( 1.113)
+minério de ferro (CFR China 62% Fe) 07/26 Minério FWD USD 102,81 Minério_Fut_SCOM6 R$ 80.491 R$ 80.491 - - - - 2 .023
+minério de ferro (CFR China 62% Fe) 06/26 Minério FWD USD 104,97 Minério_Fut_SCOK6 R$ 153.406 R$ 153.406 - - - - ( 5.432)
+minério de ferro (CFR China 62% Fe) 07/26 Minério FWD USD 105,72 Minério_Fut_SCOM6 R$ 82.769 R$ 82.769 - - - - 4 .278
+minério de ferro (CFR China 62% Fe) 06/26 Minério FWD USD 105,27 Minério_Fut_SCOK6 R$ 79.851 R$ 79.851 - - - - ( 2.684)
+minério de ferro (CFR China 62% Fe) 08/26 Minério FWD USD 104,92 Minério_Fut_SCON6 R$ 77.964 R$ 77.964 - - - - 5 .263
+minério de ferro (CFR China 62% Fe) 09/26 Minério FWD USD 108,91 Minério_Fut_SCOQ6 R$ 80.327 R$ 80.327 - - - - 9 .997
+minério de ferro (CFR China 62% Fe) 09/26 Minério FWD USD 108,80 Minério_Fut_SCOQ6 R$ 80.245 R$ 80.245 - - - - 9 .908
+minério de ferro (CFR China 62% Fe) 10/26 Minério FWD USD 101,57 Minério_Fut_SCOU6 R$ 56.344 R$ 56.344 - - 2 .829 - 2 .829
+minério de ferro (CFR China 62% Fe) 10/26 Minério FWD USD 100,12 Minério_Fut_SCOU6 R$ 2.562 R$ 2.562 - - 9 1 - 9 1
+minério de ferro (CFR China 62% Fe) 10/26 Minério FWD USD 98,17 Minério_Fut_SCOU6 R$ 45.627 R$ 45.627 - - 7 34 - 7 34
+minério de ferro (CFR China 62% Fe) 10/26 Minério FWD USD 100,00 Minério_Fut_SCOU6 R$ 40.000 R$ 40.000 - - 1 .382 - 1 .382
+minério de ferro (CFR China 62% Fe) 11/26 Minério FWD USD 98,13 Minério_Fut_SCOV6 R$ 63.345 R$ 63.345 - - 3 .142 - -
+minério de ferro (CFR China 62% Fe) 11/26 Minério FWD USD 99,2 Minério_Fut_SCOV6 R$ 2.568 R$ 2.568 - - 1 53 - -
+Ganho (perda) em receita de exportação no período 2 5.688
+Saldo contábil (posição ativa líquida da posição passiva) 8.331 (5.680)
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 62 de 109

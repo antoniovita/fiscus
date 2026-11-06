@@ -1,0 +1,10 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/GGBR3.SA?range=1mo&interval=1d",
+  "consultado_em": "2026-11-06T15:20:11+00:00",
+  "http_status": 200,
+  "last_modified": null,
+  "content_type": "application/json;charset=utf-8",
+  "arquivo": "data/raw/mercado/yahoo_chart_GGBR3.json",
+  "bytes": 3563,
+  "sha256": "c96d2503cae48bb56451f926a2715378cd35f5ab7453c0aee0e2a5cbfcac611e"
+}

@@ -1,0 +1,786 @@
+{
+  "gerado_em": "2026-11-06T15:20:11+00:00",
+  "script": "pipeline/04_cvm_mercado.py",
+  "data_referencia": "2026-11-05",
+  "criterio_data": "último pregão encerrado com arquivo COTAHIST diário publicado pela B3 antes de 2026-11-06 (o pregão de 2026-11-06 ainda estava em andamento na consulta). Tentativas: [('2026-11-05', 200)]",
+  "fonte_preco": "B3 — Séries Históricas, COTAHIST diário, campo PREULT (preço de fechamento), CODBDI 02 (lote padrão), TPMERC 010 (à vista). Preço nominal, sem ajuste por proventos.",
+  "arquivo_bruto": {
+    "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+    "consultado_em": "2026-11-06T15:20:11+00:00",
+    "http_status": 200,
+    "last_modified": "Thu, 05 Nov 2026 23:36:48 GMT",
+    "content_type": "application/x-zip-compressed",
+    "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+    "bytes": 452711,
+    "sha256": "d86568278023a7381ef5397650d3cb5ff77cfcf6f2e7ba13104ec31c98555ced"
+  },
+  "precos": {
+    "GGBR4": {
+      "preco_fechamento": 23.99,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "PN      N1",
+      "isin": "BRGGBRACNPR8",
+      "fator_cotacao": 1,
+      "abertura": 24.86,
+      "maxima": 25.14,
+      "minima": 23.75,
+      "volume_rs": 480860838.0,
+      "conferencia_yahoo": {
+        "close": 23.99,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/GGBR4.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:11+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_GGBR4.json",
+        "confere": true
+      }
+    },
+    "GGBR3": {
+      "preco_fechamento": 20.63,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "ON      N1",
+      "isin": "BRGGBRACNOR1",
+      "fator_cotacao": 1,
+      "abertura": 21.4,
+      "maxima": 21.79,
+      "minima": 20.3,
+      "volume_rs": 1010056.0,
+      "conferencia_yahoo": {
+        "close": 20.63,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/GGBR3.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:11+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_GGBR3.json",
+        "confere": true
+      }
+    },
+    "GOAU4": {
+      "preco_fechamento": 10.69,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "PN      N1",
+      "isin": "BRGOAUACNPR8",
+      "fator_cotacao": 1,
+      "abertura": 11.01,
+      "maxima": 11.11,
+      "minima": 10.55,
+      "volume_rs": 160200883.0,
+      "conferencia_yahoo": {
+        "close": 10.69,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOAU4.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:11+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_GOAU4.json",
+        "confere": true
+      }
+    },
+    "USIM5": {
+      "preco_fechamento": 4.83,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "PNA     N1",
+      "isin": "BRUSIMACNPA6",
+      "fator_cotacao": 1,
+      "abertura": 4.88,
+      "maxima": 4.89,
+      "minima": 4.76,
+      "volume_rs": 88579317.0,
+      "conferencia_yahoo": {
+        "close": 4.83,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/USIM5.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:12+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_USIM5.json",
+        "confere": true
+      }
+    },
+    "USIM3": {
+      "preco_fechamento": 4.71,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "ON      N1",
+      "isin": "BRUSIMACNOR3",
+      "fator_cotacao": 1,
+      "abertura": 4.74,
+      "maxima": 4.74,
+      "minima": 4.62,
+      "volume_rs": 3829962.0,
+      "conferencia_yahoo": {
+        "close": 4.71,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/USIM3.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:12+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_USIM3.json",
+        "confere": true
+      }
+    },
+    "CSNA3": {
+      "preco_fechamento": 4.05,
+      "unidade": "R$/ação",
+      "data_pregao": "2026-11-05",
+      "fonte": "B3 COTAHIST diário (PREULT)",
+      "url": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP",
+      "consultado_em": "2026-11-06T15:20:11+00:00",
+      "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+      "especificacao": "ON",
+      "isin": "BRCSNAACNOR6",
+      "fator_cotacao": 1,
+      "abertura": 4.09,
+      "maxima": 4.29,
+      "minima": 4.01,
+      "volume_rs": 90727515.0,
+      "conferencia_yahoo": {
+        "close": 4.05,
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/CSNA3.SA?range=1mo&interval=1d",
+        "consultado_em": "2026-11-06T15:20:12+00:00",
+        "arquivo": "data/raw/mercado/yahoo_chart_CSNA3.json",
+        "confere": true
+      }
+    }
+  },
+  "empresas": {
+    "GGBR4": {
+      "nome": "GERDAU S.A.",
+      "cnpj": "33.611.500/0001-19",
+      "cd_cvm": "3980",
+      "data_base_contabil": "2026-09-30",
+      "data_preco": "2026-11-05",
+      "metricas": {
+        "acoes_ON_total": {
+          "valor": 716975719.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR",
+          "descricao_conta": "Quantidade de ações ON do capital integralizado"
+        },
+        "acoes_ON_tesouraria": {
+          "valor": 219300.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_TESOURO",
+          "descricao_conta": "Quantidade de ações ON em tesouraria"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 716756419.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_total − acoes_ON_tesouraria",
+          "insumos": [
+            "acoes_ON_total",
+            "acoes_ON_tesouraria"
+          ]
+        },
+        "preco_GGBR3": {
+          "valor": 20.63,
+          "unidade": "R$/ação",
+          "periodo": "fechamento 2026-11-05",
+          "fonte": "B3 COTAHIST diário (PREULT)",
+          "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+          "obs": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP"
+        },
+        "valor_mercado_ON": {
+          "valor": 14786684.92397,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_circulacao × preco_GGBR3 / 1000",
+          "insumos": [
+            "acoes_ON_circulacao",
+            "preco_GGBR3"
+          ]
+        },
+        "acoes_PN_total": {
+          "valor": 1261042330.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR",
+          "descricao_conta": "Quantidade de ações PN do capital integralizado"
+        },
+        "acoes_PN_tesouraria": {
+          "valor": 16061110.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_PREF_TESOURO",
+          "descricao_conta": "Quantidade de ações PN em tesouraria"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 1244981220.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_PN_total − acoes_PN_tesouraria",
+          "insumos": [
+            "acoes_PN_total",
+            "acoes_PN_tesouraria"
+          ]
+        },
+        "preco_GGBR4": {
+          "valor": 23.99,
+          "unidade": "R$/ação",
+          "periodo": "fechamento 2026-11-05",
+          "fonte": "B3 COTAHIST diário (PREULT)",
+          "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+          "obs": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP"
+        },
+        "valor_mercado_PN": {
+          "valor": 29867099.4678,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_PN_circulacao × preco_GGBR4 / 1000",
+          "insumos": [
+            "acoes_PN_circulacao",
+            "preco_GGBR4"
+          ]
+        },
+        "valor_mercado": {
+          "valor": 44653784.39177,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "valor_mercado_ON + valor_mercado_PN",
+          "insumos": [
+            "valor_mercado_ON",
+            "valor_mercado_PN"
+          ]
+        },
+        "lucro_controladores_12m": {
+          "valor": 2711842.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_controladores_3T26": {
+          "valor": 54655020.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 (2.03) − pl_nao_controladores_3T26 (2.03.09)",
+          "insumos": [
+            "pl_total_3T26",
+            "pl_nao_controladores_3T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "divida_liquida_3T26": {
+          "valor": 7685763.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T26 − caixa_aplicacoes_3T26",
+          "insumos": [
+            "divida_bruta_3T26",
+            "caixa_aplicacoes_3T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_nao_controladores_3T26": {
+          "valor": 193224.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30] (copiado de financeiro.json)"
+        },
+        "ebitda_12m": {
+          "valor": 9787754.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia. (copiado de financeiro.json)"
+        },
+        "p_l": {
+          "valor": 16.466219,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / lucro_controladores_12m",
+          "insumos": [
+            "valor_mercado",
+            "lucro_controladores_12m"
+          ],
+          "obs": "Equivale a preço / LPA 12m ponderado pelas classes (ações em circulação)."
+        },
+        "p_vp": {
+          "valor": 0.817012,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / pl_controladores_3T26",
+          "insumos": [
+            "valor_mercado",
+            "pl_controladores_3T26"
+          ]
+        },
+        "ev": {
+          "valor": 52532771.39177,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado + divida_liquida_3T26 + pl_nao_controladores_3T26",
+          "insumos": [
+            "valor_mercado",
+            "divida_liquida_3T26",
+            "pl_nao_controladores_3T26"
+          ],
+          "obs": "Participação de não controladores a valor contábil (BPP 2.03.09)."
+        },
+        "ev_ebitda": {
+          "valor": 5.367194,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "ev / ebitda_12m",
+          "insumos": [
+            "ev",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil CVM 156 de 12 meses, não o ajustado."
+        }
+      }
+    },
+    "USIM5": {
+      "nome": "USINAS SID DE MINAS GERAIS S.A.-USIMINAS",
+      "cnpj": "60.894.730/0001-05",
+      "cd_cvm": "14320",
+      "data_base_contabil": "2026-09-30",
+      "data_preco": "2026-11-05",
+      "metricas": {
+        "acoes_ON_total": {
+          "valor": 705260684.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR",
+          "descricao_conta": "Quantidade de ações ON do capital integralizado"
+        },
+        "acoes_ON_tesouraria": {
+          "valor": 2526656.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_TESOURO",
+          "descricao_conta": "Quantidade de ações ON em tesouraria"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 702734028.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_total − acoes_ON_tesouraria",
+          "insumos": [
+            "acoes_ON_total",
+            "acoes_ON_tesouraria"
+          ]
+        },
+        "preco_USIM3": {
+          "valor": 4.71,
+          "unidade": "R$/ação",
+          "periodo": "fechamento 2026-11-05",
+          "fonte": "B3 COTAHIST diário (PREULT)",
+          "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+          "obs": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP"
+        },
+        "valor_mercado_ON": {
+          "valor": 3309877.27188,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_circulacao × preco_USIM3 / 1000",
+          "insumos": [
+            "acoes_ON_circulacao",
+            "preco_USIM3"
+          ]
+        },
+        "acoes_PN_total": {
+          "valor": 547818424.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR",
+          "descricao_conta": "Quantidade de ações PN do capital integralizado"
+        },
+        "acoes_PN_tesouraria": {
+          "valor": 19609792.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_PREF_TESOURO",
+          "descricao_conta": "Quantidade de ações PN em tesouraria"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 528208632.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_PN_total − acoes_PN_tesouraria",
+          "insumos": [
+            "acoes_PN_total",
+            "acoes_PN_tesouraria"
+          ]
+        },
+        "preco_USIM5": {
+          "valor": 4.83,
+          "unidade": "R$/ação",
+          "periodo": "fechamento 2026-11-05",
+          "fonte": "B3 COTAHIST diário (PREULT)",
+          "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+          "obs": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP"
+        },
+        "valor_mercado_PN": {
+          "valor": 2551247.69256,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "acoes_PN_circulacao × preco_USIM5 / 1000",
+          "insumos": [
+            "acoes_PN_circulacao",
+            "preco_USIM5"
+          ],
+          "obs": "O capital PN da Usiminas reúne PNA (USIM5) e PNB; a composição do capital da CVM não separa as classes, então todas as PN foram precificadas por USIM5 (PNB é residual)."
+        },
+        "valor_mercado": {
+          "valor": 5861124.96444,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-09-30",
+          "fonte": "calculado",
+          "formula": "valor_mercado_ON + valor_mercado_PN",
+          "insumos": [
+            "valor_mercado_ON",
+            "valor_mercado_PN"
+          ]
+        },
+        "lucro_controladores_12m": {
+          "valor": 1448756.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_controladores_3T26": {
+          "valor": 21054251.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 (2.03) − pl_nao_controladores_3T26 (2.03.09)",
+          "insumos": [
+            "pl_total_3T26",
+            "pl_nao_controladores_3T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "divida_liquida_3T26": {
+          "valor": -566003.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T26 − caixa_aplicacoes_3T26",
+          "insumos": [
+            "divida_bruta_3T26",
+            "caixa_aplicacoes_3T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_nao_controladores_3T26": {
+          "valor": 2916375.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30] (copiado de financeiro.json)"
+        },
+        "ebitda_12m": {
+          "valor": 2500198.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia. (copiado de financeiro.json)"
+        },
+        "p_l": {
+          "valor": 4.045626,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / lucro_controladores_12m",
+          "insumos": [
+            "valor_mercado",
+            "lucro_controladores_12m"
+          ],
+          "obs": "Equivale a preço / LPA 12m ponderado pelas classes (ações em circulação)."
+        },
+        "p_vp": {
+          "valor": 0.278382,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / pl_controladores_3T26",
+          "insumos": [
+            "valor_mercado",
+            "pl_controladores_3T26"
+          ]
+        },
+        "ev": {
+          "valor": 8211496.96444,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado + divida_liquida_3T26 + pl_nao_controladores_3T26",
+          "insumos": [
+            "valor_mercado",
+            "divida_liquida_3T26",
+            "pl_nao_controladores_3T26"
+          ],
+          "obs": "Participação de não controladores a valor contábil (BPP 2.03.09)."
+        },
+        "ev_ebitda": {
+          "valor": 3.284339,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 3T26",
+          "fonte": "calculado",
+          "formula": "ev / ebitda_12m",
+          "insumos": [
+            "ev",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil CVM 156 de 12 meses, não o ajustado."
+        }
+      }
+    },
+    "CSNA3": {
+      "nome": "CIA SIDERURGICA NACIONAL",
+      "cnpj": "33.042.730/0001-04",
+      "cd_cvm": "4030",
+      "data_base_contabil": "2026-06-30",
+      "data_preco": "2026-11-05",
+      "metricas": {
+        "acoes_ON_total": {
+          "valor": 1326093947.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR",
+          "descricao_conta": "Quantidade de ações ON do capital integralizado"
+        },
+        "acoes_ON_tesouraria": {
+          "valor": 0.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip — composição do capital",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+          "conta": "QT_ACAO_ORDIN_TESOURO",
+          "descricao_conta": "Quantidade de ações ON em tesouraria"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 1326093947.0,
+          "unidade": "ações",
+          "periodo": "posição em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_total − acoes_ON_tesouraria",
+          "insumos": [
+            "acoes_ON_total",
+            "acoes_ON_tesouraria"
+          ]
+        },
+        "preco_CSNA3": {
+          "valor": 4.05,
+          "unidade": "R$/ação",
+          "periodo": "fechamento 2026-11-05",
+          "fonte": "B3 COTAHIST diário (PREULT)",
+          "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+          "obs": "https://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D05112026.ZIP"
+        },
+        "valor_mercado_ON": {
+          "valor": 5370680.48535,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-06-30",
+          "fonte": "calculado",
+          "formula": "acoes_ON_circulacao × preco_CSNA3 / 1000",
+          "insumos": [
+            "acoes_ON_circulacao",
+            "preco_CSNA3"
+          ]
+        },
+        "valor_mercado": {
+          "valor": 5370680.48535,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; ações 2026-06-30",
+          "fonte": "calculado",
+          "formula": "valor_mercado_ON",
+          "insumos": [
+            "valor_mercado_ON"
+          ]
+        },
+        "lucro_controladores_12m": {
+          "valor": -2626882.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_controladores_2T26": {
+          "valor": 12166332.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "pl_total_2T26 (2.03) − pl_nao_controladores_2T26 (2.03.09)",
+          "insumos": [
+            "pl_total_2T26",
+            "pl_nao_controladores_2T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "divida_liquida_2T26": {
+          "valor": 39079806.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_2T26 − caixa_aplicacoes_2T26",
+          "insumos": [
+            "divida_bruta_2T26",
+            "caixa_aplicacoes_2T26"
+          ],
+          "obs": " (copiado de financeiro.json)"
+        },
+        "pl_nao_controladores_2T26": {
+          "valor": 3074044.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30] (copiado de financeiro.json)"
+        },
+        "ebitda_12m": {
+          "valor": 7727263.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia. (copiado de financeiro.json)"
+        },
+        "p_l": {
+          "valor": -2.044508,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 2T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / lucro_controladores_12m",
+          "insumos": [
+            "valor_mercado",
+            "lucro_controladores_12m"
+          ],
+          "obs": "Equivale a preço / LPA 12m ponderado pelas classes (ações em circulação)."
+        },
+        "p_vp": {
+          "valor": 0.441438,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 2T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado / pl_controladores_2T26",
+          "insumos": [
+            "valor_mercado",
+            "pl_controladores_2T26"
+          ]
+        },
+        "ev": {
+          "valor": 47524530.48535,
+          "unidade": "R$ mil",
+          "periodo": "preço 2026-11-05; contábil 2T26",
+          "fonte": "calculado",
+          "formula": "valor_mercado + divida_liquida_2T26 + pl_nao_controladores_2T26",
+          "insumos": [
+            "valor_mercado",
+            "divida_liquida_2T26",
+            "pl_nao_controladores_2T26"
+          ],
+          "obs": "Participação de não controladores a valor contábil (BPP 2.03.09)."
+        },
+        "ev_ebitda": {
+          "valor": 6.150241,
+          "unidade": "x",
+          "periodo": "preço 2026-11-05; contábil 2T26",
+          "fonte": "calculado",
+          "formula": "ev / ebitda_12m",
+          "insumos": [
+            "ev",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil CVM 156 de 12 meses, não o ajustado."
+        }
+      }
+    }
+  },
+  "pendencias": [
+    {
+      "empresa": "CSNA3",
+      "motivo": "múltiplos usam contábil de 2026-06-30 (2T26), pois o ITR 3T26 ainda não está na base da CVM."
+    }
+  ]
+}

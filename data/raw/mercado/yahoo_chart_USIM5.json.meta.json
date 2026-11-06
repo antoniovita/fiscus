@@ -1,0 +1,10 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/USIM5.SA?range=1mo&interval=1d",
+  "consultado_em": "2026-11-06T15:20:12+00:00",
+  "http_status": 200,
+  "last_modified": null,
+  "content_type": "application/json;charset=utf-8",
+  "arquivo": "data/raw/mercado/yahoo_chart_USIM5.json",
+  "bytes": 3532,
+  "sha256": "a325ee11fe916ed5a616b987a3b1bfce3def7af6d4e2ae61270bdfa3087d2111"
+}

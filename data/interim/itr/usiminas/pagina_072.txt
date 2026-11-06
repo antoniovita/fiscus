@@ -1,0 +1,33 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+11 Imposto de renda e contribuição social
+(a) Tributos sobre o lucro
+O cálculo do imposto de renda e da contribuição social está apresentado a seguir:
+Controladora Consolidado
+30/09/2026 30/09/2025 30/09/2026 30/09/2025
+Lucro (prejuízo) antes do imposto de renda e
+da contribuição social 1.221.338 (1.733.751) 1.349.405 (1.605.876)
+Alíquotas nominais 34% 34% 34% 34%
+Tributos sobre o lucro calculados às alíquotas nominais (415.255) 589.476 (458.798) 545.998
+Ajustes para apuração dos tributos sobre o lucro:
+Equivalência patrimonial (i) 199.810 120.170 78.419 78.464
+Juros sobre o capital próprio pagos - - - 7.356
+Juros sobre o capital próprio recebidos (10.562) (26.597) (10.562) (9.433)
+Exclusões (adições) permanentes 92.685 48.908 96.455 88.502
+Prejuízos fiscais diferidos reconhecidos (não reconhecidos) - (2.142.152) 1.303 (2.140.253)
+Efeito da moeda funcional sobre os ativos não monetários (ii) 236.605 - 352.859 -
+Efeito da moeda fiscal x moeda funcional 58.381 - 155.874 -
+Lucro não tributável e diferenças de alíquota de
+controladas no exterior - - 2.818 (3.474)
+Tributos sobre o lucro apurados 161.664 (1.410.195) 218.368 (1.432.840)
+Corrente 9.068 - (72.243) (117.108)
+Diferido 152.596 (1.410.195) 290.611 (1.315.732)
+Tributos sobre o lucro (prejuízo) no resultado 161.664 (1.410.195) 218.368 (1.432.840)
+Imposto de renda 128.221 (1.036.908) 170.294 (1.052.992)
+Contribuição social 33.443 (373.287) 48.074 (379.848)
+(i) Na Controladora, não inclui o lucro não realizado nos estoques.
+(ii) Refere-se ao efeito decorrente da diferença entre moeda funcional (USD) e moeda de apuração lucro tributável (BRL),
+que resultou em diferenças temporárias alocadas em tributos diferidos. Esse efeito é registrado ao resultado do período,
+conforme disposições do CPC32.41/IAS12.41.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 71 de 109

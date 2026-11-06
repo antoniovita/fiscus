@@ -1,0 +1,2451 @@
+{
+  "gerado_em": "2026-11-06T15:20:10+00:00",
+  "script": "pipeline/04_cvm_mercado.py",
+  "convencoes": {
+    "demonstracoes": "consolidadas (_con_), maior VERSAO por (CNPJ, DT_REFER)",
+    "unidade_monetaria": "R$ mil (ESCALA_MOEDA respeitada: MIL ×1; UNIDADE ÷1000)",
+    "12m": "acumulado do ano corrente + exercício 2025 (DFP) − acumulado do mesmo período de 2025 (PENÚLTIMO do ITR corrente)",
+    "medias": "(saldo na data-base + saldo 12 meses antes, do ITR original do ano anterior) / 2",
+    "aliquota_roic": 0.34,
+    "ebitda": "contábil, Resolução CVM 156 (EBIT 3.05 + D&A da DFC); não é o EBITDA ajustado"
+  },
+  "arquivos_brutos": {
+    "itr_cia_aberta_2026.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+      "consultado_em": "2026-11-06T15:20:07+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:43:25 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip",
+      "bytes": 20342520,
+      "sha256": "fe34b2eb27a701a9f978d39bc2e0d5228b906c0365d6c5e23d86590eef9aa788"
+    },
+    "itr_cia_aberta_2025.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+      "consultado_em": "2026-11-06T15:20:08+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:57:46 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip",
+      "bytes": 31684926,
+      "sha256": "52a0148e26ff0e9ffeaf60eb816d8a4f23d10f817e8772140a36ce81635ef8d8"
+    },
+    "dfp_cia_aberta_2025.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+      "consultado_em": "2026-11-06T15:20:09+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:18:48 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip",
+      "bytes": 12806186,
+      "sha256": "85f53d6aba99557ebb8a5f8b247c0610973230c1a0f97ab267da2216816a8ab6"
+    },
+    "cad_cia_aberta.csv": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+      "consultado_em": "2026-11-06T15:20:09+00:00",
+      "http_status": 200,
+      "last_modified": "Fri, 06 Nov 2026 04:07:57 GMT",
+      "content_type": "application/octet-stream",
+      "arquivo": "data/raw/cvm/cad_cia_aberta.csv",
+      "bytes": 1494677,
+      "sha256": "0068866ab4488bd6110209d05243006085ee34234eef4d5b4bc0207d750f874c"
+    }
+  },
+  "empresas": {
+    "GGBR4": {
+      "nome": "GERDAU S.A.",
+      "cnpj": "33.611.500/0001-19",
+      "cd_cvm": "3980",
+      "situacao_cvm": "ATIVO",
+      "fonte_cadastro": "CVM Dados Abertos — cadastro (cia_aberta-cad), https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+      "arquivo_cadastro": "data/raw/cvm/cad_cia_aberta.csv",
+      "data_base": "2026-09-30",
+      "trimestre": "3T26",
+      "metricas": {
+        "receita_3T26": {
+          "valor": 18690518.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "receita_3T25": {
+          "valor": 17983143.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "receita_acum_2026": {
+          "valor": 53276811.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "receita_acum_2025": {
+          "valor": 52884229.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "receita_2025": {
+          "valor": 69858532.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "receita_12m": {
+          "valor": 70251114.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "receita_acum_2026 + receita_2025 − receita_acum_2025",
+          "insumos": [
+            "receita_acum_2026",
+            "receita_2025",
+            "receita_acum_2025"
+          ]
+        },
+        "ebit_3T26": {
+          "valor": 2715640.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "ebit_3T25": {
+          "valor": 1658749.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "ebit_acum_2026": {
+          "valor": 6881956.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "ebit_acum_2025": {
+          "valor": 4529992.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "ebit_2025": {
+          "valor": 3739068.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "ebit_12m": {
+          "valor": 6091032.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_acum_2026 + ebit_2025 − ebit_acum_2025",
+          "insumos": [
+            "ebit_acum_2026",
+            "ebit_2025",
+            "ebit_acum_2025"
+          ]
+        },
+        "lucro_consolidado_3T26": {
+          "valor": 1563097.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_consolidado_3T25": {
+          "valor": 1089880.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_consolidado_acum_2026": {
+          "valor": 4042498.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_consolidado_acum_2025": {
+          "valor": 2712181.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_consolidado_2025": {
+          "valor": 1418438.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 2748755.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_consolidado_acum_2026 + lucro_consolidado_2025 − lucro_consolidado_acum_2025",
+          "insumos": [
+            "lucro_consolidado_acum_2026",
+            "lucro_consolidado_2025",
+            "lucro_consolidado_acum_2025"
+          ]
+        },
+        "lucro_controladores_3T26": {
+          "valor": 1554156.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_controladores_3T25": {
+          "valor": 1079395.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_controladores_acum_2026": {
+          "valor": 4009996.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_controladores_acum_2025": {
+          "valor": 2685174.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_controladores_2025": {
+          "valor": 1387020.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_controladores_12m": {
+          "valor": 2711842.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ]
+        },
+        "lucro_nao_controladores_3T26": {
+          "valor": 8941.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_nao_controladores_3T25": {
+          "valor": 10485.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_nao_controladores_acum_2026": {
+          "valor": 32502.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_nao_controladores_acum_2025": {
+          "valor": 27007.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_nao_controladores_2025": {
+          "valor": 31418.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_nao_controladores_12m": {
+          "valor": 36913.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_nao_controladores_acum_2026 + lucro_nao_controladores_2025 − lucro_nao_controladores_acum_2025",
+          "insumos": [
+            "lucro_nao_controladores_acum_2026",
+            "lucro_nao_controladores_2025",
+            "lucro_nao_controladores_acum_2025"
+          ]
+        },
+        "da_acum_2026": {
+          "valor": 2761070.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": "D&A localizada na DFC método indireto (6.01.01.*) pela descrição; valor positivo = despesa. [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "da_acum_2025": {
+          "valor": 2747933.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "da_2025": {
+          "valor": 3683585.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "da_12m": {
+          "valor": 3696722.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 + da_2025 − da_acum_2025",
+          "insumos": [
+            "da_acum_2026",
+            "da_2025",
+            "da_acum_2025"
+          ]
+        },
+        "da_acum_ate_2026-06-30": {
+          "valor": 1823169.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "da_3T26": {
+          "valor": 937901.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 − da_acum_ate_2026-06-30",
+          "insumos": [
+            "da_acum_2026",
+            "da_acum_ate_2026-06-30"
+          ]
+        },
+        "da_acum_ate_2025-06-30": {
+          "valor": 1810379.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30 (ITR 2T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "da_acum_ate_2025-09-30_itr_original": {
+          "valor": 2747933.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30 (ITR 3T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.02",
+          "descricao_conta": "Depreciação e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "da_3T25": {
+          "valor": 937554.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25",
+          "fonte": "calculado",
+          "formula": "da_acum_ate_2025-09-30_itr_original − da_acum_ate_2025-06-30",
+          "insumos": [
+            "da_acum_ate_2025-09-30_itr_original",
+            "da_acum_ate_2025-06-30"
+          ]
+        },
+        "ebitda_3T26": {
+          "valor": 3653541.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26",
+          "fonte": "calculado",
+          "formula": "ebit_3T26 + da_3T26",
+          "insumos": [
+            "ebit_3T26",
+            "da_3T26"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_3T25": {
+          "valor": 2596303.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25",
+          "fonte": "calculado",
+          "formula": "ebit_3T25 + da_3T25",
+          "insumos": [
+            "ebit_3T25",
+            "da_3T25"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_12m": {
+          "valor": 9787754.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ativo_total_3T26": {
+          "valor": 83945525.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "caixa_equivalentes_3T26": {
+          "valor": 5695892.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "aplicacoes_financeiras_cp_3T26": {
+          "valor": 347571.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "emprestimos_cp_3T26": {
+          "valor": 554745.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "emprestimos_lp_3T26": {
+          "valor": 13174481.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_total_3T26": {
+          "valor": 54848244.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_nao_controladores_3T26": {
+          "valor": 193224.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_controladores_3T26": {
+          "valor": 54655020.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 (2.03) − pl_nao_controladores_3T26 (2.03.09)",
+          "insumos": [
+            "pl_total_3T26",
+            "pl_nao_controladores_3T26"
+          ]
+        },
+        "divida_bruta_3T26": {
+          "valor": 13729226.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_3T26",
+            "emprestimos_lp_3T26"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_3T26": {
+          "valor": 6043463.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_3T26",
+            "aplicacoes_financeiras_cp_3T26"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_3T26": {
+          "valor": 7685763.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T26 − caixa_aplicacoes_3T26",
+          "insumos": [
+            "divida_bruta_3T26",
+            "caixa_aplicacoes_3T26"
+          ]
+        },
+        "capital_investido_3T26": {
+          "valor": 62534007.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 + divida_liquida_3T26",
+          "insumos": [
+            "pl_total_3T26",
+            "divida_liquida_3T26"
+          ]
+        },
+        "ativo_total_3T25": {
+          "valor": 87255733.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "caixa_equivalentes_3T25": {
+          "valor": 9389572.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "aplicacoes_financeiras_cp_3T25": {
+          "valor": 484010.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "emprestimos_cp_3T25": {
+          "valor": 3315230.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "emprestimos_lp_3T25": {
+          "valor": 15328677.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_total_3T25": {
+          "valor": 54738036.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_nao_controladores_3T25": {
+          "valor": 198873.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_controladores_3T25": {
+          "valor": 54539163.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T25 (2.03) − pl_nao_controladores_3T25 (2.03.09)",
+          "insumos": [
+            "pl_total_3T25",
+            "pl_nao_controladores_3T25"
+          ]
+        },
+        "divida_bruta_3T25": {
+          "valor": 18643907.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_3T25",
+            "emprestimos_lp_3T25"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_3T25": {
+          "valor": 9873582.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_3T25",
+            "aplicacoes_financeiras_cp_3T25"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_3T25": {
+          "valor": 8770325.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T25 − caixa_aplicacoes_3T25",
+          "insumos": [
+            "divida_bruta_3T25",
+            "caixa_aplicacoes_3T25"
+          ]
+        },
+        "capital_investido_3T25": {
+          "valor": 63508361.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T25 + divida_liquida_3T25",
+          "insumos": [
+            "pl_total_3T25",
+            "divida_liquida_3T25"
+          ]
+        },
+        "pl_controladores_medio": {
+          "valor": 54597091.5,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-09-30 e 2026-09-30",
+          "fonte": "calculado",
+          "formula": "(pl_controladores_3T26 + pl_controladores_3T25) / 2",
+          "insumos": [
+            "pl_controladores_3T26",
+            "pl_controladores_3T25"
+          ]
+        },
+        "capital_investido_medio": {
+          "valor": 63021184.0,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-09-30 e 2026-09-30",
+          "fonte": "calculado",
+          "formula": "(capital_investido_3T26 + capital_investido_3T25) / 2",
+          "insumos": [
+            "capital_investido_3T26",
+            "capital_investido_3T25"
+          ]
+        },
+        "roe_12m": {
+          "valor": 4.967008,
+          "unidade": "%",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_12m (3.11.01) / pl_controladores_medio × 100",
+          "insumos": [
+            "lucro_controladores_12m",
+            "pl_controladores_medio"
+          ]
+        },
+        "nopat_12m": {
+          "valor": 4020081.12,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%)",
+          "insumos": [
+            "ebit_12m"
+          ],
+          "obs": "Alíquota nominal de IR/CS de 34%, não a efetiva."
+        },
+        "roic_12m": {
+          "valor": 6.378936,
+          "unidade": "%",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%) / média(pl_total + divida_liquida) × 100",
+          "insumos": [
+            "nopat_12m",
+            "capital_investido_medio"
+          ],
+          "obs": "Aproximação: capital investido = PL total (com não controladores) + dívida líquida (sem arrendamentos)."
+        },
+        "divida_liquida_ebitda_12m": {
+          "valor": 0.785243,
+          "unidade": "x",
+          "periodo": "dívida em 2026-09-30; EBITDA 12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_liquida_3T26 / ebitda_12m",
+          "insumos": [
+            "divida_liquida_3T26",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        }
+      }
+    },
+    "USIM5": {
+      "nome": "USINAS SID DE MINAS GERAIS S.A.-USIMINAS",
+      "cnpj": "60.894.730/0001-05",
+      "cd_cvm": "14320",
+      "situacao_cvm": "ATIVO",
+      "fonte_cadastro": "CVM Dados Abertos — cadastro (cia_aberta-cad), https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+      "arquivo_cadastro": "data/raw/cvm/cad_cia_aberta.csv",
+      "data_base": "2026-09-30",
+      "trimestre": "3T26",
+      "metricas": {
+        "receita_3T26": {
+          "valor": 6202422.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "receita_3T25": {
+          "valor": 6604238.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "receita_acum_2026": {
+          "valor": 18204789.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "receita_acum_2025": {
+          "valor": 20088363.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "receita_2025": {
+          "valor": 26263450.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "receita_12m": {
+          "valor": 24379876.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "receita_acum_2026 + receita_2025 − receita_acum_2025",
+          "insumos": [
+            "receita_acum_2026",
+            "receita_2025",
+            "receita_acum_2025"
+          ]
+        },
+        "ebit_3T26": {
+          "valor": 352382.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "ebit_3T25": {
+          "valor": -2069853.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "ebit_acum_2026": {
+          "valor": 1305979.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "ebit_acum_2025": {
+          "valor": -1497832.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "ebit_2025": {
+          "valor": -1363886.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "ebit_12m": {
+          "valor": 1439925.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_acum_2026 + ebit_2025 − ebit_acum_2025",
+          "insumos": [
+            "ebit_acum_2026",
+            "ebit_2025",
+            "ebit_acum_2025"
+          ]
+        },
+        "lucro_consolidado_3T26": {
+          "valor": 243441.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_consolidado_3T25": {
+          "valor": -3503338.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_consolidado_acum_2026": {
+          "valor": 1567773.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_consolidado_acum_2025": {
+          "valor": -3038716.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_consolidado_2025": {
+          "valor": -2910034.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 1696455.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_consolidado_acum_2026 + lucro_consolidado_2025 − lucro_consolidado_acum_2025",
+          "insumos": [
+            "lucro_consolidado_acum_2026",
+            "lucro_consolidado_2025",
+            "lucro_consolidado_acum_2025"
+          ]
+        },
+        "lucro_controladores_3T26": {
+          "valor": 229193.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_controladores_3T25": {
+          "valor": -3539981.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_controladores_acum_2026": {
+          "valor": 1383002.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_controladores_acum_2025": {
+          "valor": -3143946.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_controladores_2025": {
+          "valor": -3078192.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_controladores_12m": {
+          "valor": 1448756.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ]
+        },
+        "lucro_nao_controladores_3T26": {
+          "valor": 14248.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26 (2026-07-01 a 2026-09-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-07-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_nao_controladores_3T25": {
+          "valor": 36643.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25 (2025-07-01 a 2025-09-30), comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-07-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_nao_controladores_acum_2026": {
+          "valor": 184771.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "lucro_nao_controladores_acum_2025": {
+          "valor": 105230.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "lucro_nao_controladores_2025": {
+          "valor": 168158.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_nao_controladores_12m": {
+          "valor": 247699.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_nao_controladores_acum_2026 + lucro_nao_controladores_2025 − lucro_nao_controladores_acum_2025",
+          "insumos": [
+            "lucro_nao_controladores_acum_2026",
+            "lucro_nao_controladores_2025",
+            "lucro_nao_controladores_acum_2025"
+          ]
+        },
+        "da_acum_2026": {
+          "valor": 735386.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação e Amortização",
+          "obs": "D&A localizada na DFC método indireto (6.01.01.*) pela descrição; valor positivo = despesa. [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-09-30]"
+        },
+        "da_acum_2025": {
+          "valor": 949904.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30, comparativo do ITR 3T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação e Amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "da_2025": {
+          "valor": 1274791.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação, Amortização e Exaustão",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "da_12m": {
+          "valor": 1060273.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 + da_2025 − da_acum_2025",
+          "insumos": [
+            "da_acum_2026",
+            "da_2025",
+            "da_acum_2025"
+          ]
+        },
+        "da_acum_ate_2026-06-30": {
+          "valor": 499726.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação e Amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "da_3T26": {
+          "valor": 235660.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 − da_acum_ate_2026-06-30",
+          "insumos": [
+            "da_acum_2026",
+            "da_acum_ate_2026-06-30"
+          ]
+        },
+        "da_acum_ate_2025-06-30": {
+          "valor": 627221.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30 (ITR 2T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação e Amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "da_acum_ate_2025-09-30_itr_original": {
+          "valor": 949904.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-09-30 (ITR 3T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.04",
+          "descricao_conta": "Depreciação e Amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-09-30]"
+        },
+        "da_3T25": {
+          "valor": 322683.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25",
+          "fonte": "calculado",
+          "formula": "da_acum_ate_2025-09-30_itr_original − da_acum_ate_2025-06-30",
+          "insumos": [
+            "da_acum_ate_2025-09-30_itr_original",
+            "da_acum_ate_2025-06-30"
+          ]
+        },
+        "ebitda_3T26": {
+          "valor": 588042.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T26",
+          "fonte": "calculado",
+          "formula": "ebit_3T26 + da_3T26",
+          "insumos": [
+            "ebit_3T26",
+            "da_3T26"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_3T25": {
+          "valor": -1747170.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 3T25",
+          "fonte": "calculado",
+          "formula": "ebit_3T25 + da_3T25",
+          "insumos": [
+            "ebit_3T25",
+            "da_3T25"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_12m": {
+          "valor": 2500198.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ativo_total_3T26": {
+          "valor": 34836026.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "caixa_equivalentes_3T26": {
+          "valor": 4071514.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "aplicacoes_financeiras_cp_3T26": {
+          "valor": 2675655.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "emprestimos_cp_3T26": {
+          "valor": 127408.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "emprestimos_lp_3T26": {
+          "valor": 6053758.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_total_3T26": {
+          "valor": 23970626.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_nao_controladores_3T26": {
+          "valor": 2916375.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-09-30; DT_FIM_EXERC=2026-09-30]"
+        },
+        "pl_controladores_3T26": {
+          "valor": 21054251.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 (2.03) − pl_nao_controladores_3T26 (2.03.09)",
+          "insumos": [
+            "pl_total_3T26",
+            "pl_nao_controladores_3T26"
+          ]
+        },
+        "divida_bruta_3T26": {
+          "valor": 6181166.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_3T26",
+            "emprestimos_lp_3T26"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_3T26": {
+          "valor": 6747169.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_3T26",
+            "aplicacoes_financeiras_cp_3T26"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_3T26": {
+          "valor": -566003.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T26 − caixa_aplicacoes_3T26",
+          "insumos": [
+            "divida_bruta_3T26",
+            "caixa_aplicacoes_3T26"
+          ]
+        },
+        "capital_investido_3T26": {
+          "valor": 23404623.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T26 + divida_liquida_3T26",
+          "insumos": [
+            "pl_total_3T26",
+            "divida_liquida_3T26"
+          ]
+        },
+        "ativo_total_3T25": {
+          "valor": 35309875.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "caixa_equivalentes_3T25": {
+          "valor": 5081832.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "aplicacoes_financeiras_cp_3T25": {
+          "valor": 954165.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "emprestimos_cp_3T25": {
+          "valor": 132966.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "emprestimos_lp_3T25": {
+          "valor": 6117221.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_total_3T25": {
+          "valor": 23637327.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_nao_controladores_3T25": {
+          "valor": 2886000.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-09-30; DT_FIM_EXERC=2025-09-30]"
+        },
+        "pl_controladores_3T25": {
+          "valor": 20751327.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T25 (2.03) − pl_nao_controladores_3T25 (2.03.09)",
+          "insumos": [
+            "pl_total_3T25",
+            "pl_nao_controladores_3T25"
+          ]
+        },
+        "divida_bruta_3T25": {
+          "valor": 6250187.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_3T25",
+            "emprestimos_lp_3T25"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_3T25": {
+          "valor": 6035997.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_3T25",
+            "aplicacoes_financeiras_cp_3T25"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_3T25": {
+          "valor": 214190.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_3T25 − caixa_aplicacoes_3T25",
+          "insumos": [
+            "divida_bruta_3T25",
+            "caixa_aplicacoes_3T25"
+          ]
+        },
+        "capital_investido_3T25": {
+          "valor": 23851517.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-09-30",
+          "fonte": "calculado",
+          "formula": "pl_total_3T25 + divida_liquida_3T25",
+          "insumos": [
+            "pl_total_3T25",
+            "divida_liquida_3T25"
+          ]
+        },
+        "pl_controladores_medio": {
+          "valor": 20902789.0,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-09-30 e 2026-09-30",
+          "fonte": "calculado",
+          "formula": "(pl_controladores_3T26 + pl_controladores_3T25) / 2",
+          "insumos": [
+            "pl_controladores_3T26",
+            "pl_controladores_3T25"
+          ]
+        },
+        "capital_investido_medio": {
+          "valor": 23628070.0,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-09-30 e 2026-09-30",
+          "fonte": "calculado",
+          "formula": "(capital_investido_3T26 + capital_investido_3T25) / 2",
+          "insumos": [
+            "capital_investido_3T26",
+            "capital_investido_3T25"
+          ]
+        },
+        "roe_12m": {
+          "valor": 6.930922,
+          "unidade": "%",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_12m (3.11.01) / pl_controladores_medio × 100",
+          "insumos": [
+            "lucro_controladores_12m",
+            "pl_controladores_medio"
+          ]
+        },
+        "nopat_12m": {
+          "valor": 950350.5,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%)",
+          "insumos": [
+            "ebit_12m"
+          ],
+          "obs": "Alíquota nominal de IR/CS de 34%, não a efetiva."
+        },
+        "roic_12m": {
+          "valor": 4.022125,
+          "unidade": "%",
+          "periodo": "12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%) / média(pl_total + divida_liquida) × 100",
+          "insumos": [
+            "nopat_12m",
+            "capital_investido_medio"
+          ],
+          "obs": "Aproximação: capital investido = PL total (com não controladores) + dívida líquida (sem arrendamentos)."
+        },
+        "divida_liquida_ebitda_12m": {
+          "valor": -0.226383,
+          "unidade": "x",
+          "periodo": "dívida em 2026-09-30; EBITDA 12m até 2026-09-30",
+          "fonte": "calculado",
+          "formula": "divida_liquida_3T26 / ebitda_12m",
+          "insumos": [
+            "divida_liquida_3T26",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        }
+      }
+    },
+    "CSNA3": {
+      "nome": "CIA SIDERURGICA NACIONAL",
+      "cnpj": "33.042.730/0001-04",
+      "cd_cvm": "4030",
+      "situacao_cvm": "ATIVO",
+      "fonte_cadastro": "CVM Dados Abertos — cadastro (cia_aberta-cad), https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+      "arquivo_cadastro": "data/raw/cvm/cad_cia_aberta.csv",
+      "data_base": "2026-06-30",
+      "trimestre": "2T26",
+      "metricas": {
+        "receita_2T26": {
+          "valor": 11306169.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26 (2026-04-01 a 2026-06-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-04-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "receita_2T25": {
+          "valor": 10693286.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25 (2025-04-01 a 2025-06-30), comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-04-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "receita_acum_2026": {
+          "valor": 21909941.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "receita_acum_2025": {
+          "valor": 21600915.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "receita_2025": {
+          "valor": 44797946.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.01",
+          "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "receita_12m": {
+          "valor": 45106972.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "receita_acum_2026 + receita_2025 − receita_acum_2025",
+          "insumos": [
+            "receita_acum_2026",
+            "receita_2025",
+            "receita_acum_2025"
+          ]
+        },
+        "ebit_2T26": {
+          "valor": 764791.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26 (2026-04-01 a 2026-06-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-04-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "ebit_2T25": {
+          "valor": 1642756.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25 (2025-04-01 a 2025-06-30), comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-04-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "ebit_acum_2026": {
+          "valor": 1059135.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "ebit_acum_2025": {
+          "valor": 2530393.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "ebit_2025": {
+          "valor": 4816674.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.05",
+          "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "ebit_12m": {
+          "valor": 3345416.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "ebit_acum_2026 + ebit_2025 − ebit_acum_2025",
+          "insumos": [
+            "ebit_acum_2026",
+            "ebit_2025",
+            "ebit_acum_2025"
+          ]
+        },
+        "lucro_consolidado_2T26": {
+          "valor": -773058.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26 (2026-04-01 a 2026-06-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-04-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_consolidado_2T25": {
+          "valor": -130369.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25 (2025-04-01 a 2025-06-30), comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-04-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_consolidado_acum_2026": {
+          "valor": -1328081.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_consolidado_acum_2025": {
+          "valor": -861949.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_consolidado_2025": {
+          "valor": -1506726.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11",
+          "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_consolidado_12m": {
+          "valor": -1972858.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "lucro_consolidado_acum_2026 + lucro_consolidado_2025 − lucro_consolidado_acum_2025",
+          "insumos": [
+            "lucro_consolidado_acum_2026",
+            "lucro_consolidado_2025",
+            "lucro_consolidado_acum_2025"
+          ]
+        },
+        "lucro_controladores_2T26": {
+          "valor": -794123.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26 (2026-04-01 a 2026-06-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-04-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_controladores_2T25": {
+          "valor": -166000.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25 (2025-04-01 a 2025-06-30), comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-04-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_controladores_acum_2026": {
+          "valor": -1409654.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_controladores_acum_2025": {
+          "valor": -785146.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_controladores_2025": {
+          "valor": -2002374.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.01",
+          "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_controladores_12m": {
+          "valor": -2626882.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_acum_2026 + lucro_controladores_2025 − lucro_controladores_acum_2025",
+          "insumos": [
+            "lucro_controladores_acum_2026",
+            "lucro_controladores_2025",
+            "lucro_controladores_acum_2025"
+          ]
+        },
+        "lucro_nao_controladores_2T26": {
+          "valor": 21065.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26 (2026-04-01 a 2026-06-30)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-04-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_nao_controladores_2T25": {
+          "valor": 35631.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25 (2025-04-01 a 2025-06-30), comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-04-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_nao_controladores_acum_2026": {
+          "valor": 81573.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "lucro_nao_controladores_acum_2025": {
+          "valor": -76803.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "lucro_nao_controladores_2025": {
+          "valor": 495648.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025 (2025-01-01 a 2025-12-31)",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+          "conta": "3.11.02",
+          "descricao_conta": "Atribuído a Sócios Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "lucro_nao_controladores_12m": {
+          "valor": 654024.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "lucro_nao_controladores_acum_2026 + lucro_nao_controladores_2025 − lucro_nao_controladores_acum_2025",
+          "insumos": [
+            "lucro_nao_controladores_acum_2026",
+            "lucro_nao_controladores_2025",
+            "lucro_nao_controladores_acum_2025"
+          ]
+        },
+        "da_acum_2026": {
+          "valor": 2277156.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": "D&A localizada na DFC método indireto (6.01.01.*) pela descrição; valor positivo = despesa. [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-06-30]"
+        },
+        "da_acum_2025": {
+          "valor": 2045784.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30, comparativo do ITR 2T26",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=PENÚLTIMO; DT_REFER=2026-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "da_2025": {
+          "valor": 4150475.0,
+          "unidade": "R$ mil",
+          "periodo": "exercício 2025",
+          "fonte": "CVM Dados Abertos — DFP (cia_aberta-doc-dfp), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-12-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-12-31]"
+        },
+        "da_12m": {
+          "valor": 4381847.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 + da_2025 − da_acum_2025",
+          "insumos": [
+            "da_acum_2026",
+            "da_2025",
+            "da_acum_2025"
+          ]
+        },
+        "da_acum_ate_2026-03-31": {
+          "valor": 1155156.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2026-01-01 a 2026-03-31",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-03-31; DT_INI_EXERC=2026-01-01; DT_FIM_EXERC=2026-03-31]"
+        },
+        "da_2T26": {
+          "valor": 1122000.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26",
+          "fonte": "calculado",
+          "formula": "da_acum_2026 − da_acum_ate_2026-03-31",
+          "insumos": [
+            "da_acum_2026",
+            "da_acum_ate_2026-03-31"
+          ]
+        },
+        "da_acum_ate_2025-03-31": {
+          "valor": 999188.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-03-31 (ITR 1T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-03-31; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-03-31]"
+        },
+        "da_acum_ate_2025-06-30_itr_original": {
+          "valor": 2045784.0,
+          "unidade": "R$ mil",
+          "periodo": "acumulado 2025-01-01 a 2025-06-30 (ITR 2T25 original)",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_DFC_MI_con_2025.csv",
+          "conta": "6.01.01.05",
+          "descricao_conta": "Depreciação, exaustão e amortização",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_INI_EXERC=2025-01-01; DT_FIM_EXERC=2025-06-30]"
+        },
+        "da_2T25": {
+          "valor": 1046596.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25",
+          "fonte": "calculado",
+          "formula": "da_acum_ate_2025-06-30_itr_original − da_acum_ate_2025-03-31",
+          "insumos": [
+            "da_acum_ate_2025-06-30_itr_original",
+            "da_acum_ate_2025-03-31"
+          ]
+        },
+        "ebitda_2T26": {
+          "valor": 1886791.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T26",
+          "fonte": "calculado",
+          "formula": "ebit_2T26 + da_2T26",
+          "insumos": [
+            "ebit_2T26",
+            "da_2T26"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_2T25": {
+          "valor": 2689352.0,
+          "unidade": "R$ mil",
+          "periodo": "trimestre 2T25",
+          "fonte": "calculado",
+          "formula": "ebit_2T25 + da_2T25",
+          "insumos": [
+            "ebit_2T25",
+            "da_2T25"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ebitda_12m": {
+          "valor": 7727263.0,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m + da_12m",
+          "insumos": [
+            "ebit_12m",
+            "da_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        },
+        "ativo_total_2T26": {
+          "valor": 100602032.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "caixa_equivalentes_2T26": {
+          "valor": 13630963.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "aplicacoes_financeiras_cp_2T26": {
+          "valor": 654791.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "emprestimos_cp_2T26": {
+          "valor": 8326693.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "emprestimos_lp_2T26": {
+          "valor": 45038867.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "pl_total_2T26": {
+          "valor": 15240376.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "pl_nao_controladores_2T26": {
+          "valor": 3074044.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2026.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2026-06-30; DT_FIM_EXERC=2026-06-30]"
+        },
+        "pl_controladores_2T26": {
+          "valor": 12166332.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "pl_total_2T26 (2.03) − pl_nao_controladores_2T26 (2.03.09)",
+          "insumos": [
+            "pl_total_2T26",
+            "pl_nao_controladores_2T26"
+          ]
+        },
+        "divida_bruta_2T26": {
+          "valor": 53365560.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_2T26",
+            "emprestimos_lp_2T26"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_2T26": {
+          "valor": 14285754.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_2T26",
+            "aplicacoes_financeiras_cp_2T26"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_2T26": {
+          "valor": 39079806.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_2T26 − caixa_aplicacoes_2T26",
+          "insumos": [
+            "divida_bruta_2T26",
+            "caixa_aplicacoes_2T26"
+          ]
+        },
+        "capital_investido_2T26": {
+          "valor": 54320182.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2026-06-30",
+          "fonte": "calculado",
+          "formula": "pl_total_2T26 + divida_liquida_2T26",
+          "insumos": [
+            "pl_total_2T26",
+            "divida_liquida_2T26"
+          ]
+        },
+        "ativo_total_2T25": {
+          "valor": 101070743.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1",
+          "descricao_conta": "Ativo Total",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "caixa_equivalentes_2T25": {
+          "valor": 18305208.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.01",
+          "descricao_conta": "Caixa e Equivalentes de Caixa",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "aplicacoes_financeiras_cp_2T25": {
+          "valor": 851397.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPA_con_2025.csv",
+          "conta": "1.01.02",
+          "descricao_conta": "Aplicações Financeiras",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "emprestimos_cp_2T25": {
+          "valor": 7819043.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.01.04",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "emprestimos_lp_2T25": {
+          "valor": 43747995.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.02.01",
+          "descricao_conta": "Empréstimos e Financiamentos",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "pl_total_2T25": {
+          "valor": 16853240.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03",
+          "descricao_conta": "Patrimônio Líquido Consolidado",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "pl_nao_controladores_2T25": {
+          "valor": 2949200.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "CVM Dados Abertos — ITR (cia_aberta-doc-itr), https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+          "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip::itr_cia_aberta_BPP_con_2025.csv",
+          "conta": "2.03.09",
+          "descricao_conta": "Participação dos Acionistas Não Controladores",
+          "obs": " [ESCALA_MOEDA=MIL; VERSAO=1; ORDEM_EXERC=ÚLTIMO; DT_REFER=2025-06-30; DT_FIM_EXERC=2025-06-30]"
+        },
+        "pl_controladores_2T25": {
+          "valor": 13904040.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "calculado",
+          "formula": "pl_total_2T25 (2.03) − pl_nao_controladores_2T25 (2.03.09)",
+          "insumos": [
+            "pl_total_2T25",
+            "pl_nao_controladores_2T25"
+          ]
+        },
+        "divida_bruta_2T25": {
+          "valor": 51567038.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "calculado",
+          "formula": "emprestimos_cp (2.01.04) + emprestimos_lp (2.02.01)",
+          "insumos": [
+            "emprestimos_cp_2T25",
+            "emprestimos_lp_2T25"
+          ],
+          "obs": "Empréstimos e financiamentos + debêntures, circulante e não circulante. Não inclui arrendamentos (IFRS 16) nem derivativos, que no padrão CVM ficam em 'Outras obrigações'."
+        },
+        "caixa_aplicacoes_2T25": {
+          "valor": 19156605.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "calculado",
+          "formula": "caixa_equivalentes (1.01.01) + aplicacoes_financeiras_cp (1.01.02)",
+          "insumos": [
+            "caixa_equivalentes_2T25",
+            "aplicacoes_financeiras_cp_2T25"
+          ],
+          "obs": "Só aplicações financeiras do ativo circulante."
+        },
+        "divida_liquida_2T25": {
+          "valor": 32410433.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "calculado",
+          "formula": "divida_bruta_2T25 − caixa_aplicacoes_2T25",
+          "insumos": [
+            "divida_bruta_2T25",
+            "caixa_aplicacoes_2T25"
+          ]
+        },
+        "capital_investido_2T25": {
+          "valor": 49263673.0,
+          "unidade": "R$ mil",
+          "periodo": "saldo em 2025-06-30",
+          "fonte": "calculado",
+          "formula": "pl_total_2T25 + divida_liquida_2T25",
+          "insumos": [
+            "pl_total_2T25",
+            "divida_liquida_2T25"
+          ]
+        },
+        "pl_controladores_medio": {
+          "valor": 13035186.0,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-06-30 e 2026-06-30",
+          "fonte": "calculado",
+          "formula": "(pl_controladores_2T26 + pl_controladores_2T25) / 2",
+          "insumos": [
+            "pl_controladores_2T26",
+            "pl_controladores_2T25"
+          ]
+        },
+        "capital_investido_medio": {
+          "valor": 51791927.5,
+          "unidade": "R$ mil",
+          "periodo": "média 2025-06-30 e 2026-06-30",
+          "fonte": "calculado",
+          "formula": "(capital_investido_2T26 + capital_investido_2T25) / 2",
+          "insumos": [
+            "capital_investido_2T26",
+            "capital_investido_2T25"
+          ]
+        },
+        "roe_12m": {
+          "valor": -20.15224,
+          "unidade": "%",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "lucro_controladores_12m (3.11.01) / pl_controladores_medio × 100",
+          "insumos": [
+            "lucro_controladores_12m",
+            "pl_controladores_medio"
+          ]
+        },
+        "nopat_12m": {
+          "valor": 2207974.56,
+          "unidade": "R$ mil",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%)",
+          "insumos": [
+            "ebit_12m"
+          ],
+          "obs": "Alíquota nominal de IR/CS de 34%, não a efetiva."
+        },
+        "roic_12m": {
+          "valor": 4.263164,
+          "unidade": "%",
+          "periodo": "12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "ebit_12m × (1 − 34%) / média(pl_total + divida_liquida) × 100",
+          "insumos": [
+            "nopat_12m",
+            "capital_investido_medio"
+          ],
+          "obs": "Aproximação: capital investido = PL total (com não controladores) + dívida líquida (sem arrendamentos)."
+        },
+        "divida_liquida_ebitda_12m": {
+          "valor": 5.057393,
+          "unidade": "x",
+          "periodo": "dívida em 2026-06-30; EBITDA 12m até 2026-06-30",
+          "fonte": "calculado",
+          "formula": "divida_liquida_2T26 / ebitda_12m",
+          "insumos": [
+            "divida_liquida_2T26",
+            "ebitda_12m"
+          ],
+          "obs": "EBITDA contábil (Resolução CVM 156: lucro antes de resultado financeiro e tributos + D&A da DFC). NÃO é o EBITDA ajustado divulgado pela companhia."
+        }
+      }
+    }
+  },
+  "pendencias": [
+    {
+      "empresa": "CSNA3",
+      "item": "ITR 3T26 (DT_REFER 2026-09-30)",
+      "motivo": "O ITR de 30/09/2026 ainda não consta em itr_cia_aberta_2026.zip (Last-Modified Sun, 01 Nov 2026 10:43:25 GMT); DT_REFER disponíveis: ['2026-03-31', '2026-06-30']. Métricas calculadas na última data-base disponível (2026-06-30, 2T26) e marcadas no campo 'periodo'. Rodar de novo com --refresh quando a CVM atualizar o zip."
+    }
+  ],
+  "cruzamento_pdf_itr": [
+    {
+      "empresa": "GGBR4",
+      "metrica": "receita_3T26",
+      "pdf_itr": 18690518,
+      "csv_cvm": 18690518.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "GGBR4",
+      "metrica": "receita_3T25",
+      "pdf_itr": 17983143,
+      "csv_cvm": 17983143.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "GGBR4",
+      "metrica": "lucro_consolidado_3T26",
+      "pdf_itr": 1563097,
+      "csv_cvm": 1563097.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "GGBR4",
+      "metrica": "lucro_consolidado_3T25",
+      "pdf_itr": 1089880,
+      "csv_cvm": 1089880.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "USIM5",
+      "metrica": "receita_3T26",
+      "pdf_itr": 6202422,
+      "csv_cvm": 6202422.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "USIM5",
+      "metrica": "receita_3T25",
+      "pdf_itr": 6604238,
+      "csv_cvm": 6604238.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "USIM5",
+      "metrica": "lucro_consolidado_3T26",
+      "pdf_itr": 243441,
+      "csv_cvm": 243441.0,
+      "diferenca": 0.0,
+      "confere": true
+    },
+    {
+      "empresa": "USIM5",
+      "metrica": "lucro_consolidado_3T25",
+      "pdf_itr": -3503338,
+      "csv_cvm": -3503338.0,
+      "diferenca": 0.0,
+      "confere": true
+    }
+  ]
+}

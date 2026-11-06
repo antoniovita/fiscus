@@ -1,0 +1,145 @@
+GERDAU S.A.
+NOTAS EXPLICATIVAS DA ADMINISTRAÇÃO ÀS INFORMAÇÕES INTERMEDIÁRIAS DA
+CONTROLADORA E DO CONSOLIDADO EM 30 DE SETEMBRO DE 2026 E DE 2025
+(Valores expressos em milhares de reais, exceto quando especificado)
+Revisadas pelo auditor independente na extensão descrita no relatório de 26 de outubro de 2026
+Análise de sensibilidade dos swaps IPCA x CDI (operação de troca da variação do IPCA por uma taxa de juros em Reais):
+a Companhia possui swaps IPCA x CDI para proteção de parte de seus Empréstimos e financiamentos. A análise de
+sensibilidade realizada pela Companhia considera o impacto no MTM decorrentes de um aumento de 5% na taxa do IPCA
+para todos os vértices das respectivas operações. Em 30/09/2026, a Companhia não possuía swaps IPCA x CDI para proteção
+de parte de seus Empréstimos e financiamentos. No mesmo período de 2025, o saldo dessas operações era de R$ 37.
+Análise de sensibilidade dos swaps EUR x CDI (operação de troca da variação do Euro por uma taxa de juros em Reais):
+no período de 9 meses findo em 30/09/2026 a Companhia não possuía swaps EUR x CDI para proteção de parte de seus
+Empréstimos e financiamentos. No mesmo período de 2025, o saldo dessas operações era de R$ 20.758.
+d) Instrumentos financeiros por categoria
+Síntese dos instrumentos financeiros por categoria:
+30/09/2026
+Controladora Consolidado
+Ativos a valor justo Ativos a valor justo
+por meio do por meio do
+Ativos Custo amortizado resultado Total Custo amortizado resultado Total
+Aplicações financeiras - 211.663 211.663 - 347.571 347.571
+Contas a receber de clientes 448.084 - 448.084 6.227.263 - 6.227.263
+Valor justo de derivativos - 16.684 16.684 - 17.128 17.128
+Outros ativos circulantes 92.435 - 92.435 783.570 13.068 796.638
+Outros ativos não circulantes 13.979 - 13.979 336.336 - 336.336
+Total 554.498 228.347 782.845 7.347.169 377.767 7.724.936
+Resultado financeiro 3 meses findo em 30/09/2026 8.894 26.255 35.149 86.676 82.900 169.576
+Resultado financeiro 9 meses findo em 30/09/2026 22.256 101.757 124.013 140.520 203.616 344.136
+P assivos
+Fornecedores m ercado dom éstico
+Fornecedores risco sacado
+Fornecedores im portação
+Em préstim os e Financiam entos
+D ebêntures
+Partes relacionadas
+V alor justo de derivativos
+O utros passivos circulantes
+O utros passivos não circulantes
+T otal
+R esultado financeiro 3 m eses findo em
+R esultado financeiro 9 m eses findo em
+30/09/2026
+30/09/2026
+P assivos a valor
+justo por m eio do
+resultado
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+(172)
+(1.304)
+C usto am ortizado
+317.543
+27.849
+6.297
+262.240
+4.746.389
+810.724
+-
+203.479
+75.590
+6.450.111
+(212.467)
+(527.021)
+C ontroladora
+T otal
+317.543
+27.849
+6.297
+262.240
+4.746.389
+810.724
+-
+203.479
+75.590
+6.450.111
+(212.639)
+(528.325)
+P assivos a valor
+justo por m eio do
+resultado
+-
+-
+-
+-
+-
+-
+16.147
+-
+-
+16.147
+(30.198)
+(63.838)
+C usto am ortizado
+4.454.549
+384.289
+1.718.612
+9.164.173
+4.565.053
+-
+-
+1.057.602
+599.123
+21.943.401
+(570.037)
+(1.339.193)
+30/09/2026
+C onsolidado
+T otal
+4.454.549
+384.289
+1.718.612
+9.164.173
+4.565.053
+-
+16.147
+1.057.602
+599.123
+21.959.548
+(600.235)
+(1.403.031)
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 40 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+31/12/2025
+Controladora Consolidado
+Ativos a valor justo Ativos a valor justo
+por meio do por meio do
+Ativos Custo amortizado resultado Total Custo amortizado resultado Total
+Aplicações financeiras - 2.251.634 2.251.634 - 445.627 445.627
+Contas a receber de clientes 525.118 - 525.118 4.810.640 - 4.810.640
+Valor justo de derivativos - - - - 36.623 36.623
+Outros ativos circulantes 110.392 - 110.392 665.020 13.879 678.899
+Outros ativos não circulantes 6.090 - 6.090 387.708 - 387.708
+Total 641.600 2.251.634 2.893.234 5.863.368 496.129 6.359.497
+Resultado financeiro 3 meses findo em 30/09/2025 29.373 30.923 60.296 88.274 87.900 176.174
+Resultado financeiro 9 meses findo em 30/09/2025 8.788 133.553 142.341 2.479 214.557 217.036
+ITR - Infoirnmdaícçeõ e| sN Tortimase sEtxrapisli c-a 3t0iv/0a9s/2026 - GERDAU S.A. 48

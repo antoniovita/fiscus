@@ -1,0 +1,41 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 12 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Individuais / Demonstração de Valor Adicionado
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+7.01 Receitas 4.362.097 4.871.076
+7.01.01 Vendas de Mercadorias, Produtos e Serviços 3.752.119 4.425.179
+7.01.02 Outras Receitas 295.196 53.290
+7.01.02.03 Outras Receitas 295.196 53.290
+7.01.03 Receitas refs. à Construção de Ativos Próprios 316.893 392.771
+7.01.04 Provisão/Reversão de Créds. Liquidação Duvidosa -2.111 -164
+7.02 Insumos Adquiridos de Terceiros -2.599.916 -3.110.241
+7.02.01 Custos Prods., Mercs. e Servs. Vendidos -2.252.673 -2.813.976
+7.02.02 Materiais, Energia, Servs. de Terceiros e Outros -347.243 -296.265
+7.03 Valor Adicionado Bruto 1.762.181 1.760.835
+7.04 Retenções -227.562 -207.296
+7.04.01 Depreciação, Amortização e Exaustão -227.562 -207.296
+7.05 Valor Adicionado Líquido Produzido 1.534.619 1.553.539
+7.06 Vlr Adicionado Recebido em Transferência 3.964.847 2.552.502
+7.06.01 Resultado de Equivalência Patrimonial 3.854.021 2.342.579
+7.06.02 Receitas Financeiras 109.012 202.386
+7.06.03 Outros 1.814 7.537
+7.06.03.01 Receitas de aluguel 1.814 7.537
+7.07 Valor Adicionado Total a Distribuir 5.499.466 4.106.041
+7.08 Distribuição do Valor Adicionado 5.499.466 4.106.041
+7.08.01 Pessoal 390.857 372.165
+7.08.01.01 Remuneração Direta 275.607 274.721
+7.08.01.02 Benefícios 94.763 80.140
+7.08.01.03 F.G.T.S. 20.487 17.304
+7.08.02 Impostos, Taxas e Contribuições 554.825 589.475
+7.08.02.01 Federais 399.604 410.490
+7.08.02.02 Estaduais 150.195 173.945
+7.08.02.03 Municipais 5.026 5.040
+7.08.03 Remuneração de Capitais de Terceiros 543.788 459.227
+7.08.04 Remuneração de Capitais Próprios 4.009.996 2.685.174
+7.08.04.02 Dividendos 805.463 480.383
+7.08.04.03 Lucros Retidos / Prejuízo do Período 3.204.533 2.204.791
+ITR - InfoDrmFsa çInõedsiv Tidrimuaeisst r/a Dise -m 3o0n/0s9t/r2a0ç2ã6o - d GeE VRaDlAoUr ASd.Aic.ionado 20

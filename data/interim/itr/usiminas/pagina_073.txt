@@ -1,0 +1,38 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+(b) Imposto de renda e contribuição social diferidos
+A movimentação do imposto de renda e da contribuição social diferidos, líquidos, no
+período de nove meses findo em 30 de setembro de 2026, pode ser assim demonstrada:
+Ativo
+Controladora Consolidado
+Saldos em 31 de dezembro de 2025 1.190.888 1.973.727
+Constituição (reversão) de diferido no resultado, líquido 152.596 290.611
+Efeitos da moeda funcional sobre os ativos não monetários 1.367 1.319
+Ajustes de conversão (74.147) (121.781)
+Outros - 94
+Saldos em 30 de setembro de 2026 1.270.704 2.143.970
+A composição do ativo e do passivo fiscal diferido pode ser assim demonstrada:
+Controladora Consolidado
+30/09/2026 31/12/2025 30/09/2026 31/12/2025
+Ativo diferido decorrente de prejuízos fiscais e
+base negativa de CSLL 2.319.360 2.333.045 2.554.941 2.539.884
+Ativo diferido decorrente de diferenças
+temporárias 2.394.157 2.394.457 3.239.271 3.183.182
+Passivo diferido decorrente de diferenças
+temporárias (982.743) (1.076.544) (1.045.043) (1.142.837)
+Imposto de renda e contribuição social
+diferidos não reconhecidos (2.460.070) (2.460.070) (2.605.199) (2.606.502)
+1.270.704 1.190.888 2.143.970 1.973.727
+No período de nove meses findo em 30 de setembro de 2026, a Companhia reconheceu
+créditos fiscais no montante de R$1.303 no Consolidado. O total de créditos fiscais
+(prejuízos fiscais de IRPJ e base negativa de CSLL) diferidos não reconhecidos nessas
+informações contábeis intermediárias foi de R$2.460.070 na Controladora e de
+R$2.605.199 no Consolidado (31 de dezembro de 2025 – R$2.460.070 e R$2.606.502,
+respectivamente). A Companhia continuará monitorando esse montante não reconhecido,
+o qual poderá ser contabilizado tão logo seja provável a sua utilização.
+O passivo diferido decorrente de diferenças temporárias é composto, principalmente, pela
+depreciação fiscal acelerada, que em 30 de setembro de 2026 totalizava R$959.762 na
+Controladora e R$967.461 no Consolidado (31 de dezembro de 2025 - R$994.492 na
+Controladora e R$1.002.836 no Consolidado).
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 72 de 109

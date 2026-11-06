@@ -1,0 +1,36 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 16 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração do Resultado
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+3.01 Receita de Venda de Bens e/ou Serviços 18.690.518 53.276.811 17.983.143 52.884.229
+3.02 Custo dos Bens e/ou Serviços Vendidos -15.339.568 -44.802.806 -15.841.051 -46.765.037
+3.03 Resultado Bruto 3.350.950 8.474.005 2.142.092 6.119.192
+3.04 Despesas/Receitas Operacionais -635.310 -1.592.049 -483.343 -1.589.200
+3.04.01 Despesas com Vendas -199.595 -574.353 -196.012 -595.331
+3.04.02 Despesas Gerais e Administrativas -333.059 -997.430 -316.376 -1.016.839
+3.04.04 Outras Receitas Operacionais 283.501 371.013 36.748 138.469
+3.04.04.03 Outras Receitas Operacionais 283.501 371.013 36.748 138.469
+3.04.05 Outras Despesas Operacionais -415.685 -557.502 -96.447 -239.956
+3.04.05.01 Outras Despesas Operacionais -402.704 -498.790 -96.497 -233.427
+3.04.05.02 (Perdas) Reversão pela não recuperabilidade de ativos financeiros -12.981 -58.712 50 -6.529
+3.04.06 Resultado de Equivalência Patrimonial 29.528 166.223 88.744 124.457
+3.05 Resultado Antes do Resultado Financeiro e dos Tributos 2.715.640 6.881.956 1.658.749 4.529.992
+3.06 Resultado Financeiro -430.659 -1.058.895 -222.785 -865.412
+3.06.01 Receitas Financeiras 51.789 336.170 342.244 671.407
+3.06.01.01 Receitas financeiras 121.807 360.021 191.628 486.476
+3.06.01.03 Variação cambial, líquida -70.018 -23.851 150.616 184.931
+3.06.02 Despesas Financeiras -482.448 -1.395.065 -565.029 -1.536.819
+3.06.02.01 Despesas financeiras -476.747 -1.372.243 -536.289 -1.429.577
+3.06.02.02 Perdas com instrumentos financeiros, líquido -5.701 -22.822 -28.740 -67.596
+3.06.02.04 Despesas na recompra de bonds 0 0 0 -39.646
+3.07 Resultado Antes dos Tributos sobre o Lucro 2.284.981 5.823.061 1.435.964 3.664.580
+3.08 Imposto de Renda e Contribuição Social sobre o Lucro -721.884 -1.780.563 -346.084 -952.399
+3.08.01 Corrente -664.936 -1.688.933 -153.729 -776.922
+3.08.02 Diferido -56.948 -91.630 -192.355 -175.477
+3.09 Resultado Líquido das Operações Continuadas 1.563.097 4.042.498 1.089.880 2.712.181
+3.11 Lucro/Prejuízo Consolidado do Período 1.563.097 4.042.498 1.089.880 2.712.181
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dRoD RAeUs Su.lAta.do 24

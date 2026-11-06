@@ -1,0 +1,37 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+(iii) Análise de sensibilidade das variações na taxa de juros
+A Administração da Companhia elabora análise de sensibilidade dos ativos e dos
+passivos indexados à taxa de juros, em aberto no final do período, considerando como
+cenário provável o valor da taxa vigente em 30 de setembro de 2026. Como referência
+para a adoção das taxas na análise de sensibilidade, são observados os dados
+divulgados pelo Banco Central do Brasil (Relatório Focus) sobre a taxa Selic. Assim, na
+Controladora e no Consolidado, os cenários I, II e III foram calculados com valorização da
+taxa de juros média aplicável à parte flutuante de sua dívida atual em 5%, 25% e 50%,
+sobre da taxa de juros média em 30 de setembro de 2026.
+A composição dos saldos líquidos, de ativos e passivos, que estão sujeitos à variação da
+taxa de juros está demonstrada a seguir:
+Controladora Consolidado
+30/09/2026 30/09/2026
+CDI (1.930.295) (67.328)
+Em 30 de setembro de 2026, a taxa vigente e os seus respectivos cenários estão
+demonstrados a seguir:
+Controladora
+e Consolidado
+30/09/2026
+Taxas do final
+Indexador do período Cenário I Cenário II Cenário III
+CDI 13,65% 14,33% 17,06% 20,48%
+Os ganhos (perdas) no resultado financeiro, considerando os cenários I, II e III, estão
+demonstrados a seguir:
+Controladora Consolidado
+30/09/2026 30/09/2026
+Moeda Cenário I Cenário II Cenário III Cenário I Cenário II Cenário III
+CDI (13.126) (65.823) (131.839) (458) (2.296) (4.599)
+A Companhia está exposta à taxa de CDI, que incide sobre as debêntures, e está
+apresentada na Nota 22 das demonstrações financeiras do exercício findo em 31 de
+dezembro de 2025 e Nota 19 destas informações contábeis intermediárias.
+A Companhia não realiza a análise de sensibilidade sobre os ativos e passivos indexados
+a taxas pré-fixadas.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 59 de 109

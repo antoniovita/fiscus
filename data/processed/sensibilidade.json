@@ -1,0 +1,1318 @@
+{
+  "gerado_em": "2026-11-06T12:21:47-03:00",
+  "script": "pipeline/06_sensibilidade.py",
+  "entrada": "data/processed/macro.json",
+  "entrada_gerada_em": "2026-11-06T12:21:42-03:00",
+  "metodo": "Correlação de Pearson e de Spearman entre a variação mês/mesmo mês do ano anterior (M/M-12, %) da produção física da PIM-PF/IBGE (y; 24.2 Siderurgia como série principal, tabela 8885; 3.24 Metalurgia e Indústria geral, tabela 8888, para comparação) e variáveis macro transformadas em 12 meses (x): IBC-Br sem ajuste sazonal (SGS 24363) em variação % 12m; câmbio USD/BRL PTAX venda média mensal (SGS 3698) em variação % 12m; Selic meta de fim de mês (SGS 432) em variação de p.p. em 12m e em nível; minério de ferro 62% Fe CFR China (Banco Mundial, US$/t) em variação % 12m. Janela mensal de jan/2019 até o último mês comum a cada par (o mês corrente da Selic, parcial, é excluído). Defasagens de 0, 3 e 6 meses (x em t-k contra y em t). n = número de meses pareados. Como variações de 12 meses se sobrepõem, as séries são muito autocorrelacionadas; por isso é informado um n efetivo aproximado (Bartlett, AR(1): n(1-r1x*r1y)/(1+r1x*r1y)) e um intervalo de 95% aproximado via Fisher-z usando esse n efetivo. Robustez: mesma conta excluindo mar/2020 a dez/2021 (choque e efeito-base da pandemia).",
+  "variaveis_x": {
+    "ibcbr_var12m_pct": "IBC-Br (SGS 24363), variação % 12 meses",
+    "cambio_var12m_pct": "USD/BRL PTAX venda média mensal (SGS 3698), variação % 12 meses",
+    "selic_dif12m_pp": "Selic meta fim do mês (SGS 432), variação em p.p. em 12 meses",
+    "selic_nivel": "Selic meta fim do mês (SGS 432), nível % a.a.",
+    "minerio_var12m_pct": "Minério de ferro 62% Fe CFR China, Banco Mundial (US$/t), variação % 12 meses"
+  },
+  "variaveis_y": {
+    "siderurgia_24.2": "Produção Física Industrial, por grupos e classes industriais selecionados — PIMPF - Variação mês/mesmo mês do ano anterior (M/M-12) — 24.2 Siderurgia — Brasil",
+    "metalurgia_3.24": "Produção Física Industrial, por seções e atividades industriais — PIMPF - Variação mês/mesmo mês do ano anterior (M/M-12) — 3.24 Metalurgia — Brasil",
+    "industria_geral": "Produção Física Industrial, por seções e atividades industriais — PIMPF - Variação mês/mesmo mês do ano anterior (M/M-12) — 1 Indústria geral — Brasil"
+  },
+  "resultados": {
+    "siderurgia_24.2": {
+      "ibcbr_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-08",
+            "n": 92,
+            "pearson": 0.64,
+            "spearman": 0.226,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.714,
+            "n_efetivo_aprox": 25.4,
+            "ic95_pearson_aprox": [
+              0.331,
+              0.825
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-08",
+            "n": 70,
+            "pearson": 0.18,
+            "spearman": 0.108,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.29,
+            "n_efetivo_aprox": 45.5,
+            "ic95_pearson_aprox": [
+              -0.118,
+              0.448
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-08",
+            "n": 89,
+            "pearson": 0.157,
+            "spearman": 0.1,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.715,
+            "n_efetivo_aprox": 24.5,
+            "ic95_pearson_aprox": [
+              -0.258,
+              0.523
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-08",
+            "n": 67,
+            "pearson": 0.186,
+            "spearman": 0.098,
+            "autocorr_lag1_y": 0.731,
+            "autocorr_lag1_x": 0.27,
+            "n_efetivo_aprox": 44.9,
+            "ic95_pearson_aprox": [
+              -0.114,
+              0.455
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-08",
+            "n": 86,
+            "pearson": -0.235,
+            "spearman": -0.168,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.721,
+            "n_efetivo_aprox": 23.4,
+            "ic95_pearson_aprox": [
+              -0.587,
+              0.192
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-08",
+            "n": 64,
+            "pearson": 0.154,
+            "spearman": 0.119,
+            "autocorr_lag1_y": 0.732,
+            "autocorr_lag1_x": 0.238,
+            "n_efetivo_aprox": 45.0,
+            "ic95_pearson_aprox": [
+              -0.146,
+              0.428
+            ]
+          }
+        }
+      },
+      "cambio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.047,
+            "spearman": 0.121,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.938,
+            "n_efetivo_aprox": 13.6,
+            "ic95_pearson_aprox": [
+              -0.571,
+              0.504
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.395,
+            "spearman": 0.23,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.892,
+            "n_efetivo_aprox": 15.0,
+            "ic95_pearson_aprox": [
+              -0.147,
+              0.755
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.338,
+            "spearman": 0.319,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.937,
+            "n_efetivo_aprox": 13.2,
+            "ic95_pearson_aprox": [
+              -0.255,
+              0.746
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": 0.422,
+            "spearman": 0.306,
+            "autocorr_lag1_y": 0.731,
+            "autocorr_lag1_x": 0.886,
+            "n_efetivo_aprox": 14.5,
+            "ic95_pearson_aprox": [
+              -0.126,
+              0.773
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": 0.518,
+            "spearman": 0.343,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 12.9,
+            "ic95_pearson_aprox": [
+              -0.049,
+              0.832
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": 0.103,
+            "spearman": 0.034,
+            "autocorr_lag1_y": 0.732,
+            "autocorr_lag1_x": 0.894,
+            "n_efetivo_aprox": 13.6,
+            "ic95_pearson_aprox": [
+              -0.462,
+              0.608
+            ]
+          }
+        }
+      },
+      "selic_dif12m_pp": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.122,
+            "spearman": -0.195,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 11.5,
+            "ic95_pearson_aprox": [
+              -0.661,
+              0.5
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.388,
+            "spearman": -0.367,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 13.4,
+            "ic95_pearson_aprox": [
+              -0.769,
+              0.196
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": -0.359,
+            "spearman": -0.496,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 11.2,
+            "ic95_pearson_aprox": [
+              -0.787,
+              0.301
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.597,
+            "spearman": -0.583,
+            "autocorr_lag1_y": 0.731,
+            "autocorr_lag1_x": 0.954,
+            "n_efetivo_aprox": 12.1,
+            "ic95_pearson_aprox": [
+              -0.871,
+              -0.038
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": -0.467,
+            "spearman": -0.647,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 10.8,
+            "ic95_pearson_aprox": [
+              -0.837,
+              0.194
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.679,
+            "spearman": -0.647,
+            "autocorr_lag1_y": 0.732,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 10.8,
+            "ic95_pearson_aprox": [
+              -0.91,
+              -0.125
+            ]
+          }
+        }
+      },
+      "selic_nivel": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.273,
+            "spearman": -0.174,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 10.9,
+            "ic95_pearson_aprox": [
+              -0.751,
+              0.393
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.063,
+            "spearman": 0.056,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 11.9,
+            "ic95_pearson_aprox": [
+              -0.533,
+              0.617
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.342,
+            "spearman": -0.249,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 10.9,
+            "ic95_pearson_aprox": [
+              -0.783,
+              0.327
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.045,
+            "spearman": 0.023,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.986,
+            "n_efetivo_aprox": 11.6,
+            "ic95_pearson_aprox": [
+              -0.554,
+              0.613
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.336,
+            "spearman": -0.221,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 10.9,
+            "ic95_pearson_aprox": [
+              -0.78,
+              0.332
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.123,
+            "spearman": 0.102,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.987,
+            "n_efetivo_aprox": 11.5,
+            "ic95_pearson_aprox": [
+              -0.499,
+              0.661
+            ]
+          }
+        }
+      },
+      "minerio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": 0.631,
+            "spearman": 0.325,
+            "autocorr_lag1_y": 0.794,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 14.8,
+            "ic95_pearson_aprox": [
+              0.172,
+              0.865
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.02,
+            "spearman": -0.0,
+            "autocorr_lag1_y": 0.73,
+            "autocorr_lag1_x": 0.866,
+            "n_efetivo_aprox": 16.0,
+            "ic95_pearson_aprox": [
+              -0.51,
+              0.481
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.5,
+            "spearman": 0.288,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 14.4,
+            "ic95_pearson_aprox": [
+              -0.032,
+              0.811
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.051,
+            "spearman": 0.065,
+            "autocorr_lag1_y": 0.731,
+            "autocorr_lag1_x": 0.873,
+            "n_efetivo_aprox": 15.0,
+            "ic95_pearson_aprox": [
+              -0.549,
+              0.474
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": 0.208,
+            "spearman": 0.131,
+            "autocorr_lag1_y": 0.793,
+            "autocorr_lag1_x": 0.914,
+            "n_efetivo_aprox": 13.9,
+            "ic95_pearson_aprox": [
+              -0.366,
+              0.667
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.057,
+            "spearman": 0.069,
+            "autocorr_lag1_y": 0.732,
+            "autocorr_lag1_x": 0.812,
+            "n_efetivo_aprox": 16.5,
+            "ic95_pearson_aprox": [
+              -0.529,
+              0.443
+            ]
+          }
+        }
+      }
+    },
+    "metalurgia_3.24": {
+      "ibcbr_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-08",
+            "n": 92,
+            "pearson": 0.717,
+            "spearman": 0.322,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.714,
+            "n_efetivo_aprox": 26.2,
+            "ic95_pearson_aprox": [
+              0.458,
+              0.864
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-08",
+            "n": 70,
+            "pearson": 0.256,
+            "spearman": 0.185,
+            "autocorr_lag1_y": 0.595,
+            "autocorr_lag1_x": 0.29,
+            "n_efetivo_aprox": 49.4,
+            "ic95_pearson_aprox": [
+              -0.026,
+              0.5
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-08",
+            "n": 89,
+            "pearson": 0.236,
+            "spearman": 0.263,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.715,
+            "n_efetivo_aprox": 25.2,
+            "ic95_pearson_aprox": [
+              -0.173,
+              0.576
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-08",
+            "n": 67,
+            "pearson": 0.373,
+            "spearman": 0.321,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.27,
+            "n_efetivo_aprox": 48.4,
+            "ic95_pearson_aprox": [
+              0.1,
+              0.593
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-08",
+            "n": 86,
+            "pearson": -0.198,
+            "spearman": -0.117,
+            "autocorr_lag1_y": 0.781,
+            "autocorr_lag1_x": 0.721,
+            "n_efetivo_aprox": 24.0,
+            "ic95_pearson_aprox": [
+              -0.557,
+              0.222
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-08",
+            "n": 64,
+            "pearson": 0.189,
+            "spearman": 0.149,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.238,
+            "n_efetivo_aprox": 48.0,
+            "ic95_pearson_aprox": [
+              -0.1,
+              0.449
+            ]
+          }
+        }
+      },
+      "cambio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.164,
+            "spearman": 0.067,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.938,
+            "n_efetivo_aprox": 14.4,
+            "ic95_pearson_aprox": [
+              -0.633,
+              0.393
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.341,
+            "spearman": 0.271,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.892,
+            "n_efetivo_aprox": 21.6,
+            "ic95_pearson_aprox": [
+              -0.099,
+              0.67
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.252,
+            "spearman": 0.292,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.937,
+            "n_efetivo_aprox": 14.0,
+            "ic95_pearson_aprox": [
+              -0.323,
+              0.69
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": 0.442,
+            "spearman": 0.373,
+            "autocorr_lag1_y": 0.6,
+            "autocorr_lag1_x": 0.886,
+            "n_efetivo_aprox": 20.8,
+            "ic95_pearson_aprox": [
+              0.01,
+              0.735
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": 0.453,
+            "spearman": 0.281,
+            "autocorr_lag1_y": 0.781,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 13.6,
+            "ic95_pearson_aprox": [
+              -0.113,
+              0.798
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": 0.051,
+            "spearman": -0.018,
+            "autocorr_lag1_y": 0.601,
+            "autocorr_lag1_x": 0.894,
+            "n_efetivo_aprox": 19.5,
+            "ic95_pearson_aprox": [
+              -0.406,
+              0.488
+            ]
+          }
+        }
+      },
+      "selic_dif12m_pp": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.035,
+            "spearman": -0.066,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 12.3,
+            "ic95_pearson_aprox": [
+              -0.59,
+              0.543
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.299,
+            "spearman": -0.238,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 20.1,
+            "ic95_pearson_aprox": [
+              -0.654,
+              0.165
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": -0.243,
+            "spearman": -0.364,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 11.9,
+            "ic95_pearson_aprox": [
+              -0.719,
+              0.388
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.468,
+            "spearman": -0.471,
+            "autocorr_lag1_y": 0.6,
+            "autocorr_lag1_x": 0.954,
+            "n_efetivo_aprox": 18.5,
+            "ic95_pearson_aprox": [
+              -0.764,
+              -0.009
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": -0.334,
+            "spearman": -0.526,
+            "autocorr_lag1_y": 0.781,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 11.4,
+            "ic95_pearson_aprox": [
+              -0.77,
+              0.317
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.49,
+            "spearman": -0.517,
+            "autocorr_lag1_y": 0.601,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 16.9,
+            "ic95_pearson_aprox": [
+              -0.787,
+              -0.011
+            ]
+          }
+        }
+      },
+      "selic_nivel": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.162,
+            "spearman": -0.046,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 11.7,
+            "ic95_pearson_aprox": [
+              -0.679,
+              0.462
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.179,
+            "spearman": 0.156,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 18.6,
+            "ic95_pearson_aprox": [
+              -0.305,
+              0.589
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.236,
+            "spearman": -0.134,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 11.7,
+            "ic95_pearson_aprox": [
+              -0.718,
+              0.399
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.154,
+            "spearman": 0.099,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.986,
+            "n_efetivo_aprox": 18.3,
+            "ic95_pearson_aprox": [
+              -0.333,
+              0.575
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.244,
+            "spearman": -0.132,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 11.7,
+            "ic95_pearson_aprox": [
+              -0.722,
+              0.392
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.214,
+            "spearman": 0.134,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.987,
+            "n_efetivo_aprox": 18.3,
+            "ic95_pearson_aprox": [
+              -0.276,
+              0.616
+            ]
+          }
+        }
+      },
+      "minerio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": 0.603,
+            "spearman": 0.278,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 15.6,
+            "ic95_pearson_aprox": [
+              0.145,
+              0.848
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.045,
+            "spearman": -0.062,
+            "autocorr_lag1_y": 0.598,
+            "autocorr_lag1_x": 0.866,
+            "n_efetivo_aprox": 22.5,
+            "ic95_pearson_aprox": [
+              -0.453,
+              0.379
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.454,
+            "spearman": 0.204,
+            "autocorr_lag1_y": 0.78,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 15.1,
+            "ic95_pearson_aprox": [
+              -0.074,
+              0.783
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.18,
+            "spearman": -0.078,
+            "autocorr_lag1_y": 0.6,
+            "autocorr_lag1_x": 0.873,
+            "n_efetivo_aprox": 21.2,
+            "ic95_pearson_aprox": [
+              -0.566,
+              0.27
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": 0.135,
+            "spearman": 0.038,
+            "autocorr_lag1_y": 0.781,
+            "autocorr_lag1_x": 0.914,
+            "n_efetivo_aprox": 14.5,
+            "ic95_pearson_aprox": [
+              -0.415,
+              0.613
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.238,
+            "spearman": -0.026,
+            "autocorr_lag1_y": 0.601,
+            "autocorr_lag1_x": 0.812,
+            "n_efetivo_aprox": 22.4,
+            "ic95_pearson_aprox": [
+              -0.597,
+              0.2
+            ]
+          }
+        }
+      }
+    },
+    "industria_geral": {
+      "ibcbr_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-08",
+            "n": 92,
+            "pearson": 0.866,
+            "spearman": 0.622,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.714,
+            "n_efetivo_aprox": 35.2,
+            "ic95_pearson_aprox": [
+              0.75,
+              0.931
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-08",
+            "n": 70,
+            "pearson": 0.717,
+            "spearman": 0.652,
+            "autocorr_lag1_y": -0.006,
+            "autocorr_lag1_x": 0.29,
+            "n_efetivo_aprox": 70.2,
+            "ic95_pearson_aprox": [
+              0.58,
+              0.814
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-08",
+            "n": 89,
+            "pearson": 0.033,
+            "spearman": 0.127,
+            "autocorr_lag1_y": 0.632,
+            "autocorr_lag1_x": 0.715,
+            "n_efetivo_aprox": 33.6,
+            "ic95_pearson_aprox": [
+              -0.31,
+              0.369
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-08",
+            "n": 67,
+            "pearson": 0.38,
+            "spearman": 0.314,
+            "autocorr_lag1_y": -0.03,
+            "autocorr_lag1_x": 0.27,
+            "n_efetivo_aprox": 68.1,
+            "ic95_pearson_aprox": [
+              0.155,
+              0.567
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-08",
+            "n": 86,
+            "pearson": -0.235,
+            "spearman": -0.231,
+            "autocorr_lag1_y": 0.663,
+            "autocorr_lag1_x": 0.721,
+            "n_efetivo_aprox": 30.4,
+            "ic95_pearson_aprox": [
+              -0.547,
+              0.135
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-08",
+            "n": 64,
+            "pearson": -0.01,
+            "spearman": 0.01,
+            "autocorr_lag1_y": 0.116,
+            "autocorr_lag1_x": 0.238,
+            "n_efetivo_aprox": 60.6,
+            "ic95_pearson_aprox": [
+              -0.262,
+              0.244
+            ]
+          }
+        }
+      },
+      "cambio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.221,
+            "spearman": -0.023,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.938,
+            "n_efetivo_aprox": 24.2,
+            "ic95_pearson_aprox": [
+              -0.572,
+              0.199
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.113,
+            "spearman": 0.099,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.892,
+            "n_efetivo_aprox": 70.6,
+            "ic95_pearson_aprox": [
+              -0.124,
+              0.338
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.168,
+            "spearman": 0.108,
+            "autocorr_lag1_y": 0.632,
+            "autocorr_lag1_x": 0.937,
+            "n_efetivo_aprox": 23.0,
+            "ic95_pearson_aprox": [
+              -0.262,
+              0.542
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": 0.005,
+            "spearman": -0.002,
+            "autocorr_lag1_y": -0.019,
+            "autocorr_lag1_x": 0.886,
+            "n_efetivo_aprox": 70.3,
+            "ic95_pearson_aprox": [
+              -0.229,
+              0.24
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": 0.291,
+            "spearman": 0.155,
+            "autocorr_lag1_y": 0.663,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 20.4,
+            "ic95_pearson_aprox": [
+              -0.168,
+              0.647
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.066,
+            "spearman": -0.024,
+            "autocorr_lag1_y": 0.129,
+            "autocorr_lag1_x": 0.894,
+            "n_efetivo_aprox": 51.6,
+            "ic95_pearson_aprox": [
+              -0.334,
+              0.212
+            ]
+          }
+        }
+      },
+      "selic_dif12m_pp": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.065,
+            "spearman": -0.162,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 22.2,
+            "ic95_pearson_aprox": [
+              -0.472,
+              0.365
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.265,
+            "spearman": -0.243,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.935,
+            "n_efetivo_aprox": 70.5,
+            "ic95_pearson_aprox": [
+              -0.47,
+              -0.033
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": -0.153,
+            "spearman": -0.292,
+            "autocorr_lag1_y": 0.632,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 21.0,
+            "ic95_pearson_aprox": [
+              -0.548,
+              0.298
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.311,
+            "spearman": -0.302,
+            "autocorr_lag1_y": -0.019,
+            "autocorr_lag1_x": 0.954,
+            "n_efetivo_aprox": 70.5,
+            "ic95_pearson_aprox": [
+              -0.508,
+              -0.083
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": -0.156,
+            "spearman": -0.29,
+            "autocorr_lag1_y": 0.663,
+            "autocorr_lag1_x": 0.982,
+            "n_efetivo_aprox": 18.4,
+            "ic95_pearson_aprox": [
+              -0.577,
+              0.33
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.289,
+            "spearman": -0.281,
+            "autocorr_lag1_y": 0.129,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 50.5,
+            "ic95_pearson_aprox": [
+              -0.524,
+              -0.013
+            ]
+          }
+        }
+      },
+      "selic_nivel": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.017,
+            "spearman": 0.04,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 21.6,
+            "ic95_pearson_aprox": [
+              -0.439,
+              0.411
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.15,
+            "spearman": 0.091,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.976,
+            "n_efetivo_aprox": 70.5,
+            "ic95_pearson_aprox": [
+              -0.087,
+              0.371
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.041,
+            "spearman": 0.035,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 21.6,
+            "ic95_pearson_aprox": [
+              -0.458,
+              0.391
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.196,
+            "spearman": 0.11,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.986,
+            "n_efetivo_aprox": 70.5,
+            "ic95_pearson_aprox": [
+              -0.04,
+              0.411
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": -0.025,
+            "spearman": 0.095,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.995,
+            "n_efetivo_aprox": 21.6,
+            "ic95_pearson_aprox": [
+              -0.445,
+              0.404
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": 0.275,
+            "spearman": 0.2,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.987,
+            "n_efetivo_aprox": 70.5,
+            "ic95_pearson_aprox": [
+              0.043,
+              0.478
+            ]
+          }
+        }
+      },
+      "minerio_var12m_pct": {
+        "lag_0": {
+          "amostra_completa": {
+            "periodo": "2019-01..2026-09",
+            "n": 93,
+            "pearson": 0.452,
+            "spearman": 0.19,
+            "autocorr_lag1_y": 0.626,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 25.4,
+            "ic95_pearson_aprox": [
+              0.073,
+              0.717
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-01..2026-09",
+            "n": 71,
+            "pearson": -0.128,
+            "spearman": -0.102,
+            "autocorr_lag1_y": 0.003,
+            "autocorr_lag1_x": 0.866,
+            "n_efetivo_aprox": 70.6,
+            "ic95_pearson_aprox": [
+              -0.352,
+              0.109
+            ]
+          }
+        },
+        "lag_3": {
+          "amostra_completa": {
+            "periodo": "2019-04..2026-09",
+            "n": 90,
+            "pearson": 0.2,
+            "spearman": 0.001,
+            "autocorr_lag1_y": 0.632,
+            "autocorr_lag1_x": 0.913,
+            "n_efetivo_aprox": 24.1,
+            "ic95_pearson_aprox": [
+              -0.22,
+              0.558
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-04..2026-09",
+            "n": 68,
+            "pearson": -0.022,
+            "spearman": -0.078,
+            "autocorr_lag1_y": -0.019,
+            "autocorr_lag1_x": 0.873,
+            "n_efetivo_aprox": 70.2,
+            "ic95_pearson_aprox": [
+              -0.255,
+              0.214
+            ]
+          }
+        },
+        "lag_6": {
+          "amostra_completa": {
+            "periodo": "2019-07..2026-09",
+            "n": 87,
+            "pearson": -0.064,
+            "spearman": -0.155,
+            "autocorr_lag1_y": 0.663,
+            "autocorr_lag1_x": 0.914,
+            "n_efetivo_aprox": 21.4,
+            "ic95_pearson_aprox": [
+              -0.479,
+              0.374
+            ]
+          },
+          "sem_pandemia": {
+            "periodo": "2019-07..2026-09",
+            "n": 65,
+            "pearson": -0.149,
+            "spearman": -0.031,
+            "autocorr_lag1_y": 0.129,
+            "autocorr_lag1_x": 0.812,
+            "n_efetivo_aprox": 52.7,
+            "ic95_pearson_aprox": [
+              -0.403,
+              0.128
+            ]
+          }
+        }
+      }
+    }
+  },
+  "nota": "Correlação não é causalidade. São associações estatísticas descritivas em uma amostra curta (cerca de 7 anos de dados mensais) e dominada por um choque único (pandemia, 2020-2021), com séries de 12 meses sobrepostas, o que reduz muito a informação efetiva (ver n_efetivo_aprox). Foram testadas várias combinações (3 setores x 5 variáveis x 3 defasagens x 2 amostras), então algumas correlações 'fortes' podem surgir por acaso. Variáveis como câmbio, Selic e atividade se movem juntas e respondem a fatores comuns; uma correlação com uma delas não isola o efeito dela. A produção física de siderurgia mede volume no Brasil, não receita, preço ou margem de Gerdau ou Usiminas, que dependem também de preços de aço, importações, custos e operações no exterior (no caso da Gerdau). Use como contexto, não como modelo de previsão."
+}

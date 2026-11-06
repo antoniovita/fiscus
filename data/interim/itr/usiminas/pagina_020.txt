@@ -1,0 +1,43 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+DFs Consolidadas / Demonstração de Valor Adicionado
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+7.01 Receitas 21.634.968 23.700.732
+7.01.01 Vendas de Mercadorias, Produtos e Serviços 21.611.848 23.620.907
+7.01.02 Outras Receitas 33.389 76.152
+7.01.04 Provisão/Reversão de Créds. Liquidação Duvidosa -10.269 3.673
+7.02 Insumos Adquiridos de Terceiros -24.997.043 -21.372.894
+7.02.01 Custos Prods., Mercs. e Servs. Vendidos -24.423.425 -18.375.195
+7.02.02 Materiais, Energia, Servs. de Terceiros e Outros -573.618 -771.367
+7.02.03 Perda/Recuperação de Valores Ativos 0 -2.226.332
+7.03 Valor Adicionado Bruto -3.362.075 2.327.838
+7.04 Retenções -735.386 -949.904
+7.04.01 Depreciação, Amortização e Exaustão -735.386 -949.904
+7.05 Valor Adicionado Líquido Produzido -4.097.461 1.377.934
+7.06 Vlr Adicionado Recebido em Transferência 1.374.002 324.948
+7.06.01 Resultado de Equivalência Patrimonial 199.576 230.777
+7.06.02 Receitas Financeiras 657.688 601.422
+7.06.03 Outros 516.738 -507.251
+7.06.03.01 Ganhos e perdas atuariais -43.823 -50.407
+7.06.03.02 Variações Cambiais 560.561 -456.844
+7.07 Valor Adicionado Total a Distribuir -2.723.459 1.702.882
+7.08 Distribuição do Valor Adicionado -2.723.459 1.702.882
+7.08.01 Pessoal 1.284.914 1.296.980
+7.08.01.01 Remuneração Direta 1.068.945 1.114.169
+7.08.01.02 Benefícios 137.894 124.006
+7.08.01.03 F.G.T.S. 78.075 58.805
+7.08.02 Impostos, Taxas e Contribuições -6.750.968 3.191.996
+7.08.02.01 Federais -4.262.828 894.230
+7.08.02.02 Estaduais -2.586.689 2.205.449
+7.08.02.03 Municipais 98.549 92.317
+7.08.03 Remuneração de Capitais de Terceiros 1.174.823 252.622
+7.08.03.01 Juros 715.305 853.136
+7.08.03.03 Outras 459.518 -600.514
+7.08.03.03.01 Variações Cambiais 459.518 -600.514
+7.08.04 Remuneração de Capitais Próprios 1.567.772 -3.038.716
+7.08.04.02 Dividendos 599 21.635
+7.08.04.03 Lucros Retidos / Prejuízo do Período 1.383.002 -3.143.946
+7.08.04.04 Part. Não Controladores nos Lucros Retidos 184.171 83.595
+PÁGINA: 19 de 109

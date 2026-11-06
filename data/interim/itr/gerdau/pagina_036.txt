@@ -1,0 +1,41 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 23 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração de Valor Adicionado
+(Reais Mil)
+Código da Descrição da Conta Acumulado do Atual Acumulado do Exercício
+Conta Exercício Anterior
+01/01/2026 à 30/09/2026 01/01/2025 à 30/09/2025
+7.01 Receitas 60.637.636 62.123.079
+7.01.01 Vendas de Mercadorias, Produtos e Serviços 57.156.757 57.199.996
+7.01.02 Outras Receitas 369.043 131.107
+7.01.02.04 Outras Receitas 369.043 131.107
+7.01.03 Receitas refs. à Construção de Ativos Próprios 3.170.548 4.798.505
+7.01.04 Provisão/Reversão de Créds. Liquidação Duvidosa -58.712 -6.529
+7.02 Insumos Adquiridos de Terceiros -42.210.150 -46.566.809
+7.02.01 Custos Prods., Mercs. e Servs. Vendidos -34.900.001 -39.479.923
+7.02.02 Materiais, Energia, Servs. de Terceiros e Outros -7.310.149 -7.086.886
+7.03 Valor Adicionado Bruto 18.427.486 15.556.270
+7.04 Retenções -2.761.070 -2.747.933
+7.04.01 Depreciação, Amortização e Exaustão -2.761.070 -2.747.933
+7.05 Valor Adicionado Líquido Produzido 15.666.416 12.808.337
+7.06 Vlr Adicionado Recebido em Transferência 528.214 618.295
+7.06.01 Resultado de Equivalência Patrimonial 166.223 124.457
+7.06.02 Receitas Financeiras 360.021 486.476
+7.06.03 Outros 1.970 7.362
+7.06.03.01 Receitas de aluguel 1.970 7.362
+7.07 Valor Adicionado Total a Distribuir 16.194.630 13.426.632
+7.08 Distribuição do Valor Adicionado 16.194.630 13.426.632
+7.08.01 Pessoal 6.149.087 6.077.983
+7.08.01.01 Remuneração Direta 4.702.832 4.717.687
+7.08.01.02 Benefícios 1.324.346 1.257.537
+7.08.01.03 F.G.T.S. 121.909 102.759
+7.08.02 Impostos, Taxas e Contribuições 4.474.663 3.133.916
+7.08.02.01 Federais 3.222.326 1.946.682
+7.08.02.02 Estaduais 1.042.698 983.982
+7.08.02.03 Municipais 209.639 203.252
+7.08.03 Remuneração de Capitais de Terceiros 1.528.382 1.502.552
+7.08.04 Remuneração de Capitais Próprios 4.042.498 2.712.181
+7.08.04.02 Dividendos 835.246 510.366
+7.08.04.03 Lucros Retidos / Prejuízo do Período 3.207.252 2.201.815
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dReD VAaUl oSr.A A.dicionado 31

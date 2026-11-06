@@ -1,0 +1,68 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Comentário do Desempenho
+Release de Resultados 3T26 27
+FLUXO DE CAIXA ACUMULADO CONSOLIDADO | IFRS R$ mil 9M26 9M25
+Fluxos de Caixa das Atividades Operacionais
+ Lucro (prejuízo) líquido do exercício 1.567.773 (3.038.716)
+ Encargos e Var. Monetárias/Cambiais líquidas (152.384) (313.934)
+ Despesas de Juros 590.550 632.305
+ Depreciação e Amortização 735.386 949.904
+ Resultado na Venda de Imobilizado (18.564) (53.359)
+ Participações nos Resultados de Subsidiárias (199.577) (230.777)
+ Impairment de Ativos - 2.226.332
+ Imposto de renda e contribuição social do exercício 72.243 117.108
+ Imposto de Renda e Contribuição Social Diferidos (290.611) 1.315.732
+ Constituição (reversão) de Provisões 66.268 195.519
+ Ganhos e Perdas Atuariais 43.223 50.406
+Total 2.414.307 1.850.520
+(Acréscimo)/Decréscimo de Ativos
+ Contas a Receber de Clientes 82.782 (108.163)
+ Estoques (426.087) 1.327.941
+ Impostos a Recuperar 358.768 (19.385)
+ Depósitos Judiciais (27.437) (18.381)
+ Adiantamentos a fornecedores (88.412) (1.454)
+ Outros 207.991 (154.964)
+Total 107.605 1.025.594
+Acréscimo/(Decréscimo) de Passivos
+ Fornecedores, Empreiteiros e Fretes (129.578) (786.761)
+ Valores a Pagar a Sociedades Ligadas - (27.612)
+ Adiantamentos de Clientes 6.345 13.306
+ Tributos a Recolher 24.732 199.392
+ Títulos a Pagar Derivados de Fornecedores (536.798) (189.538)
+ Passivo Atuarial pago (72.027) (66.992)
+ Outros (138.467) (141.559)
+Total (845.793) (999.764)
+Caixa Proveniente das Atividades Operacionais 1.676.119 1.876.350
+ Juros Pagos (605.424) (688.765)
+ Imposto de Renda e Contribuição Social (69.513) (110.321)
+ Liquidação de Operações de Instrumentos Financeiros Derivativos (23.950) (14.519)
+Caixa Líquido Proveniente das Atividades Operacionais 977.232 1.062.745
+Fluxos de caixa das Atividades de Investimentos
+ Títulos e valores mobiliários (873.677) (200.526)
+ Aumento de capital em subsidiárias - (45)
+ Compras de imobilizado (783.303) (729.356)
+ Valor recebido pela venda de imobilizado 20.626 54.411
+ Dividendos recebidos 14.450 20.184
+ Compras de intangíveis (102.638) (88.737)
+Caixa Líquido Aplicado nas Atividades de Investimentos (1.724.542) (944.069)
+Fluxos de Caixa das Atividades de Financiamentos
+ Ingressos de Emprést., Financiam. e Debêntures - 2.946.250
+ Pagamento de Emprést., Financ. e Debênt. - (2.936.089)
+ Pagamento de Tributos Parcelados (23.952) (19.037)
+ Pagamento de Passivo de arrendamento (23.281) (25.376)
+ Dividendos e Juros sobre Capital Próprio (46.553) (11.071)
+Caixa Líquido Proveniente das (Aplicado nas) Atividades de Financiamentos (93.786) (45.323)
+Variação Cambial sobre Caixa e Equivalentes de Caixa (229.007) (191.863)
+Aumento (redução) Líquido de Caixa e Equivalentes de Caixa (1.070.103) (118.510)
+Caixa e Equivalentes de Caixa no Início do Exercício 5.141.617 5.200.342
+Caixa e Equivalentes de Caixa no Final do Exercício 4.071.514 5.081.832
+CONCILIAÇÃO COM A LINHA DE DISPONIBILIDADES NO BALANÇO PATRIMONIAL
+Saldo Inicial Caixa e equivalentes de caixa 5.141.617 5.200.342
+Saldo Inicial de Títulos e Valores Mobiliários 1.801.978 753.639
+Disponibilidades no Início do Exercício 6.943.595 5.953.981
+Aumento (redução) Líquido de Caixa e Equivalentes de Caixa (1.070.103) (118.510)
+Aumento (redução) Líquido de Títulos e valores mobiliários 873.677 200.526
+Saldo Final Caixa e equivalentes de caixa 4.071.514 5.081.832
+Saldo final de Títulos e valores mobiliários 2.675.655 954.165
+Disponibilidades no Final do Exercício 6.747.169 6.035.997
+PÁGINA: 46 de 109

@@ -1,0 +1,95 @@
+{
+  "executado_em": "2026-11-06T15:19:59+00:00",
+  "modelo": "claude -p (padrão do Claude Code)",
+  "paginas_enviadas": {
+    "gerdau": [
+      3,
+      18,
+      29,
+      72
+    ],
+    "usiminas": [
+      14,
+      24,
+      28,
+      33
+    ]
+  },
+  "acertos_valor": 8,
+  "acertos_pagina": 8,
+  "total": 8,
+  "itens": [
+    {
+      "chave": "gerdau_receita_liquida_3T26",
+      "ia_valor": 18690.5,
+      "ia_pagina": 29,
+      "verificado": 18690.518,
+      "pagina_verificada": 29,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "gerdau_ebitda_ajustado_3T26",
+      "ia_valor": 3770.2,
+      "ia_pagina": 72,
+      "verificado": 3770.176,
+      "pagina_verificada": 72,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "gerdau_lucro_liquido_3T26",
+      "ia_valor": 1563.1,
+      "ia_pagina": 29,
+      "verificado": 1563.097,
+      "pagina_verificada": 29,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "gerdau_margem_ebitda_ajustada_3T26_pct",
+      "ia_valor": 20.2,
+      "ia_pagina": 72,
+      "verificado": 20.17,
+      "pagina_verificada": null,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "usiminas_receita_liquida_3T26",
+      "ia_valor": 6202.4,
+      "ia_pagina": 14,
+      "verificado": 6202.422,
+      "pagina_verificada": 14,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "usiminas_ebitda_ajustado_3T26",
+      "ia_valor": 558.0,
+      "ia_pagina": 28,
+      "verificado": 558.017,
+      "pagina_verificada": 28,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "usiminas_lucro_liquido_3T25",
+      "ia_valor": -3503.3,
+      "ia_pagina": 14,
+      "verificado": -3503.338,
+      "pagina_verificada": 14,
+      "valor_ok": true,
+      "pagina_ok": true
+    },
+    {
+      "chave": "usiminas_margem_ebitda_ajustada_3T25_pct",
+      "ia_valor": 6.6,
+      "ia_pagina": 28,
+      "verificado": 6.57,
+      "pagina_verificada": null,
+      "valor_ok": true,
+      "pagina_ok": true
+    }
+  ]
+}

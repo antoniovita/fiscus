@@ -1,0 +1,45 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+14 Imobilizado
+A movimentação do imobilizado está demonstrada a seguir:
+Controladora Consolidado
+Saldos em 31 de dezembro de 2025 8.852.718 10.424.479
+Adições 653.111 791.161
+Baixas (1.486) (2.062)
+Depreciação (i) (435.973) (646.375)
+Transferências para o ativo intangível 1.091 738
+Adição / Remensuração – Direito de Uso (IFRS16) (CPC 06 (R2)) 595 7.223
+Ajustes de conversão (514.792) (607.426)
+Outros 982 449
+Saldos em 30 de setembro de 2026 8.556.246 9.968.187
+(i) Inclui a depreciação referente ao direito de uso (IFRS 16) (CPC 06 (R2)) no valor de R$1.443 na Controladora e de
+R$7.880 no Consolidado.
+A natureza e a composição do imobilizado estão apresentadas na Nota 17 das
+demonstrações financeiras de 31 de dezembro de 2025.
+Em 30 de setembro de 2026, as adições do imobilizado no Consolidado referem-se aos
+gastos incorridos com o objetivo de manter a capacidade produtiva. Do total de
+R$791.161, destacam-se:
+Consolidado
+30/09/2026
+Nova Planta de Moagem_Injeção de PCI 93.619
+Coqueria 2-Bat 3-ReparoTopo Correlato 87.723
+Novo Gasômetro LDG 75.236
+Aciaria 2 - Refino Primário - Substituição da ponte rolante C1 49.765
+Pátio Carvão - Abast. Coque Direto 41.200
+Caldeira 130/2 - Troca do Boiler Bank 16.988
+MUSA102: Projeto Compactos 11.976
+Máquina de Embalagem - Laminação a Frio 10.190
+Aquisição e substituição do gerador diesel CB-2 10.188
+AVCB Gasômetros 10.017
+Projeto Cibersegurança Industrial 9.372
+Atualiz. Automação Controle Gasômetros 8.671
+Aquisições de veículos automotores 8.241
+Pad-up Coqueria 7.921
+Mitigação impactos das chuvas - Recebimento e Pátios 7.676
+Habitat - Reforma do Restaurante da Mata 7.547
+BP 2025/2026 – Energy and utilities 7.038
+Outras adições de imobilizado (i) 327.793
+791.161
+(i) Composto por gastos relacionados a diversos projetos de menor valor.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 77 de 109

@@ -1,0 +1,10 @@
+{
+  "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_2025.zip",
+  "consultado_em": "2026-11-06T15:20:08+00:00",
+  "http_status": 200,
+  "last_modified": "Sun, 01 Nov 2026 10:57:46 GMT",
+  "content_type": "application/zip",
+  "arquivo": "data/raw/cvm/itr_cia_aberta_2025.zip",
+  "bytes": 31684926,
+  "sha256": "52a0148e26ff0e9ffeaf60eb816d8a4f23d10f817e8772140a36ce81635ef8d8"
+}

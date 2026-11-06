@@ -1,0 +1,10 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/CSNA3.SA?range=1mo&interval=1d",
+  "consultado_em": "2026-11-06T15:20:12+00:00",
+  "http_status": 200,
+  "last_modified": null,
+  "content_type": "application/json;charset=utf-8",
+  "arquivo": "data/raw/mercado/yahoo_chart_CSNA3.json",
+  "bytes": 3593,
+  "sha256": "a9651ac0804ec6ab7338644592d263fb839fd536c97cc4ba19716ea3b4efd9fc"
+}

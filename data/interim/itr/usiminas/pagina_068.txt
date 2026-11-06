@@ -1,0 +1,36 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+A análise de vencimentos das contas a receber de clientes está apresentada a seguir:
+Controladora Consolidado
+30/09/2026 31/12/2025 30/09/2026 31/12/2025
+Valores a vencer 2.875.814 2.621.110 2.805.222 2.888.162
+Vencidos:
+Até 30 dias 56.968 98.610 69.698 106.419
+Entre 31 e 60 dias 9.803 8.250 7.238 3.172
+Entre 61 e 90 dias 1.964 11.438 1.549 11.916
+Entre 91 e 180 dias 679 9.399 1.772 10.857
+Acima de 181 dias 33.277 - 39.598 6.117
+Acima de 181 dias - clientes em provisão para PCE 46.390 46.027 72.693 81.211
+Valores a vencer - clientes em recuperação judicial 29.785 28.194 29.785 28.194
+(-) Perdas de crédito esperadas (PCE) (76.175) (74.221) (102.478) (109.405)
+2.978.505 2.748.807 2.925.077 3.026.643
+Em 30 de setembro de 2026, as contas a receber de clientes, nos montantes de
+R$102.691 na Controladora e de R$119.885 no Consolidado, encontravam-se vencidas,
+mas não impaired (31 de dezembro de 2025 – R$127.697 e R$138.481,
+(respectivamente). Essas contas se referem a diversos clientes independentes, que não
+possuem histórico de inadimplência recente ou cujos saldos em aberto possuem
+garantias.
+A Companhia, não analisa e não constitui provisão para perdas sobre os saldos de contas
+a receber de clientes exclusivamente com base nos valores vencidos. Os valores
+inadimplentes são analisados individualmente, cliente por cliente. Desta forma, a
+Companhia avalia a constituição de provisão para perdas com base na real situação de
+risco. Eventuais atrasos de pagamentos são geridos pelas áreas comercial e financeira,
+as quais indicam para a necessidade de constituição de provisão para perdas, quando
+aplicável. Normalmente, os clientes da Companhia demonstram, consistentemente, bom
+comportamento de pagamentos ao longo de um período antes que se considere que o
+risco de crédito tenha aumentado.
+Em 30 de setembro de 2026, os saldos em aberto de contas a receber das Empresas
+Usiminas com as suas respectivas partes relacionadas não possuíam expectativa de
+perda.
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 67 de 109

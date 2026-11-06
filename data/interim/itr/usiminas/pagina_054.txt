@@ -1,0 +1,41 @@
+ITR - Informações Trimestrais - 30/09/2026 - USINAS SID DE MINAS GERAIS S.A.-USIMINAS Versão : 1
+Notas Explicativas
+(b) Informações suplementares
+Para fins comparativos, as informações contábeis intermediárias, individuais e
+consolidadas, na moeda funcional USD e na moeda de apresentação BRL, estão
+descritas a seguir como informações suplementares.
+(i) Balanços patrimoniais (em milhares de dólares e milhares de reais)
+30/09/2026
+Controladora Consolidado
+USD BRL USD BRL
+Ativo
+Circulante
+Caixa e equivalentes de caixa 439.413 2.276.554 785.870 4.071.514
+Títulos e valores mobiliários 287.121 1.487.545 516.446 2.675.655
+Contas a receber de clientes 571.607 2.961.439 561.196 2.907.498
+Estoques 955.475 4.950.220 1.161.377 6.016.979
+Impostos a recuperar 82.206 425.901 118.460 613.730
+Imposto de renda e contribuição social antecipados 4.907 25.423 7.386 38.267
+Dividendos a receber 6.469 33.515 14.300 74.087
+Instrumentos financeiros derivativos - - 1.608 8.331
+Demais valores a receber 34.536 178.929 36.446 188.823
+Total do ativo circulante 2.381.734 12.339.526 3.203.089 16.594.884
+Não circulante
+Realizável a longo prazo
+Contas a receber de clientes 3.294 17.066 3.393 17.579
+Imposto de renda e contribuição social diferidos 245.267 1.270.704 413.822 2.143.970
+Valores a receber de empresas ligadas 3.629 18.801 - -
+Depósitos judiciais 42.580 220.603 127.149 658.747
+Impostos a recuperar 51.069 264.583 114.181 591.559
+Imposto de renda e contribuição social a recuperar 34.439 178.425 45.313 234.763
+Adiantamentos contratuais - - 74.025 383.516
+Demais valores a receber 37.332 193.414 94.910 491.720
+417.610 2.163.596 872.793 4.521.854
+Investimentos 1.463.022 7.579.771 323.631 1.676.700
+Propriedades para investimentos 13.064 67.683 28.841 149.422
+Imobilizado 1.651.498 8.556.246 1.924.026 9.968.187
+Intangível 50.532 261.801 371.553 1.924.979
+Total do ativo não circulante 3.595.726 18.629.097 3.520.844 18.241.142
+Total do ativo 5.977.460 30.968.623 6.723.933 34.836.026
+C lassificação da informação: Confidencial Grupo de Acesso:
+PÁGINA: 53 de 109

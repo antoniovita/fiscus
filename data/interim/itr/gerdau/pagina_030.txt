@@ -1,0 +1,18 @@
+Docusign Envelope ID: AA4DB11E-AF95-8FF6-8065-92BDF91157FE Versão : 1
+PÁGINA: 17 de 65
+ITR - Informações Trimestrais Ano: 2026 Versão: 1
+DFs Consolidadas / Demonstração do Resultado
+(Reais Mil)
+Código da Descrição da Conta Trimestre Atual Acumulado do Atual Igual Trimestre do Acumulado do Exercício
+Conta 01/07/2026 à 30/09/2026 Exercício Exercício Anterior Anterior
+01/01/2026 à 30/09/2026 01/07/2025 à 30/09/2025 01/01/2025 à 30/09/2025
+3.11.01 Atribuído a Sócios da Empresa Controladora 1.554.156 4.009.996 1.079.395 2.685.174
+3.11.02 Atribuído a Sócios Não Controladores 8.941 32.502 10.485 27.007
+3.99 Lucro por Ação - (Reais / Ação)
+3.99.01 Lucro Básico por Ação
+3.99.01.01 ON 0,79 2,04 0,54 1,33
+3.99.01.02 PN 0,79 2,04 0,54 1,33
+3.99.02 Lucro Diluído por Ação
+3.99.02.01 ON 0,79 2,03 0,54 1,33
+3.99.02.02 PN 0,79 2,03 0,54 1,33
+ITR - InfoDrmFsa çCõoens sTorilmideasdtraasis / -D 3e0m/0o9n/2s0t2ra6ç -ã GoE dRoD RAeUs Su.lAta.do 25

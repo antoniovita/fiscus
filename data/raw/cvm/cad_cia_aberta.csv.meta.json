@@ -1,0 +1,10 @@
+{
+  "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+  "consultado_em": "2026-11-06T15:20:09+00:00",
+  "http_status": 200,
+  "last_modified": "Fri, 06 Nov 2026 04:07:57 GMT",
+  "content_type": "application/octet-stream",
+  "arquivo": "data/raw/cvm/cad_cia_aberta.csv",
+  "bytes": 1494677,
+  "sha256": "0068866ab4488bd6110209d05243006085ee34234eef4d5b4bc0207d750f874c"
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOAU4.SA?range=1mo&interval=1d",
+  "consultado_em": "2026-11-06T15:20:11+00:00",
+  "http_status": 200,
+  "last_modified": null,
+  "content_type": "application/json;charset=utf-8",
+  "arquivo": "data/raw/mercado/yahoo_chart_GOAU4.json",
+  "bytes": 3602,
+  "sha256": "2268dd39f247b891a9d14ae3e931e38164ba4f55d462f119a1f618a57d03b032"
+}
