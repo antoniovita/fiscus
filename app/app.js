@@ -630,7 +630,10 @@ function openD(k,e,i){const m=MET[k],v=val(k,e,+i),s=PROV[`${k}|${e}|${i}`]||{};
    <div class="dbig">${esc(fmt(v,m.un))}</div>${st}${body}<span class="small">${esc(m.porque)}</span>`;
   $("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");$("scrim").hidden=false;$("x").onclick=closeD;$("x").focus()}
 function closeD(){$("drawer").classList.remove("open");$("drawer").setAttribute("aria-hidden","true");$("scrim").hidden=true}
-function setStatus(){$("status").classList.toggle("on",!!sample);$("status").querySelector("span").textContent=sample?"Claude conectado":"Modo demonstração";if(!$("v-app").hidden)renderSide()}
+const ART_URL="https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh";let sampleChecked=false;
+function setStatus(){const st=$("status");st.classList.toggle("on",!!sample);
+  st.innerHTML=sample?`<i></i><span>Claude conectado</span>`:sampleChecked?`<i></i><span>Modo demonstração · <a href="${ART_URL}" target="_blank" rel="noopener">entre no claude.ai para usar o seu Claude</a></span>`:`<i></i><span>Conectando ao Claude</span>`;
+  const b=$("demoban");if(b)b.hidden=!(sampleChecked&&!sample);if(!$("v-app").hidden)renderSide()}
 
 /* ================= EVENTOS ================= */
 document.addEventListener("click",ev=>{const t=ev.target;
@@ -697,5 +700,5 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("modal").hidd
 
 render();
 const use=n=>window.claude?.use?window.claude.use(n).catch(()=>null):Promise.resolve(null);
-use("sample").then(s=>{sample=s;setStatus()});
+use("sample").then(s=>{sample=s;sampleChecked=true;setStatus()});
 use("downloads").then(d=>{downloads=d;document.querySelectorAll("[data-pdf]").forEach(b=>b.hidden=!d)});

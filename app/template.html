@@ -1178,6 +1178,12 @@ table.sens2 td,table.sens2 th{white-space:nowrap;overflow:hidden;text-overflow:e
 .rs .sens-2.big{grid-template-columns:1fr 1fr}
 .rs .sens-2.big table.sens2 td,.rs .sens-2.big table.sens2 th{font-size:clamp(8px,1.05cqw,14px);padding:clamp(5px,.9cqw,12px) 4px}
 .rs .concl3 table.sens2 th:first-child,.rs .concl3 table.sens2 td:first-child{width:30%}
+
+.status a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:760px){.status span{white-space:normal}}
+.demoban{background:var(--amber-soft);color:#6b3e00;border-radius:14px;padding:12px 16px;font-size:13.5px;line-height:1.45}
+.demoban b{font-weight:600}.demoban a{color:var(--blue);font-weight:600;margin-left:4px}
+.demoban[hidden]{display:none}
 </style>
 
 <div class="site" id="v-landing">
@@ -1348,7 +1354,7 @@ table.sens2 td,table.sens2 th{white-space:nowrap;overflow:hidden;text-overflow:e
 
     <section id="v-dash" class="dash">
       <div></div>
-      <div class="center"><div class="greet"><h1 id="greet">Boa tarde.</h1></div>
+      <div class="center"><div class="demoban" id="demoban" hidden><b>Você está no modo demonstração.</b> O fluxo inteiro funciona, mas o chat usa textos padrão. Para conversar com o seu próprio Claude, abra o Fiscus no claude.ai, logado na sua conta, e aceite a permissão na primeira pergunta. <a href="https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh" target="_blank" rel="noopener">Abrir no claude.ai ›</a></div><div class="greet"><h1 id="greet">Boa tarde.</h1></div>
       <form class="box" id="dask">
         <textarea id="dq" rows="2" placeholder="Pergunte sobre um setor ou peça um comparativo, como Gerdau × Usiminas"></textarea>
         <div class="boxbar">
