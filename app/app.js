@@ -328,10 +328,14 @@ function renderSide(){const L=STORE.list;
   $("crumb").textContent=S.view==="dash"?"":S.kind==="panorama"?anTitle(S):`Siderurgia · ${anTitle(S)}`;
   const prontas=L.filter(a=>a.verdict==="ok").length,pares=L.filter(a=>a.picks?.length===2).length;
   if(!ACCT)return;
-  $("me").innerHTML=`<div class="r"><span class="avt">${esc(initials(ACCT?.nome))}</span><span class="nm"><b>${esc(ACCT?.nome||"Você")}</b><small>${esc([ACCT?.funcao,ACCT?.inst].filter(Boolean).join(" · ")||"Perfil local")}</small></span><button class="logout" data-logout>Sair</button></div>
-   <div class="r plan-r"><span class="plantag">${esc((PLANS[ACCT?.plano]||PLANS.pro).n)}</span><span>${esc((PLANS[ACCT?.plano]||PLANS.pro).p)}</span></div>
-   <div class="r stats"><span><b>${L.length}</b> análises</span><span><b>${pares}</b> comparativos</span><span><b>${prontas}</b> prontas</span></div>
-   <div class="r stats"><span><i class="dot" style="background:${sample?"var(--green-ios)":"var(--faint)"}"></i>${sample?"Claude conectado":"Modo demonstração"}</span></div>`}
+  const pl=(PLANS[ACCT?.plano]||PLANS.pro);
+  $("me").innerHTML=`<button type="button" class="mebtn" id="mebtn" aria-haspopup="menu" aria-expanded="false"><span class="avt2">${esc(initials(ACCT?.nome))}</span><span class="mn"><b>${esc((ACCT?.nome||"Você").split(" ")[0])}</b><span> · ${esc(pl.n)}</span></span>${ic("nav-arrow-down")}</button>
+   <div class="mepop" id="mepop" role="menu" hidden>
+    <div class="mp-h"><b>${esc(ACCT?.nome||"Você")}</b><small>${esc([ACCT?.funcao,ACCT?.inst].filter(Boolean).join(" · ")||"Perfil local")}</small></div>
+    <div class="mp-r"><span>Plano</span><b>${esc(pl.n)} · ${esc(pl.p)}</b></div>
+    <div class="mp-r"><span>Análises</span><b>${L.length}</b></div><div class="mp-r"><span>Comparativos</span><b>${pares}</b></div><div class="mp-r"><span>Apresentações prontas</span><b>${prontas}</b></div>
+    <div class="mp-r"><span>Assistente</span><b><i class="dot" style="background:${sample?"var(--green-ios)":"var(--faint)"}"></i>${sample?"Claude conectado":"Demonstração"}</b></div>
+    <div class="mp-sep"></div><button type="button" class="mp-out" data-logout>Sair</button></div>`}
 function renderDD(){$("ddmenu").innerHTML=SETORES.map(x=>`<li role="option" data-dd="${x.id}" aria-selected="${x.ativo}" aria-disabled="${!x.ativo}" class="${x.ativo?"act":""}"><span>${x.nome}</span>${x.ativo?ic("check"):`<small>Em breve</small>`}</li>`).join("")}
 function closeDD(){if($("ddmenu")){$("ddmenu").hidden=true;$("ddbtn").setAttribute("aria-expanded","false")}}
 let boxOk=null;
@@ -504,6 +508,8 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const rl=t.closest("[data-role]");if(rl){suRole=rl.dataset.role;renderSignup();return}
   if(t.closest("[data-logout]")){confirmBox("Sair da conta?","Você volta para a página inicial. Sua conta e suas análises continuam salvas neste navegador para quando entrar de novo.",logout,"Sair");return}
   const lg=t.closest("[data-login]");if(lg){const a=ACC.list.find(x=>x.id===lg.dataset.login);if(a){a.ultimo=Date.now();login(a.id)}return}
+  if(t.closest("#mebtn")){const m=$("mepop"),o=m.hidden;m.hidden=!o;$("mebtn").setAttribute("aria-expanded",String(o));return}
+  if($("mepop")&&!$("mepop").hidden&&!t.closest("#mepop")){$("mepop").hidden=true;$("mebtn").setAttribute("aria-expanded","false")}
   if(t.closest("#plusbtn")){togglePMenu();return}
   const ps=t.closest("[data-psec]");if(ps){pSec=ps.dataset.psec;renderPMenu();return}
   if(t.closest("[data-pback]")){pSec=null;renderPMenu();return}
