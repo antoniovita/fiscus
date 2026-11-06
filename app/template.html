@@ -826,6 +826,33 @@ table.sxt td.m small{display:block;font-size:11.5px;color:var(--faint);font-weig
 .plan.hi .pill.dark{background:#f5f5f7;color:#1d1d1f!important}
 .plan.hi .pill.dark:hover{background:#fff}
 .pnote{margin:0;font-size:13px;color:var(--faint);text-align:center}
+
+/* ===== menu + (estilo Claude) ===== */
+.pwrap{position:relative}
+.plusbtn{width:34px;height:34px;border-radius:10px;border:0;background:transparent;color:var(--ink2);cursor:pointer;box-shadow:0 0 0 1px var(--hair);transition:background .15s}
+.plusbtn:hover,.plusbtn[aria-expanded="true"]{background:#f5f5f7}
+.plusbtn .ico{width:18px;height:18px}
+.pmenu{position:absolute;left:0;bottom:calc(100% + 10px);z-index:40;width:320px;max-height:min(440px,60vh);overflow-y:auto;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:16px;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 18px 48px rgba(0,0,0,.16);padding:6px;animation:ddin .16s var(--ease)}
+.pmenu .ph{font-size:12px;font-weight:600;color:var(--faint);padding:8px 10px 4px}
+.pmenu .sep{height:1px;background:var(--line);margin:6px 8px}
+.pmenu button{width:100%;display:flex;align-items:center;gap:10px;border:0;background:none;padding:9px 10px;border-radius:10px;font-size:14px;color:var(--ink);cursor:pointer;text-align:left}
+.pmenu button:hover{background:rgba(0,0,0,.05)}
+.pmenu button .ico{width:17px;height:17px;color:var(--ink2);flex:none}
+.pmenu button .tx{flex:1;min-width:0;display:grid}
+.pmenu button .tx small{font-size:12px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmenu button .rt{font-size:12px;color:var(--faint);display:inline-flex;align-items:center;gap:4px;flex:none}
+.pmenu button .rt .ico{width:14px;height:14px;color:var(--faint)}
+.pmenu button.on{background:rgba(0,113,227,.08)}
+.pmenu .lg.sm{height:24px;min-width:56px;padding:3px 6px}
+.pmenu .lg.sm img{max-height:12px;max-width:48px}
+.pmenu .tk{width:56px;flex:none;font-size:12px;font-weight:600;color:var(--ink2);background:#f5f5f7;border-radius:7px;padding:4px 0;text-align:center}
+.dchips{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+.dchip{display:inline-flex;align-items:center;gap:6px;background:#f5f5f7;border-radius:999px;padding:3px 4px 3px 10px;font-size:13px;font-weight:500}
+.dchip button{border:0;background:none;width:20px;height:20px;border-radius:50%;cursor:pointer;color:var(--faint);display:grid;place-items:center}
+.dchip button:hover{background:#e8e8ed;color:var(--ink)}
+.dchip .ico{width:12px;height:12px}
+
+.side .brand{padding:10px 14px 0 22px;margin-bottom:22px}
 </style>
 
 <div class="site" id="v-landing">
@@ -1000,7 +1027,7 @@ table.sxt td.m small{display:block;font-size:11.5px;color:var(--faint);font-weig
       <form class="box" id="dask">
         <textarea id="dq" rows="2" placeholder="Pergunte sobre um setor ou peça um comparativo, como Gerdau × Usiminas"></textarea>
         <div class="boxbar">
-          <div class="right"><span></span></div>
+          <div class="right" style="flex-wrap:nowrap;min-width:0"><div class="pwrap"><button type="button" class="plusbtn" id="plusbtn" aria-haspopup="menu" aria-expanded="false" aria-label="Escolher setor e empresas" data-ic="plus"></button><div class="pmenu" id="pmenu" role="menu" hidden></div></div><div class="dchips" id="dchips"></div></div>
           <button class="send" type="submit" aria-label="Começar análise" data-ic="arrow-up"></button>
         </div>
       </form></div>

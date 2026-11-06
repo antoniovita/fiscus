@@ -266,6 +266,16 @@ function renderDash(){const h=new Date().getHours(),sd=h<12?"Bom dia":h<18?"Boa 
   $("greet").textContent=`${sd}${nm?", "+nm:""}.`;
 
   $("sugg").innerHTML=[...SUGG,...(SXORDER.length?[SUGG_SX]:[])].map((x,i)=>`<button type="button" data-sugg="${i}">${ic(x.i)}<span>${esc(x.t)}</span><small>${x.h}</small></button>`).join("")}
+/* menu + do painel */
+let DPICK=[],pSec=null;
+const PSECS=[["siderurgia","Siderurgia","industry","Análise completa"],...SXORDER.map(k=>[k,SETX[k].nome,{bancos:"bank",energia:"flash",petroleo:"droplet",mineracao:"hammer",varejo:"shopping-bag"}[k]||"view-grid","Panorama"])];
+function renderPMenu(){const m=$("pmenu");if(!m)return;
+  if(!pSec){m.innerHTML=`<div class="ph">Analisar</div><button type="button" data-pact="tese">${ic("page-search")}<span class="tx">Tese do setor de siderurgia<small>Veredito, drivers e os 8 pontos</small></span></button><div class="sep"></div><div class="ph">Empresas por setor</div>${PSECS.map(([k,n,i,h])=>`<button type="button" data-psec="${k}">${ic(i)}<span class="tx">${esc(n)}<small>${k==="siderurgia"?"Gerdau, Usiminas e CSN":SETX[k].empresas.length+" empresas"}</small></span><span class="rt">${h}${ic("nav-arrow-right")}</span></button>`).join("")}`;return}
+  const back=`<button type="button" data-pback>${ic("nav-arrow-left")}<span class="tx">${esc(PSECS.find(x=>x[0]===pSec)[1])}</span></button><div class="sep"></div>`;
+  if(pSec==="siderurgia"){m.innerHTML=back+`<div class="ph">Escolha até duas para comparar</div>`+["g","u","c"].map(e=>`<button type="button" class="${DPICK.includes(e)?"on":""}" data-pco="${e}">${logo(e,"sm")}<span class="tx">${esc(EMP[e].nome)}<small>${EMP[e].tk} · ${esc(EMP[e].desc)}</small></span>${DPICK.includes(e)?`<span class="rt">${ic("check")}</span>`:""}</button>`).join("");return}
+  m.innerHTML=back+SETX[pSec].empresas.map((e,i)=>`<button type="button" data-pco="${pSec}|${i}"><span class="tk">${esc(e.tk)}</span><span class="tx">${esc(e.nome||e.tk)}<small>${esc(e.per||e.db||"")}</small></span></button>`).join("")}
+function renderDChips(){const c=$("dchips");if(c)c.innerHTML=DPICK.map(e=>`<span class="dchip">${esc(EMP[e].nome)}<button type="button" data-unpick="${e}" aria-label="Remover ${esc(EMP[e].nome)}">${ic("xmark")}</button></span>`).join("")}
+function togglePMenu(open){const m=$("pmenu");if(!m)return;const o=open??m.hidden;m.hidden=!o;$("plusbtn").setAttribute("aria-expanded",String(o));if(o){pSec=null;renderPMenu()}}
 function picksFrom(t){t=t.toLowerCase();const f=[];[["g","gerdau"],["u","usiminas"],["c","csn"],["c","siderúrgica nacional"]].forEach(([k,w])=>{if(t.includes(w)&&!f.includes(k))f.push(k)});return f.slice(0,2)}
 async function startWith(picks,q,keep){await startSector("siderurgia",q,keep);if(picks&&picks.length===2){await wait(250);goCos();S.picks=picks;confirmCos()}}
 var seenMsgs=0;
@@ -453,6 +463,14 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const rl=t.closest("[data-role]");if(rl){suRole=rl.dataset.role;renderSignup();return}
   if(t.closest("[data-logout]")){confirmBox("Sair da conta?","Você volta para a página inicial. Sua conta e suas análises continuam salvas neste navegador para quando entrar de novo.",logout,"Sair");return}
   const lg=t.closest("[data-login]");if(lg){const a=ACC.list.find(x=>x.id===lg.dataset.login);if(a){a.ultimo=Date.now();login(a.id)}return}
+  if(t.closest("#plusbtn")){togglePMenu();return}
+  const ps=t.closest("[data-psec]");if(ps){pSec=ps.dataset.psec;renderPMenu();return}
+  if(t.closest("[data-pback]")){pSec=null;renderPMenu();return}
+  const pa=t.closest("[data-pact]");if(pa){togglePMenu(false);startWith(null,"Este setor é um bom lugar para investir?");return}
+  const pco=t.closest("[data-pco]");if(pco){const v=pco.dataset.pco;if(v.includes("|")){const [sx,i]=v.split("|"),e=SETX[sx].empresas[+i];togglePMenu(false);startPanorama(sx,`Panorama de ${SETX[sx].nome}: ${e.tk}`);return}
+    DPICK=DPICK.includes(v)?DPICK.filter(x=>x!==v):[...DPICK,v].slice(-2);renderDChips();renderPMenu();if(DPICK.length===2)togglePMenu(false);$("dq").focus();return}
+  const up=t.closest("[data-unpick]");if(up){DPICK=DPICK.filter(x=>x!==up.dataset.unpick);renderDChips();return}
+  if(!t.closest("#pmenu")&&$("pmenu")&&!$("pmenu").hidden)togglePMenu(false);
   const sg=t.closest("[data-sugg]");if(sg){const x=[...SUGG,SUGG_SX][+sg.dataset.sugg];if(x.sx)startPanorama(x.sx,x.t);else startWith(x.p,x.t);return}
   const sxt=t.closest("[data-sxtab]");if(sxt){S.sx=sxt.dataset.sxtab;tabAnim=true;render();return}
   const sxn=t.closest("[data-sxn]");if(sxn){openSX(sxn.dataset.sxn,+sxn.dataset.i,sxn.dataset.m);return}
@@ -472,7 +490,9 @@ document.addEventListener("change",ev=>{const c=ev.target.closest("[data-met]");
 $("signup").addEventListener("submit",e=>{e.preventDefault();const nome=$("su-nome").value.trim();$("su-err").hidden=!!nome;if(!nome){$("su-nome").focus();return}
   const a={id:uid(),nome:nome.slice(0,60),funcao:suRole,plano:suPlan,inst:$("su-inst").value.trim().slice(0,60),criado:Date.now(),ultimo:Date.now()};ACC.list.push(a);
   $("su-nome").value="";$("su-inst").value="";login(a.id)});
-$("dask").addEventListener("submit",e=>{e.preventDefault();const q=$("dq").value.trim();$("dq").value="";const sx=picksFrom(q).length?null:sxFrom(q);if(sx)startPanorama(sx,q);else startWith(picksFrom(q),q||"Tese do setor de siderurgia")});
+$("dask").addEventListener("submit",e=>{e.preventDefault();const q=$("dq").value.trim();$("dq").value="";
+  if(DPICK.length){const pk=DPICK.slice();DPICK=[];renderDChips();if(pk.length===2)startWith(pk,q||`Compare ${EMP[pk[0]].nome} e ${EMP[pk[1]].nome}`);else startWith(null,q||`Tese do setor, com foco em ${EMP[pk[0]].nome}`);return}
+  const sx=picksFrom(q).length?null:sxFrom(q);if(sx)startPanorama(sx,q);else startWith(picksFrom(q),q||"Tese do setor de siderurgia")});
 $("dq").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("dask").requestSubmit()}});
 $("ask").addEventListener("submit",e=>{e.preventDefault();const q=$("q").value;$("q").value="";ask(q)});
 $("new").onclick=()=>{S=fresh();closeSide();vt(render)};
@@ -483,7 +503,7 @@ $("close-deck").onclick=closeDeck;
 $("pdf2").onclick=e=>exportPDF(e.currentTarget);
 $("prev").onclick=()=>{slide--;renderSlide()};$("next").onclick=()=>{slide++;renderSlide()};
 $("scrim").onclick=closeD;
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("modal").hidden){closeBox();return}closeDD();if(editIdx!==null){editIdx=null;renderThread();return}if($("drawer").classList.contains("open"))closeD();else if(!$("v-deck").hidden)closeDeck();else closeSide()}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("modal").hidden){closeBox();return}if($("pmenu")&&!$("pmenu").hidden){togglePMenu(false);return}closeDD();if(editIdx!==null){editIdx=null;renderThread();return}if($("drawer").classList.contains("open"))closeD();else if(!$("v-deck").hidden)closeDeck();else closeSide()}
   if(!$("v-deck").hidden){if(e.key==="ArrowRight"){slide++;renderSlide()}if(e.key==="ArrowLeft"){slide--;renderSlide()}}});
 
 render();
