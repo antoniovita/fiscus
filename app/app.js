@@ -260,9 +260,9 @@ function wSector(){const v=SETOR.veredito,E=EMP[v.escolha];
    ${S.step==="sector"?`<div class="wfoot"><span class="note">Próximo passo: comparar duas empresas do setor</span><button class="pill dark" data-do="go-cos">Ver as principais empresas</button></div>`:""}
   </div>`}
 function wCompanies(locked){const sel=S.picks;
-  return `<div class="widget ${locked?"locked":""}"><div class="cos">${["g","u","c","f"].map(k=>{const e=EMP[k];return `<button class="coc" data-pick="${k}" aria-pressed="${sel.includes(k)}" ${!e.ok||locked?"disabled":""}>
-     <span class="h">${e.ok&&e.logo?logo(k):`<span class="lg mono">${esc(e.nome)}</span>`}${e.ok?`<span class="ck">${sel.includes(k)?ic("check"):""}</span>`:`<span class="tag">Sem dados</span>`}</span>
-     <span><b>${e.nome} <small>· ${e.tk}</small></b><small>${e.desc}</small></span>${e.aviso?`<span class="tag" style="background:var(--amber-soft);color:var(--amber);white-space:normal">${esc(e.aviso)}</span>`:""}</button>`}).join("")}</div>
+  return `<div class="widget ${locked?"locked":""}"><div class="cos sxcos">${["g","u","c","f"].map(k=>{const e=EMP[k];return `<button class="coc" data-pick="${k}" aria-pressed="${sel.includes(k)}" ${!e.ok||locked?"disabled":""}>
+     <span class="h"><span class="tk2">${e.tk}</span>${e.ok?`<span class="ck">${sel.includes(k)?ic("check"):""}</span>`:`<span class="tag">Sem dados</span>`}</span>
+     <span><b>${esc(e.nome)}</b><small>${e.ok?esc(e.per[0]):"ITR não carregado"}</small></span></button>`}).join("")}</div>
    ${locked?"":`<div class="wfoot"><span class="note">${sel.length}/2 escolhidas</span><button class="pill dark" data-do="confirm-cos" ${sel.length!==2?"disabled":""}>Comparar estas duas</button></div>`}</div>`}
 function wMetrics(locked){
   return `<div class="widget ${locked?"locked":""}"><div class="mgroups">${GROUPS.map(g=>`<div class="mg"><h4>${g}</h4><div class="mets">${ORDER.filter(k=>MET[k].g===g).map(k=>{const ok=avail(k),why=ok?"":S.picks.map(e=>ND[`${k}|${e}`]).filter(Boolean)[0]||"";
