@@ -304,7 +304,20 @@ if (P / "historico.json").exists():
         anos = _h.get(tk, {}).get("anos", {})
         HIST[e] = {a: {m: (anos[a].get(m) or {}).get("valor") for m in ["receita", "margem_ebitda", "lucro_consolidado", "fcf", "roe", "divida_liquida_ebitda"]} for a in sorted(anos)}
 
-DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST}
+# ---------------- panorama de outros setores (CVM Dados Abertos + B3; sem verificação por página)
+SETX = {}
+_SXM = ["receita_12m", "margem_ebitda_12m", "lucro_controladores_12m", "roe_12m", "divida_liquida_ebitda", "p_l", "p_vp", "ev_ebitda", "valor_mercado"]
+for f in sorted((P / "setores").glob("*.json")):
+    d = json.loads(f.read_text(encoding="utf-8"))
+    emps = []
+    for e in d.get("empresas", []):
+        m = e.get("metricas", {})
+        emps.append({"tk": e.get("ticker"), "nome": e.get("nome"), "db": e.get("data_base"), "per": e.get("periodo"),
+                     "v": {x: (m.get(x) or {}).get("valor") for x in _SXM},
+                     "o": {x: {kk: (m.get(x) or {}).get(kk) for kk in ("conta", "formula", "motivo", "unidade")} for x in _SXM}})
+    SETX[d["setor"]] = {"nome": d.get("nome"), "fonte": d.get("fonte"), "empresas": emps, "pend": d.get("pendencias", [])[:6]}
+
+DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST, "SETX": SETX}
 
 
 def main():

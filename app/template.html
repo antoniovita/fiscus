@@ -760,10 +760,43 @@ table.sens2 td.hl{background:var(--ink);color:#fff;border-radius:6px;font-weight
 .planpick button b{font-size:14px} .planpick button span{font-size:13px;color:var(--muted)}
 .planpick button[aria-checked="true"]{background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
 .hint{font-size:12px;color:var(--faint)}
-.me{margin:8px 0 0;border:0;background:#fff;border-radius:16px;box-shadow:0 0 0 1px var(--hair),0 2px 8px rgba(0,0,0,.04);padding:12px;display:grid;gap:10px}
-.me .r{border:0;padding:0}
-.me .stats{background:var(--fill2);border-radius:10px;padding:8px 10px}
-.me .plantag{font-size:11px;font-weight:600;background:var(--ink);color:#fff;border-radius:999px;padding:2px 8px;width:max-content}
+
+/* perfil como card arredondado; barra lateral sem divisórias */
+.me .plan-r{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);white-space:nowrap}
+.me .plantag{font-size:11px;font-weight:600;background:var(--ink);color:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.side .brand{border-bottom:0;padding-bottom:6px;margin-bottom:4px}
+.side .newsep{border-bottom:0;padding-bottom:0;margin-bottom:2px}
+
+/* perfil em linhas com bordas contínuas; saudação menor e mais afastada da caixa */
+.me .plan-r{padding:10px 14px;border-bottom:1px solid var(--line)}
+.dash .center{gap:30px}
+.greet h1{font-size:clamp(21px,2vw,25px);font-weight:600}
+
+table.sxt td,table.sxt th{font-size:13px;padding:9px 7px}
+table.sxt td.m b{display:block;font-size:13.5px}
+table.sxt td.m small{display:block;font-size:11.5px;color:var(--faint);font-weight:400}
+
+/* ===== rodada 8 ===== */
+.side{background:#fff}
+.greet h1{font-size:clamp(24px,2.6vw,30px)}
+.box textarea,.box textarea::placeholder{font-size:14px}
+.srctab{border-top:0;background:#fff;border-radius:var(--r);box-shadow:0 0 0 1px var(--hair),var(--shadow);padding:6px 24px;overflow:hidden}
+.sr{padding:16px 0}
+.sr:last-child{border-bottom:0}
+.sr.hd{padding:14px 0 10px}
+.lfoot{background:#fff;border-top:1px solid var(--line)}
+.lfoot .wrap{padding-block:48px 28px;display:grid;gap:32px}
+.ftop{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:28px}
+@media (max-width:760px){.ftop{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+.fbrand{display:grid;gap:12px;justify-items:start;align-content:start}
+.fbrand .bwm{height:26px}
+.fbrand p{margin:0;font-size:14px;color:var(--muted);max-width:34ch;line-height:1.45}
+.fcol{display:grid;gap:8px;align-content:start;font-size:14px}
+.fcol b{font-size:12px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.fcol a{color:var(--muted)} .fcol a:hover{color:var(--ink);text-decoration:none}
+.fbot{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);line-height:1.5}
+.fbot span:first-child{color:var(--ink2);font-weight:600;white-space:nowrap}
+@media (max-width:760px){.fbot{grid-template-columns:1fr}}
 </style>
 
 <div class="site" id="v-landing">
@@ -848,7 +881,7 @@ table.sens2 td.hl{background:var(--ink);color:#fff;border-radius:6px;font-weight
   </div></section>
 
   <section class="l-sec alt" id="cobertura"><div class="wrap">
-    <div class="h"><span class="kick">Cobertura</span><h2>Siderurgia brasileira listada na B3.</h2><p>Novos setores entram à medida que os dados são carregados e verificados.</p></div>
+    <div class="h"><span class="kick">Cobertura</span><h2>Siderurgia completa. Mais cinco setores em panorama.</h2><p>A siderurgia tem tese, comparativo, valuation e verificação página a página. Bancos, energia elétrica, petróleo e gás, mineração e varejo já têm o panorama financeiro de 44 empresas a partir da base oficial da CVM.</p></div>
     <div class="cov" id="l-cov"></div>
   </div></section>
 
@@ -885,8 +918,13 @@ table.sens2 td.hl{background:var(--ink);color:#fff;border-radius:6px;font-weight
   </div></section>
 
   <footer class="lfoot"><div class="wrap">
-    <span><b>Fiscus</b> · Claude Lab PUC-Rio 2026</span>
-    <span>Dados coletados em 06/11/2026; preços de fechamento de 05/11/2026. Os logotipos identificam as empresas analisadas e pertencem aos seus titulares. Exercício acadêmico; não é recomendação de investimento.</span>
+    <div class="ftop">
+      <div class="fbrand"><img class="bwm" data-brand="logo" alt="Fiscus"><p>Research de ações com cada número rastreável até o documento oficial.</p><a class="pill dark sm" href="#painel" style="color:#fff;text-decoration:none">Acessar o painel</a></div>
+      <div class="fcol"><b>Produto</b><a href="#problema">Problema</a><a href="#produto">Solução</a><a href="#diferenciais">Diferenciais</a><a href="#planos">Planos</a></div>
+      <div class="fcol"><b>Dados</b><a href="#metodologia">Metodologia</a><a href="#fontes">Fontes</a><a href="#cobertura">Cobertura</a></div>
+      <div class="fcol"><b>Projeto</b><a href="https://github.com/antoniovita/fiscus" target="_blank" rel="noopener">GitHub</a><a href="#entrar">Entrar</a><a href="#criar-conta">Criar conta</a></div>
+    </div>
+    <div class="fbot"><span>Fiscus · Claude Lab PUC-Rio 2026</span><span>Dados coletados em 06/11/2026; preços de fechamento de 05/11/2026. Os logotipos identificam as empresas analisadas e pertencem aos seus titulares. Exercício acadêmico; não é recomendação de investimento.</span></div>
   </div></footer>
 </div>
 
@@ -930,7 +968,7 @@ table.sens2 td.hl{background:var(--ink);color:#fff;border-radius:6px;font-weight
       <div></div>
       <div class="center"><div class="greet"><h1 id="greet">Boa tarde.</h1></div>
       <form class="box" id="dask">
-        <textarea id="dq" rows="2" placeholder="Pergunte sobre um setor ou peça um comparativo, por exemplo: Gerdau × Usiminas"></textarea>
+        <textarea id="dq" rows="2" placeholder="Pergunte sobre um setor ou peça um comparativo, como Gerdau × Usiminas"></textarea>
         <div class="boxbar">
           <div class="right"><span></span></div>
           <button class="send" type="submit" aria-label="Começar análise" data-ic="arrow-up"></button>

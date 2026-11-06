@@ -16,6 +16,7 @@ EMP = {  # ticker: cnpj
     "PGMN3": "06.626.253/0001-51",
 }
 PEND = []
+SUFX = {}
 DA_RE = r"deprecia|amortiza|exaust"
 DA_EXCL = r"juros|empr[ée]st|financiament|deb[êe]nt|capta[çc]|desconto|ajuste a valor presente"
 
@@ -35,10 +36,15 @@ def ler(zn, dem):
 
 
 D = {(z, d): ler(z, d) for z in [Z26, Z25, D25]
-     for d in ["DRE_con", "BPA_con", "BPP_con", "DFC_MI_con", "composicao_capital"] if not (z == D25 and d == "composicao_capital")}
+     for d in ["DRE_con", "BPA_con", "BPP_con", "DFC_MI_con", "DRE_ind", "BPA_ind", "BPP_ind", "DFC_MI_ind",
+               "composicao_capital"] if not (z == D25 and d == "composicao_capital")}
+# Sendas (ASAI3) não publica consolidado em 2026 (só individual): usa _ind em todos os períodos.
+SUF = {"ASAI3": "_ind"}
 
 
 def sel(z, dem, cnpj, dt, ordem="ÚLTIMO", conta=None, dt_ini=None):
+    if dem.endswith("_con") and SUFX.get("v"):
+        dem = dem[:-4] + SUFX["v"]
     df = D[(z, dem)]
     df = df[(df.CNPJ_CIA == cnpj) & (df.DT_REFER == dt) & (df.ORDEM_EXERC == ordem)]
     if conta:
@@ -81,14 +87,18 @@ def cotahist():
         txt = z.read(z.namelist()[0]).decode("latin1")
     out = {}
     for ln in txt.splitlines():
-        if ln.startswith("01") and ln[10:12] == "02" and ln[24:27] == "010":
+        if ln.startswith("01") and ln[10:12] in ("02", "08") and ln[24:27] == "010":
             out[ln[12:24].strip()] = {"preco": int(ln[108:121]) / 100, "data": f"{ln[2:6]}-{ln[6:8]}-{ln[8:10]}",
-                                      "fatcot": int(ln[210:217])}
+                                      "fatcot": int(ln[210:217]), "codbdi": ln[10:12]}
     return out
 
 
 def empresa(tk, cnpj, cad, cot):
-    disp = sorted(D[(Z26, "DRE_con")].query("CNPJ_CIA == @cnpj").DT_REFER.unique())
+    SUFX["v"] = SUF.get(tk)
+    if SUFX["v"]:
+        PEND.append({"empresa": tk, "item": "demonstrações", "motivo": "sem demonstrações consolidadas no ITR 2026; "
+                     "usadas as individuais (_ind) em todos os períodos (ITR 2026, DFP 2025, ITR 2025)"})
+    disp = sorted(D[(Z26, "DRE" + (SUFX["v"] or "_con"))].query("CNPJ_CIA == @cnpj").DT_REFER.unique())
     if not disp:
         raise LookupError("sem ITR 2026")
     R = max(disp)
@@ -101,7 +111,10 @@ def empresa(tk, cnpj, cad, cot):
     M = {}
     f12 = f"acum {ia}..{R} + DFP 2025 − acum {ia1}..{R1} (comparativo PENÚLTIMO do ITR {tri})"
     v = {}
-    for nome, conta in {"receita": "3.01", "ebit": "3.05", "lucro_consolidado": "3.11", "lucro_controladores": "3.11.01"}.items():
+    contas = {"receita": "3.01", "ebit": "3.05", "lucro_consolidado": "3.11", "lucro_controladores": "3.11.01"}
+    if SUFX["v"]:
+        contas["lucro_controladores"] = "3.11"  # individual: lucro do período = lucro dos controladores
+    for nome, conta in contas.items():
         try:
             q = one(Z26, "DRE_con", cnpj, R, "ÚLTIMO", conta, it)
         except LookupError as e:
@@ -163,8 +176,13 @@ def empresa(tk, cnpj, cad, cot):
         M["acoes_circulacao"] = m(None, "ações", motivo=f"composição do capital ausente em {R}")
     else:
         r = cc.iloc[0]
-        on = int(r.QT_ACAO_ORDIN_CAP_INTEGR) - int(r.QT_ACAO_ORDIN_TESOURO)
-        pn = int(r.QT_ACAO_PREF_CAP_INTEGR) - int(r.QT_ACAO_PREF_TESOURO)
+        esc = 1000 if int(r.QT_ACAO_TOTAL_CAP_INTEGR) < 5_000_000 else 1
+        on = (int(r.QT_ACAO_ORDIN_CAP_INTEGR) - int(r.QT_ACAO_ORDIN_TESOURO)) * esc
+        pn = (int(r.QT_ACAO_PREF_CAP_INTEGR) - int(r.QT_ACAO_PREF_TESOURO)) * esc
+        if esc != 1:
+            PEND.append({"empresa": tk, "item": "ações em circulação", "motivo":
+                         f"composicao_capital informa {int(r.QT_ACAO_TOTAL_CAP_INTEGR):,} ações (arquivo sem campo de escala); "
+                         "valor tratado como milhares de ações (inferência de escala, conferir no formulário ITR)"})
         M["acoes_circulacao"] = {"valor": on, "unidade": "ações", "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO",
                                  "formula": "ON integralizadas − ON em tesouraria"}
         if pn:
@@ -175,6 +193,8 @@ def empresa(tk, cnpj, cad, cot):
         else:
             M["preco"] = {"valor": p["preco"], "unidade": "R$/ação", "conta": f"COTAHIST PREULT {tk} {p['data']}"}
             vm = on * p["preco"] / 1e6
+            if p["codbdi"] == "08":
+                M["preco"]["obs"] = "CODBDI 08 (empresa em recuperação judicial), TPMERC 010"
     M["valor_mercado"] = m(vm, "R$ mi", formula="acoes_circulacao × preco / 1e6")
     lc = v["lucro_controladores"]
     M["p_l"] = m(dv(vm, lc) if lc and lc > 0 else None, "x", formula="valor_mercado / lucro_controladores_12m",

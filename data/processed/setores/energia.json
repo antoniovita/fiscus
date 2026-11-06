@@ -1,7 +1,7 @@
 {
  "setor": "energia",
  "nome": "Energia elétrica",
- "gerado_em": "2026-11-06T17:44:58+00:00",
+ "gerado_em": "2026-11-06T17:45:26+00:00",
  "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
  "empresas": [
   {
@@ -110,9 +110,10 @@
      "formula": "divida_liquida / ebitda_12m"
     },
     "acoes_ON_circulacao": {
-     "valor": 2276909,
+     "valor": 2276909000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_AXIA3": {
      "valor": 47.69,
@@ -120,9 +121,10 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "acoes_PN_circulacao": {
-     "valor": 590432,
+     "valor": 590432000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_AXIA7": {
      "valor": 47.79,
@@ -130,28 +132,28 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "valor_mercado": {
-     "valor": 136.8025,
+     "valor": 136802.5355,
      "unidade": "R$ mi",
      "formula": "acoes_ON×preco_AXIA3 + acoes_PN×preco_AXIA7"
     },
     "p_l": {
-     "valor": 0.0113,
+     "valor": 11.3475,
      "unidade": "x",
      "formula": "valor_mercado / lucro_controladores_12m"
     },
     "p_vp": {
-     "valor": 0.0011,
+     "valor": 1.1191,
      "unidade": "x",
      "formula": "valor_mercado / pl_controladores"
     },
     "ev": {
-     "valor": 44923.9575,
+     "valor": 181589.6905,
      "unidade": "R$ mi",
      "conta": "BPP 2.03.09 (não controladores)",
      "formula": "valor_mercado + divida_liquida + nao_controladores"
     },
     "ev_ebitda": {
-     "valor": 2.7525,
+     "valor": 11.1262,
      "unidade": "x",
      "formula": "ev / ebitda_12m"
     }
@@ -704,32 +706,34 @@
     "acoes_PN_circulacao": {
      "valor": 1,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)",
+     "obs": "classe residual (ex.: golden share), sem cotação; ignorada no valor de mercado"
     },
     "valor_mercado": {
-     "valor": null,
+     "valor": 42918.2309,
      "unidade": "R$ mi",
-     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+     "formula": "acoes_ON×preco_CPLE3"
     },
     "p_l": {
-     "valor": null,
+     "valor": 13.6938,
      "unidade": "x",
-     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+     "formula": "valor_mercado / lucro_controladores_12m"
     },
     "p_vp": {
-     "valor": null,
+     "valor": 1.7788,
      "unidade": "x",
-     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+     "formula": "valor_mercado / pl_controladores"
     },
     "ev": {
-     "valor": null,
+     "valor": 62950.3929,
      "unidade": "R$ mi",
-     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
     },
     "ev_ebitda": {
-     "valor": null,
+     "valor": 8.8548,
      "unidade": "x",
-     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+     "formula": "ev / ebitda_12m"
     }
    }
   },
@@ -839,9 +843,10 @@
      "formula": "divida_liquida / ebitda_12m"
     },
     "acoes_ON_circulacao": {
-     "valor": 956602,
+     "valor": 956602000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_CMIG3": {
      "valor": 16.65,
@@ -849,9 +854,10 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "acoes_PN_circulacao": {
-     "valor": 1904080,
+     "valor": 1904080000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_CMIG4": {
      "valor": 10.16,
@@ -859,28 +865,28 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "valor_mercado": {
-     "valor": 35.2729,
+     "valor": 35272.8761,
      "unidade": "R$ mi",
      "formula": "acoes_ON×preco_CMIG3 + acoes_PN×preco_CMIG4"
     },
     "p_l": {
-     "valor": 0.0077,
+     "valor": 7.6762,
      "unidade": "x",
      "formula": "valor_mercado / lucro_controladores_12m"
     },
     "p_vp": {
-     "valor": 0.0012,
+     "valor": 1.2087,
      "unidade": "x",
      "formula": "valor_mercado / pl_controladores"
     },
     "ev": {
-     "valor": 19310.3789,
+     "valor": 54547.9821,
      "unidade": "R$ mi",
      "conta": "BPP 2.03.09 (não controladores)",
      "formula": "valor_mercado + divida_liquida + nao_controladores"
     },
     "ev_ebitda": {
-     "valor": 2.2846,
+     "valor": 6.4536,
      "unidade": "x",
      "formula": "ev / ebitda_12m"
     }
@@ -992,9 +998,10 @@
      "formula": "divida_liquida / ebitda_12m"
     },
     "acoes_ON_circulacao": {
-     "valor": 590714,
+     "valor": 590714000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_TAEE3": {
      "valor": 12.98,
@@ -1002,9 +1009,10 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "acoes_PN_circulacao": {
-     "valor": 442783,
+     "valor": 442783000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_TAEE4": {
      "valor": 13.36,
@@ -1012,28 +1020,28 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "valor_mercado": {
-     "valor": 13.583,
+     "valor": 13583.0486,
      "unidade": "R$ mi",
      "formula": "acoes_ON×preco_TAEE3 + acoes_PN×preco_TAEE4"
     },
     "p_l": {
-     "valor": 0.0083,
+     "valor": 8.304,
      "unidade": "x",
      "formula": "valor_mercado / lucro_controladores_12m"
     },
     "p_vp": {
-     "valor": 0.0017,
+     "valor": 1.683,
      "unidade": "x",
      "formula": "valor_mercado / pl_controladores"
     },
     "ev": {
-     "valor": 10427.318,
+     "valor": 23996.7836,
      "unidade": "R$ mi",
      "conta": "BPP 2.03.09 (não controladores)",
      "formula": "valor_mercado + divida_liquida + nao_controladores"
     },
     "ev_ebitda": {
-     "valor": 3.4827,
+     "valor": 8.0149,
      "unidade": "x",
      "formula": "ev / ebitda_12m"
     }
@@ -1451,9 +1459,10 @@
      "formula": "divida_liquida / ebitda_12m"
     },
     "acoes_ON_circulacao": {
-     "valor": 1044635,
+     "valor": 1044635000,
      "unidade": "ações",
-     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)",
+     "formula": "× 1.000 (arquivo em milhares)"
     },
     "preco_AURE3": {
      "valor": 11.18,
@@ -1461,28 +1470,28 @@
      "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
     },
     "valor_mercado": {
-     "valor": 11.679,
+     "valor": 11679.0193,
      "unidade": "R$ mi",
      "formula": "acoes_ON×preco_AURE3"
     },
     "p_l": {
-     "valor": -0.0107,
+     "valor": -10.7204,
      "unidade": "x",
      "formula": "valor_mercado / lucro_controladores_12m"
     },
     "p_vp": {
-     "valor": 0.001,
+     "valor": 1.0149,
      "unidade": "x",
      "formula": "valor_mercado / pl_controladores"
     },
     "ev": {
-     "valor": 21272.612,
+     "valor": 32939.9523,
      "unidade": "R$ mi",
      "conta": "BPP 2.03.09 (não controladores)",
      "formula": "valor_mercado + divida_liquida + nao_controladores"
     },
     "ev_ebitda": {
-     "valor": 6.1135,
+     "valor": 9.4665,
      "unidade": "x",
      "formula": "ev / ebitda_12m"
     }
@@ -1629,6 +1638,10 @@
  "pendencias": [
   {
    "empresa": "AXIA3",
+   "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"
+  },
+  {
+   "empresa": "AXIA3",
    "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
   },
   {
@@ -1645,15 +1658,19 @@
   },
   {
    "empresa": "CPLE3",
-   "motivo": "sem preço B3 em 05/11/2026 para classe PN (None)"
-  },
-  {
-   "empresa": "CPLE3",
    "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
   },
   {
    "empresa": "CMIG4",
+   "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"
+  },
+  {
+   "empresa": "CMIG4",
    "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "TAEE11",
+   "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"
   },
   {
    "empresa": "TAEE11",
@@ -1669,11 +1686,31 @@
   },
   {
    "empresa": "AURE3",
+   "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"
+  },
+  {
+   "empresa": "AURE3",
    "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
   },
   {
    "empresa": "NEOE3",
    "motivo": "sem preço B3 em 05/11/2026 para classe ON (NEOE3)"
+  },
+  {
+   "empresa": "AXIA3",
+   "motivo": "Eletrobras renomeada AXIA Energia S.A. (ticker AXIA3, ex-ELET3). Composição do capital não separa PN por classe: todas as PN precificadas por AXIA7 (único PN em lote padrão em 05/11/2026)."
+  },
+  {
+   "empresa": "CPLE3",
+   "motivo": "Copel migrou para ON única (CPLE3; CPLE6 não negocia em 05/11/2026). 1 ação PN residual ignorada no valor de mercado."
+  },
+  {
+   "empresa": "AURE3",
+   "motivo": "lucro 12m negativo: P/L negativo, não interpretável."
+  },
+  {
+   "empresa": "geral",
+   "motivo": "EBITDA = EBIT + D&A da DFC (CVM 156), não o ajustado; dívida bruta sem arrendamentos; para TAEE11/ENGI11/ISAE4/CMIG4 o valor de mercado soma ON e PN pelos preços de cada classe."
   }
  ]
 }

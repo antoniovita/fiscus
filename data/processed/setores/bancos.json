@@ -1,0 +1,2256 @@
+{
+  "setor": "bancos",
+  "nome": "Bancos",
+  "gerado_em": "2026-11-06T17:46:49+00:00",
+  "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+  "nota": "Instituições financeiras: EBITDA, dívida líquida e EV/EBITDA não se aplicam (null com motivo). Receita = 3.01 receitas da intermediação financeira; margem financeira ≈ resultado bruto da intermediação.",
+  "empresas": [
+    {
+      "ticker": "ITUB4",
+      "nome": "ITAÚ UNIBANCO HOLDING S.A.",
+      "cd_cvm": "19348",
+      "cnpj": "60.872.504/0001-23",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 100073.0,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 385985.0,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 199118.0,
+            "dfp_anual": 387118.0,
+            "acum_ano_anterior": 200251.0
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 37059.0,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 143714.0,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 71756.0,
+            "dfp_anual": 138947.0,
+            "acum_ano_anterior": 66989.0
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 14274.0,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 54689.0,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 26982.0,
+            "dfp_anual": 50250.0,
+            "acum_ano_anterior": 22543.0
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 12324.0,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 47943.0,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 24199.0,
+            "dfp_anual": 45849.0,
+            "acum_ano_anterior": 22105.0
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 11979.0,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 46828.0,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 23615.0,
+            "dfp_anual": 44857.0,
+            "acum_ano_anterior": 21644.0
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 228026.0,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 217779.0,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.08 − participação de não controladores (2.08.09)",
+          "insumos": {
+            "pl_consolidado": 228026.0,
+            "nao_controladores": 10247.0
+          }
+        },
+        "roe_12m": {
+          "valor": 21.5025,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 12.1321,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 5617743000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 5617743000,
+            "tesouraria": 0
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01=4.2800000000 em 2026-06-30) ≈ 5,517,523,364 vs total 11,026,869; quantidades multiplicadas por 1.000"
+        },
+        "preco_ITUB3": {
+          "valor": 44.35,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT ITUB3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 5404129000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 5409126000,
+            "tesouraria": 4997000
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01=4.2800000000 em 2026-06-30) ≈ 5,517,523,364 vs total 11,026,869; quantidades multiplicadas por 1.000"
+        },
+        "preco_ITUB4": {
+          "valor": 39.97,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT ITUB4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 39.97,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT ITUB4"
+        },
+        "valor_mercado": {
+          "valor": 465149.9382,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×ITUB3": 249146.9021,
+            "PN×ITUB4": 216003.0361
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 9.9332,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 2.1359,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BBDC4",
+      "nome": "BANCO BRADESCO S.A.",
+      "cd_cvm": "906",
+      "cnpj": "60.746.948/0001-12",
+      "data_base": "2026-09-30",
+      "periodo": "3T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 78472.483,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 308041.395,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 233682.083,
+            "dfp_anual": 270183.106,
+            "acum_ano_anterior": 195823.794
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 21013.358,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 84700.441,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 65187.144,
+            "dfp_anual": 76339.353,
+            "acum_ano_anterior": 56826.056
+          },
+          "periodo": "12m até 2026-09-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 7602.062,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 28521.306,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 22769.388,
+            "dfp_anual": 21024.584,
+            "acum_ano_anterior": 15272.666
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 7435.747,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 26453.793,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 19912.1,
+            "dfp_anual": 23924.636,
+            "acum_ano_anterior": 17382.943
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 7330.161,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 26148.439,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 19647.948,
+            "dfp_anual": 23672.706,
+            "acum_ano_anterior": 17172.215
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "pl_consolidado": {
+          "valor": 196585.999,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]"
+        },
+        "pl_controladores": {
+          "valor": 195045.587,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 196585.999,
+            "nao_controladores": 1540.412
+          }
+        },
+        "roe_12m": {
+          "valor": 13.4063,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 8.4886,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 5293220781.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-09-30]",
+          "insumos": {
+            "total": 5303870781,
+            "tesouraria": 10650000
+          },
+          "nota": null
+        },
+        "preco_BBDC3": {
+          "valor": 12.69,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BBDC3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 5277491247.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-09-30]",
+          "insumos": {
+            "total": 5288141247,
+            "tesouraria": 10650000
+          },
+          "nota": null
+        },
+        "preco_BBDC4": {
+          "valor": 13.77,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BBDC4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 13.77,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BBDC4"
+        },
+        "valor_mercado": {
+          "valor": 139842.0262,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BBDC3": 67170.9717,
+            "PN×BBDC4": 72671.0545
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 5.348,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 0.717,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BBAS3",
+      "nome": "BANCO DO BRASIL S.A.",
+      "cd_cvm": "1023",
+      "cnpj": "00.000.000/0001-91",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 81771.473,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 330956.647,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 160747.114,
+            "dfp_anual": 319462.104,
+            "acum_ano_anterior": 149252.571
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 25682.799,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 102509.732,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 49463.309,
+            "dfp_anual": 101010.718,
+            "acum_ano_anterior": 47964.295
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 1702.3,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 6695.393,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 2725.127,
+            "dfp_anual": 5613.636,
+            "acum_ano_anterior": 1643.37
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 3256.684,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 15384.783,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 6362.961,
+            "dfp_anual": 16781.938,
+            "acum_ano_anterior": 7760.116
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 2397.643,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 12272.045,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 4794.808,
+            "dfp_anual": 13698.124,
+            "acum_ano_anterior": 6220.887
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 190767.86,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 186079.471,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 190767.86,
+            "nao_controladores": 4688.389
+          }
+        },
+        "roe_12m": {
+          "valor": 6.5951,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 3.7081,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 5708971478.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 5730834040,
+            "tesouraria": 21862562
+          },
+          "nota": null
+        },
+        "preco_BBAS3": {
+          "valor": 16.49,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BBAS3 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 16.49,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BBAS3"
+        },
+        "valor_mercado": {
+          "valor": 94140.9397,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BBAS3": 94140.9397
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 7.6712,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 0.5059,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "SANB11",
+      "nome": "BANCO SANTANDER (BRASIL) S.A.",
+      "cd_cvm": "20532",
+      "cnpj": "90.400.888/0001-42",
+      "data_base": "2026-09-30",
+      "periodo": "3T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 37916.734,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 165983.511,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 123390.448,
+            "dfp_anual": 162494.639,
+            "acum_ano_anterior": 119901.576
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 11018.989,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 56701.392,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 42929.256,
+            "dfp_anual": 57634.318,
+            "acum_ano_anterior": 43862.182
+          },
+          "periodo": "12m até 2026-09-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 3423.588,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 16567.35,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 11527.626,
+            "dfp_anual": 16728.994,
+            "acum_ano_anterior": 11689.27
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 2842.395,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 13029.825,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 9086.628,
+            "dfp_anual": 12965.123,
+            "acum_ano_anterior": 9021.926
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 2784.303,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "periodo": "3T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 13160.769,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+          "insumos": {
+            "acum_atual": 8896.051,
+            "dfp_anual": 12766.035,
+            "acum_ano_anterior": 8501.317
+          },
+          "periodo": "12m até 2026-09-30"
+        },
+        "pl_consolidado": {
+          "valor": 130326.462,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]"
+        },
+        "pl_controladores": {
+          "valor": 128314.351,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+          "formula": "2.08 − participação de não controladores (2.08.09)",
+          "insumos": {
+            "pl_consolidado": 130326.462,
+            "nao_controladores": 2012.111
+          }
+        },
+        "roe_12m": {
+          "valor": 10.2567,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 7.929,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 3813276.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-09-30]",
+          "insumos": {
+            "total": 3818695,
+            "tesouraria": 5419
+          },
+          "nota": null
+        },
+        "preco_SANB3": {
+          "valor": 12.85,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT SANB3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 3674417.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-09-30]",
+          "insumos": {
+            "total": 3679836,
+            "tesouraria": 5419
+          },
+          "nota": null
+        },
+        "preco_SANB4": {
+          "valor": 12.84,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT SANB4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 25.94,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT SANB11"
+        },
+        "valor_mercado": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "motivo": "composição do capital informa só 7,498,531 ações e não há LPA não-nulo (ITR 2026 nem DFP 2025) para confirmar se a escala é milhares; valor de mercado não calculado para não inventar escala",
+          "insumos": {
+            "ON×SANB3": 49.0006,
+            "PN×SANB4": 47.1795
+          },
+          "nota": "valor de mercado por classe (SANB3/SANB4); SANB11 = 1 ON + 1 PN"
+        },
+        "p_l": {
+          "valor": null,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m",
+          "motivo": "sem valor de mercado"
+        },
+        "p_vp": {
+          "valor": null,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores",
+          "motivo": "sem valor de mercado"
+        }
+      }
+    },
+    {
+      "ticker": "BPAC11",
+      "nome": "BANCO BTG PACTUAL S/A",
+      "cd_cvm": "22616",
+      "cnpj": "30.306.294/0001-45",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 8704.792,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 31200.736,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 18586.176,
+            "dfp_anual": 28145.817,
+            "acum_ano_anterior": 15531.257
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 6684.323,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 30967.354,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 14754.314,
+            "dfp_anual": 28145.817,
+            "acum_ano_anterior": 11932.777
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 6127.729,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 22587.569,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 11950.124,
+            "dfp_anual": 19291.68,
+            "acum_ano_anterior": 8654.235
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 5137.107,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 19251.424,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 10072.273,
+            "dfp_anual": 16663.803,
+            "acum_ano_anterior": 7484.652
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 4929.6,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 18458.126,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 9663.323,
+            "dfp_anual": 16005.964,
+            "acum_ano_anterior": 7211.161
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 89941.316,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]"
+        },
+        "pl_controladores": {
+          "valor": 83132.955,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+          "formula": "2.08 − participação de não controladores (2.08.09)",
+          "insumos": {
+            "pl_consolidado": 89941.316,
+            "nao_controladores": 6808.361
+          }
+        },
+        "roe_12m": {
+          "valor": 22.2031,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 59.1593,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 7271343814.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 7298813414,
+            "tesouraria": 27469600
+          },
+          "nota": null
+        },
+        "preco_BPAC3": {
+          "valor": 23.65,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BPAC3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 4316310852.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 4371250052,
+            "tesouraria": 54939200
+          },
+          "nota": null
+        },
+        "preco_BPAC5": {
+          "valor": 17.81,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BPAC5 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 53.88,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BPAC11"
+        },
+        "valor_mercado": {
+          "valor": 248840.7775,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BPAC3": 171967.2812,
+            "PN×BPAC5": 76873.4963
+          },
+          "nota": "valor de mercado por classe: ON a BPAC3 e todas as PN (PNA+PNB, não segregadas na composição do capital) a BPAC5"
+        },
+        "p_l": {
+          "valor": 13.4814,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 2.9933,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BRSR6",
+      "nome": "BANCO DO ESTADO DO RIO GRANDE DO SUL SA",
+      "cd_cvm": "1210",
+      "cnpj": "92.702.067/0001-96",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 5815.636,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 23122.962,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 11721.95,
+            "dfp_anual": 21714.138,
+            "acum_ano_anterior": 10313.126
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 1618.051,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 6557.542,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 3349.353,
+            "dfp_anual": 6364.326,
+            "acum_ano_anterior": 3156.137
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 396.123,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 1902.588,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 732.034,
+            "dfp_anual": 2013.381,
+            "acum_ano_anterior": 842.827
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 288.345,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 1642.557,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 558.187,
+            "dfp_anual": 1714.551,
+            "acum_ano_anterior": 630.181
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 288.104,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 1641.805,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 557.769,
+            "dfp_anual": 1713.913,
+            "acum_ano_anterior": 629.877
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 11847.888,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 11844.134,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 11847.888,
+            "nao_controladores": 3.754
+          }
+        },
+        "roe_12m": {
+          "valor": 13.8618,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 7.1003,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 205065000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 205065000,
+            "tesouraria": 0
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01.01=1.3600000000 em 2026-06-30) ≈ 410,124,265 vs total 408,974; quantidades multiplicadas por 1.000"
+        },
+        "preco_BRSR3": {
+          "valor": 17.0,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BRSR3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 203909000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 203909000,
+            "tesouraria": 0
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01.01=1.3600000000 em 2026-06-30) ≈ 410,124,265 vs total 408,974; quantidades multiplicadas por 1.000"
+        },
+        "preco_BRSR6": {
+          "valor": 12.61,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BRSR6 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 12.61,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BRSR6"
+        },
+        "valor_mercado": {
+          "valor": 6057.3975,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BRSR3": 3486.105,
+            "PN×BRSR6": 2571.2925
+          },
+          "nota": "PN (PNA+PNB, não segregadas na composição do capital) precificadas a BRSR6"
+        },
+        "p_l": {
+          "valor": 3.6895,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 0.5114,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BMGB4",
+      "nome": "BANCO BMG S/A",
+      "cd_cvm": "24600",
+      "cnpj": "61.186.680/0001-74",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 2840.384,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 9216.256,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas da Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 5083.063,
+            "dfp_anual": 8733.913,
+            "acum_ano_anterior": 4600.72
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 890.256,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 3089.252,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 1779.437,
+            "dfp_anual": 2619.853,
+            "acum_ano_anterior": 1310.038
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 109.547,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 290.005,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado Antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 183.791,
+            "dfp_anual": 368.848,
+            "acum_ano_anterior": 262.634
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 166.566,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 627.572,
+          "unidade": "R$ mi",
+          "conta": "3.09 Lucro/Prejuízo Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 310.638,
+            "dfp_anual": 587.304,
+            "acum_ano_anterior": 270.37
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 166.288,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 632.313,
+          "unidade": "R$ mi",
+          "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 310.079,
+            "dfp_anual": 579.466,
+            "acum_ano_anterior": 257.232
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 5075.449,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 5067.798,
+          "unidade": "R$ mi",
+          "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.08 − participação de não controladores (2.08.09)",
+          "insumos": {
+            "pl_consolidado": 5075.449,
+            "nao_controladores": 7.651
+          }
+        },
+        "roe_12m": {
+          "valor": 12.4771,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 6.8608,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 414425631.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 414425631,
+            "tesouraria": 0
+          },
+          "nota": null
+        },
+        "preco_BMGB4": {
+          "valor": 5.47,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BMGB4 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 230376194.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 233858065,
+            "tesouraria": 3481871
+          },
+          "nota": null
+        },
+        "preco_ticker_principal": {
+          "valor": 5.47,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BMGB4"
+        },
+        "valor_mercado": {
+          "valor": 3527.066,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BMGB4": 2266.9082,
+            "PN×BMGB4": 1260.1578
+          },
+          "nota": "ON sem negociação no COTAHIST: precificadas a BMGB4"
+        },
+        "p_l": {
+          "valor": 5.578,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 0.696,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BMEB4",
+      "nome": "BANCO MERCANTIL BRASIL SA",
+      "cd_cvm": "1325",
+      "cnpj": "17.184.037/0001-10",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 2531.203,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 9537.345,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 4995.842,
+            "dfp_anual": 8259.12,
+            "acum_ano_anterior": 3717.617
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 1058.804,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 4316.407,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 2080.557,
+            "dfp_anual": 3968.68,
+            "acum_ano_anterior": 1732.83
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 350.072,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 315.143,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 708.127,
+            "dfp_anual": 2.942,
+            "acum_ano_anterior": 395.926
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 291.457,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 852.395,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 569.478,
+            "dfp_anual": 640.758,
+            "acum_ano_anterior": 357.841
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 287.398,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 833.085,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 560.871,
+            "dfp_anual": 619.427,
+            "acum_ano_anterior": 347.213
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 3151.26,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 3138.956,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 3151.26,
+            "nao_controladores": 12.304
+          }
+        },
+        "roe_12m": {
+          "valor": 26.5402,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 8.735,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 84053000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 84053000,
+            "tesouraria": 0
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01=9.0918000000 em 2026-06-30) ≈ 61,689,764 vs total 123,380; quantidades multiplicadas por 1.000"
+        },
+        "preco_BMEB3": {
+          "valor": 46.9,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BMEB3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 38978000.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 39327000,
+            "tesouraria": 349000
+          },
+          "nota": "composição do capital reportada em milhares de ações: ações implícitas pelo LPA básico (3.99.01=9.0918000000 em 2026-06-30) ≈ 61,689,764 vs total 123,380; quantidades multiplicadas por 1.000"
+        },
+        "preco_BMEB4": {
+          "valor": 53.2,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BMEB4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 53.2,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BMEB4"
+        },
+        "valor_mercado": {
+          "valor": 6015.7153,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BMEB3": 3942.0857,
+            "PN×BMEB4": 2073.6296
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 7.221,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 1.9165,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "BEES3",
+      "nome": "BANESTES SA BANCO DO ESTADO DO ESPIRITO SANTO",
+      "cd_cvm": "1155",
+      "cnpj": "28.127.603/0001-78",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 1481.616,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 5816.125,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 2904.946,
+            "dfp_anual": 5458.473,
+            "acum_ano_anterior": 2547.294
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 438.127,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 1665.446,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 845.374,
+            "dfp_anual": 1564.893,
+            "acum_ano_anterior": 744.821
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 162.869,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 545.201,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 281.646,
+            "dfp_anual": 404.591,
+            "acum_ano_anterior": 141.036
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 123.704,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 442.686,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 221.56,
+            "dfp_anual": 339.919,
+            "acum_ano_anterior": 118.793
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 123.704,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 442.686,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 221.56,
+            "dfp_anual": 339.919,
+            "acum_ano_anterior": 118.793
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 2511.779,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]"
+        },
+        "pl_controladores": {
+          "valor": 2511.779,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 2511.779,
+            "nao_controladores": 0.0
+          }
+        },
+        "roe_12m": {
+          "valor": 17.6244,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 7.6114,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 254106600.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 254106600,
+            "tesouraria": 0
+          },
+          "nota": null
+        },
+        "preco_BEES3": {
+          "valor": 8.9,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BEES3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 93397546.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 93397546,
+            "tesouraria": 0
+          },
+          "nota": null
+        },
+        "preco_BEES4": {
+          "valor": 9.36,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT BEES4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 8.9,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT BEES3"
+        },
+        "valor_mercado": {
+          "valor": 3135.7498,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×BEES3": 2261.5487,
+            "PN×BEES4": 874.201
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 7.0835,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 1.2484,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    },
+    {
+      "ticker": "PINE4",
+      "nome": "BANCO PINE S/A",
+      "cd_cvm": "20567",
+      "cnpj": "62.144.175/0001-20",
+      "data_base": "2026-06-30",
+      "periodo": "2T26",
+      "metricas": {
+        "receita_intermediacao_tri": {
+          "valor": 1543.347,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "periodo": "2T26",
+          "nota": "3.01 em banco = receitas da intermediação financeira (não é receita líquida)"
+        },
+        "receita_intermediacao_12m": {
+          "valor": 5617.233,
+          "unidade": "R$ mi",
+          "conta": "3.01 Receitas de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 2818.774,
+            "dfp_anual": 4773.522,
+            "acum_ano_anterior": 1975.063
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "resultado_bruto_intermediacao_tri": {
+          "valor": 444.168,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "periodo": "2T26"
+        },
+        "resultado_bruto_intermediacao_12m": {
+          "valor": 1719.983,
+          "unidade": "R$ mi",
+          "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 692.939,
+            "dfp_anual": 1375.473,
+            "acum_ano_anterior": 348.429
+          },
+          "periodo": "12m até 2026-06-30",
+          "nota": "proxy de margem financeira: resultado bruto da intermediação, já líquido de perdas de crédito (PDD)"
+        },
+        "lucro_antes_ir_tri": {
+          "valor": 223.012,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "periodo": "2T26"
+        },
+        "lucro_antes_ir_12m": {
+          "valor": 796.105,
+          "unidade": "R$ mi",
+          "conta": "3.05 Resultado antes dos Tributos sobre o Lucro",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 441.986,
+            "dfp_anual": 561.007,
+            "acum_ano_anterior": 206.888
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_consolidado_tri": {
+          "valor": 165.212,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "periodo": "2T26"
+        },
+        "lucro_consolidado_12m": {
+          "valor": 605.284,
+          "unidade": "R$ mi",
+          "conta": "3.11 Lucro ou Prejuízo Líquido Consolidado do Período",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 316.041,
+            "dfp_anual": 432.878,
+            "acum_ano_anterior": 143.635
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "lucro_controladores_tri": {
+          "valor": 166.19,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "periodo": "2T26"
+        },
+        "lucro_controladores_12m": {
+          "valor": 603.085,
+          "unidade": "R$ mi",
+          "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+          "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+          "insumos": {
+            "acum_atual": 316.214,
+            "dfp_anual": 430.515,
+            "acum_ano_anterior": 143.644
+          },
+          "periodo": "12m até 2026-06-30"
+        },
+        "pl_consolidado": {
+          "valor": 1830.889,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]"
+        },
+        "pl_controladores": {
+          "valor": 1801.25,
+          "unidade": "R$ mi",
+          "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+          "formula": "2.07 − participação de não controladores (2.07.02)",
+          "insumos": {
+            "pl_consolidado": 1830.889,
+            "nao_controladores": 29.639
+          }
+        },
+        "roe_12m": {
+          "valor": 33.4815,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100"
+        },
+        "margem_liquida_12m": {
+          "valor": 10.7363,
+          "unidade": "%",
+          "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+          "nota": "sobre receita bruta da intermediação; pouco comparável com não-financeiras"
+        },
+        "ebitda_12m": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "margem_ebitda_12m": {
+          "valor": null,
+          "unidade": "%",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_bruta": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "caixa_aplicacoes": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "divida_liquida_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev": {
+          "valor": null,
+          "unidade": "R$ mi",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "ev_ebitda": {
+          "valor": null,
+          "unidade": "x",
+          "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)"
+        },
+        "acoes_ON_circulacao": {
+          "valor": 129856723.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 129856723,
+            "tesouraria": 0
+          },
+          "nota": null
+        },
+        "preco_PINE3": {
+          "valor": 9.04,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT PINE3 (2026-11-05; FATCOT=1)"
+        },
+        "acoes_PN_circulacao": {
+          "valor": 124461059.0,
+          "unidade": "ações",
+          "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv; DT_REFER=2026-06-30]",
+          "insumos": {
+            "total": 129843535,
+            "tesouraria": 5382476
+          },
+          "nota": null
+        },
+        "preco_PINE4": {
+          "valor": 10.4,
+          "unidade": "R$/ação",
+          "conta": "COTAHIST_D05112026 PREULT PINE4 (2026-11-05; FATCOT=1)"
+        },
+        "preco_ticker_principal": {
+          "valor": 10.4,
+          "unidade": "R$",
+          "conta": "COTAHIST_D05112026 PREULT PINE4"
+        },
+        "valor_mercado": {
+          "valor": 2468.2998,
+          "unidade": "R$ mi",
+          "formula": "Σ ações em circulação por classe × PREULT da classe",
+          "insumos": {
+            "ON×PINE3": 1173.9048,
+            "PN×PINE4": 1294.395
+          },
+          "nota": null
+        },
+        "p_l": {
+          "valor": 4.0928,
+          "unidade": "x",
+          "formula": "valor_mercado / lucro_controladores_12m"
+        },
+        "p_vp": {
+          "valor": 1.3703,
+          "unidade": "x",
+          "formula": "valor_mercado / pl_controladores"
+        }
+      }
+    }
+  ],
+  "pendencias": [
+    {
+      "ticker": "ABCB4",
+      "motivo": "BANCO ABC BRASIL (CD_CVM 20958) sem DRE consolidada no ITR 2026 da CVM"
+    },
+    {
+      "ticker": "BPAN4/INTR",
+      "motivo": "Banco Pan e Inter não constam como companhias ativas no cad_cia_aberta.csv"
+    },
+    {
+      "ticker": "BBAS3",
+      "metrica": "acoes",
+      "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    },
+    {
+      "ticker": "SANB11",
+      "metrica": "acoes",
+      "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    },
+    {
+      "ticker": "SANB11",
+      "metrica": "valor_mercado",
+      "motivo": "composição do capital informa só 7,498,531 ações e não há LPA não-nulo (ITR 2026 nem DFP 2025) para confirmar se a escala é milhares; valor de mercado não calculado para não inventar escala"
+    },
+    {
+      "ticker": "BPAC11",
+      "metrica": "acoes",
+      "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    },
+    {
+      "ticker": "PINE4",
+      "metrica": "acoes",
+      "motivo": "razão ações implícitas/composição = 0.00"
+    }
+  ]
+}

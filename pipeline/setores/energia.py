@@ -120,10 +120,17 @@ for tk, cnpj, cls in EMP:
         cc = D[(Z26, "composicao_capital")].query("CNPJ_CIA == @cnpj and DT_REFER == @R")
         cc = cc.iloc[0]
         vm, partes, ok = 0.0, [], True
+        fator = 1000 if int(cc.QT_ACAO_TOTAL_CAP_INTEGR) < 100_000_000 else 1
+        if fator > 1:
+            PEND.append({"empresa": tk, "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"})
         for classe, col in [("ON", "ORDIN"), ("PN", "PREF")]:
-            q = int(cc[f"QT_ACAO_{col}_CAP_INTEGR"]) - int(cc[f"QT_ACAO_{col}_TESOURO"])
+            q = (int(cc[f"QT_ACAO_{col}_CAP_INTEGR"]) - int(cc[f"QT_ACAO_{col}_TESOURO"])) * fator
             if int(cc[f"QT_ACAO_{col}_CAP_INTEGR"]) == 0: continue
-            M[f"acoes_{classe}_circulacao"] = m(q, "ações", f"composicao_capital QT_ACAO_{col}_CAP_INTEGR − QT_ACAO_{col}_TESOURO ({R})")
+            M[f"acoes_{classe}_circulacao"] = m(q, "ações", f"composicao_capital QT_ACAO_{col}_CAP_INTEGR − QT_ACAO_{col}_TESOURO ({R})",
+                                                "× 1.000 (arquivo em milhares)" if fator > 1 else None)
+            if q < 1000 and classe not in cls:
+                M[f"acoes_{classe}_circulacao"]["obs"] = "classe residual (ex.: golden share), sem cotação; ignorada no valor de mercado"
+                continue
             ptk = cls.get(classe); p = P.get(ptk) if ptk else None
             if p is None:
                 ok = False; PEND.append({"empresa": tk, "motivo": f"sem preço B3 em 05/11/2026 para classe {classe} ({ptk})"}); continue
@@ -146,6 +153,12 @@ for tk, cnpj, cls in EMP:
     emps.append({"ticker": tk, "nome": c.DENOM_SOCIAL, "cd_cvm": c.CD_CVM, "cnpj": cnpj, "data_base": R,
                  "periodo": f"{tri}; 12m até {R}", "metricas": M})
 
+PEND += [
+    {"empresa": "AXIA3", "motivo": "Eletrobras renomeada AXIA Energia S.A. (ticker AXIA3, ex-ELET3). Composição do capital não separa PN por classe: todas as PN precificadas por AXIA7 (único PN em lote padrão em 05/11/2026)."},
+    {"empresa": "CPLE3", "motivo": "Copel migrou para ON única (CPLE3; CPLE6 não negocia em 05/11/2026). 1 ação PN residual ignorada no valor de mercado."},
+    {"empresa": "AURE3", "motivo": "lucro 12m negativo: P/L negativo, não interpretável."},
+    {"empresa": "geral", "motivo": "EBITDA = EBIT + D&A da DFC (CVM 156), não o ajustado; dívida bruta sem arrendamentos; para TAEE11/ENGI11/ISAE4/CMIG4 o valor de mercado soma ON e PN pelos preços de cada classe."},
+]
 OUT.write_text(json.dumps({"setor": "energia", "nome": "Energia elétrica",
     "gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026", "empresas": emps, "pendencias": PEND},

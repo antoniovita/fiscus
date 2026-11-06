@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T17:44:57+00:00",
+ "gerado_em": "2026-11-06T17:48:41+00:00",
  "SETOR": {
   "veredito": {
    "nivel": "Seletivo",
@@ -1503,6 +1503,3402 @@
     "roe": -15.925,
     "divida_liquida_ebitda": 4.2222
    }
+  }
+ },
+ "SETX": {
+  "bancos": {
+   "nome": "Bancos",
+   "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+   "empresas": [
+    {
+     "tk": "ITUB4",
+     "nome": "ITAÚ UNIBANCO HOLDING S.A.",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 46828.0,
+      "roe_12m": 21.5025,
+      "divida_liquida_ebitda": null,
+      "p_l": 9.9332,
+      "p_vp": 2.1359,
+      "ev_ebitda": null,
+      "valor_mercado": 465149.9382
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BBDC4",
+     "nome": "BANCO BRADESCO S.A.",
+     "db": "2026-09-30",
+     "per": "3T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 26148.439,
+      "roe_12m": 13.4063,
+      "divida_liquida_ebitda": null,
+      "p_l": 5.348,
+      "p_vp": 0.717,
+      "ev_ebitda": null,
+      "valor_mercado": 139842.0262
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BBAS3",
+     "nome": "BANCO DO BRASIL S.A.",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 12272.045,
+      "roe_12m": 6.5951,
+      "divida_liquida_ebitda": null,
+      "p_l": 7.6712,
+      "p_vp": 0.5059,
+      "ev_ebitda": null,
+      "valor_mercado": 94140.9397
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "SANB11",
+     "nome": "BANCO SANTANDER (BRASIL) S.A.",
+     "db": "2026-09-30",
+     "per": "3T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 13160.769,
+      "roe_12m": 10.2567,
+      "divida_liquida_ebitda": null,
+      "p_l": null,
+      "p_vp": null,
+      "ev_ebitda": null,
+      "valor_mercado": null
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": "sem valor de mercado",
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": "sem valor de mercado",
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": "composição do capital informa só 7,498,531 ações e não há LPA não-nulo (ITR 2026 nem DFP 2025) para confirmar se a escala é milhares; valor de mercado não calculado para não inventar escala",
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BPAC11",
+     "nome": "BANCO BTG PACTUAL S/A",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 18458.126,
+      "roe_12m": 22.2031,
+      "divida_liquida_ebitda": null,
+      "p_l": 13.4814,
+      "p_vp": 2.9933,
+      "ev_ebitda": null,
+      "valor_mercado": 248840.7775
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BRSR6",
+     "nome": "BANCO DO ESTADO DO RIO GRANDE DO SUL SA",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 1641.805,
+      "roe_12m": 13.8618,
+      "divida_liquida_ebitda": null,
+      "p_l": 3.6895,
+      "p_vp": 0.5114,
+      "ev_ebitda": null,
+      "valor_mercado": 6057.3975
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BMGB4",
+     "nome": "BANCO BMG S/A",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 632.313,
+      "roe_12m": 12.4771,
+      "divida_liquida_ebitda": null,
+      "p_l": 5.578,
+      "p_vp": 0.696,
+      "ev_ebitda": null,
+      "valor_mercado": 3527.066
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.09.01 Atribuído a Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BMEB4",
+     "nome": "BANCO MERCANTIL BRASIL SA",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 833.085,
+      "roe_12m": 26.5402,
+      "divida_liquida_ebitda": null,
+      "p_l": 7.221,
+      "p_vp": 1.9165,
+      "ev_ebitda": null,
+      "valor_mercado": 6015.7153
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BEES3",
+     "nome": "BANESTES SA BANCO DO ESTADO DO ESPIRITO SANTO",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 442.686,
+      "roe_12m": 17.6244,
+      "divida_liquida_ebitda": null,
+      "p_l": 7.0835,
+      "p_vp": 1.2484,
+      "ev_ebitda": null,
+      "valor_mercado": 3135.7498
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "PINE4",
+     "nome": "BANCO PINE S/A",
+     "db": "2026-06-30",
+     "per": "2T26",
+     "v": {
+      "receita_12m": null,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 603.085,
+      "roe_12m": 33.4815,
+      "divida_liquida_ebitda": null,
+      "p_l": 4.0928,
+      "p_vp": 1.3703,
+      "ev_ebitda": null,
+      "valor_mercado": 2468.2998
+     },
+     "o": {
+      "receita_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 Atribuído aos Sócios da Empresa Controladora",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / pl_controladores (fim do período) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "não aplicável a instituição financeira (plano de contas de banco; captação é atividade-fim, sem EBITDA)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    }
+   ],
+   "pend": [
+    {
+     "ticker": "ABCB4",
+     "motivo": "BANCO ABC BRASIL (CD_CVM 20958) sem DRE consolidada no ITR 2026 da CVM"
+    },
+    {
+     "ticker": "BPAN4/INTR",
+     "motivo": "Banco Pan e Inter não constam como companhias ativas no cad_cia_aberta.csv"
+    },
+    {
+     "ticker": "BBAS3",
+     "metrica": "acoes",
+     "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    },
+    {
+     "ticker": "SANB11",
+     "metrica": "acoes",
+     "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    },
+    {
+     "ticker": "SANB11",
+     "metrica": "valor_mercado",
+     "motivo": "composição do capital informa só 7,498,531 ações e não há LPA não-nulo (ITR 2026 nem DFP 2025) para confirmar se a escala é milhares; valor de mercado não calculado para não inventar escala"
+    },
+    {
+     "ticker": "BPAC11",
+     "metrica": "acoes",
+     "motivo": "sem LPA não-nulo para validar escala da composição do capital"
+    }
+   ]
+  },
+  "energia": {
+   "nome": "Energia elétrica",
+   "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+   "empresas": [
+    {
+     "tk": "AXIA3",
+     "nome": "AXIA ENERGIA S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 44568.35,
+      "margem_ebitda_12m": 36.6199,
+      "lucro_controladores_12m": 12055.712,
+      "roe_12m": 10.0068,
+      "divida_liquida_ebitda": 2.7415,
+      "p_l": 11.3475,
+      "p_vp": 1.1191,
+      "ev_ebitda": 11.1262,
+      "valor_mercado": 136802.5355
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_AXIA3 + acoes_PN×preco_AXIA7",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "EQTL3",
+     "nome": "EQUATORIAL S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 54713.129,
+      "margem_ebitda_12m": 20.7719,
+      "lucro_controladores_12m": 958.423,
+      "roe_12m": 3.5417,
+      "divida_liquida_ebitda": 4.7646,
+      "p_l": 43.4484,
+      "p_vp": 1.5938,
+      "ev_ebitda": 8.6564,
+      "valor_mercado": 41641.9377
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_EQTL3",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "EGIE3",
+     "nome": "ENGIE BRASIL ENERGIA S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 13680.975,
+      "margem_ebitda_12m": 59.7474,
+      "lucro_controladores_12m": 3959.345,
+      "roe_12m": 28.9825,
+      "divida_liquida_ebitda": 3.0388,
+      "p_l": 7.6858,
+      "p_vp": 2.027,
+      "ev_ebitda": 6.894,
+      "valor_mercado": 30430.841
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_EGIE3",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CPFE3",
+     "nome": "CPFL ENERGIA SA",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 45612.395,
+      "margem_ebitda_12m": 30.6689,
+      "lucro_controladores_12m": 6004.881,
+      "roe_12m": 27.172,
+      "divida_liquida_ebitda": 1.9704,
+      "p_l": 8.0976,
+      "p_vp": 2.1405,
+      "ev_ebitda": 5.5149,
+      "valor_mercado": 48625.1374
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_CPFE3",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CPLE3",
+     "nome": "COMPANHIA PARANAENSE DE ENERGIA COPEL",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 27985.378,
+      "margem_ebitda_12m": 25.4033,
+      "lucro_controladores_12m": 3134.132,
+      "roe_12m": 12.606,
+      "divida_liquida_ebitda": 2.8149,
+      "p_l": 13.6938,
+      "p_vp": 1.7788,
+      "ev_ebitda": 8.8548,
+      "valor_mercado": 42918.2309
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_CPLE3",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CMIG4",
+     "nome": "CIA ENERG MINAS GERAIS - CEMIG",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 43739.538,
+      "margem_ebitda_12m": 19.3242,
+      "lucro_controladores_12m": 4595.105,
+      "roe_12m": 15.9401,
+      "divida_liquida_ebitda": 2.2799,
+      "p_l": 7.6762,
+      "p_vp": 1.2087,
+      "ev_ebitda": 6.4536,
+      "valor_mercado": 35272.8761
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_CMIG3 + acoes_PN×preco_CMIG4",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "TAEE11",
+     "nome": "TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 4484.395,
+      "margem_ebitda_12m": 66.7652,
+      "lucro_controladores_12m": 1635.717,
+      "roe_12m": 20.8594,
+      "divida_liquida_ebitda": 3.4782,
+      "p_l": 8.304,
+      "p_vp": 1.683,
+      "ev_ebitda": 8.0149,
+      "valor_mercado": 13583.0486
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_TAEE3 + acoes_PN×preco_TAEE4",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "ENGI11",
+     "nome": "ENERGISA SA",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 36704.056,
+      "margem_ebitda_12m": 24.3596,
+      "lucro_controladores_12m": 1516.835,
+      "roe_12m": 8.0414,
+      "divida_liquida_ebitda": 3.7165,
+      "p_l": 15.7293,
+      "p_vp": 1.2236,
+      "ev_ebitda": 6.7747,
+      "valor_mercado": 23858.7251
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_ENGI3 + acoes_PN×preco_ENGI4",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "ISAE4",
+     "nome": "ISA ENERGIA BRASIL S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 10674.519,
+      "margem_ebitda_12m": 47.2206,
+      "lucro_controladores_12m": 2817.169,
+      "roe_12m": 13.1762,
+      "divida_liquida_ebitda": 3.168,
+      "p_l": 6.7757,
+      "p_vp": 0.8614,
+      "ev_ebitda": 7.0187,
+      "valor_mercado": 19088.1832
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_ISAE3 + acoes_PN×preco_ISAE4",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "AURE3",
+     "nome": "AUREN ENERGIA S.A",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 13469.154,
+      "margem_ebitda_12m": 25.834,
+      "lucro_controladores_12m": -1089.423,
+      "roe_12m": -9.0068,
+      "divida_liquida_ebitda": 5.7522,
+      "p_l": -10.7204,
+      "p_vp": 1.0149,
+      "ev_ebitda": 9.4665,
+      "valor_mercado": 11679.0193
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON×preco_AURE3",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "NEOE3",
+     "nome": "NEOENERGIA S.A",
+     "db": "2026-09-30",
+     "per": "3T26; 12m até 2026-09-30",
+     "v": {
+      "receita_12m": 52157.0,
+      "margem_ebitda_12m": 29.2712,
+      "lucro_controladores_12m": 4836.0,
+      "roe_12m": 13.3706,
+      "divida_liquida_ebitda": 3.3761,
+      "p_l": null,
+      "p_vp": null,
+      "ev_ebitda": null,
+      "valor_mercado": null
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-09-30, 2026-09-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": null,
+       "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)",
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": null,
+       "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)",
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": null,
+       "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": null,
+       "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)",
+       "unidade": "R$ mi"
+      }
+     }
+    }
+   ],
+   "pend": [
+    {
+     "empresa": "AXIA3",
+     "motivo": "composicao_capital do ITR informada em milhares de ações (total < 100 mi); multiplicada por 1.000 (não há coluna de escala no arquivo)"
+    },
+    {
+     "empresa": "AXIA3",
+     "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+    },
+    {
+     "empresa": "EQTL3",
+     "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+    },
+    {
+     "empresa": "EGIE3",
+     "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+    },
+    {
+     "empresa": "CPFE3",
+     "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+    },
+    {
+     "empresa": "CPLE3",
+     "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+    }
+   ]
+  },
+  "mineracao": {
+   "nome": "Mineração",
+   "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+   "empresas": [
+    {
+     "tk": "VALE3",
+     "nome": "Vale",
+     "db": "2026-09-30",
+     "per": "3T26 (trimestre) e 12m até 2026-09-30",
+     "v": {
+      "receita_12m": 215830.0,
+      "margem_ebitda_12m": 20.2224,
+      "lucro_controladores_12m": 2188.0,
+      "roe_12m": 1.0599,
+      "divida_liquida_ebitda": 1.5546,
+      "p_l": 116.6431,
+      "p_vp": 1.3104,
+      "ev_ebitda": 7.5156,
+      "valor_mercado": 255215.1772
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01 (DRE_con)",
+       "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (156154.0 + 213595.0 − 153919.0)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "EBITDA 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 (DRE_con)",
+       "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (23236.0 + 13814.0 − 34862.0)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / média PL controladores (2025-09-30, 2026-09-30)",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "dívida líquida / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor de mercado / lucro controladores 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor de mercado / PL controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "EV / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CMIN3",
+     "nome": "CSN Mineração",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) e 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 17392.874,
+      "margem_ebitda_12m": 34.8348,
+      "lucro_controladores_12m": 2333.063,
+      "roe_12m": 28.1487,
+      "divida_liquida_ebitda": 0.1692,
+      "p_l": 11.3464,
+      "p_vp": 3.6068,
+      "ev_ebitda": 4.5384,
+      "valor_mercado": 26471.9336
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01 (DRE_con)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (7317.3 + 18025.1 − 7949.6)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "EBITDA 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 (DRE_con)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (442.0 + 1649.6 − -241.4)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "dívida líquida / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor de mercado / lucro controladores 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor de mercado / PL controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "EV / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CBAV3",
+     "nome": "Companhia Brasileira de Alumínio (CBA)",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) e 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 9321.968,
+      "margem_ebitda_12m": 19.0927,
+      "lucro_controladores_12m": 597.93,
+      "roe_12m": 12.6875,
+      "divida_liquida_ebitda": 1.6332,
+      "p_l": 12.2499,
+      "p_vp": 1.4463,
+      "ev_ebitda": 5.8762,
+      "valor_mercado": 7324.5712
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01 (DRE_con)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (4876.0 + 8788.8 − 4342.8)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "EBITDA 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01 (DRE_con)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (687.5 + 121.0 − 210.7)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "dívida líquida / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor de mercado / lucro controladores 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor de mercado / PL controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "EV / EBITDA 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BRAP4",
+     "nome": "Bradespar (holding — participação na Vale)",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) e 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 0.0,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 584.439,
+      "roe_12m": 6.9501,
+      "divida_liquida_ebitda": null,
+      "p_l": 12.3494,
+      "p_vp": 0.8966,
+      "ev_ebitda": null,
+      "valor_mercado": 7217.4462
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01 (DRE_ind)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (0.0 + 0.0 − 0.0)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "EBITDA 12m / receita 12m",
+       "motivo": "holding: sem EBITDA/receita operacional",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11 (DRE_ind)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (805.8 + 547.0 − 768.4)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "dívida líquida / EBITDA 12m",
+       "motivo": "holding: sem EBITDA",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor de mercado / lucro controladores 12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor de mercado / PL controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "EV / EBITDA 12m",
+       "motivo": "holding: sem EBITDA",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "LTEL3B",
+     "nome": "Litel Participações (holding — participação na Vale)",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) e 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 0.0,
+      "margem_ebitda_12m": null,
+      "lucro_controladores_12m": 173.345,
+      "roe_12m": 4.6656,
+      "divida_liquida_ebitda": null,
+      "p_l": null,
+      "p_vp": null,
+      "ev_ebitda": null,
+      "valor_mercado": null
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01 (DRE_ind)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (0.0 + 0.0 − 0.0)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "EBITDA 12m / receita 12m",
+       "motivo": "holding: sem EBITDA/receita operacional",
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11 (DRE_ind)",
+       "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (306.7 + 225.1 − 358.4)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "dívida líquida / EBITDA 12m",
+       "motivo": "holding: sem EBITDA",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor de mercado / lucro controladores 12m",
+       "motivo": "insumo ausente",
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor de mercado / PL controladores",
+       "motivo": "insumo ausente",
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "EV / EBITDA 12m",
+       "motivo": "holding: sem EBITDA",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+       "motivo": "insumo ausente",
+       "unidade": "R$ mi"
+      }
+     }
+    }
+   ],
+   "pend": [
+    {
+     "empresa": "VALE3",
+     "item": "ações em circulação",
+     "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    {
+     "empresa": "CMIN3",
+     "item": "ITR 3T26",
+     "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+    },
+    {
+     "empresa": "CBAV3",
+     "item": "ITR 3T26",
+     "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+    },
+    {
+     "empresa": "CBAV3",
+     "item": "ações em circulação",
+     "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    {
+     "empresa": "BRAP4",
+     "item": "ITR 3T26",
+     "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+    },
+    {
+     "empresa": "BRAP4",
+     "item": "ações em circulação",
+     "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    }
+   ]
+  },
+  "petroleo": {
+   "nome": "Petróleo e gás",
+   "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+   "empresas": [
+    {
+     "tk": "PETR4",
+     "nome": "Petrobras",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 548493.0,
+      "margem_ebitda_12m": 49.8316,
+      "lucro_controladores_12m": 133376.0,
+      "roe_12m": 30.3068,
+      "divida_liquida_ebitda": 1.1443,
+      "p_l": 4.7657,
+      "p_vp": 1.3216,
+      "ev_ebitda": 3.4732,
+      "valor_mercado": 635625.4793
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_PETR3 + acoes_PN_circulacao × preco_PETR4 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "PRIO3",
+     "nome": "PRIO",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 21361.551,
+      "margem_ebitda_12m": 58.5133,
+      "lucro_controladores_12m": 3868.893,
+      "roe_12m": 14.2252,
+      "divida_liquida_ebitda": 1.7416,
+      "p_l": 12.6961,
+      "p_vp": 1.741,
+      "ev_ebitda": 5.6714,
+      "valor_mercado": 49119.9176
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_PRIO3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "VBBR3",
+     "nome": "Vibra Energia",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 203974.0,
+      "margem_ebitda_12m": 4.8903,
+      "lucro_controladores_12m": 5056.0,
+      "roe_12m": 22.7845,
+      "divida_liquida_ebitda": 1.6182,
+      "p_l": 6.7666,
+      "p_vp": 1.4538,
+      "ev_ebitda": 5.0593,
+      "valor_mercado": 34211.6918
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_VBBR3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "UGPA3",
+     "nome": "Ultrapar",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 153258.052,
+      "margem_ebitda_12m": 5.7543,
+      "lucro_controladores_12m": 3457.072,
+      "roe_12m": 20.3166,
+      "divida_liquida_ebitda": 1.1694,
+      "p_l": 9.6547,
+      "p_vp": 1.8586,
+      "ev_ebitda": 5.1885,
+      "valor_mercado": 33376.8727
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_UGPA3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CSAN3",
+     "nome": "Cosan",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 40083.074,
+      "margem_ebitda_12m": 13.8887,
+      "lucro_controladores_12m": -8892.04,
+      "roe_12m": -146.2564,
+      "divida_liquida_ebitda": 8.5382,
+      "p_l": -1.109,
+      "p_vp": 1.9847,
+      "ev_ebitda": 15.149,
+      "valor_mercado": 9860.9162
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_CSAN3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BRAV3",
+     "nome": "Brava Energia",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 12338.901,
+      "margem_ebitda_12m": 46.2516,
+      "lucro_controladores_12m": 54.457,
+      "roe_12m": 0.4439,
+      "divida_liquida_ebitda": 1.832,
+      "p_l": 134.44,
+      "p_vp": 0.5961,
+      "ev_ebitda": 3.1149,
+      "valor_mercado": 7321.1993
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_BRAV3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "RECV3",
+     "nome": "PetroReconcavo",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 2982.954,
+      "margem_ebitda_12m": 45.3041,
+      "lucro_controladores_12m": 638.352,
+      "roe_12m": 14.39,
+      "divida_liquida_ebitda": 1.1413,
+      "p_l": 4.6711,
+      "p_vp": 0.6726,
+      "ev_ebitda": 3.3478,
+      "valor_mercado": 2981.7784
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_RECV3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "PASS3",
+     "nome": "Compass Gás e Energia",
+     "db": "2026-06-30",
+     "per": "2T26 (trimestre) / 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 15158.084,
+      "margem_ebitda_12m": 33.4126,
+      "lucro_controladores_12m": 1150.031,
+      "roe_12m": 20.0197,
+      "divida_liquida_ebitda": 2.6237,
+      "p_l": 12.1595,
+      "p_vp": 2.3177,
+      "ev_ebitda": 5.7925,
+      "valor_mercado": 13983.8421
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "DRE 3.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "DRE 3.11.01",
+       "formula": "acum. 2026-01-01..2026-06-30 + DFP 2025 − acum. 2025-01-01..2025-06-30 (comparativo do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_ON_circulacao × preco_PASS3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    }
+   ],
+   "pend": [
+    {
+     "empresa": "PETR4",
+     "item": "ITR 3T26",
+     "motivo": "ITR de 30/09/2026 ausente em itr_cia_aberta_2026.zip; usada data-base 2026-06-30 (2T26)."
+    },
+    {
+     "empresa": "PRIO3",
+     "item": "ITR 3T26",
+     "motivo": "ITR de 30/09/2026 ausente em itr_cia_aberta_2026.zip; usada data-base 2026-06-30 (2T26)."
+    },
+    {
+     "empresa": "VBBR3",
+     "item": "ITR 3T26",
+     "motivo": "ITR de 30/09/2026 ausente em itr_cia_aberta_2026.zip; usada data-base 2026-06-30 (2T26)."
+    },
+    {
+     "empresa": "VBBR3",
+     "item": "ações em circulação",
+     "motivo": "Vibra informa a composição do capital em milhares de ações (QT_ACAO_ORDIN_CAP_INTEGR=1.198.563); multiplicado por 1.000. Confirmar no formulário do ITR."
+    },
+    {
+     "empresa": "UGPA3",
+     "item": "ITR 3T26",
+     "motivo": "ITR de 30/09/2026 ausente em itr_cia_aberta_2026.zip; usada data-base 2026-06-30 (2T26)."
+    },
+    {
+     "empresa": "CSAN3",
+     "item": "ITR 3T26",
+     "motivo": "ITR de 30/09/2026 ausente em itr_cia_aberta_2026.zip; usada data-base 2026-06-30 (2T26)."
+    }
+   ]
+  },
+  "varejo": {
+   "nome": "Varejo",
+   "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+   "empresas": [
+    {
+     "tk": "LREN3",
+     "nome": "LOJAS RENNER SA",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 15971.509,
+      "margem_ebitda_12m": 19.276,
+      "lucro_controladores_12m": 1493.933,
+      "roe_12m": 14.4563,
+      "divida_liquida_ebitda": -0.3765,
+      "p_l": 6.1322,
+      "p_vp": 0.8836,
+      "ev_ebitda": 2.5991,
+      "valor_mercado": 9161.027
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "MGLU3",
+     "nome": "MAGAZINE LUIZA SA",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 38284.194,
+      "margem_ebitda_12m": 8.1388,
+      "lucro_controladores_12m": 88.509,
+      "roe_12m": 0.7955,
+      "divida_liquida_ebitda": 1.0218,
+      "p_l": 47.5864,
+      "p_vp": 0.3772,
+      "ev_ebitda": 2.3735,
+      "valor_mercado": 4211.8253
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "ASAI3",
+     "nome": "SENDAS DISTRIBUIDORA S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 77566.0,
+      "margem_ebitda_12m": 8.0048,
+      "lucro_controladores_12m": 965.0,
+      "roe_12m": 16.1574,
+      "divida_liquida_ebitda": 1.9019,
+      "p_l": 11.72,
+      "p_vp": 1.7822,
+      "ev_ebitda": 3.7234,
+      "valor_mercado": 11309.818
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "GMAT3",
+     "nome": "GRUPO MATEUS S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 40568.193,
+      "margem_ebitda_12m": 6.5663,
+      "lucro_controladores_12m": 1620.167,
+      "roe_12m": 15.1403,
+      "divida_liquida_ebitda": 0.4102,
+      "p_l": 5.272,
+      "p_vp": 0.7637,
+      "ev_ebitda": 4.0524,
+      "valor_mercado": 8541.4656
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "RADL3",
+     "nome": "RAIA DROGASIL S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 46533.85,
+      "margem_ebitda_12m": 10.8974,
+      "lucro_controladores_12m": 1342.385,
+      "roe_12m": 19.2283,
+      "divida_liquida_ebitda": 0.5521,
+      "p_l": 19.1346,
+      "p_vp": 3.5231,
+      "ev_ebitda": 5.6174,
+      "valor_mercado": 25685.9973
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "AZZA3",
+     "nome": "AZZAS 2154 S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 11365.137,
+      "margem_ebitda_12m": 12.8387,
+      "lucro_controladores_12m": 324.176,
+      "roe_12m": 3.9582,
+      "divida_liquida_ebitda": 1.461,
+      "p_l": 8.7687,
+      "p_vp": 0.3535,
+      "ev_ebitda": 3.4091,
+      "valor_mercado": 2842.5931
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "CEAB3",
+     "nome": "C&A MODAS S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 8014.326,
+      "margem_ebitda_12m": 21.2795,
+      "lucro_controladores_12m": 562.295,
+      "roe_12m": 15.4928,
+      "divida_liquida_ebitda": 0.0982,
+      "p_l": 3.9696,
+      "p_vp": 0.5869,
+      "ev_ebitda": 1.407,
+      "valor_mercado": 2232.0976
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "BHIA3",
+     "nome": "GRUPO CASAS BAHIA S.A. - EM RECUPERAÇÃO JUDICIAL",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 29732.0,
+      "margem_ebitda_12m": -4.026,
+      "lucro_controladores_12m": -13206.0,
+      "roe_12m": null,
+      "divida_liquida_ebitda": null,
+      "p_l": null,
+      "p_vp": null,
+      "ev_ebitda": null,
+      "valor_mercado": 673.3365
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": "PL médio dos controladores não positivo",
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": "EBITDA 12m ausente ou não positivo",
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": "lucro 12m dos controladores negativo ou ausente",
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": "PL dos controladores não positivo",
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": "EBITDA 12m ausente ou não positivo",
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "VIVA3",
+     "nome": "VIVARA PARTICIPAÇÕES S.A.",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 3354.3125,
+      "margem_ebitda_12m": 27.3104,
+      "lucro_controladores_12m": 851.9635,
+      "roe_12m": 28.6529,
+      "divida_liquida_ebitda": 0.111,
+      "p_l": 5.0175,
+      "p_vp": 1.3425,
+      "ev_ebitda": 4.7774,
+      "valor_mercado": 4274.7552
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    },
+    {
+     "tk": "PGMN3",
+     "nome": "EMPREENDIMENTOS PAGUE MENOS SA",
+     "db": "2026-06-30",
+     "per": "2T26; 12m até 2026-06-30",
+     "v": {
+      "receita_12m": 15637.474,
+      "margem_ebitda_12m": 9.58,
+      "lucro_controladores_12m": 328.407,
+      "roe_12m": 10.6004,
+      "divida_liquida_ebitda": 0.9814,
+      "p_l": 5.3067,
+      "p_vp": 0.5099,
+      "ev_ebitda": 2.1502,
+      "valor_mercado": 1742.7573
+     },
+     "o": {
+      "receita_12m": {
+       "conta": "3.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_ebitda_12m": {
+       "conta": null,
+       "formula": "ebitda_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "lucro_controladores_12m": {
+       "conta": "3.11.01",
+       "formula": "acum 2026-01-01..2026-06-30 + DFP 2025 − acum 2025-01-01..2025-06-30 (comparativo PENÚLTIMO do ITR 2T26)",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "roe_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "divida_liquida_ebitda": {
+       "conta": null,
+       "formula": "divida_liquida / ebitda_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_l": {
+       "conta": null,
+       "formula": "valor_mercado / lucro_controladores_12m",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "p_vp": {
+       "conta": null,
+       "formula": "valor_mercado / pl_controladores",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "ev_ebitda": {
+       "conta": null,
+       "formula": "ev / ebitda_12m (EBITDA CVM 156; dívida sem arrendamentos)",
+       "motivo": null,
+       "unidade": "x"
+      },
+      "valor_mercado": {
+       "conta": null,
+       "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      }
+     }
+    }
+   ],
+   "pend": [
+    {
+     "empresa": "LREN3",
+     "item": "data-base",
+     "motivo": "ITR 3T26 ausente; usado 2T26 (2026-06-30)"
+    },
+    {
+     "empresa": "LREN3",
+     "item": "ações em circulação",
+     "motivo": "composicao_capital informa 1,006,845 ações (arquivo sem campo de escala); valor tratado como milhares de ações (inferência de escala, conferir no formulário ITR)"
+    },
+    {
+     "empresa": "MGLU3",
+     "item": "data-base",
+     "motivo": "ITR 3T26 ausente; usado 2T26 (2026-06-30)"
+    },
+    {
+     "empresa": "ASAI3",
+     "item": "demonstrações",
+     "motivo": "sem demonstrações consolidadas no ITR 2026; usadas as individuais (_ind) em todos os períodos (ITR 2026, DFP 2025, ITR 2025)"
+    },
+    {
+     "empresa": "ASAI3",
+     "item": "data-base",
+     "motivo": "ITR 3T26 ausente; usado 2T26 (2026-06-30)"
+    },
+    {
+     "empresa": "ASAI3",
+     "item": "ações em circulação",
+     "motivo": "composicao_capital informa 1,353,531 ações (arquivo sem campo de escala); valor tratado como milhares de ações (inferência de escala, conferir no formulário ITR)"
+    }
+   ]
   }
  }
 }

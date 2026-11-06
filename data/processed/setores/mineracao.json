@@ -1,0 +1,811 @@
+{
+ "setor": "mineracao",
+ "nome": "Mineração",
+ "gerado_em": "2026-11-06T17:45:47.220295+00:00",
+ "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+ "empresas": [
+  {
+   "ticker": "VALE3",
+   "nome": "Vale",
+   "cd_cvm": "4170",
+   "cnpj": "33.592.510/0001-54",
+   "data_base": "2026-09-30",
+   "periodo": "3T26 (trimestre) e 12m até 2026-09-30",
+   "demonstracao": "consolidado",
+   "holding": false,
+   "metricas": {
+    "receita_tri": {
+     "valor": 54462.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con, 3T26)"
+    },
+    "receita_12m": {
+     "valor": 215830.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con)",
+     "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (156154.0 + 213595.0 − 153919.0)"
+    },
+    "ebit_tri": {
+     "valor": 7177.0,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con, 3T26)"
+    },
+    "ebit_12m": {
+     "valor": 25203.0,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con)",
+     "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (31187.0 + 31969.0 − 37953.0)"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 6536.0,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con, 3T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 556.0,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con)",
+     "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (23776.0 + 11811.0 − 35031.0)"
+    },
+    "lucro_controladores_tri": {
+     "valor": 6436.0,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con, 3T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 2188.0,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con)",
+     "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (23236.0 + 13814.0 − 34862.0)"
+    },
+    "da_12m": {
+     "valor": 18443.0,
+     "unidade": "R$ mi",
+     "conta": "6.01.01.* com descrição deprecia/amortiza/exaust (DFC_MI_con)",
+     "formula": "acum 2026-09-30 + FY2025 − acum 2025-09-30 (13794.0 + 17306.0 − 12657.0)"
+    },
+    "ebitda_12m": {
+     "valor": 43646.0,
+     "unidade": "R$ mi",
+     "formula": "EBIT 12m (3.05) + D&A 12m (DFC) — EBITDA CVM 156, não o ajustado"
+    },
+    "pl_controladores": {
+     "valor": 194758.0,
+     "unidade": "R$ mi",
+     "conta": "2.03 − 2.03.09 (con) em 2026-09-30"
+    },
+    "divida_bruta": {
+     "valor": 93944.0,
+     "unidade": "R$ mi",
+     "conta": "2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP + LP (sem IFRS 16)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 26094.0,
+     "unidade": "R$ mi",
+     "conta": "1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 67850.0,
+     "unidade": "R$ mi",
+     "formula": "dívida bruta − caixa e aplicações"
+    },
+    "margem_ebitda_12m": {
+     "valor": 20.2224,
+     "unidade": "%",
+     "formula": "EBITDA 12m / receita 12m"
+    },
+    "margem_liquida_12m": {
+     "valor": 1.0138,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / receita 12m"
+    },
+    "roe_12m": {
+     "valor": 1.0599,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / média PL controladores (2025-09-30, 2026-09-30)"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 1.5546,
+     "unidade": "x",
+     "formula": "dívida líquida / EBITDA 12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 4072366000.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (composicao_capital 2026-09-30)",
+     "obs": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    "preco_VALE3": {
+     "valor": 62.67,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 VALE3 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 255215.1772,
+     "unidade": "R$ mi",
+     "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)"
+    },
+    "p_l": {
+     "valor": 116.6431,
+     "unidade": "x",
+     "formula": "valor de mercado / lucro controladores 12m"
+    },
+    "p_vp": {
+     "valor": 1.3104,
+     "unidade": "x",
+     "formula": "valor de mercado / PL controladores"
+    },
+    "ev": {
+     "valor": 328025.1772,
+     "unidade": "R$ mi",
+     "formula": "valor de mercado + dívida líquida + PL não controladores"
+    },
+    "ev_ebitda": {
+     "valor": 7.5156,
+     "unidade": "x",
+     "formula": "EV / EBITDA 12m"
+    }
+   }
+  },
+  {
+   "ticker": "CMIN3",
+   "nome": "CSN Mineração",
+   "cd_cvm": "25585",
+   "cnpj": "08.902.291/0001-15",
+   "data_base": "2026-06-30",
+   "periodo": "2T26 (trimestre) e 12m até 2026-06-30",
+   "demonstracao": "consolidado",
+   "holding": false,
+   "metricas": {
+    "receita_tri": {
+     "valor": 3613.204,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con, 2T26)"
+    },
+    "receita_12m": {
+     "valor": 17392.874,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (7317.3 + 18025.1 − 7949.6)"
+    },
+    "ebit_tri": {
+     "valor": 762.611,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con, 2T26)"
+    },
+    "ebit_12m": {
+     "valor": 4642.024,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (1686.7 + 5011.1 − 2055.9)"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 219.395,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con, 2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 2332.202,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (441.5 + 1649.2 − -241.5)"
+    },
+    "lucro_controladores_tri": {
+     "valor": 219.646,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con, 2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 2333.063,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (442.0 + 1649.6 − -241.4)"
+    },
+    "da_12m": {
+     "valor": 1416.756,
+     "unidade": "R$ mi",
+     "conta": "6.01.01.* com descrição deprecia/amortiza/exaust (DFC_MI_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (744.2 + 1323.2 − 650.7)"
+    },
+    "ebitda_12m": {
+     "valor": 6058.78,
+     "unidade": "R$ mi",
+     "formula": "EBIT 12m (3.05) + D&A 12m (DFC) — EBITDA CVM 156, não o ajustado"
+    },
+    "pl_controladores": {
+     "valor": 7339.411,
+     "unidade": "R$ mi",
+     "conta": "2.03 − 2.03.09 (con) em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 8964.506,
+     "unidade": "R$ mi",
+     "conta": "2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP + LP (sem IFRS 16)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 7939.402,
+     "unidade": "R$ mi",
+     "conta": "1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 1025.104,
+     "unidade": "R$ mi",
+     "formula": "dívida bruta − caixa e aplicações"
+    },
+    "margem_ebitda_12m": {
+     "valor": 34.8348,
+     "unidade": "%",
+     "formula": "EBITDA 12m / receita 12m"
+    },
+    "margem_liquida_12m": {
+     "valor": 13.4139,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / receita 12m"
+    },
+    "roe_12m": {
+     "valor": 28.1487,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 0.1692,
+     "unidade": "x",
+     "formula": "dívida líquida / EBITDA 12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 5402435438.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (composicao_capital 2026-06-30)"
+    },
+    "preco_CMIN3": {
+     "valor": 4.9,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 CMIN3 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 26471.9336,
+     "unidade": "R$ mi",
+     "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)"
+    },
+    "p_l": {
+     "valor": 11.3464,
+     "unidade": "x",
+     "formula": "valor de mercado / lucro controladores 12m"
+    },
+    "p_vp": {
+     "valor": 3.6068,
+     "unidade": "x",
+     "formula": "valor de mercado / PL controladores"
+    },
+    "ev": {
+     "valor": 27497.2276,
+     "unidade": "R$ mi",
+     "formula": "valor de mercado + dívida líquida + PL não controladores"
+    },
+    "ev_ebitda": {
+     "valor": 4.5384,
+     "unidade": "x",
+     "formula": "EV / EBITDA 12m"
+    }
+   }
+  },
+  {
+   "ticker": "CBAV3",
+   "nome": "Companhia Brasileira de Alumínio (CBA)",
+   "cd_cvm": "25984",
+   "cnpj": "61.409.892/0001-73",
+   "data_base": "2026-06-30",
+   "periodo": "2T26 (trimestre) e 12m até 2026-06-30",
+   "demonstracao": "consolidado",
+   "holding": false,
+   "metricas": {
+    "receita_tri": {
+     "valor": 2568.388,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con, 2T26)"
+    },
+    "receita_12m": {
+     "valor": 9321.968,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (4876.0 + 8788.8 − 4342.8)"
+    },
+    "ebit_tri": {
+     "valor": 469.3,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con, 2T26)"
+    },
+    "ebit_12m": {
+     "valor": 963.716,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (822.6 + 578.8 − 437.7)"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 409.903,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con, 2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 719.417,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (751.4 + 229.9 − 261.8)"
+    },
+    "lucro_controladores_tri": {
+     "valor": 381.113,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con, 2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 597.93,
+     "unidade": "R$ mi",
+     "conta": "3.11.01 (DRE_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (687.5 + 121.0 − 210.7)"
+    },
+    "da_12m": {
+     "valor": 816.098,
+     "unidade": "R$ mi",
+     "conta": "6.01.01.* com descrição deprecia/amortiza/exaust (DFC_MI_con)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (397.8 + 758.2 − 339.9)"
+    },
+    "ebitda_12m": {
+     "valor": 1779.814,
+     "unidade": "R$ mi",
+     "formula": "EBIT 12m (3.05) + D&A 12m (DFC) — EBITDA CVM 156, não o ajustado"
+    },
+    "pl_controladores": {
+     "valor": 5064.325,
+     "unidade": "R$ mi",
+     "conta": "2.03 − 2.03.09 (con) em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 4716.752,
+     "unidade": "R$ mi",
+     "conta": "2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP + LP (sem IFRS 16)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 1810.014,
+     "unidade": "R$ mi",
+     "conta": "1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 2906.738,
+     "unidade": "R$ mi",
+     "formula": "dívida bruta − caixa e aplicações"
+    },
+    "margem_ebitda_12m": {
+     "valor": 19.0927,
+     "unidade": "%",
+     "formula": "EBITDA 12m / receita 12m"
+    },
+    "margem_liquida_12m": {
+     "valor": 6.4142,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / receita 12m"
+    },
+    "roe_12m": {
+     "valor": 12.6875,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 1.6332,
+     "unidade": "x",
+     "formula": "dívida líquida / EBITDA 12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 651073000.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (composicao_capital 2026-06-30)",
+     "obs": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    "preco_CBAV3": {
+     "valor": 11.25,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 CBAV3 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 7324.5712,
+     "unidade": "R$ mi",
+     "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)"
+    },
+    "p_l": {
+     "valor": 12.2499,
+     "unidade": "x",
+     "formula": "valor de mercado / lucro controladores 12m"
+    },
+    "p_vp": {
+     "valor": 1.4463,
+     "unidade": "x",
+     "formula": "valor de mercado / PL controladores"
+    },
+    "ev": {
+     "valor": 10458.4983,
+     "unidade": "R$ mi",
+     "formula": "valor de mercado + dívida líquida + PL não controladores"
+    },
+    "ev_ebitda": {
+     "valor": 5.8762,
+     "unidade": "x",
+     "formula": "EV / EBITDA 12m"
+    }
+   }
+  },
+  {
+   "ticker": "BRAP4",
+   "nome": "Bradespar (holding — participação na Vale)",
+   "cd_cvm": "18724",
+   "cnpj": "03.847.461/0001-92",
+   "data_base": "2026-06-30",
+   "periodo": "2T26 (trimestre) e 12m até 2026-06-30",
+   "demonstracao": "individual (sem consolidado na CVM)",
+   "holding": true,
+   "metricas": {
+    "receita_tri": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_ind, 2T26)"
+    },
+    "receita_12m": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (0.0 + 0.0 − 0.0)"
+    },
+    "ebit_tri": {
+     "valor": 241.37,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_ind, 2T26)"
+    },
+    "ebit_12m": {
+     "valor": 526.026,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (783.8 + 471.9 − 729.7)"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 252.313,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind, 2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 584.439,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (805.8 + 547.0 − 768.4)"
+    },
+    "lucro_controladores_tri": {
+     "valor": 252.313,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind, 2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 584.439,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (805.8 + 547.0 − 768.4)"
+    },
+    "da_12m": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "D&A não localizada na DFC 6.01.01.*"
+    },
+    "ebitda_12m": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "holding: resultado vem de equivalência patrimonial (Vale); EBITDA não se aplica"
+    },
+    "pl_controladores": {
+     "valor": 8049.611,
+     "unidade": "R$ mi",
+     "conta": "2.03 − 2.03.09 (ind) em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP + LP (sem IFRS 16)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 254.451,
+     "unidade": "R$ mi",
+     "conta": "1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": -254.451,
+     "unidade": "R$ mi",
+     "formula": "dívida bruta − caixa e aplicações"
+    },
+    "margem_ebitda_12m": {
+     "valor": null,
+     "unidade": "%",
+     "formula": "EBITDA 12m / receita 12m",
+     "motivo": "holding: sem EBITDA/receita operacional"
+    },
+    "margem_liquida_12m": {
+     "valor": null,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / receita 12m",
+     "motivo": "holding: receita é equivalência patrimonial, margem não comparável"
+    },
+    "roe_12m": {
+     "valor": 6.9501,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)"
+    },
+    "divida_liquida_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "dívida líquida / EBITDA 12m",
+     "motivo": "holding: sem EBITDA"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 137990000.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (composicao_capital 2026-06-30)",
+     "obs": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    "preco_BRAP3": {
+     "valor": 17.4,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 BRAP3 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 255107000.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (composicao_capital 2026-06-30)",
+     "obs": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    "preco_BRAP4": {
+     "valor": 18.88,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 BRAP4 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 7217.4462,
+     "unidade": "R$ mi",
+     "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)"
+    },
+    "p_l": {
+     "valor": 12.3494,
+     "unidade": "x",
+     "formula": "valor de mercado / lucro controladores 12m"
+    },
+    "p_vp": {
+     "valor": 0.8966,
+     "unidade": "x",
+     "formula": "valor de mercado / PL controladores"
+    },
+    "ev": {
+     "valor": 6962.9952,
+     "unidade": "R$ mi",
+     "formula": "valor de mercado + dívida líquida + PL não controladores"
+    },
+    "ev_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "EV / EBITDA 12m",
+     "motivo": "holding: sem EBITDA"
+    }
+   }
+  },
+  {
+   "ticker": "LTEL3B",
+   "nome": "Litel Participações (holding — participação na Vale)",
+   "cd_cvm": "15091",
+   "cnpj": "00.743.065/0001-27",
+   "data_base": "2026-06-30",
+   "periodo": "2T26 (trimestre) e 12m até 2026-06-30",
+   "demonstracao": "individual (sem consolidado na CVM)",
+   "holding": true,
+   "metricas": {
+    "receita_tri": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_ind, 2T26)"
+    },
+    "receita_12m": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "3.01 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (0.0 + 0.0 − 0.0)"
+    },
+    "ebit_tri": {
+     "valor": 122.721,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_ind, 2T26)"
+    },
+    "ebit_12m": {
+     "valor": 160.217,
+     "unidade": "R$ mi",
+     "conta": "3.05 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (299.0 + 214.1 − 353.0)"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 127.156,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind, 2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 173.345,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (306.7 + 225.1 − 358.4)"
+    },
+    "lucro_controladores_tri": {
+     "valor": 127.156,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind, 2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 173.345,
+     "unidade": "R$ mi",
+     "conta": "3.11 (DRE_ind)",
+     "formula": "acum 2026-06-30 + FY2025 − acum 2025-06-30 (306.7 + 225.1 − 358.4)"
+    },
+    "da_12m": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "D&A não localizada na DFC 6.01.01.*"
+    },
+    "ebitda_12m": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "holding: resultado vem de equivalência patrimonial (Vale); EBITDA não se aplica"
+    },
+    "pl_controladores": {
+     "valor": 3575.769,
+     "unidade": "R$ mi",
+     "conta": "2.03 − 2.03.09 (ind) em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 0.0,
+     "unidade": "R$ mi",
+     "conta": "2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP + LP (sem IFRS 16)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 21.932,
+     "unidade": "R$ mi",
+     "conta": "1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": -21.932,
+     "unidade": "R$ mi",
+     "formula": "dívida bruta − caixa e aplicações"
+    },
+    "margem_ebitda_12m": {
+     "valor": null,
+     "unidade": "%",
+     "formula": "EBITDA 12m / receita 12m",
+     "motivo": "holding: sem EBITDA/receita operacional"
+    },
+    "margem_liquida_12m": {
+     "valor": null,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / receita 12m",
+     "motivo": "holding: receita é equivalência patrimonial, margem não comparável"
+    },
+    "roe_12m": {
+     "valor": 4.6656,
+     "unidade": "%",
+     "formula": "lucro controladores 12m / média PL controladores (2025-06-30, 2026-06-30)"
+    },
+    "divida_liquida_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "dívida líquida / EBITDA 12m",
+     "motivo": "holding: sem EBITDA"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 215495000.0,
+     "unidade": "ações",
+     "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (composicao_capital 2026-06-30)",
+     "obs": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+    },
+    "preco_LTEL3B": {
+     "valor": null,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 LTEL3B PREULT (CODBDI 02, TPMERC 010)",
+     "motivo": "LTEL3B sem negociação no lote padrão do COTAHIST 05/11/2026"
+    },
+    "valor_mercado": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
+     "motivo": "insumo ausente"
+    },
+    "p_l": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "valor de mercado / lucro controladores 12m",
+     "motivo": "insumo ausente"
+    },
+    "p_vp": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "valor de mercado / PL controladores",
+     "motivo": "insumo ausente"
+    },
+    "ev": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "formula": "valor de mercado + dívida líquida + PL não controladores",
+     "motivo": "insumo ausente"
+    },
+    "ev_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "formula": "EV / EBITDA 12m",
+     "motivo": "holding: sem EBITDA"
+    }
+   }
+  }
+ ],
+ "pendencias": [
+  {
+   "empresa": "VALE3",
+   "item": "ações em circulação",
+   "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+  },
+  {
+   "empresa": "CMIN3",
+   "item": "ITR 3T26",
+   "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+  },
+  {
+   "empresa": "CBAV3",
+   "item": "ITR 3T26",
+   "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+  },
+  {
+   "empresa": "CBAV3",
+   "item": "ações em circulação",
+   "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+  },
+  {
+   "empresa": "BRAP4",
+   "item": "ITR 3T26",
+   "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+  },
+  {
+   "empresa": "BRAP4",
+   "item": "ações em circulação",
+   "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+  },
+  {
+   "empresa": "LTEL3B",
+   "item": "ITR 3T26",
+   "motivo": "3T26 não consta em itr_cia_aberta_2026.zip; usado 2026-06-30"
+  },
+  {
+   "empresa": "LTEL3B",
+   "item": "ações em circulação",
+   "motivo": "composicao_capital não traz unidade; total < 10 milhões indica quantidade em milhares (padrão do formulário ITR) — multiplicado por 1.000"
+  },
+  {
+   "empresa": "LTEL3B",
+   "item": "valor de mercado",
+   "motivo": "sem preço no COTAHIST 05/11/2026 para ao menos uma classe"
+  },
+  {
+   "empresa": "AURA33",
+   "item": "Aura Minerals",
+   "motivo": "BDR de emissor estrangeiro: sem ITR/DFP no CVM Dados Abertos (só Aura Almas Mineração, Cat. B, sem ações negociadas)."
+  },
+  {
+   "empresa": "CMOC/Taboca",
+   "item": "Mineração Taboca",
+   "motivo": "não consta como companhia aberta ativa em cad_cia_aberta.csv."
+  },
+  {
+   "empresa": "PMAM3",
+   "item": "Paranapanema",
+   "motivo": "fora do escopo: setor CVM Metalurgia (cobre), em recuperação judicial (CODBDI 08)."
+  }
+ ]
+}
