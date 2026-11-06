@@ -935,6 +935,22 @@ table.sxt td.m small{display:block;font-size:11.5px;color:var(--faint);font-weig
 .rs.cover .cr{position:relative;overflow:hidden;background:#fff}
 .rs.cover .dm{position:absolute;width:38%;aspect-ratio:1;transform:rotate(45deg);border-radius:clamp(8px,1.2cqw,16px)}
 .pdfstage .slide.rs{font-family:"Poppins","Helvetica Neue",Arial,sans-serif}
+
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.charts{grid-template-columns:1fr}}
+.chartbox{background:var(--fill2);border-radius:16px;padding:12px 14px 8px;display:grid;gap:6px;min-width:0}
+.chartbox .t{font-size:12.5px;color:var(--muted);font-weight:500}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-size:11px;font-family:var(--f-ui)}
+.chart .val{fill:var(--ink);font-size:11.5px;font-weight:600}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}.legend i{width:9px;height:9px;border-radius:50%}
+.hbars{display:grid;gap:6px}
+.hbars>div{display:grid;grid-template-columns:64px 1fr 64px;gap:10px;align-items:center;font-size:12.5px}
+.hb-l{font-weight:600;color:var(--ink2)}.hb-v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.hb-t{height:10px;background:#e8e8ed;border-radius:99px;overflow:hidden}.hb-t i{display:block;height:100%;border-radius:99px}
+.rs .chartbox{background:#f4f6fd;border-radius:0;padding:8px 10px 4px}
+.rs .chart text{font-size:10px}
 </style>
 
 <div class="site" id="v-landing">

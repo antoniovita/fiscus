@@ -120,6 +120,7 @@ function valResults(){const V=S.val;if(!V||!V.e)return "";const r=dcf(V.e,V.prem
     <dt>Fluxo de caixa livre base (12m)</dt><dd>${mi(r.f0)}</dd><dt class="sub">EBIT × (1 − 34%) + D&A − capex</dt><dd class="sub">${mi(b.ebit12m*(1-T))} + ${mi(b.da12m)} − ${mi(r.capex)}</dd>${b.capex12m!=null?`<dt class="sub">Capex total em 12 meses, com expansão (referência)</dt><dd class="sub">${mi(b.capex12m)} · ${nf(b.capex12m/b.da12m,2)}x o D&A</dd>`:""}
     <dt>Valor da empresa</dt><dd>${mi(r.ev)}</dd><dt>(−) Dívida líquida</dt><dd>${mi(b.dl)}</dd><dt>(−) Não controladores</dt><dd>${mi(b.minor)}</dd>
     <dt>Valor do acionista</dt><dd>${mi(r.eq)}</dd><dt>÷ Ações em circulação</dt><dd>${nf(b.acoes/1e6)} mi</dd></dl>
+   ${gBridge(r)}
    <div class="sec-h"><b>Sensibilidade do preço-alvo</b><span>WACC × crescimento na perpetuidade</span></div>${sens}
    <span class="small">Faixas: compra a partir de +15% de potencial, venda abaixo de −10%. EBIT, D&A, dívida, ações e preço são dados verificados (CVM e B3); as premissas marcadas são suas.</span></div>`}
 function wVal(i){const V=S.val,last=S.msgs.findLastIndex(x=>x.w==="val")===i,live=last&&S.step==="val";const [a,b]=S.picks;
@@ -160,9 +161,11 @@ async function startPanorama(sx,q){S=fresh();S.kind="panorama";S.sx=sx;S.view="c
 const sxFmt=(v,u)=>v==null?null:u==="mi"?(v<0?"−":"")+"R$ "+nf(Math.abs(v)):u==="%"?nf(v,1)+"%":(v<0?"−":"")+nf(Math.abs(v),1)+"x";
 function wSX(i){const last=S.msgs.findLastIndex(x=>x.w==="sx")===i,sid=S.sx,X=SETX[sid];if(!X)return "";
   const body=`<div class="tblwrap"><table class="sxt"><thead><tr><th>Empresa</th><th>Base</th>${SXCOLS.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead><tbody>${X.empresas.map((e,ix)=>`<tr><td class="m"><b>${esc(e.tk)}</b><small>${esc((e.nome||"").slice(0,28))}</small></td><td>${esc(e.per&&/3T26|2026-09/.test(e.db||"")?"3T26":(e.db||"").startsWith("2026-06")?"2T26":(e.db||"—"))}</td>${SXCOLS.map(([k,n,u])=>{const v=e.v[k],f=sxFmt(v,u);return `<td>${f==null?`<span class="nd" title="${esc(e.o[k]?.motivo||"Não se aplica ou não disponível")}">n.d.</span>`:`<button class="num" data-sxn="${sid}" data-i="${ix}" data-m="${k}">${esc(f)}</button>`}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
+  const hk=sid==="bancos"?["roe_12m","ROE 12 meses","%"]:["margem_ebitda_12m","Margem EBITDA 12 meses (CVM 156)","%"];
+  const hb=gHBars(hk[1],X.empresas.map(e=>({l:e.tk,v:e.v[hk[0]]})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9)),hk[2]);
   return `<div class="widget"><div class="cmphead"><div><div class="eyebrow">Panorama do setor · ${X.empresas.length} empresas</div><h3 class="ctitle">${esc(X.nome)}</h3></div><span class="tag">Tese em construção</span></div>
    ${last?`<div class="tabs" role="tablist">${SXORDER.map(k=>`<button role="tab" aria-selected="${k===sid}" data-sxtab="${k}">${esc(SETX[k].nome)}</button>`).join("")}</div>`:""}
-   <div class="tabbody${tabAnim&&last?" anim":""}">${body}
+   <div class="tabbody${tabAnim&&last?" anim":""}">${hb}${body}
    <span class="small">Fonte: ${esc(X.fonte||"CVM Dados Abertos + B3")}. Valores em R$ milhões; 12 meses até a data-base de cada empresa; consolidado; EBITDA pelo critério CVM 156. Números lidos da base oficial da CVM, sem a verificação página a página feita na siderurgia.${sid==="bancos"?" Bancos: EBITDA, dívida líquida e EV não se aplicam.":""}</span></div></div>`}
 function openSX(sid,i,k){const e=SETX[sid].empresas[i],c=SXCOLS.find(x=>x[0]===k),o=e.o[k]||{};
   $("drawer").innerHTML=`<header><div><div class="eyebrow">${esc(e.tk)} · ${esc(e.per||e.db||"")}</div><h4>${esc(c[1])}</h4></div><button class="ib" id="x" aria-label="Fechar">${ic("xmark")}</button></header>
@@ -170,6 +173,33 @@ function openSX(sid,i,k){const e=SETX[sid].empresas[i],c=SXCOLS.find(x=>x[0]===k
    <dl><dt>Empresa</dt><dd>${esc(e.nome||e.tk)}</dd><dt>Fonte</dt><dd>${esc(SETX[sid].fonte||"")}</dd>${o.conta?`<dt>Conta</dt><dd>${esc(o.conta)}</dd>`:""}${o.formula?`<dt>Fórmula</dt><dd>${esc(o.formula)}</dd>`:""}<dt>Data-base</dt><dd>${esc(e.db||"")}</dd></dl>
    <span class="small">Sem verificação página a página no ITR; a siderurgia tem esse nível adicional de conferência.</span>`;
   $("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");$("scrim").hidden=false;$("x").onclick=closeD;$("x").focus()}
+
+/* ================= GRÁFICOS (SVG, escala única, cores do tema) ================= */
+const CC={g:"var(--c-g)",u:"var(--c-u)",c:"var(--c-c)"};
+function gBars(title,k){const [a,b]=S.picks,m=MET[k];const vs=[[a,0],[a,1],[b,0],[b,1]].map(([e,i])=>val(k,e,i));if(vs.some(v=>v==null))return "";
+  const w=360,h=170,L=8,B=26,T=22,ih=h-T-B,mx=Math.max(...vs.map(Math.abs))*1.1||1,base=T+ih,bw=40,gw=(w-L*2)/2;
+  let s=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(title)}">`;
+  s+=`<line x1="${L}" x2="${w-L}" y1="${base}" y2="${base}" stroke="var(--line)"/>`;
+  [a,b].forEach((e,gi)=>{const cx=L+gw*gi+gw/2;[1,0].forEach((i,j2)=>{const v=val(k,e,i),hh=Math.max(1,Math.abs(v)/mx*ih),x=cx-bw-3+j2*(bw+6),y=v>=0?base-hh:base;
+    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${hh}" rx="4" fill="${CC[e]}" opacity="${i?0.35:1}"/><text x="${x+bw/2}" y="${v>=0?y-5:y+hh+12}" text-anchor="middle" class="val">${esc(fmt(v,m.un).replace(" mi",""))}</text>`});
+    s+=`<text x="${cx}" y="${h-8}" text-anchor="middle" style="fill:var(--ink);font-size:12px">${esc(co(e).nome)}</text>`});
+  return `<div class="chartbox"><span class="t">${esc(title)} · ${per(a,1)} (claro) × ${per(a)} (escuro)</span>${s}</svg></div>`}
+function gLine(title,key,unit){const [a,b]=S.picks;const H=[a,b].map(e=>HIST?.[e]||{});const Y=Object.keys(H[0]);if(!Y.length)return "";
+  const pts=[a,b].map((e,i)=>Y.map(y=>H[i][y]?.[key]));const all=pts.flat().filter(v=>v!=null);if(!all.length)return "";
+  const w=520,h=200,L=40,R=14,T=16,B=26,iw=w-L-R,ih=h-T-B,mn=Math.min(0,...all),mx=Math.max(...all)*1.1,x=i=>L+i*iw/(Y.length-1),y=v=>T+ih-(v-mn)/(mx-mn)*ih;
+  let s=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(title)}">`;
+  [mn,(mn+mx)/2,mx].forEach(t=>{s+=`<line x1="${L}" x2="${w-R}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)"/><text x="${L-6}" y="${y(t)+4}" text-anchor="end">${nf(t,0)}${unit}</text>`});
+  Y.forEach((yy,i)=>{s+=`<text x="${x(i)}" y="${h-8}" text-anchor="middle">${yy}</text>`});
+  [a,b].forEach((e,k)=>{const d=pts[k].map((v,i)=>v==null?null:`${x(i)},${y(v)}`).filter(Boolean);s+=`<polyline points="${d.join(" ")}" fill="none" stroke="${CC[e]}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    pts[k].forEach((v,i)=>{if(v!=null)s+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="${CC[e]}"/>`});const lv=pts[k][pts[k].length-1];if(lv!=null)s+=`<text x="${x(Y.length-1)-6}" y="${y(lv)-8}" text-anchor="end" class="val">${nf(lv,1)}${unit}</text>`});
+  return `<div class="chartbox"><span class="t">${esc(title)}</span>${s}</svg><div class="legend">${[a,b].map(e=>`<span><i style="background:${CC[e]}"></i>${esc(co(e).nome)}</span>`).join("")}</div></div>`}
+function gHBars(title,rows,unit){const ok=rows.filter(r=>r.v!=null);if(!ok.length)return "";const mx=Math.max(...ok.map(r=>Math.abs(r.v)))||1;
+  return `<div class="chartbox"><span class="t">${esc(title)}</span><div class="hbars">${rows.map(r=>`<div><span class="hb-l">${esc(r.l)}</span><span class="hb-t"><i style="width:${r.v==null?0:Math.max(2,Math.abs(r.v)/mx*100)}%;background:${r.v!=null&&r.v<0?"var(--red)":"var(--blue)"}"></i></span><span class="hb-v">${r.v==null?"n.d.":nf(r.v,1)+unit}</span></div>`).join("")}</div></div>`}
+function gBridge(r){const it=[["Valor da empresa",r.ev,"var(--ink)"],["(−) Dívida líquida",-r.b.dl,r.b.dl>0?"var(--red)":"var(--green)"],["(−) Não controladores",-r.b.minor,"var(--red)"],["Valor do acionista",r.eq,"var(--blue)"]];
+  const w=520,h=190,L=10,T=20,B=30,ih=h-T-B,mx=Math.max(r.ev,r.eq,r.ev-r.b.dl)*1.08||1,y=v=>T+ih-v/mx*ih,bw=(w-L*2)/4-28;let s=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Do valor da empresa ao valor do acionista">`,run=0;
+  it.forEach(([l,v,c],i)=>{const x=L+i*(w-L*2)/4+14;let y0,y1;if(i===0||i===3){y0=y(Math.max(v,0));y1=y(0);run=v}else{const n=run+v;y0=y(Math.max(run,n));y1=y(Math.min(run,n));run=n}
+    s+=`<rect x="${x}" y="${Math.min(y0,y1)}" width="${bw}" height="${Math.max(1,Math.abs(y1-y0))}" rx="4" fill="${c}"/><text x="${x+bw/2}" y="${Math.min(y0,y1)-5}" text-anchor="middle" class="val">${(v<0?"−":"")+nf(Math.abs(v))}</text><text x="${x+bw/2}" y="${h-10}" text-anchor="middle">${l}</text>`});
+  return `<div class="chartbox"><span class="t">Do valor da empresa ao valor do acionista · R$ mi</span>${s}</svg></div>`}
 
 /* ================= WIDGETS ================= */
 function sensRows(){return SETOR.sens.map(s=>`<div class="srow"><span>${esc(s.d)}</span><span class="lvlbar">${[1,2,3].map(i=>`<i class="${i<=s.n?"on":""}"></i>`).join("")}</span><span class="dado">${esc(s.dado)} <span class="src">${esc(s.f)}</span></span></div>`).join("")}
@@ -204,10 +234,10 @@ function kpiTable(keys){const [a,b]=S.picks;let last="";
 function tabHist(){const [a,b]=S.picks,M=[["receita","Receita","R$ mi"],["margem_ebitda","Margem EBITDA (CVM 156)","%"],["lucro_consolidado","Lucro líquido","R$ mi"],["fcf","Fluxo de caixa livre","R$ mi"],["roe","ROE","%"],["divida_liquida_ebitda","Dív. líq./EBITDA","x"]];
   const t=e=>{const H=HIST?.[e]||{},Y=Object.keys(H);if(!Y.length)return `<p class="note">Histórico indisponível.</p>`;
     return `<div class="tblwrap"><table class="htbl"><thead><tr><th>${dot(e)} ${co(e).nome}</th>${Y.map(y=>`<th>${y}</th>`).join("")}</tr></thead><tbody>${M.map(([k,n,u])=>`<tr><td class="m">${n}</td>${Y.map(y=>{const v=H[y][k];return `<td>${v==null?"n.d.":u==="R$ mi"?nf(v):u==="%"?nf(v,1)+"%":nf(v,1)+"x"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`};
-  return `${t(a)}${t(b)}<span class="small">Fonte: CVM Dados Abertos, DFP de 2021 a 2025, consolidado, em R$ milhões. EBITDA pelo critério CVM 156, sem os ajustes das empresas. Dív. líq./EBITDA fica n.d. quando o EBITDA é negativo.</span>
+  return `<div class="charts">${gLine("Margem EBITDA (CVM 156), 2021–2025","margem_ebitda","%")}${gLine("ROE, 2021–2025","roe","%")}</div>${t(a)}${t(b)}<span class="small">Fonte: CVM Dados Abertos, DFP de 2021 a 2025, consolidado, em R$ milhões. EBITDA pelo critério CVM 156, sem os ajustes das empresas. Dív. líq./EBITDA fica n.d. quando o EBITDA é negativo.</span>
    <div class="read"><b>O que mudou:</b> o ciclo de 2021 levou margens e retornos ao pico; desde então o aço importado e a normalização de preços comprimiram as margens no Brasil. Compare a trajetória de cada empresa antes de julgar o trimestre.</div>`}
 function tabResumo(){const [a,b]=S.picks,keys=[mgn(),"roic","alav","ev"].filter(k=>S.metrics.includes(k)).slice(0,3);
-  return `<ol class="concl">${S.concl.map(c=>`<li>${esc(c)}</li>`).join("")}</ol>
+  return `<ol class="concl">${S.concl.map(c=>`<li>${esc(c)}</li>`).join("")}</ol><div class="charts">${gBars(MET[mgn()].nome,mgn())}${gBars("Receita líquida · R$ mi","receita")}</div>
    <div class="tiles">${keys.map(k=>`<div class="tile"><span class="k">${esc(MET[k].nome)}</span><div class="pair">${[a,b].map(e=>`<div><span>${dot(e)} ${co(e).nome}</span><b>${numB(k,e)}</b></div>`).join("")}</div></div>`).join("")}</div>`}
 function tabModelo(){const [a,b]=S.picks,pal=["var(--ink)","var(--violet)","var(--orange)","#9aa0a9"];
   return `<div class="bm">${[a,b].map(e=>{const E=co(e);return `<div class="bmc"><h5>${logo(e,"sm")}${E.nome}</h5><p class="para">${esc(E.resumo)}</p>
@@ -412,7 +442,7 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
   if(s.k==="sens")return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026, produção siderúrgica (IBGE) contra cada driver. Correlação não é causalidade.</span>`,"BCB SGS, IBGE PIM-PF, Aço Brasil, Banco Mundial");
   if(s.k==="topics")return F("Estrutura e regulação",`Oligopólio maduro, com o <b>preço limitado pelo aço importado</b>`,dia([T[1],T[2],T[4],T[5]].map(x=>`<b>${esc(x.t)}.</b> ${esc(x.tese)}`)),"Aço Brasil, worldsteel, MDIC, ITRs 3T26");
   if(s.k==="cmp"){const m=mgn();return F(`${esc(co(a).nome)} × ${esc(co(b).nome)}`,esc(S.title),
-    band([[fmt(val(m,a),"%"),`Margem · ${co(a).nome}`],[fmt(val(m,b),"%"),`Margem · ${co(b).nome}`],[fmt(val("roic",a),"%"),`ROIC · ${co(a).nome}`],[fmt(val("roic",b),"%"),`ROIC · ${co(b).nome}`],[fmt(val("ev",a),"x"),`EV/EBITDA · ${co(a).nome}`]])+dia(S.concl.map(esc)))}
+    band([[fmt(val(m,a),"%"),`Margem · ${co(a).nome}`],[fmt(val(m,b),"%"),`Margem · ${co(b).nome}`],[fmt(val("roic",a),"%"),`ROIC · ${co(a).nome}`],[fmt(val("roic",b),"%"),`ROIC · ${co(b).nome}`],[fmt(val("ev",a),"x"),`EV/EBITDA · ${co(a).nome}`]])+`<div class="bm"><div>${dia(S.concl.map(esc))}</div>${gBars(MET[m].nome,m)}</div>`)}
   if(s.k==="kpis")return F("KPIs lado a lado",`Resultados do trimestre no <b>mesmo critério contábil</b>`,kpiTable(S.metrics.filter(k=>!MET[k].mult).slice(0,8)));
   if(s.k==="modelo")return F("Modelos de negócio",`Modelos diferentes respondem a <b>ciclos diferentes</b>`,tabModelo(),"ITRs 3T26 (notas de segmentos), Formulários de Referência");
   if(s.k==="mult")return F("Múltiplos",`Barato não quer dizer bom: leia <b>EV/EBITDA junto com ROIC</b>`,tabMult(),`B3 COTAHIST ${dt}, CVM Dados Abertos`);
