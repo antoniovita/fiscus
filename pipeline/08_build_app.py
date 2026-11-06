@@ -323,7 +323,21 @@ for f in sorted((P / "setores").glob("*.json")):
                      "o": {x: {kk: (m.get(x) or {}).get(kk) for kk in ("conta", "formula", "motivo", "unidade")} for x in _SXM}})
     SETX[d["setor"]] = {"nome": d.get("nome"), "fonte": d.get("fonte"), "empresas": emps, "pend": d.get("pendencias", [])[:6]}
 
-DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST, "SERIES": SERIES, "ITRX": {m: ITR[m]["valor"] for m in ["g_margem_an_3t26", "g_margem_br_3t26", "u_margem_sid_3t26", "g_peso_an_ebitda_3t26"]}, "SETX": SETX}
+# cotações semanais de 5 anos (Yahoo Finance; o último ponto é o fechamento oficial da B3)
+import datetime as _dt
+PRICES = {}
+for e, tk in EMP_KEYS.items():
+    f = ROOT / "data" / "raw" / "mercado" / f"yahoo_5y_{tk}.json"
+    if f.exists():
+        r = json.loads(f.read_text())["chart"]["result"][0]
+        pts = [[_dt.datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d"), round(v, 2)] for ts, v in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if v]
+        pts = [p for p in pts if p[0] < MER["data_referencia"]]
+        me = MER["empresas"][tk].get("metricas", MER["empresas"][tk])
+        pv = me.get("preco_" + tk); pv = pv["valor"] if isinstance(pv, dict) else pv
+        pts.append([MER["data_referencia"], pv])
+        PRICES[e] = pts
+
+DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST, "SERIES": SERIES, "PRICES": PRICES, "ITRX": {m: ITR[m]["valor"] for m in ["g_margem_an_3t26", "g_margem_br_3t26", "u_margem_sid_3t26", "g_peso_an_ebitda_3t26"]}, "SETX": SETX}
 
 
 def main():

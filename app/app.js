@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 
 /* ================= DADOS VERIFICADOS (gerados por pipeline/08_build_app.py) ================= */
 const DATA=/*__DATA__*/null;
-const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST,SETX,SERIES}=DATA;
+const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST,SETX,SERIES,PRICES}=DATA;
 const SXORDER=["bancos","energia","petroleo","mineracao","varejo"].filter(k=>SETX&&SETX[k]);
 const SXCOLS_STD=[["receita_12m","Receita 12m","mi"],["margem_ebitda_12m","Margem EBITDA","%"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["divida_liquida_ebitda","Dív.líq./EBITDA","x"],["p_l","P/L","x"],["p_vp","P/VP","x"],["ev_ebitda","EV/EBITDA","x"]];
 const SXCOLS_BANK=[["receita_intermediacao_12m","Receitas de intermediação 12m","mi"],["resultado_bruto_intermediacao_12m","Resultado bruto da intermediação","mi"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["margem_liquida_12m","Margem líquida","%"],["pl_controladores","Patrimônio líquido","mi"],["p_l","P/L","x"],["p_vp","P/VP","x"]];
@@ -116,8 +116,10 @@ const pc=(v,d=1)=>nf(v*100,d)+"%";
 function valResults(){const V=S.val;if(!V||!V.e)return "";const r=dcf(V.e,V.prem);if(!r)return "";
   if(!r.erro&&r.eq<=0)return `<div class="vres"><div class="vhead"><span class="rec sell">Venda</span><div><span class="k">Preço-alvo 12 meses</span><b>—</b></div></div><p class="note">Com essas premissas, o valor da empresa (${mi(r.ev)}) não cobre a dívida líquida (${mi(r.b.dl)}) mais os não controladores. O acionista ficaria sem valor no DCF. Teste crescimento ou custo de capital diferentes.</p></div>`;if(r.erro)return `<div class="vres"><p class="note">${esc(r.erro)}</p></div>`;
   const [rec,cls]=recOf(r.up),b=r.b;
-  const ws=[-2,-1,0,1,2],gs=[-1,-.5,0,.5,1];
-  const sens=`<div class="tblwrap"><table class="sens2"><thead><tr><th>WACC \\ g perp.</th>${gs.map(g=>`<th>${nf(V.prem.gp+g,2)}%</th>`).join("")}</tr></thead><tbody>${ws.map(w=>`<tr><td class="m">${pc(r.wacc+w/100)}</td>${gs.map(g=>{const x=dcf(V.e,V.prem,w,g);return `<td class="${w===0&&g===0?"hl":""}">${x&&!x.erro?brl(x.price):"—"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
+  const ws=[-2,-1,0,1,2],gs=[-1,-.5,0,.5,1],heat=pr=>{const u=pr/b.preco-1,a=Math.min(1,Math.abs(u)/.5);return u>=0?`background:rgba(17,156,79,${.12+.55*a})`:`background:rgba(224,72,77,${.12+.55*a})`};
+  const sens=`<div class="tblwrap"><table class="sens2"><thead><tr><th>WACC \\ g perp.</th>${gs.map(g=>`<th>${nf(V.prem.gp+g,2)}%</th>`).join("")}</tr></thead><tbody>${ws.map(w=>`<tr><td class="m">${pc(r.wacc+w/100)}</td>${gs.map(g=>{const x=dcf(V.e,V.prem,w,g),ok=x&&!x.erro&&x.eq>0;return `<td class="${w===0&&g===0?"hl":""}" style="${ok&&!(w===0&&g===0)?heat(x.price):""}">${ok?brl(x.price):"—"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
+  const g5s=[-4,-2,0,2,4],cxs=[-.2,-.1,0,.1,.2];
+  const sens2=`<div class="tblwrap"><table class="sens2"><thead><tr><th>Cresc. 5a \\ Capex/D&A</th>${cxs.map(c=>`<th>${nf(V.prem.cx+c,2)}x</th>`).join("")}</tr></thead><tbody>${g5s.map(gg=>`<tr><td class="m">${nf(V.prem.g5+gg,1)}%</td>${cxs.map(c=>{const x=dcf(V.e,{...V.prem,g5:V.prem.g5+gg,cx:V.prem.cx+c}),ok=x&&!x.erro&&x.eq>0;return `<td class="${gg===0&&c===0?"hl":""}" style="${ok&&!(gg===0&&c===0)?heat(x.price):""}">${ok?brl(x.price):"—"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
   return `<div class="vres">
    <div class="vhead"><span class="rec ${cls}">${rec}</span><div><span class="k">Preço-alvo 12 meses</span><b>${brl(r.price)}</b></div><div><span class="k">Preço atual · B3 ${b.dataPreco.split("-").reverse().join("/")}</span><b class="mut">${brl(b.preco)}</b></div><div><span class="k">Potencial</span><b class="${r.up>=0?"pos":"neg"}">${pct(r.up)}</b></div></div>
    <dl class="vcalc"><dt>Custo do capital próprio (Ke)</dt><dd>${pc(r.ke)}</dd><dt>WACC</dt><dd>${pc(r.wacc)}</dd>
@@ -125,7 +127,7 @@ function valResults(){const V=S.val;if(!V||!V.e)return "";const r=dcf(V.e,V.prem
     <dt>Valor da empresa</dt><dd>${mi(r.ev)}</dd><dt>(−) Dívida líquida</dt><dd>${mi(b.dl)}</dd><dt>(−) Não controladores</dt><dd>${mi(b.minor)}</dd>
     <dt>Valor do acionista</dt><dd>${mi(r.eq)}</dd><dt>÷ Ações em circulação</dt><dd>${nf(b.acoes/1e6)} mi</dd></dl>
    ${gBridge(r)}
-   <div class="sec-h"><b>Sensibilidade do preço-alvo</b><span>WACC × crescimento na perpetuidade</span></div>${sens}
+   <div class="sec-h"><b>Sensibilidade do preço-alvo</b><span>verde acima do preço atual, vermelho abaixo</span></div><div class="sens-2"><div><span class="small">WACC × crescimento na perpetuidade</span>${sens}</div><div><span class="small">Crescimento anos 1–5 × capex de manutenção</span>${sens2}</div></div>
    <span class="small">Faixas: compra a partir de +15% de potencial, venda abaixo de −10%. EBIT, D&A, dívida, ações e preço são dados verificados (CVM e B3); as premissas marcadas são suas.</span></div>`}
 function wVal(i){const V=S.val,last=S.msgs.findLastIndex(x=>x.w==="val")===i,live=last&&S.step==="val";const [a,b]=S.picks;
   const prems=PREMS.filter(x=>!(x.onlyNoCapex&&VAL.empresas[V.e].capex12m!=null));
@@ -477,7 +479,8 @@ function buildSlides(){const v=S.val&&S.val.done,base=[
   base.splice(base.findIndex(x=>x.k==="sens"),0,sn);base.splice(base.findIndex(x=>x.k==="cmp"),0,dr);
   if(!v){base.splice(base.findIndex(x=>x.k==="cmp"),0,gl);return base}
   const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});
-  return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},{k:"pillars",label:"Tese em 3 pilares"},gl,...base,{k:"concl",label:"Conclusão"}]}
+  base.splice(base.findIndex(x=>x.k==="val")+1,0,{k:"ratios",label:"Indicadores 2021A–2030P"});
+  return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},{k:"price",label:`${EMP[S.val.e].tk} · preço × alvo`},{k:"pillars",label:"Tese em 3 pilares"},gl,...base,{k:"concl",label:"Conclusão"}]}
 /* gráficos dos slides (SVG; escalas únicas; dados de DATA) */
 const RC={g:"#00468b",u:"#5a9e1b",c:"#c8102e"};
 function sHBarRef(title,rows,ref,refLbl,unit){const w=560,h=40+rows.length*46,L=110,R=60,mx=Math.max(ref,...rows.map(r=>Math.abs(r.v)))*1.15,mn=Math.min(0,...rows.map(r=>r.v))*1.15,sx=v=>L+(v-mn)/(mx-mn)*(w-L-R);
@@ -493,7 +496,7 @@ function sLines(title,series,unit,yref){const w=600,h=260,L=44,R=16,T=18,B=28,al
   return `<div class="cbox"><h6>${esc(title)}</h6>${s}</svg><div class="clg">${series.map(se=>`<span><i style="background:${se.c}"></i>${esc(se.n)}</span>`).join("")}</div></div>`}
 function sStack(title,rows){return `<div class="cbox"><h6>${esc(title)}</h6><div class="stk">${rows.map(r=>`<div><span class="sl">${esc(r.l)}</span><span class="sb"><i style="width:${r.v}%;background:var(--rb)"></i><em style="width:${100-r.v}%"></em></span><span class="sv"><b>${nf(r.v,1)}%</b> ${esc(r.a)} · ${nf(100-r.v,1)}% ${esc(r.b)}</span></div>`).join("")}</div></div>`}
 const RSNAV=["Visão geral","Setor","Comparativo","Valuation","Riscos","Metodologia"];
-const RSSEC={setnum:1,drivers:2,pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
+const RSSEC={price:0,ratios:3,setnum:1,drivers:2,pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
 const BRANDC={g:"#00468b",u:"#5a9e1b",c:"#1f3b8f"};
 const focusE=()=>S.val&&S.val.done?S.val.e:(S.picks.includes(SETOR.veredito.escolha)?SETOR.veredito.escolha:S.picks[0]);
 const themeStyle=()=>{const c=BRANDC[focusE()]||"#1f3fd6";return `style="--rb:${c}"`};
@@ -515,6 +518,27 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
       <div class="r2"><span>Preço-alvo 12m: ${okp?brl(r.price):"—"}</span><span>Potencial: ${okp?pct(r.up):"—"}</span></div></div>
      <div class="team">${esc(ACCT?.nome||"Fiscus")}${ACCT?.inst?" | "+esc(ACCT.inst):""} · Exercício acadêmico, não é recomendação de investimento</div></div>
      <div class="cr">${tiles.map(([c,x,y])=>`<span class="dm" style="background:${c};left:${x-19}%;top:${y-19}%"></span>`).join("")}</div></div>`}
+  if(s.k==="price"){const Vv=S.val,r=dcf(Vv.e,Vv.prem),okp=r&&!r.erro&&r.eq>0,P=PRICES?.[Vv.e]||[],tk=EMP[Vv.e].tk;
+    const w=1000,h=520,L=50,R=20,T=20,B=40,vs=P.map(x=>x[1]),tg=okp?r.price:null,mx=Math.max(...vs,tg||0)*1.12,mn=0,x=i=>L+i*(w-L-R-90)/(P.length-1),y=v=>T+(h-T-B)*(1-(v-mn)/(mx-mn));
+    let s=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;const st=mx/4;[0,1,2,3,4].forEach(i=>{const v=st*i;s+=`<line x1="${L}" x2="${w-R}" y1="${y(v)}" y2="${y(v)}" stroke="#333"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" fill="#999" font-size="14">${nf(v,0)}</text>`});
+    P.forEach((p,i)=>{if(i%52===0)s+=`<text x="${x(i)}" y="${h-12}" text-anchor="middle" fill="#999" font-size="14">${p[0].slice(0,4)}</text>`});
+    s+=`<polyline points="${P.map((p,i)=>`${x(i)},${y(p[1])}`).join(" ")}" fill="none" stroke="#8fb3d9" stroke-width="2.2"/>`;
+    const xe=x(P.length-1),ye=y(P[P.length-1][1]);if(tg){const yt=y(tg);s+=`<polygon points="${xe},${ye} ${xe+80},${Math.min(ye,yt)-30} ${xe+80},${Math.max(ye,yt)+30}" fill="#7a7f88" opacity=".55"/><line x1="${xe}" x2="${xe+80}" y1="${yt}" y2="${yt}" stroke="#fff" stroke-dasharray="4 4"/><rect x="${xe+72}" y="${yt-8}" width="16" height="16" transform="rotate(45 ${xe+80} ${yt})" fill="#fff"/>`}
+    s+=`<circle cx="${xe}" cy="${ye}" r="5" fill="#fff"/></svg>`;
+    return `<div class="slide rs dark2"><div class="rh"><div class="rt light"><h2>${esc(tk)} · <span class="hl2">${esc(Vv.rec.toUpperCase())}</span></h2><p style="color:#ccc">${esc(Vv.mkt)}</p></div></div>
+     <div class="pxw"><div class="pxc">${s}</div><div class="pxb"><div class="box"><h6>Análise de investimento</h6><div>Preço atual: <b>${brl(r.b.preco)}</b></div><div>Preço-alvo: <b>${okp?brl(r.price):"—"}</b></div><div class="rk">${esc(Vv.rec.toUpperCase())}</div></div>
+      <div class="kpi2"><b>DCF: ${okp?pct(r.up):"—"} de potencial</b></div><div class="kpi2"><b>Ke ${pc(r.ke)} · WACC ${pc(r.wacc)}</b><span>Premissas do usuário; T-bond 10a de ${nf(VAL.rf.valor,2)}%</span></div></div></div>
+     <div class="rf2"><em>${idx+1}</em><p class="src" style="color:#9aa">Cotação semanal de 5 anos: Yahoo Finance; último ponto: fechamento B3 de ${esc(r.b.dataPreco.split("-").reverse().join("/"))}</p><img src="${BRAND.logoWhite}" alt="Fiscus"></div></div>`}
+  if(s.k==="ratios"){const Vv=S.val,e=Vv.e,H=HIST?.[e]||{},Y=Object.keys(H),r=dcf(e,Vv.prem),PY=[2026,2027,2028,2029,2030],g5=Vv.prem.g5/100,rec12=val("receita",e)!=null?null:null;
+    const recA=Y.map(y=>H[y].receita),recP=PY.map((_,i)=>H[Y[Y.length-1]].receita*Math.pow(1+g5,i+1)),fcP=PY.map((_,i)=>r.f0*Math.pow(1+g5,i+1));
+    const row=(n,a,p,fm)=>`<tr><td class="m">${n}</td>${a.map(v=>`<td>${v==null?"n.d.":fm(v)}</td>`).join("")}${p.map(v=>`<td class="pj">${v==null?"—":fm(v)}</td>`).join("")}</tr>`;
+    const f0=v=>nf(v,0),f1=v=>nf(v,1)+"%",fx=v=>nf(v,1)+"x";
+    return F(`Indicadores de ${esc(EMP[e].nome)}`,`Histórico <b>2021A–2025A</b> da CVM e projeção <b>2026P–2030P</b> com as suas premissas`,
+     `<div class="tblwrap ratios"><table><thead><tr><th>R$ milhões</th>${Y.map(y=>`<th>${y}A</th>`).join("")}${PY.map(y=>`<th class="pj">${y}P</th>`).join("")}</tr></thead><tbody>
+      <tr class="grp"><td colspan="${Y.length+PY.length+1}">Crescimento</td></tr>${row("Receita líquida",recA,recP,f0)}
+      <tr class="grp"><td colspan="${Y.length+PY.length+1}">Margens e retorno</td></tr>${row("Margem EBITDA (CVM 156)",Y.map(y=>H[y].margem_ebitda),PY.map(()=>null),f1)}${row("ROE",Y.map(y=>H[y].roe),PY.map(()=>null),f1)}
+      <tr class="grp"><td colspan="${Y.length+PY.length+1}">Caixa e balanço</td></tr>${row("Fluxo de caixa livre",Y.map(y=>H[y].fcf),fcP,f0)}${row("Dívida líquida / EBITDA",Y.map(y=>H[y].divida_liquida_ebitda),PY.map(()=>null),fx)}</tbody></table></div>
+      <span class="small">A: CVM Dados Abertos, DFP consolidada. P: receita e fluxo de caixa livre do DCF, crescendo ${nf(Vv.prem.g5,1)}% ao ano (premissa do usuário); margens e alavancagem não são projetadas.</span>`,"CVM Dados Abertos (DFP 2021–2025), Fiscus DCF")}
   if(s.k==="pillars"){const Vv=S.val,nm=["Posição","Resultado","Valor"];
     return `<div class="slide rs dark2"><div class="rh"><div class="rt light"><h2><span class="hl2">Tese de investimento</span> sustentada por 3 pilares…</h2></div></div>
      <div class="pillars">${Vv.args.map((x,i)=>`<div class="pil" style="margin-left:${i*16}%;opacity:${1-i*.12}"><div class="pt"><b>${nm[i]||"Pilar "+(i+1)}:</b> ${esc(x)}</div><div class="pcol"><i></i><i></i><i></i></div></div>`).join("")}</div>

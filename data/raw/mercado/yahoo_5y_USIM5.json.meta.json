@@ -1,0 +1,6 @@
+{
+ "fonte": "Yahoo Finance chart API (preço de fechamento semanal, não ajustado por proventos)",
+ "url": "https://query1.finance.yahoo.com/v8/finance/chart/USIM5.SA?range=5y&interval=1wk",
+ "consultado_em": "2026-11-06T18:51:08+00:00",
+ "sha256": "a36569fb78eb2d430444e6534d228d34de87bd71a8e805299e33b05da831c43c"
+}
