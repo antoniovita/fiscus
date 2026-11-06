@@ -270,10 +270,16 @@ function wMetrics(locked){
    ${locked?"":`<div class="wfoot"><span class="note">${S.metrics.length} selecionadas · mínimo 4</span><button class="pill dark" data-do="confirm-mets" ${S.metrics.length<4?"disabled":""}>Confirmar métricas</button></div>`}</div>`}
 
 const TABS=[["resumo","Resumo"],["kpis","KPIs"],["hist","Histórico"],["modelo","Modelo de negócio"],["mult","Múltiplos"],["quali","Qualitativo"]];
+function srcLabel(k,e,i=0){const s=PROV[`${k}|${e}|${i}`];if(!s)return "";
+  if(s.tipo==="verificado")return `ITR ${EMP[e].nome} · pág. ${s.pagina}`;
+  if(s.tipo==="cvm")return `CVM${s.conta?" · conta "+String(s.conta).split(" ")[0]:""}`;
+  if(s.tipo==="mercado")return `B3 ${VERIF.dataPreco.split("-").reverse().join("/")} + CVM`;
+  return "Cálculo · "+(s.formula||"").split(" ")[0].replace(/[()]/g,"")}
+const FONTES_CMP=()=>`<div class="srcstrip"><b>Fontes</b><span>ITRs 3T26 de ${S.picks.filter(e=>e!=="c").map(e=>EMP[e].nome).join(" e ")||"—"} (CVM)</span><span>CVM Dados Abertos · ITR 2026 e DFP 2021–2025</span><span>B3 · COTAHIST ${VERIF.dataPreco.split("-").reverse().join("/")}</span><span class="hint2">Clique em um número para ver página e trecho</span></div>`;
 function kpiTable(keys){const [a,b]=S.picks;let last="";
   return `<div class="tblwrap"><table><thead><tr><th>Métrica</th><th>${dot(a)} ${co(a).nome} · ${per(a)}</th><th>${dot(b)} ${co(b).nome} · ${per(b)}</th><th>Destaque</th></tr></thead><tbody>${keys.map(k=>{const m=MET[k],L=leader(k);
     const g=m.g!==last?`<tr class="grp"><td colspan="4">${m.g}</td></tr>`:"";last=m.g;
-    return g+`<tr><td class="m">${esc(m.nome)}</td><td><span class="v">${numB(k,a)}</span>${delta(k,a)}</td><td><span class="v">${numB(k,b)}</span>${delta(k,b)}</td><td>${L?`<span class="best">${dot(L.e)}${co(L.e).nome} · ${L.why}</span>`:""}</td></tr>`}).join("")}</tbody></table></div>
+    return g+`<tr><td class="m">${esc(m.nome)}</td><td><span class="v">${numB(k,a)}</span>${delta(k,a)}<small class="srcl">${esc(srcLabel(k,a))}</small></td><td><span class="v">${numB(k,b)}</span>${delta(k,b)}<small class="srcl">${esc(srcLabel(k,b))}</small></td><td>${L?`<span class="best">${dot(L.e)}${co(L.e).nome} · ${L.why}</span>`:""}</td></tr>`}).join("")}</tbody></table></div>
    <span class="small">Variações contra o mesmo trimestre do ano anterior. Consolidado. ROE, ROIC e alavancagem em 12 meses; múltiplos com preço de ${VERIF.dataPreco.split("-").reverse().join("/")}.${hasCSN()?" CSN: dados do 2T26 e EBITDA pelo critério CVM 156 nas duas empresas.":""}</span>`}
 function tabHist(){const [a,b]=S.picks,M=[["receita","Receita","R$ mi"],["margem_ebitda","Margem EBITDA (CVM 156)","%"],["lucro_consolidado","Lucro líquido","R$ mi"],["fcf","Fluxo de caixa livre","R$ mi"],["roe","ROE","%"],["divida_liquida_ebitda","Dív. líq./EBITDA","x"]];
   const t=e=>{const H=HIST?.[e]||{},Y=Object.keys(H);if(!Y.length)return `<p class="note">Histórico indisponível.</p>`;
@@ -300,7 +306,8 @@ function tabQuali(){const [a,b]=S.picks;
    <span class="lab">O que observar</span><ul>${Q.r.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`}).join("")}</div>
    <div class="read"><b>Interpretação:</b> o número mostra o trimestre; o qualitativo diz se ele se repete. Margem sustentada por um mercado protegido depende da política tarifária; margem sustentada por custo é mais durável.</div>`}
 function wCard(i){const last=S.msgs.findLastIndex(x=>x.w==="card")===i,pending=last&&!S.verdict;const [a,b]=S.picks;
-  const body={hist:tabHist,resumo:tabResumo,kpis:()=>kpiTable(S.metrics),modelo:tabModelo,mult:tabMult,quali:tabQuali}[S.tab]();
+  const body0={hist:tabHist,resumo:tabResumo,kpis:()=>kpiTable(S.metrics),modelo:tabModelo,mult:tabMult,quali:tabQuali}[S.tab]();
+  const body=FONTES_CMP()+body0;
   return `<div class="widget">
    <div class="cmphead"><div><div class="eyebrow">Comparativo · ${per(a)}${per(a)!==per(b)?` × ${per(b)}`:""}</div><h3 class="ctitle">${esc(S.title)}</h3></div><div class="vs">${logo(a,"sm")}<span class="note">×</span>${logo(b,"sm")}</div></div>
    <div class="tabs" role="tablist">${TABS.map(([k,l])=>`<button role="tab" aria-selected="${S.tab===k}" data-tab="${k}">${l}</button>`).join("")}</div>
