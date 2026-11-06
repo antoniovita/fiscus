@@ -1,2 +1,4 @@
 node_modules
-out
+.remotion
+out/*
+!out/fiscus_com_narracao.mp4

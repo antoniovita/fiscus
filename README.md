@@ -2,8 +2,9 @@
 
 > Claude Lab · Economia & Finanças · PUC-Rio · 06/11/2026
 
-**Vídeo (2 min):** [PREENCHER: link do YouTube não listado ou Drive "qualquer pessoa com o link"]
 **Artefato público:** https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh
+**Vídeo (1:58, com narração):** [PREENCHER: link do YouTube não listado ou Drive] · arquivo no repositório: [`video/out/fiscus_com_narracao.mp4`](video/out/fiscus_com_narracao.mp4)
+**Código:** https://github.com/antoniovita/fiscus
 
 > **Atenção antes de enviar:** o artefato nasce privado. É preciso deixar o link **público** (compartilhamento de "qualquer pessoa com o link") e abrir numa aba anônima para confirmar que abre sem login.
 
@@ -24,21 +25,41 @@ O diretor de Research precisa levar ao comitê de investimentos uma comparação
 
 Um painel web com uma conversa guiada que termina numa apresentação pronta para o comitê. **Todo número que aparece na tela é clicável e mostra de onde saiu.**
 
-O fluxo do usuário:
+O fluxo do usuário, numa conversa no estilo do Claude:
 
-1. **Setor.** Abre com a tese sobre siderurgia: veredito ("Seletivo"), o que move o setor (juros, importações, câmbio, atividade, minério), estrutura competitiva, cadeia, regulação e riscos. Cada ponto traz a fonte (Aço Brasil, worldsteel, MDIC/Gecex, ITRs, BCB, IBGE).
-2. **Empresas.** O usuário escolhe 2 entre Gerdau, Usiminas e CSN.
-3. **Métricas.** O painel sugere as métricas do setor. As que não existem para uma das empresas ficam desabilitadas, com o motivo (ex.: "O volume da Gerdau sai no release de resultados, que não faz parte do ITR").
-4. **Comparativo** em quatro abas: KPIs, modelo de negócio (mix de EBITDA por segmento), múltiplos e leitura qualitativa (forças, fraquezas, riscos).
-5. **Aceitar ou ajustar.** O usuário aceita, troca métricas, troca empresas ou pede outro título.
-6. **Apresentação de 10 slides** exportável em PDF: tese do setor, o que move o setor, estrutura e regulação, comparativo com a mensagem no título, KPIs lado a lado, modelos de negócio, múltiplos, leitura qualitativa e riscos, "como sabemos que está certo" e fontes e metodologia.
+1. **Conta.** O usuário cria uma conta local, escolhendo nome, função, instituição e plano (Analista, R$ 110, ou Research Pro, R$ 150; tudo simulado, sem pagamento). Depois disso, ele entra pela lista de contas deste navegador. Cada conta tem seu próprio histórico de análises.
+2. **Setor.** O painel pergunta o setor num card: siderurgia (análise completa) ou bancos, energia elétrica, petróleo e gás, mineração e varejo (panorama, com 44 empresas no total).
+3. **Tese do setor.**
+   - Na siderurgia: veredito ("Seletivo"), sensibilidade a juros, importação, câmbio, atividade e minério, e os 8 pontos da tese com fontes.
+   - Nos outros setores: veredito preliminar calculado com as medianas do setor contra a Selic.
+4. **Empresas.** Um card lista todas as empresas do setor que estão na base; o usuário escolhe duas. Também é possível usar o botão **+** da caixa de composição, que abre setores → empresas.
+5. **Métricas e comparativo** (siderurgia), em abas:
+   - Resumo, com gráficos;
+   - KPIs;
+   - Histórico 2021–2025, com linhas de margem e ROE;
+   - Modelo de negócio;
+   - Múltiplos;
+   - Qualitativo.
+
+   Nos outros setores, o comparativo é lado a lado, com os dados da CVM e da B3 e gráficos.
+6. **Tese e preço-alvo** (siderurgia). DCF com as premissas do usuário: T-bond de 10 anos e Selic entram como dados; risco-país, prêmio de risco, beta, crescimento e capex de manutenção são sugestões ajustáveis. O painel mostra a sensibilidade WACC × g, a ponte do valor da empresa até o valor do acionista e a recomendação (compra, neutro ou venda).
+7. **Apresentação de até 15 slides** no estilo research report, inspirada em relatórios do CFA Research Challenge e da Poli Finance, exportável em PDF:
+   - capa com a recomendação e o preço-alvo;
+   - tese em 3 pilares;
+   - a empresa em uma página;
+   - setor;
+   - comparativo;
+   - valuation;
+   - verificação;
+   - conclusão.
 
 Outros recursos:
 
-- **Origem de cada número.** Ao clicar num valor, abre um painel com a origem: página e trecho do ITR, unidade original e critério; ou conta da CVM e arquivo; ou arquivo da B3; ou a fórmula com os insumos. O app tem 52 números com origem registrada e 7 lacunas com motivo escrito (`app/data.json`, campos `PROV` e `ND`).
-- **Chat sobre os dados.** O usuário pergunta em linguagem natural ("qual está mais barata?"). O chat usa o Claude do próprio usuário (capability do Artifact). **O modelo nunca escreve números**: ele só escolhe quais métricas verificadas mostrar, chamando a ferramenta `mostrar_metricas`. Se a resposta do modelo tiver qualquer dígito, o app a descarta e mostra só a tabela verificada.
-- **Histórico de análises** guardado no navegador do usuário.
-- Sem a capability do Claude, o painel continua funcionando: títulos e conclusões padrão e busca de métricas por palavra-chave.
+- **Origem de cada número.** Ao clicar num valor, abre um painel com a origem: página e trecho do ITR, unidade original e critério; ou conta da CVM e arquivo; ou arquivo da B3; ou a fórmula com os insumos.
+- **O modelo nunca escreve números.** O Claude do próprio usuário (capability do Artifact) escolhe o que mostrar com a ferramenta `mostrar_metricas` e escreve títulos e argumentos sem dígitos. O app descarta qualquer texto do modelo que contenha números.
+- **Histórico 1:1 com a conversa**, por conta. É possível editar e reenviar mensagens.
+- **Modo demonstração:** sem a capability do Claude, o painel continua funcionando, com textos padrão e busca por palavra-chave.
+- **Landing institucional** (`#inicio`), com problema, solução, diferenciais, para quem, metodologia, cobertura, fontes e planos. O painel fica em `#painel`.
 
 [PREENCHER: prints da tela inicial, do painel de origem de um número e de um slide]
 
@@ -213,7 +234,7 @@ Requisitos: Python 3, `make`, internet (CVM, B3, BCB, IBGE, Banco Mundial). Para
 
 ```bash
 make setup   # cria .venv e instala requirements.txt (pdfplumber, pandas, requests)
-make tudo    # refaz o pipeline do PDF ao app: itr → verificar → mercado → macro → app
+make tudo    # refaz o pipeline do PDF ao app: itr → verificar → mercado → historico → setores → macro → app
 make teste-ia   # opcional: teste de controle com o Claude (não faz parte do "tudo")
 ```
 
@@ -229,6 +250,9 @@ Os PDFs dos ITRs precisam estar em `data/raw/itr/` (vêm do repositório do case
 | `macro` | `06_sensibilidade.py` | Correlações da produção siderúrgica com IBC-Br, câmbio, Selic e minério | `sensibilidade.json` |
 | `teste-ia` | `07_teste_ia.py` (e `--completo`) | Pede os números ao Claude sem o pipeline e compara com o verificado | `teste_ia.json`, `teste_ia_completo.json` |
 | `app` | `08_build_app.py` | Junta os JSONs verificados, com a origem de cada número, e embute no HTML | `app/data.json`, `app/index.html` |
+| `historico` | `09_historico_dcf.py` | DFP 2021–2025 da CVM (receita, margens, lucro, FCF, ROE, alavancagem) e base de 12 meses para o DCF, com capex real | `historico.json`, `valuation_base.json` |
+| `setores` | `setores/*.py` | Panorama de 44 empresas em 5 setores, a partir da CVM e da B3 | `data/processed/setores/*.json` |
+| `video` | `video/` (Remotion) | Vídeo de 1:58 com legendas; a narração do ElevenLabs é juntada com ffmpeg | `video/out/fiscus_com_narracao.mp4` |
 
 O `data/processed/setor.json` (tópicos do setor) foi montado com o Claude a partir das fontes listadas em [docs/fontes_setor.md](docs/fontes_setor.md), com cópia local de cada fonte em `data/raw/setor/`. Ele não é gerado por um script do pipeline.
 
@@ -237,27 +261,30 @@ O `app/index.html` é o arquivo publicado como Artifact no claude.ai.
 ### Estrutura de pastas
 
 ```
-balanco-lado-a-lado/
-├── Makefile                 alvos do pipeline
-├── requirements.txt
-├── pipeline/                01 a 08, um script por etapa
+fiscus/
+├── README.md · Makefile · requirements.txt
+├── pipeline/                01–09, um script por etapa; setores/ com um script por setor
 ├── data/
 │   ├── raw/                 fontes brutas, cada uma com .meta.json (URL, data, sha256)
 │   │   ├── itr/             PDFs dos ITRs
-│   │   ├── cvm/             zips e cadastro da CVM (zips fora do git)
-│   │   ├── mercado/         COTAHIST da B3, conferência Yahoo, Pink Sheet
-│   │   ├── bcb/  ibge/      séries macro
+│   │   ├── cvm/             cadastro e metadados da CVM (zips fora do git; o pipeline baixa)
+│   │   ├── mercado/         COTAHIST da B3, conferência Yahoo, Pink Sheet do Banco Mundial
+│   │   ├── bcb/ ibge/       séries macro
+│   │   ├── treasury/        curva de juros do Tesouro dos EUA (T-bond de 10 anos)
 │   │   ├── setor/           relatórios e normas do setor
-│   │   └── logos/           logotipos (domínio público)
+│   │   └── logos/           logotipos das empresas (domínio público)
 │   ├── interim/             texto por página dos ITRs; respostas brutas do teste de IA
-│   └── processed/           JSONs verificados que o app usa
+│   └── processed/           JSONs verificados que o app usa (setores/ com o panorama)
 ├── app/
 │   ├── template.html        layout e estilos
-│   ├── app.js               lógica da conversa, comparativo, slides e chat
-│   ├── icons/               ícones Iconoir (MIT)
+│   ├── app.js               conversa, comparativo, valuation, slides, contas e chat
+│   ├── brand/               logotipo Fiscus
+│   ├── icons/               ícones Iconoir 7.11.1 (MIT)
 │   ├── data.json            dados empacotados (gerado)
-│   └── index.html           app final publicado (gerado)
+│   └── index.html           app final publicado como Artifact (gerado)
+├── video/                   projeto Remotion do vídeo, roteiros e MP4 final
 └── docs/
+    ├── SPEC.md              especificação e registro de decisões
     ├── metodologia.md       fórmulas, critérios e convenções
     └── fontes_setor.md      fontes do relatório setorial
 ```
