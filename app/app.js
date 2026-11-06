@@ -157,7 +157,7 @@ Regras: português; NÃO escreva números; frases curtas e com opinião. Respond
     if(Array.isArray(x?.argumentos)&&x.argumentos.slice(0,3).every(ok)&&x.argumentos.length>=3)V.args=x.argumentos.slice(0,3).map(t=>t.trim().slice(0,180));
     if(ok(x?.mercado_nao_precifica))V.mkt=x.mercado_nao_precifica.trim().slice(0,220);
     if(Array.isArray(x?.gatilhos)&&x.gatilhos.slice(0,3).every(ok)&&x.gatilhos.length>=3)V.trig=x.gatilhos.slice(0,3).map(t=>t.trim().slice(0,160));
-  }catch(e){if(e?.code==="not_granted"){sample=null;setStatus()}}}
+  }catch(e){noteErr(e)}}
 async function confirmVal(){user("Confirmo a tese");S.step="building";const m=bot("Escrevendo a tese a partir dos dados e das suas premissas",null,{thinking:true});render();scrollEnd();
   await writeThesis();S.val.done=true;m.thinking=false;m.text="Tese pronta. A primeira página traz a recomendação, o preço-alvo e os argumentos; a última retoma o que precisa acontecer para a tese se confirmar.";S.step="done";bot("","deck");render();scrollEnd()}
 function skipVal(){user("Pular o valuation");S.step="done";bot("Apresentação gerada com a tese do setor e o comparativo. Abra para apresentar ou baixe em PDF.","deck");render();scrollEnd()}
@@ -390,7 +390,7 @@ function renderSide(){const L=STORE.list;
     <div class="mp-h"><b>${esc(ACCT?.nome||"Você")}</b><small>${esc([ACCT?.funcao,ACCT?.inst].filter(Boolean).join(" · ")||"Perfil local")}</small></div>
     <div class="mp-r"><span>Plano</span><b>${esc(pl.n)} · ${esc(pl.p)}</b></div>
     <div class="mp-r"><span>Análises</span><b>${L.length}</b></div><div class="mp-r"><span>Comparativos</span><b>${pares}</b></div><div class="mp-r"><span>Apresentações prontas</span><b>${prontas}</b></div>
-    <div class="mp-r"><span>Assistente</span><b><i class="dot" style="background:${sample?"var(--green-ios)":"var(--faint)"}"></i>${sample?"Claude conectado":"Demonstração"}</b></div>
+    <div class="mp-r"><span>Assistente</span><b><i class="dot" style="background:${sample?"var(--green-ios)":"var(--faint)"}"></i>${sample?"Claude conectado":"Demonstração"}</b></div>${!sample&&sampleChecked?`<div class="mp-r" style="display:block;font-size:12px;color:var(--muted);line-height:1.4">${esc(diagMsg())} <a href="${ART_URL}" target="_blank" rel="noopener">Abrir no claude.ai</a></div>`:""}
     <div class="mp-sep"></div><button type="button" class="mp-out" data-logout>Sair</button></div>`}
 function renderDD(){$("ddmenu").innerHTML=SETORES.map(x=>`<li role="option" data-dd="${x.id}" aria-selected="${x.ativo}" aria-disabled="${!x.ativo}" class="${x.ativo?"act":""}"><span>${x.nome}</span>${x.ativo?ic("check"):`<small>Em breve</small>`}</li>`).join("")}
 function closeDD(){if($("ddmenu")){$("ddmenu").hidden=true;$("ddbtn").setAttribute("aria-expanded","false")}}
@@ -442,7 +442,7 @@ Responda só JSON: {"titulo": string, "conclusoes": [string,string,string]}`,{mo
     const ok=s=>typeof s==="string"&&s.trim()&&!/\d/.test(s);
     if(ok(r?.titulo))S.title=r.titulo.trim().slice(0,120);
     if(Array.isArray(r?.conclusoes)&&r.conclusoes.length>=3&&r.conclusoes.slice(0,3).every(ok))S.concl=r.conclusoes.slice(0,3).map(s=>s.trim().slice(0,200));
-  }catch(e){if(e?.code==="not_granted"){sample=null;setStatus()}}}
+  }catch(e){noteErr(e)}}
 async function confirmMets(){user(`Confirmo ${S.metrics.length} métricas`);S.step="building";const m=bot("Montando o comparativo: KPIs, modelo de negócio, múltiplos e leitura qualitativa",null,{thinking:true});render();scrollEnd();
   await writeStory();m.thinking=false;m.text="Pronto. Navegue pelas abas e aceite para gerar a apresentação, ou recuse para ajustar.";S.verdict=null;S.step="card";bot("","card");render();scrollEnd()}
 function accept(){if(S.picks.length!==2){return}S.verdict="ok";S.step="val";user("Aceito");const pe=S.picks.includes(SETOR.veredito.escolha)?SETOR.veredito.escolha:S.picks[0];
@@ -468,7 +468,7 @@ async function ask(q){q=q.trim();if(!q||busy)return;
 Métricas disponíveis: ${avk.map(k=>`${k} (${MET[k].nome})`).join(", ")}.\nDados:\n${catalog()}\nPergunta: ${q}\nDepois, responda em 1 ou 2 frases curtas em português, com opinião, sem números.`,
    {modelTier:"quick",tools:[{name:"mostrar_metricas",description:"Mostra ao usuário uma tabela com as métricas pedidas para as duas empresas. Retorna ok.",inputSchema:{type:"object",properties:{metricas:{type:"array",items:{type:"string",enum:avk},maxItems:3}},required:["metricas"]},
      execute:i=>{keys=(Array.isArray(i.metricas)?i.metricas:[]).map(String).filter(k=>MET[k]&&avail(k)).slice(0,3);return {ok:true}}}],onText:({text})=>{m.text=text;m.thinking=false;renderThread()}});
-   m.text=(r.text||"").trim().split(/\n\n+/).pop()}catch(e){if(e?.code==="not_granted"){sample=null;setStatus()}keys=localKeys(q);m.text=keys.length?"Aqui estão os números verificados.":"Ainda não tenho esse dado verificado."}}
+   m.text=(r.text||"").trim().split(/\n\n+/).pop()}catch(e){noteErr(e);keys=localKeys(q);m.text=keys.length?"Aqui estão os números verificados.":"Ainda não tenho esse dado verificado."}}
   else{await wait(350);keys=localKeys(q);m.text=keys.length?"Aqui estão os números verificados.":"Ainda não tenho esse dado verificado. Posso mostrar receita, EBITDA, margem, ROE, ROIC, alavancagem e múltiplos."}
   m.thinking=false;if(/\d/.test(m.text||""))m.text="Aqui estão os números verificados.";if(keys.length){m.w="mini";m.keys=keys}busy=false;render();scrollEnd()}
 
@@ -631,9 +631,20 @@ function openD(k,e,i){const m=MET[k],v=val(k,e,+i),s=PROV[`${k}|${e}|${i}`]||{};
   $("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");$("scrim").hidden=false;$("x").onclick=closeD;$("x").focus()}
 function closeD(){$("drawer").classList.remove("open");$("drawer").setAttribute("aria-hidden","true");$("scrim").hidden=true}
 const ART_URL="https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh";let sampleChecked=false;
+let framed=true;try{framed=window.top!==window.self}catch(e){framed=true}
+const DIAG={claude:!!window.claude?.use,framed,perm:null,err:null};
+function diagMsg(){if(sample&&!DIAG.err)return"";
+  if(!DIAG.claude)return"Esta cópia da página não está dentro do claude.ai (arquivo salvo ou outro site).";
+  if(!DIAG.framed)return"A página foi aberta sozinha numa aba, fora do visualizador do claude.ai. Abra pelo link claude.ai/artifact/….";
+  if(DIAG.err==="not_granted"||DIAG.perm==="denied")return"A permissão para usar o seu Claude foi recusada nesta visita. Recarregue a página e aceite na primeira pergunta.";
+  if(DIAG.err==="sampling_disabled")return"O Claude não está disponível para esta conta ou organização.";
+  if(DIAG.err)return"O Claude respondeu com erro ("+DIAG.err+").";
+  if(DIAG.perm==="unavailable")return"Este visualizador não oferece o Claude para esta página. Isso acontece fora do navegador (app do celular), sem login, ou quando a organização bloqueia.";
+  return"O visualizador não liberou o Claude para esta página. Confira se está logado no claude.ai neste navegador.";}
+function noteErr(e){const c=e?.code;if(!c)return;DIAG.err=c;if(["not_granted","sampling_disabled","capability_disabled","not_declared"].includes(c)){sample=null}setStatus()}
 function setStatus(){const st=$("status");st.classList.toggle("on",!!sample);
   st.innerHTML=sample?`<i></i><span>Claude conectado</span>`:sampleChecked?`<i></i><span>Modo demonstração · <a href="${ART_URL}" target="_blank" rel="noopener">entre no claude.ai para usar o seu Claude</a></span>`:`<i></i><span>Conectando ao Claude</span>`;
-  const b=$("demoban");if(b)b.hidden=!(sampleChecked&&!sample);if(!$("v-app").hidden)renderSide()}
+  const b=$("demoban");if(b){b.hidden=!(sampleChecked&&!sample);const w=$("demowhy");if(w)w.textContent=diagMsg()}st.title=diagMsg();if(!$("v-app").hidden)renderSide()}
 
 /* ================= EVENTOS ================= */
 document.addEventListener("click",ev=>{const t=ev.target;
@@ -700,5 +711,5 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("modal").hidd
 
 render();
 const use=n=>window.claude?.use?window.claude.use(n).catch(()=>null):Promise.resolve(null);
-use("sample").then(s=>{sample=s;sampleChecked=true;setStatus()});
+use("sample").then(async s=>{sample=s;if(!s){try{const pm=await window.claude?.use?.("permissions");if(pm)DIAG.perm=await pm.state("sample")}catch(e){}}sampleChecked=true;setStatus()});
 use("downloads").then(d=>{downloads=d;document.querySelectorAll("[data-pdf]").forEach(b=>b.hidden=!d)});
