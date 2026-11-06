@@ -1,0 +1,2389 @@
+{
+  "gerado_em": "2026-11-06T17:41:32+00:00",
+  "script": "pipeline/09_historico_dcf.py",
+  "fonte": "CVM Dados Abertos — DFP consolidado (DFC método indireto), coluna ÚLTIMO; https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2021.zip, https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2022.zip, https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2023.zip, https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2024.zip, https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+  "convencoes": "Etapa 9: série histórica anual (DFP 2021–2025) e base de 12 meses para um DCF simples.\n\nFonte: CVM Dados Abertos (https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/ e ITR/DADOS/).\nReaproveita as funções de pipeline/04_cvm_mercado.py (download com .meta.json, leitura dos zips,\nnormalização por ESCALA_MOEDA, maior VERSAO por (CNPJ, DT_REFER)). Não altera o 04 nem seus JSONs.\n\nSaídas\n  data/raw/cvm/dfp_cia_aberta_AAAA.zip (+ .meta.json: URL, data da consulta, sha256), AAAA = 2021..2024\n  data/processed/historico.json       série anual 2021–2025, consolidado, coluna ÚLTIMO, R$ milhões\n  data/processed/valuation_base.json  base 12m até a data-base mais recente de cada empresa\n\nContas\n  receita 3.01; EBIT 3.05; lucro consolidado 3.11; lucro controladores 3.11.01\n  D&A: linha(s) 6.01.01.* da DFC indireta cuja descrição contém \"deprecia\" (como no 04); se houver\n       mais de uma, soma-se e registra-se a observação.\n  capex: linhas 6.02.* cuja descrição começa por \"Adições/Compras/Aquisição de\" + imobilizado,\n       intangível ou software (Gerdau 6.02.01 + 6.02.03; Usiminas compras de imobilizado + intangíveis\n       + softwares; CSN 6.02.02 \"Aquisição de ativos imobilizados, intangível e propriedade para\n       investimento\"). Valor negativo (saída de caixa). As contas efetivamente usadas ficam no JSON.\n  FCF = caixa operacional (6.01) + capex.\n  EBITDA (Res. CVM 156) = EBIT + D&A — não é o EBITDA ajustado das companhias.\n  PL controladores = 2.03 − 2.03.09; dívida bruta = 2.01.04 + 2.02.01 (sem arrendamentos);\n  caixa + aplicações = 1.01.01 + 1.01.02; dívida líquida = bruta − caixa.\n  ROE = lucro controladores / média(PL controladores no fim do ano, no fim do ano anterior), com o\n       saldo do ano anterior tirado da coluna PENÚLTIMO do mesmo DFP.\n  12m = acumulado do ano até a data-base + exercício 2025 (DFP) − acumulado do mesmo período de 2025\n       (coluna PENÚLTIMO do ITR 2026), igual ao 04.\n\nUso: .venv/bin/python pipeline/09_historico_dcf.py [--refresh]\n",
+  "arquivos_brutos": {
+    "dfp_cia_aberta_2021.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2021.zip",
+      "consultado_em": "2026-11-06T17:39:57+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 28 Dec 2025 10:30:57 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip",
+      "bytes": 13283026,
+      "sha256": "64b8693b709538a0357c5179ae02231cb380d0000956ee57a873a21d4efda2e4"
+    },
+    "dfp_cia_aberta_2022.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2022.zip",
+      "consultado_em": "2026-11-06T17:39:58+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:34:02 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip",
+      "bytes": 13449819,
+      "sha256": "0a40fd3cf0f151e0e2f8b608426768958324308e3dfc9c462c35d5a212036c9e"
+    },
+    "dfp_cia_aberta_2023.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2023.zip",
+      "consultado_em": "2026-11-06T17:39:58+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:28:57 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip",
+      "bytes": 13563276,
+      "sha256": "76502c1044a51fa688a748aeca1a0325b47c670da99f2c7044e5accdad2c3cca"
+    },
+    "dfp_cia_aberta_2024.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2024.zip",
+      "consultado_em": "2026-11-06T17:39:59+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:23:49 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip",
+      "bytes": 13397602,
+      "sha256": "2071e7908c2d1fa945b21b3d6a982eb41b1550360f19e5185cb5eb6fbf9a8fb9"
+    },
+    "dfp_cia_aberta_2025.zip": {
+      "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2025.zip",
+      "consultado_em": "2026-11-06T15:20:09+00:00",
+      "http_status": 200,
+      "last_modified": "Sun, 01 Nov 2026 10:18:48 GMT",
+      "content_type": "application/zip",
+      "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip",
+      "bytes": 12806186,
+      "sha256": "85f53d6aba99557ebb8a5f8b247c0610973230c1a0f97ab267da2216816a8ab6"
+    }
+  },
+  "empresas": {
+    "GGBR4": {
+      "cnpj": "33.611.500/0001-19",
+      "anos": {
+        "2021": {
+          "receita": {
+            "valor": 78345.081,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2021"
+          },
+          "ebit": {
+            "valor": 21023.022,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2021"
+          },
+          "lucro_consolidado": {
+            "valor": 15558.938,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2021"
+          },
+          "lucro_controladores": {
+            "valor": 15494.111,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2021"
+          },
+          "da": {
+            "valor": 2658.561,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "ebitda": {
+            "valor": 23681.583,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "margem_ebitda": {
+            "valor": 30.2273,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "margem_liquida": {
+            "valor": 19.8595,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_operacional": {
+            "valor": 12516.933,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "capex": {
+            "valor": -3192.333,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2021"
+          },
+          "fcf": {
+            "valor": 9324.6,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "pl_controladores": {
+            "valor": 42604.282,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (42815.649) − 2.03.09 (211.367), saldo em 2021-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_bruta": {
+            "valor": 14039.693,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_aplicacoes": {
+            "valor": 6786.866,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPA_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida": {
+            "valor": 7252.827,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "pl_controladores_medio": {
+            "valor": 36732.2765,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2020-12-31 [PENÚLTIMO do DFP 2021] = 30860.271 + PL ctrl 2021-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "roe": {
+            "valor": 42.1812,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.3063,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          }
+        },
+        "2022": {
+          "receita": {
+            "valor": 82412.21,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2022"
+          },
+          "ebit": {
+            "valor": 17751.453,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2022"
+          },
+          "lucro_consolidado": {
+            "valor": 11479.552,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2022"
+          },
+          "lucro_controladores": {
+            "valor": 11425.512,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2022"
+          },
+          "da": {
+            "valor": 2866.699,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "ebitda": {
+            "valor": 20618.152,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "margem_ebitda": {
+            "valor": 25.0183,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "margem_liquida": {
+            "valor": 13.9294,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_operacional": {
+            "valor": 11150.338,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "capex": {
+            "valor": -4481.255,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2022"
+          },
+          "fcf": {
+            "valor": 6669.083,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "pl_controladores": {
+            "valor": 46116.194,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (46298.193) − 2.03.09 (181.999), saldo em 2022-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_bruta": {
+            "valor": 12607.39,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_aplicacoes": {
+            "valor": 5434.998,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPA_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida": {
+            "valor": 7172.392,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "pl_controladores_medio": {
+            "valor": 44360.238,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2021-12-31 [PENÚLTIMO do DFP 2022] = 42604.282 + PL ctrl 2022-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "roe": {
+            "valor": 25.7562,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.3479,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          }
+        },
+        "2023": {
+          "receita": {
+            "valor": 68916.447,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2023"
+          },
+          "ebit": {
+            "valor": 10452.727,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2023"
+          },
+          "lucro_consolidado": {
+            "valor": 7536.983,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2023"
+          },
+          "lucro_controladores": {
+            "valor": 7501.565,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2023"
+          },
+          "da": {
+            "valor": 3047.212,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "ebitda": {
+            "valor": 13499.939,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "margem_ebitda": {
+            "valor": 19.5888,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "margem_liquida": {
+            "valor": 10.9364,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_operacional": {
+            "valor": 11138.71,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "capex": {
+            "valor": -5336.323,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2023"
+          },
+          "fcf": {
+            "valor": 5802.387,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "pl_controladores": {
+            "valor": 49058.959,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (49238.863) − 2.03.09 (179.904), saldo em 2023-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_bruta": {
+            "valor": 10893.308,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_aplicacoes": {
+            "valor": 5343.742,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPA_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida": {
+            "valor": 5549.566,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "pl_controladores_medio": {
+            "valor": 47587.5765,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2022-12-31 [PENÚLTIMO do DFP 2023] = 46116.193999999996 + PL ctrl 2023-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "roe": {
+            "valor": 15.7637,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.4111,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          }
+        },
+        "2024": {
+          "receita": {
+            "valor": 67026.656,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2024"
+          },
+          "ebit": {
+            "valor": 7487.202,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2024"
+          },
+          "lucro_consolidado": {
+            "valor": 4599.062,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2024"
+          },
+          "lucro_controladores": {
+            "valor": 4566.317,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2024"
+          },
+          "da": {
+            "valor": 3126.247,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "ebitda": {
+            "valor": 10613.449,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "margem_ebitda": {
+            "valor": 15.8347,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "margem_liquida": {
+            "valor": 6.8615,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_operacional": {
+            "valor": 11381.243,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "capex": {
+            "valor": -5946.417,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2024"
+          },
+          "fcf": {
+            "valor": 5434.826,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "pl_controladores": {
+            "valor": 57948.759,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (58173.786) − 2.03.09 (225.027), saldo em 2024-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_bruta": {
+            "valor": 13636.484,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_aplicacoes": {
+            "valor": 8276.843,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPA_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida": {
+            "valor": 5359.641,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "pl_controladores_medio": {
+            "valor": 53503.859,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2023-12-31 [PENÚLTIMO do DFP 2024] = 49058.958999999995 + PL ctrl 2024-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "roe": {
+            "valor": 8.5346,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.505,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          }
+        },
+        "2025": {
+          "receita": {
+            "valor": 69858.532,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2025"
+          },
+          "ebit": {
+            "valor": 3739.068,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2025"
+          },
+          "lucro_consolidado": {
+            "valor": 1418.438,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2025"
+          },
+          "lucro_controladores": {
+            "valor": 1387.02,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2025"
+          },
+          "da": {
+            "valor": 3683.585,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "ebitda": {
+            "valor": 7422.653,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "margem_ebitda": {
+            "valor": 10.6253,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "margem_liquida": {
+            "valor": 2.0304,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_operacional": {
+            "valor": 7987.454,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "capex": {
+            "valor": -6852.841,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2025"
+          },
+          "fcf": {
+            "valor": 1134.613,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "pl_controladores": {
+            "valor": 53585.393,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (53798.489) − 2.03.09 (213.096), saldo em 2025-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_bruta": {
+            "valor": 14182.151,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_aplicacoes": {
+            "valor": 6374.797,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPA_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida": {
+            "valor": 7807.354,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "pl_controladores_medio": {
+            "valor": 55767.076,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2024-12-31 [PENÚLTIMO do DFP 2025] = 57948.759 + PL ctrl 2025-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "roe": {
+            "valor": 2.4872,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 1.0518,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          }
+        }
+      }
+    },
+    "USIM5": {
+      "cnpj": "60.894.730/0001-05",
+      "anos": {
+        "2021": {
+          "receita": {
+            "valor": 33736.964,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2021"
+          },
+          "ebit": {
+            "valor": 11490.462,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2021"
+          },
+          "lucro_consolidado": {
+            "valor": 10059.954,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2021"
+          },
+          "lucro_controladores": {
+            "valor": 9070.524,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2021"
+          },
+          "da": {
+            "valor": 982.741,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "ebitda": {
+            "valor": 12473.203,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "margem_ebitda": {
+            "valor": 36.9719,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "margem_liquida": {
+            "valor": 29.8188,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_operacional": {
+            "valor": 5296.571,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "capex": {
+            "valor": -1483.289,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2021"
+          },
+          "fcf": {
+            "valor": 3813.282,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "pl_controladores": {
+            "valor": 21749.335,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (24358.503) − 2.03.09 (2609.168), saldo em 2021-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_bruta": {
+            "valor": 6299.577,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_aplicacoes": {
+            "valor": 7023.549,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPA_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida": {
+            "valor": -723.972,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "pl_controladores_medio": {
+            "valor": 18308.4005,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2020-12-31 [PENÚLTIMO do DFP 2021] = 14867.465999999999 + PL ctrl 2021-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "roe": {
+            "valor": 49.543,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida_ebitda": {
+            "valor": -0.058,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          }
+        },
+        "2022": {
+          "receita": {
+            "valor": 32470.51,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2022"
+          },
+          "ebit": {
+            "valor": 2666.421,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2022"
+          },
+          "lucro_consolidado": {
+            "valor": 2092.889,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2022"
+          },
+          "lucro_controladores": {
+            "valor": 1615.538,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2022"
+          },
+          "da": {
+            "valor": 902.681,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "ebitda": {
+            "valor": 3569.102,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "margem_ebitda": {
+            "valor": 10.9918,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "margem_liquida": {
+            "valor": 6.4455,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_operacional": {
+            "valor": 997.118,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "capex": {
+            "valor": -2091.876,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2022"
+          },
+          "fcf": {
+            "valor": -1094.758,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "pl_controladores": {
+            "valor": 23155.025,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (25887.75) − 2.03.09 (2732.725), saldo em 2022-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_bruta": {
+            "valor": 6197.557,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_aplicacoes": {
+            "valor": 5072.361,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPA_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida": {
+            "valor": 1125.196,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "pl_controladores_medio": {
+            "valor": 22452.18,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2021-12-31 [PENÚLTIMO do DFP 2022] = 21749.335 + PL ctrl 2022-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "roe": {
+            "valor": 7.1955,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.3153,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          }
+        },
+        "2023": {
+          "receita": {
+            "valor": 27638.348,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2023"
+          },
+          "ebit": {
+            "valor": 799.436,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2023"
+          },
+          "lucro_consolidado": {
+            "valor": 1640.368,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2023"
+          },
+          "lucro_controladores": {
+            "valor": 1390.926,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2023"
+          },
+          "da": {
+            "valor": 1061.97,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "ebitda": {
+            "valor": 1861.406,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "margem_ebitda": {
+            "valor": 6.7349,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "margem_liquida": {
+            "valor": 5.9351,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_operacional": {
+            "valor": 4568.077,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "capex": {
+            "valor": -2984.178,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2023"
+          },
+          "fcf": {
+            "valor": 1583.899,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "pl_controladores": {
+            "valor": 23855.65,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (26549.437) − 2.03.09 (2693.787), saldo em 2023-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_bruta": {
+            "valor": 5916.11,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_aplicacoes": {
+            "valor": 6009.833,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPA_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida": {
+            "valor": -93.723,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "pl_controladores_medio": {
+            "valor": 23505.3375,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2022-12-31 [PENÚLTIMO do DFP 2023] = 23155.025 + PL ctrl 2023-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "roe": {
+            "valor": 5.9175,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida_ebitda": {
+            "valor": -0.0504,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          }
+        },
+        "2024": {
+          "receita": {
+            "valor": 25869.799,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2024"
+          },
+          "ebit": {
+            "valor": 499.576,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2024"
+          },
+          "lucro_consolidado": {
+            "valor": 3.362,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2024"
+          },
+          "lucro_controladores": {
+            "valor": -145.946,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2024"
+          },
+          "da": {
+            "valor": 1226.067,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "ebitda": {
+            "valor": 1725.643,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "margem_ebitda": {
+            "valor": 6.6705,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "margem_liquida": {
+            "valor": 0.013,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_operacional": {
+            "valor": 989.165,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "capex": {
+            "valor": -995.16,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2024"
+          },
+          "fcf": {
+            "valor": -5.995,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "pl_controladores": {
+            "valor": 23881.787,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (26683.688) − 2.03.09 (2801.901), saldo em 2024-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_bruta": {
+            "valor": 6768.334,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_aplicacoes": {
+            "valor": 5953.981,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPA_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida": {
+            "valor": 814.353,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "pl_controladores_medio": {
+            "valor": 23868.7185,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2023-12-31 [PENÚLTIMO do DFP 2024] = 23855.65 + PL ctrl 2024-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "roe": {
+            "valor": -0.6115,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.4719,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          }
+        },
+        "2025": {
+          "receita": {
+            "valor": 26263.45,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2025"
+          },
+          "ebit": {
+            "valor": -1363.886,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2025"
+          },
+          "lucro_consolidado": {
+            "valor": -2910.034,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2025"
+          },
+          "lucro_controladores": {
+            "valor": -3078.192,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2025"
+          },
+          "da": {
+            "valor": 1274.791,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "ebitda": {
+            "valor": -89.095,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "margem_ebitda": {
+            "valor": -0.3392,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "margem_liquida": {
+            "valor": -11.0802,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_operacional": {
+            "valor": 2179.444,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "capex": {
+            "valor": -1170.861,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2025"
+          },
+          "fcf": {
+            "valor": 1008.583,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "pl_controladores": {
+            "valor": 20813.879,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (23701.381) − 2.03.09 (2887.502), saldo em 2025-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_bruta": {
+            "valor": 6390.139,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_aplicacoes": {
+            "valor": 6943.595,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPA_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida": {
+            "valor": -553.456,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "pl_controladores_medio": {
+            "valor": 22347.833,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2024-12-31 [PENÚLTIMO do DFP 2025] = 23881.786999999997 + PL ctrl 2025-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "roe": {
+            "valor": -13.774,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida_ebitda": {
+            "valor": null,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          }
+        }
+      }
+    },
+    "CSNA3": {
+      "cnpj": "33.042.730/0001-04",
+      "anos": {
+        "2021": {
+          "receita": {
+            "valor": 47912.039,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2021"
+          },
+          "ebit": {
+            "valor": 20539.962,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2021"
+          },
+          "lucro_consolidado": {
+            "valor": 13595.621,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2021"
+          },
+          "lucro_controladores": {
+            "valor": 12258.628,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DRE_con_2021.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2021"
+          },
+          "da": {
+            "valor": 2218.192,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "ebitda": {
+            "valor": 22758.154,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "margem_ebitda": {
+            "valor": 47.4999,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "margem_liquida": {
+            "valor": 28.3762,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_operacional": {
+            "valor": 14793.263,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "periodo": "exercício 2021"
+          },
+          "capex": {
+            "valor": -2864.707,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_DFC_MI_con_2021.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2021"
+          },
+          "fcf": {
+            "valor": 11928.556,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2021"
+          },
+          "pl_controladores": {
+            "valor": 20314.998,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (23374.389) − 2.03.09 (3059.391), saldo em 2021-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_bruta": {
+            "valor": 32507.522,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPP_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "caixa_aplicacoes": {
+            "valor": 19291.212,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2021.zip::dfp_cia_aberta_BPA_con_2021.csv",
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida": {
+            "valor": 13216.31,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "pl_controladores_medio": {
+            "valor": 15114.2245,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2020-12-31 [PENÚLTIMO do DFP 2021] = 9913.451 + PL ctrl 2021-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "roe": {
+            "valor": 81.1066,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 0.5807,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2021"
+          }
+        },
+        "2022": {
+          "receita": {
+            "valor": 44362.12,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2022"
+          },
+          "ebit": {
+            "valor": 7641.462,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2022"
+          },
+          "lucro_consolidado": {
+            "valor": 2167.698,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2022"
+          },
+          "lucro_controladores": {
+            "valor": 1554.06,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DRE_con_2022.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2022"
+          },
+          "da": {
+            "valor": 2877.656,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "ebitda": {
+            "valor": 10519.118,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "margem_ebitda": {
+            "valor": 23.7119,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "margem_liquida": {
+            "valor": 4.8864,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_operacional": {
+            "valor": 2042.793,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "periodo": "exercício 2022"
+          },
+          "capex": {
+            "valor": -3352.21,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_DFC_MI_con_2022.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2022"
+          },
+          "fcf": {
+            "valor": -1309.417,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2022"
+          },
+          "pl_controladores": {
+            "valor": 19489.467,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (21816.044) − 2.03.09 (2326.577), saldo em 2022-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_bruta": {
+            "valor": 40918.742,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPP_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "caixa_aplicacoes": {
+            "valor": 13447.841,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2022.zip::dfp_cia_aberta_BPA_con_2022.csv",
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida": {
+            "valor": 27470.901,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "pl_controladores_medio": {
+            "valor": 19902.2325,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2021-12-31 [PENÚLTIMO do DFP 2022] = 20314.998 + PL ctrl 2022-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "roe": {
+            "valor": 7.8085,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 2.6115,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2022"
+          }
+        },
+        "2023": {
+          "receita": {
+            "valor": 45437.95,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2023"
+          },
+          "ebit": {
+            "valor": 5186.749,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2023"
+          },
+          "lucro_consolidado": {
+            "valor": 402.649,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2023"
+          },
+          "lucro_controladores": {
+            "valor": -318.206,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DRE_con_2023.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2023"
+          },
+          "da": {
+            "valor": 3379.141,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "ebitda": {
+            "valor": 8565.89,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "margem_ebitda": {
+            "valor": 18.8518,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "margem_liquida": {
+            "valor": 0.8862,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_operacional": {
+            "valor": 7292.608,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "periodo": "exercício 2023"
+          },
+          "capex": {
+            "valor": -4408.119,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_DFC_MI_con_2023.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2023"
+          },
+          "fcf": {
+            "valor": 2884.489,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2023"
+          },
+          "pl_controladores": {
+            "valor": 17500.675,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (19684.838) − 2.03.09 (2184.163), saldo em 2023-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_bruta": {
+            "valor": 44859.075,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPP_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "caixa_aplicacoes": {
+            "valor": 17579.222,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2023.zip::dfp_cia_aberta_BPA_con_2023.csv",
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida": {
+            "valor": 27279.853,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "pl_controladores_medio": {
+            "valor": 18495.071,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2022-12-31 [PENÚLTIMO do DFP 2023] = 19489.467 + PL ctrl 2023-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "roe": {
+            "valor": -1.7205,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 3.1847,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2023"
+          }
+        },
+        "2024": {
+          "receita": {
+            "valor": 43687.46,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2024"
+          },
+          "ebit": {
+            "valor": 4270.022,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2024"
+          },
+          "lucro_consolidado": {
+            "valor": -1538.141,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2024"
+          },
+          "lucro_controladores": {
+            "valor": -2591.851,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DRE_con_2024.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2024"
+          },
+          "da": {
+            "valor": 3791.413,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "ebitda": {
+            "valor": 8061.435,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "margem_ebitda": {
+            "valor": 18.4525,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "margem_liquida": {
+            "valor": -3.5208,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_operacional": {
+            "valor": 8650.505,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "periodo": "exercício 2024"
+          },
+          "capex": {
+            "valor": -5494.335,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_DFC_MI_con_2024.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2024"
+          },
+          "fcf": {
+            "valor": 3156.17,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2024"
+          },
+          "pl_controladores": {
+            "valor": 12271.438,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (15459.116) − 2.03.09 (3187.678), saldo em 2024-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_bruta": {
+            "valor": 56914.621,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPP_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "caixa_aplicacoes": {
+            "valor": 24221.575,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip::dfp_cia_aberta_BPA_con_2024.csv",
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida": {
+            "valor": 32693.046,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "pl_controladores_medio": {
+            "valor": 14886.0565,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2023-12-31 [PENÚLTIMO do DFP 2024] = 17500.675 + PL ctrl 2024-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "roe": {
+            "valor": -17.4113,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 4.0555,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2024"
+          }
+        },
+        "2025": {
+          "receita": {
+            "valor": 44797.946,
+            "unidade": "R$ mi",
+            "conta": "3.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Receita de Venda de Bens e/ou Serviços",
+            "periodo": "exercício 2025"
+          },
+          "ebit": {
+            "valor": 4816.674,
+            "unidade": "R$ mi",
+            "conta": "3.05",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Resultado Antes do Resultado Financeiro e dos Tributos",
+            "periodo": "exercício 2025"
+          },
+          "lucro_consolidado": {
+            "valor": -1506.726,
+            "unidade": "R$ mi",
+            "conta": "3.11",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Lucro/Prejuízo Consolidado do Período",
+            "periodo": "exercício 2025"
+          },
+          "lucro_controladores": {
+            "valor": -2002.374,
+            "unidade": "R$ mi",
+            "conta": "3.11.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv",
+            "descricao_conta": "Atribuído a Sócios da Empresa Controladora",
+            "periodo": "exercício 2025"
+          },
+          "da": {
+            "valor": 4150.475,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "ebitda": {
+            "valor": 8967.149,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "ebit (3.05) + da (DFC 6.01.01.* 'deprecia') — EBITDA Res. CVM 156, não ajustado",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "margem_ebitda": {
+            "valor": 20.0169,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "ebitda / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "margem_liquida": {
+            "valor": -3.3634,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_consolidado (3.11) / receita × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_operacional": {
+            "valor": -973.179,
+            "unidade": "R$ mi",
+            "conta": "6.01",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "periodo": "exercício 2025"
+          },
+          "capex": {
+            "valor": -5935.897,
+            "unidade": "R$ mi",
+            "conta": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv",
+            "obs": "saída de caixa (negativo); imobilizado + intangível",
+            "periodo": "exercício 2025"
+          },
+          "fcf": {
+            "valor": -6909.076,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "caixa_operacional (6.01) + capex",
+            "arquivo": null,
+            "periodo": "exercício 2025"
+          },
+          "pl_controladores": {
+            "valor": 12876.059,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.03 (15736.35) − 2.03.09 (2860.291), saldo em 2025-12-31",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_bruta": {
+            "valor": 52924.547,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "2.01.04 + 2.02.01 (sem arrendamentos)",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPP_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "caixa_aplicacoes": {
+            "valor": 15063.737,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "1.01.01 + 1.01.02",
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_BPA_con_2025.csv",
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida": {
+            "valor": 37860.81,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "divida_bruta − caixa_aplicacoes",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "pl_controladores_medio": {
+            "valor": 12573.7485,
+            "unidade": "R$ mi",
+            "conta": "calculado",
+            "formula": "(PL ctrl 2024-12-31 [PENÚLTIMO do DFP 2025] = 12271.438 + PL ctrl 2025-12-31) / 2",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "roe": {
+            "valor": -15.925,
+            "unidade": "%",
+            "conta": "calculado",
+            "formula": "lucro_controladores (3.11.01) / pl_controladores_medio × 100",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          },
+          "divida_liquida_ebitda": {
+            "valor": 4.2222,
+            "unidade": "x",
+            "conta": "calculado",
+            "formula": "divida_liquida / ebitda (CVM 156); nulo se EBITDA <= 0 (razão sem sentido)",
+            "arquivo": null,
+            "periodo": "saldo/indicador 2025"
+          }
+        }
+      }
+    }
+  },
+  "conferencia_financeiro_json": {
+    "GGBR4": {
+      "receita": {
+        "historico": 69858.532,
+        "financeiro_json": 69858.532,
+        "confere": true
+      },
+      "ebit": {
+        "historico": 3739.068,
+        "financeiro_json": 3739.068,
+        "confere": true
+      },
+      "lucro_consolidado": {
+        "historico": 1418.438,
+        "financeiro_json": 1418.438,
+        "confere": true
+      },
+      "lucro_controladores": {
+        "historico": 1387.02,
+        "financeiro_json": 1387.02,
+        "confere": true
+      },
+      "da": {
+        "historico": 3683.585,
+        "financeiro_json": 3683.585,
+        "confere": true
+      }
+    },
+    "USIM5": {
+      "receita": {
+        "historico": 26263.45,
+        "financeiro_json": 26263.45,
+        "confere": true
+      },
+      "ebit": {
+        "historico": -1363.886,
+        "financeiro_json": -1363.886,
+        "confere": true
+      },
+      "lucro_consolidado": {
+        "historico": -2910.034,
+        "financeiro_json": -2910.034,
+        "confere": true
+      },
+      "lucro_controladores": {
+        "historico": -3078.192,
+        "financeiro_json": -3078.192,
+        "confere": true
+      },
+      "da": {
+        "historico": 1274.791,
+        "financeiro_json": 1274.791,
+        "confere": true
+      }
+    },
+    "CSNA3": {
+      "receita": {
+        "historico": 44797.946,
+        "financeiro_json": 44797.946,
+        "confere": true
+      },
+      "ebit": {
+        "historico": 4816.674,
+        "financeiro_json": 4816.674,
+        "confere": true
+      },
+      "lucro_consolidado": {
+        "historico": -1506.726,
+        "financeiro_json": -1506.726,
+        "confere": true
+      },
+      "lucro_controladores": {
+        "historico": -2002.374,
+        "financeiro_json": -2002.374,
+        "confere": true
+      },
+      "da": {
+        "historico": 4150.475,
+        "financeiro_json": 4150.475,
+        "confere": true
+      }
+    }
+  },
+  "pendencias": []
+}

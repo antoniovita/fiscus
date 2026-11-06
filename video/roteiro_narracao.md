@@ -1,4 +1,4 @@
-# Roteiro de narração · Balanço Lado a Lado
+# Roteiro de narração · Fiscus
 
 Vídeo de entrega · Claude Lab PUC-Rio 2026 · Case 3 · duração 1:58 (118 s).
 
@@ -13,15 +13,16 @@ O vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz:
 
 ## Cena 2 · A solução
 
-- **0:20–0:24** — Balanço Lado a Lado: um painel que responde em etapas, e você aprova cada uma.
+- **0:20–0:24** — Fiscus: um painel que responde em etapas, e você aprova cada uma.
 - **0:24–0:33** — Etapa 1, a tese do setor. Veredito: Seletivo. O setor não paga o custo de capital; vale só onde há proteção fora do Brasil.
 - **0:33–0:42** — Etapa 2: das siderúrgicas listadas na B3, escolhemos duas, Gerdau e Usiminas.
 - **0:42–0:48** — Lado a lado, no mesmo critério: margem EBITDA ajustada de 20,2% na Gerdau e 9,0% na Usiminas.
-- **0:48–0:56** — A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi.
-- **0:56–1:01** — O diferencial: clique em qualquer número.
-- **1:01–1:10** — EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado.
-- **1:10–1:15** — Etapa 3: dez slides prontos para o comitê, exportados em PDF.
-- **1:15–1:20** — Do PDF do ITR ao slide, sem nenhum número digitado à mão.
+- **0:48–0:55** — A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi.
+- **0:55–0:57.5** — O diferencial: clique em qualquer número.
+- **0:57.5–1:04** — EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado.
+- **1:04–1:12** — Etapa 3, tese e preço-alvo: você ajusta as premissas, como taxa livre de risco, beta e crescimento, e o Fiscus monta a recomendação.
+- **1:12–1:16.5** — Etapa 4: dez slides prontos para o comitê, exportados em PDF.
+- **1:16.5–1:20** — Do PDF do ITR ao slide, sem nenhum número digitado à mão.
 
 ## Cena 3 · Como verificamos
 
@@ -34,7 +35,7 @@ O vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz:
 
 - **1:40–1:46** — Para quem leva um comparativo ao comitê e precisa defender cada número na hora da pergunta.
 - **1:46–1:52** — Com mais um dia: a CSN assim que o ITR do 3T26 chegar à CVM, a Ferbasa e novos setores no mesmo pipeline.
-- **1:52–1:58** — Balanço Lado a Lado. Cada número, até a página. Exercício acadêmico, não é recomendação de investimento.
+- **1:52–1:58** — Fiscus. Cada número, até a página. Exercício acadêmico, não é recomendação de investimento.
 
 ## Fontes dos números ditos
 

@@ -1,0 +1,1679 @@
+{
+ "setor": "energia",
+ "nome": "Energia elétrica",
+ "gerado_em": "2026-11-06T17:44:58+00:00",
+ "fonte": "CVM Dados Abertos + B3 COTAHIST 05/11/2026",
+ "empresas": [
+  {
+   "ticker": "AXIA3",
+   "nome": "AXIA ENERGIA S.A.",
+   "cd_cvm": "2437",
+   "cnpj": "00.001.180/0001-26",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 11188.3,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 44568.35,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 4692.471,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 11502.251,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 1190.763,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 12059.812,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 1190.083,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 12055.712,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 4818.649,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.05 Depreciação e amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 16320.9,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 122244.292,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 70972.602,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 26229.325,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 44743.277,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 36.6199,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 27.0591,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 10.0068,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 2.7415,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 2276909,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_AXIA3": {
+     "valor": 47.69,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 590432,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "preco_AXIA7": {
+     "valor": 47.79,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 136.8025,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_AXIA3 + acoes_PN×preco_AXIA7"
+    },
+    "p_l": {
+     "valor": 0.0113,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 0.0011,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 44923.9575,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 2.7525,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "EQTL3",
+   "nome": "EQUATORIAL S.A.",
+   "cd_cvm": "20010",
+   "cnpj": "03.220.438/0001-73",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 13738.934,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 54713.129,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 2514.418,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 8089.375,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 653.007,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 1767.778,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 485.375,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 958.423,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 3275.576,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.03 Amortização do direito de concessão;6.01.01.19 Amortização e depreciação",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 11364.951,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 26126.664,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 63369.492,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 9220.022,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 54149.47,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 20.7719,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 3.231,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 3.5417,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 4.7646,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 1255031275,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_EQTL3": {
+     "valor": 33.18,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 41641.9377,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_EQTL3"
+    },
+    "p_l": {
+     "valor": 43.4484,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 1.5938,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 98380.0677,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 8.6564,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "EGIE3",
+   "nome": "ENGIE BRASIL ENERGIA S.A.",
+   "cd_cvm": "17329",
+   "cnpj": "02.474.103/0001-19",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 3511.433,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 13680.975,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 1760.834,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 6631.861,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 1961.907,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 4218.079,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 1910.006,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 3959.345,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 1542.161,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.03 Depreciação e amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 8174.022,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 15012.81,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 31288.448,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 6448.868,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 24839.58,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 59.7474,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 30.8317,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 28.9825,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 3.0388,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 1142298836,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_EGIE3": {
+     "valor": 26.64,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 30430.841,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_EGIE3"
+    },
+    "p_l": {
+     "valor": 7.6858,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 2.027,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 56351.928,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 6.894,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "CPFE3",
+   "nome": "CPFL ENERGIA SA",
+   "cd_cvm": "18660",
+   "cnpj": "02.429.144/0001-93",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 11107.429,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 45612.395,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 2916.912,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 11529.382,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 1438.045,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 6288.859,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 1365.954,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 6004.881,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 2459.427,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.02 Depreciação e amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 13988.809,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 22717.183,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 31552.149,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 3988.266,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 27563.883,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 30.6689,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 13.7876,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 27.172,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 1.9704,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 1152254440,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_CPFE3": {
+     "valor": 42.2,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 48625.1374,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_CPFE3"
+    },
+    "p_l": {
+     "valor": 8.0976,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 2.1405,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 77146.5504,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 5.5149,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "CPLE3",
+   "nome": "COMPANHIA PARANAENSE DE ENERGIA COPEL",
+   "cd_cvm": "14311",
+   "cnpj": "76.483.817/0001-20",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 6918.061,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 27985.378,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 1587.546,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 5534.28,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 1047.459,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 3191.211,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 991.127,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 3134.132,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 1574.927,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.11 Depreciação e amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 7109.207,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 24128.112,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 23284.7,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 3272.776,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 20011.924,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 25.4033,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 11.4031,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 12.606,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 2.8149,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 2970119786,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_CPLE3": {
+     "valor": 14.45,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 1,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "valor_mercado": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "p_l": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "p_vp": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "ev": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "ev_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    }
+   }
+  },
+  {
+   "ticker": "CMIG4",
+   "nome": "CIA ENERG MINAS GERAIS - CEMIG",
+   "cd_cvm": "2453",
+   "cnpj": "17.155.730/0001-64",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 11156.238,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 43739.538,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 1829.246,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 6805.099,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 945.444,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 4597.019,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 945.032,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 4595.105,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 1647.229,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.02 Depreciação e Amortização;6.01.01.14 Amortização de Custo de Transação de Empréstimos",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 8452.328,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 29181.647,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 22352.709,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 3082.109,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 19270.6,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 19.3242,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 10.51,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 15.9401,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 2.2799,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 956602,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_CMIG3": {
+     "valor": 16.65,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 1904080,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "preco_CMIG4": {
+     "valor": 10.16,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 35.2729,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_CMIG3 + acoes_PN×preco_CMIG4"
+    },
+    "p_l": {
+     "valor": 0.0077,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 0.0012,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 19310.3789,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 2.2846,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "TAEE11",
+   "nome": "TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S.A.",
+   "cd_cvm": "20257",
+   "cnpj": "07.859.971/0001-30",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 1067.649,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 4484.395,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 997.184,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 2909.886,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 567.144,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 1635.717,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 567.144,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 1635.717,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 84.128,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.03 Depreciação e amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 2994.014,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 8070.915,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 10957.895,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 544.16,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 10413.735,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 66.7652,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 36.4758,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 20.8594,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 3.4782,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 590714,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_TAEE3": {
+     "valor": 12.98,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 442783,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "preco_TAEE4": {
+     "valor": 13.36,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 13.583,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_TAEE3 + acoes_PN×preco_TAEE4"
+    },
+    "p_l": {
+     "valor": 0.0083,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 0.0017,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 10427.318,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 3.4827,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "ENGI11",
+   "nome": "ENERGISA SA",
+   "cd_cvm": "15253",
+   "cnpj": "00.864.214/0001-06",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 9240.979,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 36704.056,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 1725.265,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 6708.902,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": -39.628,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 2158.738,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": -130.203,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 1516.835,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 2232.042,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.05 Amortização e Depreciação",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 8940.944,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 19498.569,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 42683.653,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 9454.823,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 33228.83,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 24.3596,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 5.8815,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 8.0414,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 3.7165,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 975346385,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_ENGI3": {
+     "valor": 11.12,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 1539985000,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "preco_ENGI4": {
+     "valor": 8.45,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 23858.7251,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_ENGI3 + acoes_PN×preco_ENGI4"
+    },
+    "p_l": {
+     "valor": 15.7293,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 1.2236,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 60572.4321,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 6.7747,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "ISAE4",
+   "nome": "ISA ENERGIA BRASIL S.A.",
+   "cd_cvm": "18376",
+   "cnpj": "02.998.611/0001-04",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 2597.525,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 10674.519,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 1479.978,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 5004.663,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 703.37,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 2710.223,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 688.618,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 2817.169,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 35.914,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.02 Depreciação e Amortização",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 5040.577,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 22159.43,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 17725.699,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 1757.264,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 15968.435,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 47.2206,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 25.3896,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 13.1762,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 3.168,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 238170004,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_ISAE3": {
+     "valor": 34.73,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "acoes_PN_circulacao": {
+     "valor": 420713300,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO (2026-06-30)"
+    },
+    "preco_ISAE4": {
+     "valor": 25.71,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 19088.1832,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_ISAE3 + acoes_PN×preco_ISAE4"
+    },
+    "p_l": {
+     "valor": 6.7757,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 0.8614,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 35378.1252,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 7.0187,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "AURE3",
+   "nome": "AUREN ENERGIA S.A",
+   "cd_cvm": "26620",
+   "cnpj": "28.594.234/0001-23",
+   "data_base": "2026-06-30",
+   "periodo": "2T26; 12m até 2026-06-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 3055.499,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (2T26)"
+    },
+    "receita_12m": {
+     "valor": 13469.154,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebit_tri": {
+     "valor": 384.918,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (2T26)"
+    },
+    "ebit_12m": {
+     "valor": 1604.331,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": -379.061,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (2T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": -1029.686,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": -410.947,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (2T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": -1089.423,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "da_12m": {
+     "valor": 1875.294,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.02 Depreciação e amortização;6.01.01.03 Amortização de mais valia",
+     "formula": "acum 2026-06-30 + DFP 2025 − acum 2025-06-30"
+    },
+    "ebitda_12m": {
+     "valor": 3479.625,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 11507.333,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-06-30"
+    },
+    "divida_bruta": {
+     "valor": 23654.224,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 3638.808,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 20015.416,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 25.834,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": -7.6448,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": -9.0068,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-06-30, 2026-06-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 5.7522,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 1044635,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-06-30)"
+    },
+    "preco_AURE3": {
+     "valor": 11.18,
+     "unidade": "R$/ação",
+     "conta": "COTAHIST 05/11/2026 PREULT (CODBDI 02, TPMERC 010)"
+    },
+    "valor_mercado": {
+     "valor": 11.679,
+     "unidade": "R$ mi",
+     "formula": "acoes_ON×preco_AURE3"
+    },
+    "p_l": {
+     "valor": -0.0107,
+     "unidade": "x",
+     "formula": "valor_mercado / lucro_controladores_12m"
+    },
+    "p_vp": {
+     "valor": 0.001,
+     "unidade": "x",
+     "formula": "valor_mercado / pl_controladores"
+    },
+    "ev": {
+     "valor": 21272.612,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03.09 (não controladores)",
+     "formula": "valor_mercado + divida_liquida + nao_controladores"
+    },
+    "ev_ebitda": {
+     "valor": 6.1135,
+     "unidade": "x",
+     "formula": "ev / ebitda_12m"
+    }
+   }
+  },
+  {
+   "ticker": "NEOE3",
+   "nome": "NEOENERGIA S.A",
+   "cd_cvm": "15539",
+   "cnpj": "01.083.200/0001-18",
+   "data_base": "2026-09-30",
+   "periodo": "3T26; 12m até 2026-09-30",
+   "metricas": {
+    "receita_tri": {
+     "valor": 12270.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01 (3T26)"
+    },
+    "receita_12m": {
+     "valor": 52157.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.01",
+     "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30"
+    },
+    "ebit_tri": {
+     "valor": 2806.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05 (3T26)"
+    },
+    "ebit_12m": {
+     "valor": 12145.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.05",
+     "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30"
+    },
+    "lucro_consolidado_tri": {
+     "valor": 1187.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11 (3T26)"
+    },
+    "lucro_consolidado_12m": {
+     "valor": 4868.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11",
+     "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30"
+    },
+    "lucro_controladores_tri": {
+     "valor": 1177.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01 (3T26)"
+    },
+    "lucro_controladores_12m": {
+     "valor": 4836.0,
+     "unidade": "R$ mi",
+     "conta": "DRE 3.11.01",
+     "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30"
+    },
+    "da_12m": {
+     "valor": 3122.0,
+     "unidade": "R$ mi",
+     "conta": "DFC 6.01.01.02 Depreciação e amortização",
+     "formula": "acum 2026-09-30 + DFP 2025 − acum 2025-09-30"
+    },
+    "ebitda_12m": {
+     "valor": 15267.0,
+     "unidade": "R$ mi",
+     "formula": "ebit_12m + da_12m (EBITDA CVM 156, não ajustado)"
+    },
+    "pl_controladores": {
+     "valor": 36146.0,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.03 − 2.03.09",
+     "formula": "saldo em 2026-09-30"
+    },
+    "divida_bruta": {
+     "valor": 70193.0,
+     "unidade": "R$ mi",
+     "conta": "BPP 2.01.04 + 2.02.01",
+     "formula": "empréstimos/financiamentos/debêntures CP+LP (sem arrendamentos)"
+    },
+    "caixa_aplicacoes": {
+     "valor": 18650.0,
+     "unidade": "R$ mi",
+     "conta": "BPA 1.01.01 + 1.01.02"
+    },
+    "divida_liquida": {
+     "valor": 51543.0,
+     "unidade": "R$ mi",
+     "formula": "divida_bruta − caixa_aplicacoes"
+    },
+    "margem_ebitda_12m": {
+     "valor": 29.2712,
+     "unidade": "%",
+     "formula": "ebitda_12m / receita_12m × 100"
+    },
+    "margem_liquida_12m": {
+     "valor": 9.3334,
+     "unidade": "%",
+     "formula": "lucro_consolidado_12m / receita_12m × 100"
+    },
+    "roe_12m": {
+     "valor": 13.3706,
+     "unidade": "%",
+     "formula": "lucro_controladores_12m / média(PL controladores 2025-09-30, 2026-09-30) × 100"
+    },
+    "divida_liquida_ebitda": {
+     "valor": 3.3761,
+     "unidade": "x",
+     "formula": "divida_liquida / ebitda_12m"
+    },
+    "acoes_ON_circulacao": {
+     "valor": 1215410788,
+     "unidade": "ações",
+     "conta": "composicao_capital QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO (2026-09-30)"
+    },
+    "valor_mercado": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "p_l": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "p_vp": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "ev": {
+     "valor": null,
+     "unidade": "R$ mi",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    },
+    "ev_ebitda": {
+     "valor": null,
+     "unidade": "x",
+     "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)"
+    }
+   }
+  }
+ ],
+ "pendencias": [
+  {
+   "empresa": "AXIA3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "EQTL3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "EGIE3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "CPFE3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "CPLE3",
+   "motivo": "sem preço B3 em 05/11/2026 para classe PN (None)"
+  },
+  {
+   "empresa": "CPLE3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "CMIG4",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "TAEE11",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "ENGI11",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "ISAE4",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "AURE3",
+   "motivo": "ITR 3T26 indisponível; usada data-base 2026-06-30 (2T26)"
+  },
+  {
+   "empresa": "NEOE3",
+   "motivo": "sem preço B3 em 05/11/2026 para classe ON (NEOE3)"
+  }
+ ]
+}

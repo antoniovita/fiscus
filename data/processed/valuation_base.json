@@ -1,0 +1,807 @@
+{
+  "gerado_em": "2026-11-06T17:41:33+00:00",
+  "script": "pipeline/09_historico_dcf.py",
+  "descricao": "Base plana para DCF simples: fluxos de 12m até a data-base mais recente de cada empresa (acum. ano atual + exercício 2025 − acum. mesmo período 2025), saldos de balanço na data-base (ITR 2026, consolidado), ações em circulação por classe e preços de fechamento (copiados de mercado.json). Valores monetários em R$ milhões; capex negativo.",
+  "empresas": {
+    "GGBR4": {
+      "data_base": "2026-09-30",
+      "trimestre": "3T26",
+      "periodo_12m": "12m até 2026-09-30 (3T26)",
+      "ebit_12m": {
+        "valor": 6091.032,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "3.05",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 6881.956,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 3739.068,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 4529.992,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "da_12m": {
+        "valor": 3696.722,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "DFC 6.01.01.* descrição 'deprecia'",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 2761.07,
+            "contas": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 3683.585,
+            "contas": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 2747.933,
+            "contas": [
+              "6.01.01.02 Depreciação e amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "receita_12m": {
+        "valor": 70251.114,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "3.01",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 53276.811,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 69858.532,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 52884.229,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "caixa_operacional_12m": {
+        "valor": 8888.314,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "6.01",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 5741.24,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 7987.454,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 4840.38,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "capex_12m": {
+        "valor": -4975.036,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "DFC 6.02.* aquisição de imobilizado + intangível",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": -3457.796,
+            "contas": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": -6852.841,
+            "contas": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": -5335.601,
+            "contas": [
+              "6.02.01 Adições de imobilizado",
+              "6.02.03 Adições de outros ativos intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "ebitda_12m": {
+        "valor": 9787.754,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "ebit_12m + da_12m (CVM 156)",
+        "arquivo": null,
+        "periodo": "12m até 2026-09-30 (3T26)"
+      },
+      "fcf_12m": {
+        "valor": 3913.278,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "caixa_operacional_12m + capex_12m",
+        "arquivo": null,
+        "periodo": "12m até 2026-09-30 (3T26)"
+      },
+      "caixa_equivalentes": {
+        "valor": 5695.892,
+        "unidade": "R$ mi",
+        "conta": "1.01.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "aplicacoes_financeiras_cp": {
+        "valor": 347.571,
+        "unidade": "R$ mi",
+        "conta": "1.01.02",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "emprestimos_cp": {
+        "valor": 554.745,
+        "unidade": "R$ mi",
+        "conta": "2.01.04",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "emprestimos_lp": {
+        "valor": 13174.481,
+        "unidade": "R$ mi",
+        "conta": "2.02.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "pl_total": {
+        "valor": 54848.244,
+        "unidade": "R$ mi",
+        "conta": "2.03",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "participacao_nao_controladores": {
+        "valor": 193.224,
+        "unidade": "R$ mi",
+        "conta": "2.03.09",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "divida_bruta": {
+        "valor": 13729.226,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "2.01.04 + 2.02.01 (sem arrendamentos IFRS 16)",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "caixa_aplicacoes": {
+        "valor": 6043.463,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "1.01.01 + 1.01.02",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "divida_liquida": {
+        "valor": 7685.763,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "divida_bruta − caixa_aplicacoes",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "acoes_ON_circulacao": {
+        "valor": 716756419.0,
+        "unidade": "ações",
+        "periodo": "posição em 2026-09-30",
+        "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+        "obs": "copiado de data/processed/mercado.json (composição do capital do ITR)"
+      },
+      "preco_GGBR3": {
+        "valor": 20.63,
+        "unidade": "R$/ação",
+        "periodo": "fechamento 2026-11-05",
+        "conta": "B3 COTAHIST PREULT",
+        "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+        "obs": "copiado de data/processed/mercado.json"
+      },
+      "acoes_PN_circulacao": {
+        "valor": 1244981220.0,
+        "unidade": "ações",
+        "periodo": "posição em 2026-09-30",
+        "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+        "obs": "copiado de data/processed/mercado.json (composição do capital do ITR)"
+      },
+      "preco_GGBR4": {
+        "valor": 23.99,
+        "unidade": "R$/ação",
+        "periodo": "fechamento 2026-11-05",
+        "conta": "B3 COTAHIST PREULT",
+        "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+        "obs": "copiado de data/processed/mercado.json"
+      }
+    },
+    "USIM5": {
+      "data_base": "2026-09-30",
+      "trimestre": "3T26",
+      "periodo_12m": "12m até 2026-09-30 (3T26)",
+      "ebit_12m": {
+        "valor": 1439.925,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "3.05",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 1305.979,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": -1363.886,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": -1497.832,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "da_12m": {
+        "valor": 1060.273,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "DFC 6.01.01.* descrição 'deprecia'",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 735.386,
+            "contas": [
+              "6.01.01.04 Depreciação e Amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 1274.791,
+            "contas": [
+              "6.01.01.04 Depreciação, Amortização e Exaustão"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 949.904,
+            "contas": [
+              "6.01.01.04 Depreciação e Amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "receita_12m": {
+        "valor": 24379.876,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "3.01",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 18204.789,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 26263.45,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 20088.363,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "caixa_operacional_12m": {
+        "valor": 2093.931,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "6.01",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 977.232,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 2179.444,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 1062.745,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "capex_12m": {
+        "valor": -1238.709,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-09-30 (3T26)",
+        "conta": "DFC 6.02.* aquisição de imobilizado + intangível",
+        "formula": "acum 2026-01-01..2026-09-30 + exercício 2025 − acum 2025-01-01..2025-09-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": -885.941,
+            "contas": [
+              "6.02.02 Compras de Imobilizado",
+              "6.02.03 Compras de Ativos Intangíveis",
+              "6.02.06 Compras de Softwares"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": -1170.861,
+            "contas": [
+              "6.02.03 Compras de Imobilizado",
+              "6.02.05 Compras de Ativos Intangíveis"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": -818.093,
+            "contas": [
+              "6.02.02 Compras de Imobilizado",
+              "6.02.03 Compras de Ativos Intangíveis",
+              "6.02.06 Compras de Softwares"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "ebitda_12m": {
+        "valor": 2500.198,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "ebit_12m + da_12m (CVM 156)",
+        "arquivo": null,
+        "periodo": "12m até 2026-09-30 (3T26)"
+      },
+      "fcf_12m": {
+        "valor": 855.222,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "caixa_operacional_12m + capex_12m",
+        "arquivo": null,
+        "periodo": "12m até 2026-09-30 (3T26)"
+      },
+      "caixa_equivalentes": {
+        "valor": 4071.514,
+        "unidade": "R$ mi",
+        "conta": "1.01.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "aplicacoes_financeiras_cp": {
+        "valor": 2675.655,
+        "unidade": "R$ mi",
+        "conta": "1.01.02",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "emprestimos_cp": {
+        "valor": 127.408,
+        "unidade": "R$ mi",
+        "conta": "2.01.04",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "emprestimos_lp": {
+        "valor": 6053.758,
+        "unidade": "R$ mi",
+        "conta": "2.02.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "pl_total": {
+        "valor": 23970.626,
+        "unidade": "R$ mi",
+        "conta": "2.03",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "participacao_nao_controladores": {
+        "valor": 2916.375,
+        "unidade": "R$ mi",
+        "conta": "2.03.09",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-09-30"
+      },
+      "divida_bruta": {
+        "valor": 6181.166,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "2.01.04 + 2.02.01 (sem arrendamentos IFRS 16)",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "caixa_aplicacoes": {
+        "valor": 6747.169,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "1.01.01 + 1.01.02",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "divida_liquida": {
+        "valor": -566.003,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "divida_bruta − caixa_aplicacoes",
+        "arquivo": null,
+        "periodo": "saldo em 2026-09-30"
+      },
+      "acoes_ON_circulacao": {
+        "valor": 702734028.0,
+        "unidade": "ações",
+        "periodo": "posição em 2026-09-30",
+        "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+        "obs": "copiado de data/processed/mercado.json (composição do capital do ITR)"
+      },
+      "preco_USIM3": {
+        "valor": 4.71,
+        "unidade": "R$/ação",
+        "periodo": "fechamento 2026-11-05",
+        "conta": "B3 COTAHIST PREULT",
+        "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+        "obs": "copiado de data/processed/mercado.json"
+      },
+      "acoes_PN_circulacao": {
+        "valor": 528208632.0,
+        "unidade": "ações",
+        "periodo": "posição em 2026-09-30",
+        "conta": "QT_ACAO_PREF_CAP_INTEGR − QT_ACAO_PREF_TESOURO",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+        "obs": "copiado de data/processed/mercado.json (composição do capital do ITR)"
+      },
+      "preco_USIM5": {
+        "valor": 4.83,
+        "unidade": "R$/ação",
+        "periodo": "fechamento 2026-11-05",
+        "conta": "B3 COTAHIST PREULT",
+        "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+        "obs": "copiado de data/processed/mercado.json"
+      }
+    },
+    "CSNA3": {
+      "data_base": "2026-06-30",
+      "trimestre": "2T26",
+      "periodo_12m": "12m até 2026-06-30 (2T26)",
+      "ebit_12m": {
+        "valor": 3345.416,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-06-30 (2T26)",
+        "conta": "3.05",
+        "formula": "acum 2026-01-01..2026-06-30 + exercício 2025 − acum 2025-01-01..2025-06-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 1059.135,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 4816.674,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 2530.393,
+            "contas": [
+              "3.05 Resultado Antes do Resultado Financeiro e dos Tributos"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "da_12m": {
+        "valor": 4381.847,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-06-30 (2T26)",
+        "conta": "DFC 6.01.01.* descrição 'deprecia'",
+        "formula": "acum 2026-01-01..2026-06-30 + exercício 2025 − acum 2025-01-01..2025-06-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 2277.156,
+            "contas": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 4150.475,
+            "contas": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 2045.784,
+            "contas": [
+              "6.01.01.05 Depreciação, exaustão e amortização"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "receita_12m": {
+        "valor": 45106.972,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-06-30 (2T26)",
+        "conta": "3.01",
+        "formula": "acum 2026-01-01..2026-06-30 + exercício 2025 − acum 2025-01-01..2025-06-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": 21909.941,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": 44797.946,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DRE_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": 21600.915,
+            "contas": [
+              "3.01 Receita de Venda de Bens e/ou Serviços"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DRE_con_2026.csv"
+          }
+        }
+      },
+      "caixa_operacional_12m": {
+        "valor": -245.0,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-06-30 (2T26)",
+        "conta": "6.01",
+        "formula": "acum 2026-01-01..2026-06-30 + exercício 2025 − acum 2025-01-01..2025-06-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": -670.993,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": -973.179,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": -1399.172,
+            "contas": [
+              "6.01 Caixa Líquido Atividades Operacionais"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "capex_12m": {
+        "valor": -5981.896,
+        "unidade": "R$ mi",
+        "periodo": "12m até 2026-06-30 (2T26)",
+        "conta": "DFC 6.02.* aquisição de imobilizado + intangível",
+        "formula": "acum 2026-01-01..2026-06-30 + exercício 2025 − acum 2025-01-01..2025-06-30 (PENÚLTIMO do ITR 2026)",
+        "insumos": {
+          "acum_atual": {
+            "valor": -2503.969,
+            "contas": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          },
+          "exercicio_2025": {
+            "valor": -5935.897,
+            "contas": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/dfp_cia_aberta_2025.zip::dfp_cia_aberta_DFC_MI_con_2025.csv"
+          },
+          "acum_ano_anterior": {
+            "valor": -2457.97,
+            "contas": [
+              "6.02.02 Aquisição de ativos imobilizados, intangível e propriedade para investimento"
+            ],
+            "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_DFC_MI_con_2026.csv"
+          }
+        }
+      },
+      "ebitda_12m": {
+        "valor": 7727.263,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "ebit_12m + da_12m (CVM 156)",
+        "arquivo": null,
+        "periodo": "12m até 2026-06-30 (2T26)"
+      },
+      "fcf_12m": {
+        "valor": -6226.896,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "caixa_operacional_12m + capex_12m",
+        "arquivo": null,
+        "periodo": "12m até 2026-06-30 (2T26)"
+      },
+      "caixa_equivalentes": {
+        "valor": 13630.963,
+        "unidade": "R$ mi",
+        "conta": "1.01.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "aplicacoes_financeiras_cp": {
+        "valor": 654.791,
+        "unidade": "R$ mi",
+        "conta": "1.01.02",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPA_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "emprestimos_cp": {
+        "valor": 8326.693,
+        "unidade": "R$ mi",
+        "conta": "2.01.04",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "emprestimos_lp": {
+        "valor": 45038.867,
+        "unidade": "R$ mi",
+        "conta": "2.02.01",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "pl_total": {
+        "valor": 15240.376,
+        "unidade": "R$ mi",
+        "conta": "2.03",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "participacao_nao_controladores": {
+        "valor": 3074.044,
+        "unidade": "R$ mi",
+        "conta": "2.03.09",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv",
+        "periodo": "saldo em 2026-06-30"
+      },
+      "divida_bruta": {
+        "valor": 53365.56,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "2.01.04 + 2.02.01 (sem arrendamentos IFRS 16)",
+        "arquivo": null,
+        "periodo": "saldo em 2026-06-30"
+      },
+      "caixa_aplicacoes": {
+        "valor": 14285.754,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "1.01.01 + 1.01.02",
+        "arquivo": null,
+        "periodo": "saldo em 2026-06-30"
+      },
+      "divida_liquida": {
+        "valor": 39079.806,
+        "unidade": "R$ mi",
+        "conta": "calculado",
+        "formula": "divida_bruta − caixa_aplicacoes",
+        "arquivo": null,
+        "periodo": "saldo em 2026-06-30"
+      },
+      "acoes_ON_circulacao": {
+        "valor": 1326093947.0,
+        "unidade": "ações",
+        "periodo": "posição em 2026-06-30",
+        "conta": "QT_ACAO_ORDIN_CAP_INTEGR − QT_ACAO_ORDIN_TESOURO",
+        "arquivo": "data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_composicao_capital_2026.csv",
+        "obs": "copiado de data/processed/mercado.json (composição do capital do ITR)"
+      },
+      "preco_CSNA3": {
+        "valor": 4.05,
+        "unidade": "R$/ação",
+        "periodo": "fechamento 2026-11-05",
+        "conta": "B3 COTAHIST PREULT",
+        "arquivo": "data/raw/mercado/COTAHIST_D05112026.ZIP",
+        "obs": "copiado de data/processed/mercado.json"
+      }
+    }
+  },
+  "pendencias": []
+}

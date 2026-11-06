@@ -254,7 +254,57 @@ BRAND = {}
 for nome, arq in {"logo": "fiscus-logo.png", "logoWhite": "fiscus-logo-white.png", "mark": "fiscus-mark.png", "markWhite": "fiscus-mark-white.png"}.items():
     BRAND[nome] = "data:image/png;base64," + base64.b64encode((APP / "brand" / arq).read_bytes()).decode()
 
-DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND}
+# ---------------- base do valuation (DCF simples; premissas são do usuário)
+import csv as _csv
+_rows = list(_csv.DictReader(open(ROOT / "data/raw/treasury/yield_curve_2026.csv", encoding="utf-8")))
+_t10 = _rows[0]  # mais recente primeiro
+_tmeta = json.loads((ROOT / "data/raw/treasury/yield_curve_2026.csv.meta.json").read_text(encoding="utf-8"))
+_vb = json.loads((P / "valuation_base.json").read_text(encoding="utf-8")) if (P / "valuation_base.json").exists() else None
+
+
+def _vbget(tk, *chaves):
+    if not _vb:
+        return None
+    e = _vb.get(tk) or _vb.get("empresas", {}).get(tk) or {}
+    for c in chaves:
+        v = e.get(c)
+        if isinstance(v, dict):
+            v = v.get("valor")
+        if isinstance(v, (int, float)):
+            return v
+    return None
+
+
+VAL = {"rf": {"valor": float(_t10["10 Yr"]), "data": _t10["Date"], "fonte": _tmeta["fonte"], "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"},
+       "selic": selic["valor"], "ipca12m": MACRO["series"]["ipca_acum_12m"]["dados"][-1]["valor"] if "ipca_acum_12m" in MACRO["series"] else None,
+       "empresas": {}}
+for e, tk in EMP_KEYS.items():
+    fm = FIN[tk]["metricas"]
+    me = MER["empresas"][tk].get("metricas", MER["empresas"][tk])
+    v = lambda k: (me[k]["valor"] if isinstance(me.get(k), dict) else me.get(k))
+    acoes = sum(x for x in [v("acoes_ON_circulacao"), v("acoes_PN_circulacao")] if isinstance(x, (int, float)))
+    capex = _vbget(tk, "capex_12m", "capex")
+    if capex is not None and abs(capex) > 1e5:  # veio em R$ mil
+        capex = capex / 1000
+    pl = sorted([k for k in me if k.startswith("pl_controladores_")])
+    VAL["empresas"][e] = {
+        "ebit12m": fm["ebit_12m"]["valor"] / 1000, "da12m": fm["da_12m"]["valor"] / 1000,
+        "dl": cvm(tk, [k for k in fm if k.startswith("divida_liquida_") and "ebitda" not in k and not k.endswith("3T25") and not k.endswith("2T25")][0]) / 1000,
+        "minor": cvm(tk, [k for k in fm if k.startswith("pl_nao_controladores_") and not k.endswith("3T25") and not k.endswith("2T25")][0]) / 1000,
+        "acoes": acoes, "preco": v("preco_" + tk), "ticker": tk, "dataPreco": MER["data_referencia"],
+        "capex12m": abs(capex) if capex is not None else None,
+        "fonteCapex": "CVM Dados Abertos · DFC, 12 meses" if capex is not None else None,
+    }
+
+# ---------------- histórico anual 2021–2025 (DFP, CVM Dados Abertos)
+HIST = {}
+if (P / "historico.json").exists():
+    _h = load("historico.json")["empresas"]
+    for e, tk in EMP_KEYS.items():
+        anos = _h.get(tk, {}).get("anos", {})
+        HIST[e] = {a: {m: (anos[a].get(m) or {}).get("valor") for m in ["receita", "margem_ebitda", "lucro_consolidado", "fcf", "roe", "divida_liquida_ebitda"]} for a in sorted(anos)}
+
+DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST}
 
 
 def main():

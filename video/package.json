@@ -2,10 +2,10 @@
   "name": "balanco-lado-a-lado-video",
   "version": "1.0.0",
   "private": true,
-  "description": "Vídeo de entrega (2 min) do Balanço Lado a Lado · Claude Lab PUC-Rio 2026",
+  "description": "Vídeo de entrega (2 min) do Fiscus · Claude Lab PUC-Rio 2026",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render Entrega out/balanco-lado-a-lado.mp4",
+    "render": "remotion render Entrega out/fiscus.mp4",
     "typecheck": "tsc --noEmit",
     "roteiro": "node scripts/roteiro.cjs"
   },

@@ -1,5 +1,5 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
+import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
 import {C, FONT, sec} from './theme';
 
 /** Progresso 0→1 com mola, começando em `at` segundos (tempo local da Sequence). */
@@ -93,7 +93,7 @@ export const Pill: React.FC<{
       borderRadius: 980,
       fontSize: 24,
       fontWeight: dark ? 500 : 400,
-      background: dark ? C.blue : C.fill,
+      background: dark ? C.ink : C.fill,
       color: dark ? '#fff' : C.ink,
       transform: `scale(${1 - pressed * 0.05})`,
       whiteSpace: 'nowrap',
@@ -104,71 +104,114 @@ export const Pill: React.FC<{
   </div>
 );
 
-/** Selo de etapa no topo (Etapa 1 · Tese do setor ...). */
-export const Steps: React.FC<{active: number}> = ({active}) => {
-  const items = ['Tese do setor', 'Empresas', 'Comparativo', 'Apresentação'];
-  return (
-    <div style={{display: 'flex', gap: 10}}>
-      {items.map((t, i) => (
-        <div
-          key={t}
-          style={{
-            padding: '8px 18px',
-            borderRadius: 980,
-            fontSize: 19,
-            fontWeight: 500,
-            background: i === active ? C.ink : i < active ? C.card : 'transparent',
-            color: i === active ? '#fff' : i < active ? C.ink : C.faint,
-            border: `1px solid ${i === active ? C.ink : C.line}`,
-          }}
-        >
-          {i < active ? '✓ ' : ''}
-          {t}
-        </div>
-      ))}
-    </div>
-  );
-};
+/** Selo de etapa no topo (Tese do setor, Empresas, ...). */
+export const STEPS = ['Tese do setor', 'Empresas', 'Comparativo', 'Tese e preço-alvo', 'Apresentação'];
+export const Steps: React.FC<{active: number}> = ({active}) => (
+  <div style={{display: 'flex', gap: 8}}>
+    {STEPS.map((t, i) => (
+      <div
+        key={t}
+        style={{
+          padding: '6px 14px',
+          borderRadius: 980,
+          fontSize: 17,
+          fontWeight: 500,
+          background: i === active ? C.ink : 'transparent',
+          color: i === active ? '#fff' : i < active ? C.ink : C.faint,
+          border: `1px solid ${i === active ? C.ink : C.line}`,
+        }}
+      >
+        {i < active ? '✓ ' : ''}
+        {t}
+      </div>
+    ))}
+  </div>
+);
 
-/** Moldura de "janela" do app, com a barra superior do painel. */
-export const AppFrame: React.FC<{children: React.ReactNode; step: number}> = ({children, step}) => (
+export const SIDEBAR = 250;
+export const TOPBAR = 56;
+
+/** Símbolo F + nome, cabeçalho das respostas do assistente. */
+export const Assistente: React.FC = () => (
+  <div style={{display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12}}>
+    <Img src={staticFile('brand/fiscus-mark.png')} style={{height: 24, width: 'auto'}} />
+    <div style={{fontSize: 21, fontWeight: 600, letterSpacing: '-0.01em'}}>Fiscus</div>
+  </div>
+);
+
+/** Moldura do app: barra lateral clara com o logotipo, "Nova análise" e "Recentes". */
+export const AppFrame: React.FC<{children: React.ReactNode; step: number | null}> = ({children, step}) => (
   <div
     style={{
       position: 'absolute',
       inset: 0,
-      ...{
-        background: C.bg,
-        borderRadius: 22,
-        border: `1px solid ${C.hair}`,
-        boxShadow: '0 30px 80px rgba(0,0,0,.10)',
-        overflow: 'hidden',
-      },
+      background: C.card,
+      borderRadius: 22,
+      border: `1px solid ${C.hair}`,
+      boxShadow: '0 30px 80px rgba(0,0,0,.10)',
+      overflow: 'hidden',
     }}
   >
     <div
       style={{
-        height: 64,
-        background: 'rgba(255,255,255,.85)',
-        borderBottom: `1px solid ${C.hair}`,
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 28px',
-        gap: 18,
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        bottom: 0,
+        width: SIDEBAR,
+        background: '#f5f5f7',
+        borderRight: `1px solid ${C.hair}`,
+        padding: '26px 18px',
+        boxSizing: 'border-box',
       }}
     >
-      <div style={{display: 'flex', gap: 8}}>
+      <div style={{display: 'flex', gap: 7, marginBottom: 26, paddingLeft: 6}}>
         {['#ff5f57', '#febc2e', '#28c840'].map((c) => (
-          <div key={c} style={{width: 13, height: 13, borderRadius: 7, background: c}} />
+          <div key={c} style={{width: 12, height: 12, borderRadius: 6, background: c}} />
         ))}
       </div>
-      <div style={{fontSize: 20, fontWeight: 600, letterSpacing: '-0.02em', marginLeft: 10}}>
-        Balanço Lado a Lado
+      <Img src={staticFile('brand/fiscus-logo.png')} style={{width: 118, height: 'auto', display: 'block', marginLeft: 8}} />
+      <div style={{display: 'flex', alignItems: 'center', gap: 10, marginTop: 28, padding: '10px 10px', borderRadius: 10, fontSize: 19, fontWeight: 500}}>
+        <span style={{fontSize: 22, lineHeight: 1}}>＋</span> Nova análise
       </div>
-      <div style={{fontSize: 18, color: C.muted}}>Siderurgia · 3T26</div>
-      <div style={{flex: 1}} />
-      <Steps active={step} />
+      <div style={{fontSize: 15, fontWeight: 600, color: C.faint, marginTop: 26, padding: '0 10px'}}>Recentes</div>
+      <div
+        style={{
+          marginTop: 8,
+          padding: '10px 10px',
+          borderRadius: 10,
+          fontSize: 18,
+          background: step === null ? 'transparent' : 'rgba(0,0,0,.06)',
+          color: C.ink,
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
+      >
+        Siderurgia · Gerdau × Usiminas
+      </div>
     </div>
-    <div style={{position: 'absolute', top: 64, left: 0, right: 0, bottom: 0}}>{children}</div>
+    <div style={{position: 'absolute', left: SIDEBAR, right: 0, top: 0, bottom: 0}}>
+      <div
+        style={{
+          height: TOPBAR,
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0 26px',
+          gap: 16,
+          borderBottom: step === null ? 'none' : `1px solid ${C.hair}`,
+        }}
+      >
+        {step !== null && (
+          <>
+            <div style={{fontSize: 18, color: C.muted}}>Siderurgia · 3T26</div>
+            <div style={{flex: 1}} />
+            <Steps active={step} />
+          </>
+        )}
+      </div>
+      <div style={{position: 'absolute', top: TOPBAR, left: 0, right: 0, bottom: 0}}>{children}</div>
+    </div>
   </div>
 );
 

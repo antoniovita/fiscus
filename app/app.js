@@ -3,7 +3,8 @@ const $=id=>document.getElementById(id);
 
 /* ================= DADOS VERIFICADOS (gerados por pipeline/08_build_app.py) ================= */
 const DATA=/*__DATA__*/null;
-const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND}=DATA;
+const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST}=DATA;
+const PLANS={analista:{n:"Analista",p:"R$ 110/mês"},pro:{n:"Research Pro",p:"R$ 150/mês"}};
 const ic=n=>ICONS[n]||"";
 const hydrate=(root=document)=>{root.querySelectorAll("[data-ic]").forEach(el=>{if(!el.dataset.done){el.innerHTML=ic(el.dataset.ic);el.dataset.done=1}});
   root.querySelectorAll("img[data-brand]").forEach(el=>{if(!el.getAttribute("src"))el.src=BRAND[el.dataset.brand]})};
@@ -50,7 +51,7 @@ loadStore();
 function login(id){ACC.atual=id;saveAcc();ACCT=ACC.list.find(a=>a.id===id)||null;loadStore();S=fresh();seenMsgs=0;
   if(location.hash==="#painel")vt(()=>{render();scrollTo(0,0)});else location.hash="#painel"}
 function logout(){ACC.atual=null;saveAcc();ACCT=null;STORE={list:[]};S=fresh();closeD();location.hash="#inicio";if(curView!=="landing")vt(()=>{render();scrollTo(0,0)})}
-let suRole=ROLES[0];
+let suRole=ROLES[0],suPlan="pro";
 const vt=fn=>document.startViewTransition&&!matchMedia("(prefers-reduced-motion: reduce)").matches?document.startViewTransition(fn):fn();
 const initials=n=>(n||"V").trim().split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();
 
@@ -78,6 +79,76 @@ function defaultMetrics(){const aj=!hasCSN();
 const mgn=()=>hasCSN()?"margem":"margem_aj";
 const srcTag=(f,u,p)=>`<span class="src">${u&&/^https?:/.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(f)}${p?`, pág. ${p}`:""}</a>`:`${esc(f)}${p?`, pág. ${p}`:""}`}</span>`;
 
+/* ================= VALUATION (DCF simples; premissas do usuário) ================= */
+const PREMS=[
+ {k:"rf",l:"Taxa livre de risco",h:`T-bond de 10 anos dos EUA em ${VAL.rf.data}`,min:2,max:7,st:.05,u:"%",def:()=>VAL.rf.valor,tag:"Dado"},
+ {k:"crp",l:"Risco-país Brasil",h:"Prêmio adicional por investir no Brasil",min:0,max:6,st:.25,u:"p.p.",def:()=>2,tag:"Sua premissa"},
+ {k:"erp",l:"Prêmio de risco de mercado",h:"Retorno extra exigido da bolsa sobre a renda fixa",min:3,max:9,st:.25,u:"%",def:()=>5,tag:"Sua premissa"},
+ {k:"beta",l:"Beta",h:"Sensibilidade da ação ao mercado; siderurgia costuma ficar acima de 1",min:.5,max:2,st:.05,u:"",def:()=>1,tag:"Sua premissa"},
+ {k:"dif",l:"Diferencial de inflação Brasil − EUA",h:`Converte o custo de capital para reais · IPCA 12m: ${String(VAL.ipca12m).replace(".",",")}%`,min:0,max:5,st:.25,u:"p.p.",def:()=>1.5,tag:"Sua premissa"},
+ {k:"kd",l:"Custo da dívida antes de IR",h:"Referência: Selic de hoje",min:6,max:18,st:.25,u:"%",def:()=>VAL.selic,tag:"Dado"},
+ {k:"g5",l:"Crescimento do caixa, anos 1 a 5",h:"Nominal, em reais, ao ano",min:-5,max:12,st:.5,u:"%",def:()=>5,tag:"Sua premissa"},
+ {k:"gp",l:"Crescimento na perpetuidade",h:"Nominal; perto da inflação de longo prazo",min:0,max:7,st:.25,u:"%",def:()=>4,tag:"Sua premissa"},
+ {k:"cx",l:"Capex de manutenção ÷ D&A",h:"Quanto do D&A precisa ser reinvestido todo ano para manter a operação",min:.5,max:1.6,st:.05,u:"x",def:()=>1,tag:"Sua premissa"}];
+const premDefaults=()=>Object.fromEntries(PREMS.map(x=>[x.k,+x.def().toFixed(2)]));
+const T=.34;
+function dcf(e,P,dw=0,dg=0){const b=VAL.empresas[e];if(!b)return null;
+  const keUsd=(P.rf+P.crp+P.beta*P.erp)/100,ke=(1+keUsd)*(1+P.dif/100)-1,kd=P.kd/100*(1-T);
+  const E=b.preco*b.acoes/1e6,D=Math.max(b.dl,0),wacc=(E*ke+D*kd)/(E+D)+dw/100,gp=P.gp/100+dg/100,g5=P.g5/100;
+  const capex=b.da12m*P.cx,f0=b.ebit12m*(1-T)+b.da12m-capex;
+  if(wacc-gp<.005)return {erro:"O custo de capital precisa ficar acima do crescimento na perpetuidade."};
+  let pv=0,f=f0;for(let t=1;t<=5;t++){f*=1+g5;pv+=f/Math.pow(1+wacc,t)}
+  const tv=f*(1+gp)/(wacc-gp),pvtv=tv/Math.pow(1+wacc,5),ev=pv+pvtv,eq=ev-b.dl-b.minor,price=eq*1e6/b.acoes,up=price/b.preco-1;
+  return {ke,wacc,kd,f0,capex,pv,pvtv,ev,eq,price,up,E,D,b}}
+const recOf=up=>up>=.15?["Compra","buy"]:up<=-.10?["Venda","sell"]:["Neutro","hold"];
+const brl=v=>"R$ "+v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const mi=v=>(v<0?"−":"")+"R$ "+nf(Math.abs(v))+" mi";
+const pct=(v,d=1)=>(v<0?"−":"+")+nf(Math.abs(v*100),d)+"%";
+const pc=(v,d=1)=>nf(v*100,d)+"%";
+function valResults(){const V=S.val;if(!V||!V.e)return "";const r=dcf(V.e,V.prem);if(!r)return "";
+  if(!r.erro&&r.eq<=0)return `<div class="vres"><div class="vhead"><span class="rec sell">Venda</span><div><span class="k">Preço-alvo 12 meses</span><b>—</b></div></div><p class="note">Com essas premissas, o valor da empresa (${mi(r.ev)}) não cobre a dívida líquida (${mi(r.b.dl)}) mais os não controladores. O acionista ficaria sem valor no DCF. Teste crescimento ou custo de capital diferentes.</p></div>`;if(r.erro)return `<div class="vres"><p class="note">${esc(r.erro)}</p></div>`;
+  const [rec,cls]=recOf(r.up),b=r.b;
+  const ws=[-2,-1,0,1,2],gs=[-1,-.5,0,.5,1];
+  const sens=`<div class="tblwrap"><table class="sens2"><thead><tr><th>WACC \\ g perp.</th>${gs.map(g=>`<th>${nf(V.prem.gp+g,2)}%</th>`).join("")}</tr></thead><tbody>${ws.map(w=>`<tr><td class="m">${pc(r.wacc+w/100)}</td>${gs.map(g=>{const x=dcf(V.e,V.prem,w,g);return `<td class="${w===0&&g===0?"hl":""}">${x&&!x.erro?brl(x.price):"—"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
+  return `<div class="vres">
+   <div class="vhead"><span class="rec ${cls}">${rec}</span><div><span class="k">Preço-alvo 12 meses</span><b>${brl(r.price)}</b></div><div><span class="k">Preço atual · B3 ${b.dataPreco.split("-").reverse().join("/")}</span><b class="mut">${brl(b.preco)}</b></div><div><span class="k">Potencial</span><b class="${r.up>=0?"pos":"neg"}">${pct(r.up)}</b></div></div>
+   <dl class="vcalc"><dt>Custo do capital próprio (Ke)</dt><dd>${pc(r.ke)}</dd><dt>WACC</dt><dd>${pc(r.wacc)}</dd>
+    <dt>Fluxo de caixa livre base (12m)</dt><dd>${mi(r.f0)}</dd><dt class="sub">EBIT × (1 − 34%) + D&A − capex</dt><dd class="sub">${mi(b.ebit12m*(1-T))} + ${mi(b.da12m)} − ${mi(r.capex)}</dd>${b.capex12m!=null?`<dt class="sub">Capex total em 12 meses, com expansão (referência)</dt><dd class="sub">${mi(b.capex12m)} · ${nf(b.capex12m/b.da12m,2)}x o D&A</dd>`:""}
+    <dt>Valor da empresa</dt><dd>${mi(r.ev)}</dd><dt>(−) Dívida líquida</dt><dd>${mi(b.dl)}</dd><dt>(−) Não controladores</dt><dd>${mi(b.minor)}</dd>
+    <dt>Valor do acionista</dt><dd>${mi(r.eq)}</dd><dt>÷ Ações em circulação</dt><dd>${nf(b.acoes/1e6)} mi</dd></dl>
+   <div class="sec-h"><b>Sensibilidade do preço-alvo</b><span>WACC × crescimento na perpetuidade</span></div>${sens}
+   <span class="small">Faixas: compra a partir de +15% de potencial, venda abaixo de −10%. EBIT, D&A, dívida, ações e preço são dados verificados (CVM e B3); as premissas marcadas são suas.</span></div>`}
+function wVal(i){const V=S.val,last=S.msgs.findLastIndex(x=>x.w==="val")===i,live=last&&S.step==="val";const [a,b]=S.picks;
+  const prems=PREMS.filter(x=>!(x.onlyNoCapex&&VAL.empresas[V.e].capex12m!=null));
+  return `<div class="widget">
+   <div class="cmphead"><div><div class="eyebrow">Tese e preço-alvo</div><h3 class="ctitle">Quanto vale ${co(V.e).nome}?</h3></div>
+    <div class="tabs" role="tablist">${[a,b].map(e=>`<button role="tab" aria-selected="${V.e===e}" data-vale="${e}" ${live?"":"disabled"}>${co(e).nome}</button>`).join("")}</div></div>
+   <div class="vgrid"><div class="prems">${prems.map(x=>`<label class="prem"><span class="pl"><b>${esc(x.l)}</b><span class="ptag ${x.tag==="Dado"?"d":""}">${x.tag}</span><small>${esc(x.h)}</small></span>
+     <span class="pv" id="pv-${x.k}">${nf(V.prem[x.k],x.u==="x"||x.k==="beta"?2:2)}${x.u==="%"?"%":x.u?" "+x.u:""}</span>
+     <input type="range" data-prem="${x.k}" min="${x.min}" max="${x.max}" step="${x.st}" value="${V.prem[x.k]}" ${live?"":"disabled"} aria-label="${esc(x.l)}"></label>`).join("")}
+     ${live?`<button class="pill sm" data-do="val-reset" style="justify-self:start">Restaurar sugestões</button>`:""}</div>
+    <div id="valres">${valResults()}</div></div>
+   ${live?`<div class="wfoot"><span class="note">O Claude escreve os argumentos; os números saem do cálculo acima.</span><span class="choices"><button class="pill ghost" data-do="val-skip">Pular</button><button class="pill dark" data-do="val-ok">Confirmar tese e gerar apresentação</button></span></div>`:""}</div>`}
+const THESIS={g:{a:["A América do Norte, protegida por tarifa, sustenta margem e geração de caixa.","O balanço leve dá espaço para atravessar o ciclo e remunerar o acionista.","No Brasil, a margem está perto do piso do ciclo e tem espaço para recuperar."],m:"O mercado olha o lucro de doze meses, pesado por um trimestre fraco, e dá pouco valor ao caixa que vem dos EUA.",t:["A tarifa americana sobre aço importado continuar em vigor.","A margem do segmento Brasil voltar a subir.","A empresa manter disciplina de capital e retorno ao acionista."]},
+ u:{a:["O caixa líquido dá uma margem de segurança rara no setor.","A margem ajustada está em recuperação contra o ano passado.","A ação negocia bem abaixo do patrimônio."],m:"O mercado trata a pressão do aço plano importado como permanente.",t:["A proteção comercial contra importados ganhar efeito.","O volume de aço voltar a crescer.","O novo controlador gerar ganhos de eficiência."]},
+ c:{a:["Os ativos integrados de mineração e logística têm valor estratégico.","A mineração gera caixa ao longo do ciclo.","A desalavancagem pode destravar valor rápido."],m:"O mercado desconta a dívida como se a desalavancagem não fosse acontecer.",t:["A dívida líquida cair de forma consistente.","O minério se manter em preço que sustente o caixa.","O resultado do 3T26 confirmar a tendência."]}};
+async function writeThesis(){const V=S.val;if(!V||!V.e)return;const r=dcf(V.e,V.prem),ok0=r&&!r.erro&&r.eq>0,[rec]=ok0?recOf(r.up):["Venda"],d=THESIS[V.e];V.args=d.a.slice();V.mkt=d.m;V.trig=d.t.slice();V.rec=rec;V.price=ok0?r.price:null;V.up=ok0?r.up:null;
+  if(!sample){await wait(500);return}
+  try{const x=await sample.json(`Você é analista de research. Escreva a tese de investimento de ${co(V.e).nome} para a primeira página de um relatório.
+Recomendação definida pelo usuário: ${rec}. Dados verificados:
+${catalog()}
+Modelo de negócio: ${co(V.e).resumo}
+Premissas do usuário: beta ${V.prem.beta}, crescimento ${V.prem.g5}% ao ano, perpetuidade ${V.prem.gp}%.
+Regras: português; NÃO escreva números; frases curtas e com opinião. Responda só JSON: {"argumentos":[3 frases de até 20 palavras],"mercado_nao_precifica":"1 frase de até 25 palavras","gatilhos":[3 frases curtas: o que precisa acontecer para a tese se confirmar]}`,{modelTier:"quick"});
+    const ok=t=>typeof t==="string"&&t.trim()&&!/\d/.test(t);
+    if(Array.isArray(x?.argumentos)&&x.argumentos.slice(0,3).every(ok)&&x.argumentos.length>=3)V.args=x.argumentos.slice(0,3).map(t=>t.trim().slice(0,180));
+    if(ok(x?.mercado_nao_precifica))V.mkt=x.mercado_nao_precifica.trim().slice(0,220);
+    if(Array.isArray(x?.gatilhos)&&x.gatilhos.slice(0,3).every(ok)&&x.gatilhos.length>=3)V.trig=x.gatilhos.slice(0,3).map(t=>t.trim().slice(0,160));
+  }catch(e){if(e?.code==="not_granted"){sample=null;setStatus()}}}
+async function confirmVal(){user("Confirmo a tese");S.step="building";const m=bot("Escrevendo a tese a partir dos dados e das suas premissas",null,{thinking:true});render();scrollEnd();
+  await writeThesis();S.val.done=true;m.thinking=false;m.text="Tese pronta. A primeira página traz a recomendação, o preço-alvo e os argumentos; a última retoma o que precisa acontecer para a tese se confirmar.";S.step="done";bot("","deck");render();scrollEnd()}
+function skipVal(){user("Pular o valuation");S.step="done";bot("Apresentação gerada com a tese do setor e o comparativo. Abra para apresentar ou baixe em PDF.","deck");render();scrollEnd()}
+
 /* ================= WIDGETS ================= */
 function sensRows(){return SETOR.sens.map(s=>`<div class="srow"><span>${esc(s.d)}</span><span class="lvlbar">${[1,2,3].map(i=>`<i class="${i<=s.n?"on":""}"></i>`).join("")}</span><span class="dado">${esc(s.dado)} <span class="src">${esc(s.f)}</span></span></div>`).join("")}
 function wSector(){const v=SETOR.veredito,E=EMP[v.escolha];
@@ -102,12 +173,17 @@ function wMetrics(locked){
      return `<label class="met ${ok?"":"off"}"><input type="checkbox" data-met="${k}" ${S.metrics.includes(k)?"checked":""} ${locked||!ok?"disabled":""}><span><b>${esc(MET[k].nome)}</b>${MET[k].rel?`<span class="rel">chave no setor</span>`:""}<small>${esc(ok?MET[k].porque:why)}</small></span></label>`}).join("")}</div></div>`).join("")}</div>
    ${locked?"":`<div class="wfoot"><span class="note">${S.metrics.length} selecionadas · mínimo 4</span><button class="pill dark" data-do="confirm-mets" ${S.metrics.length<4?"disabled":""}>Confirmar métricas</button></div>`}</div>`}
 
-const TABS=[["resumo","Resumo"],["kpis","KPIs"],["modelo","Modelo de negócio"],["mult","Múltiplos"],["quali","Qualitativo"]];
+const TABS=[["resumo","Resumo"],["kpis","KPIs"],["hist","Histórico"],["modelo","Modelo de negócio"],["mult","Múltiplos"],["quali","Qualitativo"]];
 function kpiTable(keys){const [a,b]=S.picks;let last="";
   return `<div class="tblwrap"><table><thead><tr><th>Métrica</th><th>${dot(a)} ${co(a).nome} · ${per(a)}</th><th>${dot(b)} ${co(b).nome} · ${per(b)}</th><th>Destaque</th></tr></thead><tbody>${keys.map(k=>{const m=MET[k],L=leader(k);
     const g=m.g!==last?`<tr class="grp"><td colspan="4">${m.g}</td></tr>`:"";last=m.g;
     return g+`<tr><td class="m">${esc(m.nome)}</td><td><span class="v">${numB(k,a)}</span>${delta(k,a)}</td><td><span class="v">${numB(k,b)}</span>${delta(k,b)}</td><td>${L?`<span class="best">${dot(L.e)}${co(L.e).nome} · ${L.why}</span>`:""}</td></tr>`}).join("")}</tbody></table></div>
    <span class="small">Variações contra o mesmo trimestre do ano anterior. Consolidado. ROE, ROIC e alavancagem em 12 meses; múltiplos com preço de ${VERIF.dataPreco.split("-").reverse().join("/")}.${hasCSN()?" CSN: dados do 2T26 e EBITDA pelo critério CVM 156 nas duas empresas.":""}</span>`}
+function tabHist(){const [a,b]=S.picks,M=[["receita","Receita","R$ mi"],["margem_ebitda","Margem EBITDA (CVM 156)","%"],["lucro_consolidado","Lucro líquido","R$ mi"],["fcf","Fluxo de caixa livre","R$ mi"],["roe","ROE","%"],["divida_liquida_ebitda","Dív. líq./EBITDA","x"]];
+  const t=e=>{const H=HIST?.[e]||{},Y=Object.keys(H);if(!Y.length)return `<p class="note">Histórico indisponível.</p>`;
+    return `<div class="tblwrap"><table class="htbl"><thead><tr><th>${dot(e)} ${co(e).nome}</th>${Y.map(y=>`<th>${y}</th>`).join("")}</tr></thead><tbody>${M.map(([k,n,u])=>`<tr><td class="m">${n}</td>${Y.map(y=>{const v=H[y][k];return `<td>${v==null?"n.d.":u==="R$ mi"?nf(v):u==="%"?nf(v,1)+"%":nf(v,1)+"x"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`};
+  return `${t(a)}${t(b)}<span class="small">Fonte: CVM Dados Abertos, DFP de 2021 a 2025, consolidado, em R$ milhões. EBITDA pelo critério CVM 156, sem os ajustes das empresas. Dív. líq./EBITDA fica n.d. quando o EBITDA é negativo.</span>
+   <div class="read"><b>O que mudou:</b> o ciclo de 2021 levou margens e retornos ao pico; desde então o aço importado e a normalização de preços comprimiram as margens no Brasil. Compare a trajetória de cada empresa antes de julgar o trimestre.</div>`}
 function tabResumo(){const [a,b]=S.picks,keys=[mgn(),"roic","alav","ev"].filter(k=>S.metrics.includes(k)).slice(0,3);
   return `<ol class="concl">${S.concl.map(c=>`<li>${esc(c)}</li>`).join("")}</ol>
    <div class="tiles">${keys.map(k=>`<div class="tile"><span class="k">${esc(MET[k].nome)}</span><div class="pair">${[a,b].map(e=>`<div><span>${dot(e)} ${co(e).nome}</span><b>${numB(k,e)}</b></div>`).join("")}</div></div>`).join("")}</div>`}
@@ -128,7 +204,7 @@ function tabQuali(){const [a,b]=S.picks;
    <span class="lab">O que observar</span><ul>${Q.r.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`}).join("")}</div>
    <div class="read"><b>Interpretação:</b> o número mostra o trimestre; o qualitativo diz se ele se repete. Margem sustentada por um mercado protegido depende da política tarifária; margem sustentada por custo é mais durável.</div>`}
 function wCard(i){const last=S.msgs.findLastIndex(x=>x.w==="card")===i,pending=last&&!S.verdict;const [a,b]=S.picks;
-  const body={resumo:tabResumo,kpis:()=>kpiTable(S.metrics),modelo:tabModelo,mult:tabMult,quali:tabQuali}[S.tab]();
+  const body={hist:tabHist,resumo:tabResumo,kpis:()=>kpiTable(S.metrics),modelo:tabModelo,mult:tabMult,quali:tabQuali}[S.tab]();
   return `<div class="widget">
    <div class="cmphead"><div><div class="eyebrow">Comparativo · ${per(a)}${per(a)!==per(b)?` × ${per(b)}`:""}</div><h3 class="ctitle">${esc(S.title)}</h3></div><div class="vs">${logo(a,"sm")}<span class="note">×</span>${logo(b,"sm")}</div></div>
    <div class="tabs" role="tablist">${TABS.map(([k,l])=>`<button role="tab" aria-selected="${S.tab===k}" data-tab="${k}">${l}</button>`).join("")}</div>
@@ -164,7 +240,7 @@ function renderLanding(){
 const SUGG=[{t:"Este setor é um bom lugar para investir?",i:"page-search",h:"Tese do setor"},{t:"Compare Gerdau e Usiminas no 3T26",p:["g","u"],i:"stats-up-square",h:"Comparativo"},{t:"Compare Gerdau e CSN",p:["g","c"],i:"stats-up-square",h:"Comparativo"},{t:"Compare Usiminas e CSN",p:["u","c"],i:"stats-up-square",h:"Comparativo"}];
 function renderDash(){const h=new Date().getHours(),sd=h<12?"Bom dia":h<18?"Boa tarde":"Boa noite",nm=(ACCT?.nome||"").trim().split(/\s+/)[0];
   $("greet").textContent=`${sd}${nm?", "+nm:""}.`;
-  $("greet2").textContent="Qual setor vamos analisar hoje? Comece pela tese de um setor ou peça um comparativo entre duas empresas.";
+
   $("sugg").innerHTML=SUGG.map((x,i)=>`<button type="button" data-sugg="${i}">${ic(x.i)}<span>${esc(x.t)}</span><small>${x.h}</small></button>`).join("")}
 function picksFrom(t){t=t.toLowerCase();const f=[];[["g","gerdau"],["u","usiminas"],["c","csn"],["c","siderúrgica nacional"]].forEach(([k,w])=>{if(t.includes(w)&&!f.includes(k))f.push(k)});return f.slice(0,2)}
 async function startWith(picks,q,keep){await startSector("siderurgia",q,keep);if(picks&&picks.length===2){await wait(250);goCos();S.picks=picks;confirmCos()}}
@@ -175,11 +251,11 @@ function renderThread(){
     if(m.role==="user"){if(editIdx===i)return `<div class="msg user"><div class="editbox"><textarea id="edit-ta">${esc(m.text)}</textarea><div class="macts"><button class="pill sm" data-edit-cancel>Cancelar</button><button class="pill dark sm" data-edit-send>Reenviar</button></div></div></div>`;
       return `<div class="msg user${f}"><div class="ub">${m.typed&&!busy?`<button class="edit" data-edit="${i}" aria-label="Editar mensagem">${ic("edit-pencil")}</button>`:""}<div class="bubble">${esc(m.text)}</div></div></div>`}
     const lc=S.step!=="companies"||S.msgs.findLastIndex(x=>x.w==="companies")!==i, lm=S.step!=="metrics"||S.msgs.findLastIndex(x=>x.w==="metrics")!==i;
-    const w=m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
+    const w=m.w==="val"?wVal(i):m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
     return `<div class="msg bot${f}"><span class="who"><img src="${BRAND.mark}" alt="">Fiscus</span>${m.thinking?`<div class="bubble thinking">${esc(m.text||"Pensando")}</div>`:(m.text?`<div class="bubble">${esc(m.text)}</div>`:"")}${w}</div>`}).join("");
   const ch=S.step==="rejected"?["Trocar métricas","Gerar outro título","Trocar empresas"]:(S.step==="done"||S.step==="card")?["Quem está mais barata?","Qual tem melhor ROIC?","Como está o endividamento?"]:[];
   $("choices").innerHTML=ch.map(c=>`<button class="pill ghost sm" data-choice="${esc(c)}">${esc(c)}</button>`).join("");
-  $("q").placeholder={sector:"Pergunte sobre o setor ou siga para as empresas",companies:"Escolha duas empresas acima",metrics:"Ajuste as métricas acima e confirme"}[S.step]||"Pergunte sobre as métricas";
+  $("q").placeholder={val:"Ajuste as premissas acima e confirme",sector:"Pergunte sobre o setor ou siga para as empresas",companies:"Escolha duas empresas acima",metrics:"Ajuste as métricas acima e confirme"}[S.step]||"Pergunte sobre as métricas";
 }
 function renderSide(){const L=STORE.list;
   $("hist").innerHTML=L.length?L.map(a=>`<li class="${a.id===S.id&&S.view==="chat"?"cur":""}"><button class="open" data-an="${a.id}"><b>${esc(anTitle(a))}</b><span>Siderurgia · ${when(a.updated)}</span></button><button class="del " data-del="${a.id}" aria-label="Apagar análise">${ic("trash")}</button></li>`).join("")
@@ -188,6 +264,7 @@ function renderSide(){const L=STORE.list;
   const prontas=L.filter(a=>a.verdict==="ok").length,pares=L.filter(a=>a.picks?.length===2).length;
   if(!ACCT)return;
   $("me").innerHTML=`<div class="r"><span class="avt">${esc(initials(ACCT?.nome))}</span><span class="nm"><b>${esc(ACCT?.nome||"Você")}</b><small>${esc([ACCT?.funcao,ACCT?.inst].filter(Boolean).join(" · ")||"Perfil local")}</small></span><button class="logout" data-logout>Sair</button></div>
+   <div class="r" style="justify-content:space-between"><span class="plantag">${esc((PLANS[ACCT?.plano]||PLANS.pro).n)}</span><small style="color:var(--muted)">${esc((PLANS[ACCT?.plano]||PLANS.pro).p)} · demonstração</small></div>
    <div class="r stats"><span><b>${L.length}</b> análises</span><span><b>${pares}</b> comparativos</span><span><b>${prontas}</b> prontas</span></div>
    <div class="r stats"><span><i class="dot" style="background:${sample?"var(--green-ios)":"var(--faint)"}"></i>${sample?"Claude conectado":"Modo demonstração"}</span></div>`}
 function renderDD(){$("ddmenu").innerHTML=SETORES.map(x=>`<li role="option" data-dd="${x.id}" aria-selected="${x.ativo}" aria-disabled="${!x.ativo}" class="${x.ativo?"act":""}"><span>${x.nome}</span>${x.ativo?ic("check"):`<small>Em breve</small>`}</li>`).join("")}
@@ -200,7 +277,7 @@ const route=()=>({"#painel":"painel","#entrar":"entrar","#criar-conta":"criar"})
 let curView=null;
 function renderLogin(){$("accts").innerHTML=ACC.list.length?ACC.list.slice().sort((a,b)=>(b.ultimo||b.criado)-(a.ultimo||a.criado)).map(a=>`<li><button type="button" data-login="${a.id}"><span class="avt">${esc(initials(a.nome))}</span><span><b>${esc(a.nome)}</b><small>${esc([a.funcao,a.inst].filter(Boolean).join(" · "))}</small></span><span class="go">${ic("nav-arrow-right")}</span></button></li>`).join("")
   :`<li class="empty">Nenhuma conta neste navegador ainda.</li>`}
-function renderSignup(){$("su-roles").innerHTML=ROLES.map(x=>`<button type="button" role="radio" aria-checked="${x===suRole}" data-role="${esc(x)}">${esc(x)}</button>`).join("")}
+function renderSignup(){$("su-plans").innerHTML=Object.entries(PLANS).map(([k,x])=>`<button type="button" role="radio" aria-checked="${k===suPlan}" data-plan-pick="${k}"><b>${x.n}</b><span>${x.p}</span></button>`).join("");$("su-roles").innerHTML=ROLES.map(x=>`<button type="button" role="radio" aria-checked="${x===suRole}" data-role="${esc(x)}">${esc(x)}</button>`).join("")}
 function renderAfter(){tabAnim=false}
 function render(){setTimeout(renderAfter,0);let r=route();if(r==="painel"&&!ACCT)r=ACC.list.length?"entrar":"criar";curView=r;
   const auth=r==="entrar"||r==="criar";$("v-landing").hidden=r!=="landing";$("v-signup").hidden=!auth;$("signup").hidden=r!=="criar";$("login").hidden=r!=="entrar";$("v-app").hidden=r!=="painel";if(ACCT)save();
@@ -243,7 +320,8 @@ Responda só JSON: {"titulo": string, "conclusoes": [string,string,string]}`,{mo
   }catch(e){if(e?.code==="not_granted"){sample=null;setStatus()}}}
 async function confirmMets(){user(`Confirmo ${S.metrics.length} métricas`);S.step="building";const m=bot("Montando o comparativo: KPIs, modelo de negócio, múltiplos e leitura qualitativa",null,{thinking:true});render();scrollEnd();
   await writeStory();m.thinking=false;m.text="Pronto. Navegue pelas abas e aceite para gerar a apresentação, ou recuse para ajustar.";S.verdict=null;S.step="card";bot("","card");render();scrollEnd()}
-function accept(){S.verdict="ok";S.step="done";user("Aceito");bot("Apresentação gerada com a tese do setor e o comparativo aprovado. Abra para apresentar ou baixe em PDF.","deck");render();scrollEnd()}
+function accept(){if(S.picks.length!==2){return}S.verdict="ok";S.step="val";user("Aceito");const pe=S.picks.includes(SETOR.veredito.escolha)?SETOR.veredito.escolha:S.picks[0];
+  S.val={e:pe,prem:premDefaults(),done:false};bot("Agora monte a sua tese. Ajuste as premissas: o Fiscus calcula o preço-alvo com os números verificados e as suas escolhas, e mostra a sensibilidade.","val");render();scrollEnd()}
 function reject(){S.verdict="no";S.step="rejected";user("Recusar");bot("Sem problema. O que você quer mudar?");render();scrollEnd()}
 async function choice(c){
   if(c==="Trocar métricas"){user(c);S.step="metrics";bot("Ajuste as métricas e confirme de novo.","metrics");render();scrollEnd()}
@@ -269,14 +347,22 @@ Métricas disponíveis: ${avk.map(k=>`${k} (${MET[k].nome})`).join(", ")}.\nDado
   m.thinking=false;if(/\d/.test(m.text||""))m.text="Aqui estão os números verificados.";if(keys.length){m.w="mini";m.keys=keys}busy=false;render();scrollEnd()}
 
 /* ================= APRESENTAÇÃO ================= */
-function buildSlides(){return [
+function buildSlides(){const v=S.val&&S.val.done,base=[
  {k:"cover",label:"Tese do setor"},{k:"sens",label:"O que move o setor"},{k:"topics",label:"Estrutura, cadeia e regulação"},
  {k:"cmp",label:S.title||"Comparativo"},{k:"kpis",label:"KPIs lado a lado"},{k:"modelo",label:"Modelos de negócio"},{k:"mult",label:"Múltiplos"},{k:"quali",label:"Leitura qualitativa e riscos"},
- {k:"check",label:"Como sabemos que está certo"},{k:"meth",label:"Fontes e metodologia"}]}
+ {k:"check",label:"Como sabemos que está certo"},{k:"meth",label:"Fontes e metodologia"}];
+  if(!v)return base;const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},...base,{k:"concl",label:"Conclusão"}]}
 function slideHTML(idx){const all=buildSlides(),s=all[idx],[a,b]=S.picks;
   const top=l=>`<div class="top"><span>${l}</span><span>Siderurgia · ${co(a).nome} × ${co(b).nome} · 3T26</span></div>`;
   const foot=`<div class="foot"><span class="bm-foot"><img src="${BRAND.mark}" alt="Fiscus">Fiscus · Fontes: ITRs 3T26, CVM Dados Abertos, B3, BCB, IBGE, Aço Brasil</span><span>Exercício acadêmico · não é recomendação de investimento</span></div>`;
   const V=SETOR.veredito,T=SETOR.topicos;
+  if(s.k==="rec"){const V=S.val,r=dcf(V.e,V.prem),okp=r&&!r.erro&&r.eq>0,cls=okp?recOf(r.up)[1]:"sell";return `<div class="slide dark">${top("Recomendação · 12 meses")}<div class="sbody" style="gap:18px">
+    <div class="logos">${logo(V.e)}</div><div class="recline"><span class="rec ${cls} big">${V.rec}</span><span><span class="k">Preço-alvo</span><b>${okp?brl(r.price):"—"}</b></span><span><span class="k">Potencial</span><b>${okp?pct(r.up):"—"}</b></span><span><span class="k">Preço atual (B3, ${r.b.dataPreco.split("-").reverse().join("/")})</span><b>${brl(r.b.preco)}</b></span></div>
+    <ol class="concl">${V.args.map(x=>`<li>${esc(x)}</li>`).join("")}</ol><p class="lead"><b style="color:#fff">O que o mercado não está precificando:</b> ${esc(V.mkt)}</p></div>${foot}</div>`}
+  if(s.k==="val"){const V=S.val;return `<div class="slide">${top("Valuation")}<h2>${V.price!=null?`Preço-alvo de ${brl(V.price)} para ${co(V.e).nome} com as premissas escolhidas`:`Com as premissas escolhidas, o DCF não deixa valor para o acionista de ${co(V.e).nome}`}</h2><div class="sbody">${valResults()}</div>${foot}</div>`}
+  if(s.k==="concl"){const V=S.val,r=dcf(V.e,V.prem);return `<div class="slide">${top("Conclusão")}<h2>${V.rec} para ${co(V.e).nome}${V.price!=null?`, com preço-alvo de ${brl(V.price)} (${pct(V.up)})`:""}</h2><div class="sbody" style="gap:16px"><div class="bm">
+    <div class="bmc"><h5>O que precisa acontecer</h5><ul class="plainul">${V.trig.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    <div class="bmc"><h5>O que acompanhar</h5><ul class="plainul"><li>Margem EBITDA ajustada por segmento</li><li>Dívida líquida sobre EBITDA</li><li>Importações de aço e medidas de defesa comercial</li><li>Preço do minério e câmbio</li></ul></div></div></div>${foot}</div>`}
   if(s.k==="cover")return `<div class="slide dark">${top("Comitê de Investimentos")}<div class="sbody" style="gap:22px"><span class="tag" style="background:var(--yellow);color:var(--ink)">Setor ${V.nivel.toLowerCase()}</span><h1>Siderurgia no 3T26: vale investir?</h1><p class="lead">${esc(V.frase)}</p></div><div class="foot"><span>Empresa para a próxima análise: ${EMP[V.escolha].nome}</span><span>Exercício acadêmico · não é recomendação de investimento</span></div></div>`;
   if(s.k==="sens")return `<div class="slide">${top("Drivers")}<h2>Juros e importação pesam mais que a demanda física</h2><div class="sbody"><div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026. Correlação não é causalidade.</span></div>${foot}</div>`;
   if(s.k==="topics")return `<div class="slide">${top("Setor")}<h2>Oligopólio maduro, com o preço limitado pelo aço importado</h2><div class="sbody"><ol class="concl">${[T[1],T[2],T[4],T[5]].map(t=>`<li><span><b>${esc(t.t)}.</b> ${esc(t.tese)}</span></li>`).join("")}</ol></div>${foot}</div>`;
@@ -333,9 +419,12 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const sec=t.closest("[data-sector]");if(sec){startSector(sec.dataset.sector);return}
   const pk=t.closest("[data-pick]");if(pk){const k=pk.dataset.pick;S.picks=S.picks.includes(k)?S.picks.filter(x=>x!==k):[...S.picks,k].slice(-2);render();return}
   const tb=t.closest("[data-tab]");if(tb){if(S.tab!==tb.dataset.tab){S.tab=tb.dataset.tab;tabAnim=true;render()}return}
-  const dz=t.closest("[data-do]");if(dz){if(dz.dataset.do==="pdf"){exportPDF(dz);return}({"go-cos":goCos,"confirm-cos":confirmCos,"confirm-mets":confirmMets,accept,reject})[dz.dataset.do]();return}
+  const dz=t.closest("[data-do]");if(dz){if(dz.dataset.do==="pdf"){exportPDF(dz);return}({"go-cos":goCos,"confirm-cos":confirmCos,"confirm-mets":confirmMets,accept,reject,"val-ok":confirmVal,"val-skip":skipVal,"val-reset":()=>{S.val.prem=premDefaults();render()}})[dz.dataset.do]();return}
+  const ve=t.closest("[data-vale]");if(ve){S.val.e=ve.dataset.vale;render();return}
   const ch=t.closest("[data-choice]");if(ch){choice(ch.dataset.choice);return}
   const op=t.closest("[data-open]");if(op){openDeck(+op.dataset.open);return}
+  const pp=t.closest("[data-plan-pick]");if(pp){suPlan=pp.dataset.planPick;renderSignup();return}
+  const lp=t.closest("[data-plan]");if(lp){suPlan=lp.dataset.plan}
   const rl=t.closest("[data-role]");if(rl){suRole=rl.dataset.role;renderSignup();return}
   if(t.closest("[data-logout]")){confirmBox("Sair da conta?","Você volta para a página inicial. Sua conta e suas análises continuam salvas neste navegador para quando entrar de novo.",logout,"Sair");return}
   const lg=t.closest("[data-login]");if(lg){const a=ACC.list.find(x=>x.id===lg.dataset.login);if(a){a.ultimo=Date.now();login(a.id)}return}
@@ -349,17 +438,19 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const op2=t.closest("[data-dd]");if(op2){if(op2.getAttribute("aria-disabled")!=="true"){closeDD()}return}
   if(!t.closest("#dd"))closeDD();
   const n=t.closest(".num[data-k]");if(n)openD(n.dataset.k,n.dataset.e,n.dataset.i)});
+document.addEventListener("input",ev=>{const r=ev.target.closest("[data-prem]");if(!r||!S.val)return;const k=r.dataset.prem,x=PREMS.find(p=>p.k===k);S.val.prem[k]=+r.value;
+  $("pv-"+k).textContent=nf(+r.value,2)+(x.u==="%"?"%":x.u?" "+x.u:"");$("valres").innerHTML=valResults();clearTimeout(save.t);save.t=setTimeout(save,400)});
 document.addEventListener("change",ev=>{const c=ev.target.closest("[data-met]");if(!c)return;const k=c.dataset.met;
   S.metrics=c.checked?ORDER.filter(m=>m===k||S.metrics.includes(m)):S.metrics.filter(m=>m!==k);render()});
 $("signup").addEventListener("submit",e=>{e.preventDefault();const nome=$("su-nome").value.trim();$("su-err").hidden=!!nome;if(!nome){$("su-nome").focus();return}
-  const a={id:uid(),nome:nome.slice(0,60),funcao:suRole,inst:$("su-inst").value.trim().slice(0,60),criado:Date.now(),ultimo:Date.now()};ACC.list.push(a);
+  const a={id:uid(),nome:nome.slice(0,60),funcao:suRole,plano:suPlan,inst:$("su-inst").value.trim().slice(0,60),criado:Date.now(),ultimo:Date.now()};ACC.list.push(a);
   $("su-nome").value="";$("su-inst").value="";login(a.id)});
 $("dask").addEventListener("submit",e=>{e.preventDefault();const q=$("dq").value.trim();$("dq").value="";startWith(picksFrom(q),q||"Tese do setor de siderurgia")});
 $("dq").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("dask").requestSubmit()}});
 $("ask").addEventListener("submit",e=>{e.preventDefault();const q=$("q").value;$("q").value="";ask(q)});
 $("new").onclick=()=>{S=fresh();closeSide();vt(render)};
 $("sidescrim").onclick=closeSide;
-$("ddbtn").onclick=e=>{e.stopPropagation();const open=$("ddmenu").hidden;if(open){renderDD();$("ddmenu").hidden=false;$("ddbtn").setAttribute("aria-expanded","true")}else closeDD()};
+if($("ddbtn"))$("ddbtn").onclick=e=>{e.stopPropagation();const open=$("ddmenu").hidden;if(open){renderDD();$("ddmenu").hidden=false;$("ddbtn").setAttribute("aria-expanded","true")}else closeDD()};
 $("m-no").onclick=()=>closeBox();$("m-ok").onclick=()=>{const f=boxOk;closeBox();f&&f()};$("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeBox()});
 $("close-deck").onclick=closeDeck;
 $("pdf2").onclick=e=>exportPDF(e.currentTarget);

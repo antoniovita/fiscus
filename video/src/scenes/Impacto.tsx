@@ -1,5 +1,5 @@
 import React from 'react';
-import {Sequence} from 'remotion';
+import {Img, Sequence, staticFile} from 'remotion';
 import {C, card, h1, sec} from '../theme';
 import {Appear, Content, Kicker, Stage, useLin} from '../ui';
 
@@ -40,10 +40,10 @@ const Fecho: React.FC = () => {
     <Stage style={{opacity: fade}}>
       <Content style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
         <Appear at={0.2}>
-          <h1 style={{...h1, fontSize: 130}}>Balanço Lado a Lado</h1>
+          <Img src={staticFile('brand/fiscus-logo.png')} style={{width: 640, height: 'auto', display: 'block', margin: '0 auto'}} />
         </Appear>
         <Appear at={0.7}>
-          <div style={{fontSize: 46, color: C.ink, marginTop: 20, fontWeight: 500, letterSpacing: '-0.02em'}}>Cada número, até a página.</div>
+          <div style={{fontSize: 46, color: C.ink, marginTop: 40, fontWeight: 500, letterSpacing: '-0.02em'}}>Cada número, até a página.</div>
         </Appear>
         <Appear at={1.2}>
           <div style={{fontSize: 28, color: C.muted, marginTop: 34}}>Claude Lab PUC-Rio 2026 · Case 3 · Gerdau × Usiminas · 3T26</div>

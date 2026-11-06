@@ -1,0 +1,10 @@
+{
+  "url": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_2024.zip",
+  "consultado_em": "2026-11-06T17:39:59+00:00",
+  "http_status": 200,
+  "last_modified": "Sun, 01 Nov 2026 10:23:49 GMT",
+  "content_type": "application/zip",
+  "arquivo": "data/raw/cvm/dfp_cia_aberta_2024.zip",
+  "bytes": 13397602,
+  "sha256": "2071e7908c2d1fa945b21b3d6a982eb41b1550360f19e5185cb5eb6fbf9a8fb9"
+}

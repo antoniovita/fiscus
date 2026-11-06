@@ -4,15 +4,16 @@
   {"cena": "1 · O problema", "de": 10, "ate": 15.5, "texto": "O erro clássico de IA em finanças não é ficar sem resposta. É o número errado, escrito com confiança."},
   {"cena": "1 · O problema", "de": 15.5, "ate": 20, "texto": "Como ler a holding no lugar do consolidado: um número 17 vezes menor, sem aviso nenhum."},
 
-  {"cena": "2 · A solução", "de": 20, "ate": 24, "texto": "Balanço Lado a Lado: um painel que responde em etapas, e você aprova cada uma."},
+  {"cena": "2 · A solução", "de": 20, "ate": 24, "texto": "Fiscus: um painel que responde em etapas, e você aprova cada uma."},
   {"cena": "2 · A solução", "de": 24, "ate": 33, "texto": "Etapa 1, a tese do setor. Veredito: Seletivo. O setor não paga o custo de capital; vale só onde há proteção fora do Brasil."},
   {"cena": "2 · A solução", "de": 33, "ate": 42, "texto": "Etapa 2: das siderúrgicas listadas na B3, escolhemos duas, Gerdau e Usiminas."},
   {"cena": "2 · A solução", "de": 42, "ate": 48, "texto": "Lado a lado, no mesmo critério: margem EBITDA ajustada de 20,2% na Gerdau e 9,0% na Usiminas."},
-  {"cena": "2 · A solução", "de": 48, "ate": 56, "texto": "A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi."},
-  {"cena": "2 · A solução", "de": 56, "ate": 61, "texto": "O diferencial: clique em qualquer número."},
-  {"cena": "2 · A solução", "de": 61, "ate": 70, "texto": "EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado."},
-  {"cena": "2 · A solução", "de": 70, "ate": 75, "texto": "Etapa 3: dez slides prontos para o comitê, exportados em PDF."},
-  {"cena": "2 · A solução", "de": 75, "ate": 80, "texto": "Do PDF do ITR ao slide, sem nenhum número digitado à mão."},
+  {"cena": "2 · A solução", "de": 48, "ate": 55, "texto": "A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi."},
+  {"cena": "2 · A solução", "de": 55, "ate": 57.5, "texto": "O diferencial: clique em qualquer número."},
+  {"cena": "2 · A solução", "de": 57.5, "ate": 64, "texto": "EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado."},
+  {"cena": "2 · A solução", "de": 64, "ate": 72, "texto": "Etapa 3, tese e preço-alvo: você ajusta as premissas, como taxa livre de risco, beta e crescimento, e o Fiscus monta a recomendação."},
+  {"cena": "2 · A solução", "de": 72, "ate": 76.5, "texto": "Etapa 4: dez slides prontos para o comitê, exportados em PDF."},
+  {"cena": "2 · A solução", "de": 76.5, "ate": 80, "texto": "Do PDF do ITR ao slide, sem nenhum número digitado à mão."},
 
   {"cena": "3 · Como verificamos", "de": 80, "ate": 86, "texto": "Como verificamos: um segundo programa relê cada página e confere trecho, unidade e critério consolidado."},
   {"cena": "3 · Como verificamos", "de": 86, "ate": 92, "texto": "85 de 85 números conferidos. 7 de 7 cruzamentos batem: a soma dos segmentos da Gerdau dá os mesmos R$ 3.770,2 mi."},
@@ -21,5 +22,5 @@
 
   {"cena": "4 · Impacto e próximos passos", "de": 100, "ate": 106, "texto": "Para quem leva um comparativo ao comitê e precisa defender cada número na hora da pergunta."},
   {"cena": "4 · Impacto e próximos passos", "de": 106, "ate": 112, "texto": "Com mais um dia: a CSN assim que o ITR do 3T26 chegar à CVM, a Ferbasa e novos setores no mesmo pipeline."},
-  {"cena": "4 · Impacto e próximos passos", "de": 112, "ate": 118, "texto": "Balanço Lado a Lado. Cada número, até a página. Exercício acadêmico, não é recomendação de investimento."}
+  {"cena": "4 · Impacto e próximos passos", "de": 112, "ate": 118, "texto": "Fiscus. Cada número, até a página. Exercício acadêmico, não é recomendação de investimento."}
 ]

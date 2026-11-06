@@ -1,5 +1,5 @@
 import React from 'react';
-import {interpolate, Sequence, useCurrentFrame} from 'remotion';
+import {Img, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {C, card, h1, sec} from '../theme';
 import {Appear, Content, Kicker, Stage, useIn, useLin} from '../ui';
 
@@ -11,7 +11,7 @@ const Titulo: React.FC = () => {
         <Kicker>Claude Lab PUC-Rio 2026 · Case 3</Kicker>
       </Appear>
       <Appear at={0.5}>
-        <h1 style={{...h1, fontSize: 150}}>Balanço Lado a Lado</h1>
+        <Img src={staticFile('brand/fiscus-logo.png')} style={{width: 760, height: 'auto', display: 'block'}} />
       </Appear>
       <Appear at={1.1}>
         <div style={{fontSize: 48, color: C.muted, marginTop: 28, letterSpacing: '-0.02em', fontWeight: 500}}>

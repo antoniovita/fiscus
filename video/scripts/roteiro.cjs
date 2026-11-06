@@ -8,7 +8,7 @@ const mmss = (s) => {
   return `${m}:${(r < 10 ? '0' : '') + r.toFixed(r % 1 ? 1 : 0)}`;
 };
 const fim = c[c.length - 1].ate;
-let out = `# Roteiro de narração · Balanço Lado a Lado\n\nVídeo de entrega · Claude Lab PUC-Rio 2026 · Case 3 · duração ${mmss(fim)} (${fim} s).\n\nO vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz: leia cada fala dentro da janela indicada (ritmo calmo, ~2,5 palavras por segundo). Gerado a partir de \`src/captions.json\` — se mudar o texto lá, rode \`npm run roteiro\` para atualizar este arquivo.\n`;
+let out = `# Roteiro de narração · Fiscus\n\nVídeo de entrega · Claude Lab PUC-Rio 2026 · Case 3 · duração ${mmss(fim)} (${fim} s).\n\nO vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz: leia cada fala dentro da janela indicada (ritmo calmo, ~2,5 palavras por segundo). Gerado a partir de \`src/captions.json\` — se mudar o texto lá, rode \`npm run roteiro\` para atualizar este arquivo.\n`;
 let cena = '';
 for (const x of c) {
   if (x.cena !== cena) { cena = x.cena; out += `\n## Cena ${cena}\n\n`; }
