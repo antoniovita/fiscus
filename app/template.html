@@ -1103,6 +1103,26 @@ small.srcl{display:block;font-size:11px;color:var(--faint);font-weight:400;margi
 .rs .flowr .fs i{font-style:normal;font-weight:700;color:var(--rb);font-size:clamp(9px,1.1cqw,14px)}
 .rs .flowr .fs b{font-size:clamp(10px,1.3cqw,16px)}.rs .flowr .fs span{font-size:clamp(8px,.9cqw,11px);color:#555}
 .rs .flowr .arr{align-self:center;color:var(--rb);font-size:clamp(14px,2cqw,26px);font-weight:700}
+
+/* slides com gráficos ocupando a página */
+.rs .rbody{display:flex;flex-direction:column}
+.rs .tese{flex:1;display:grid;grid-template-columns:.9fr 1.1fr;grid-template-rows:auto 1fr;gap:clamp(8px,1.2cqw,16px);min-height:0}
+.rs .tese .tl{display:grid;gap:clamp(6px,1cqw,12px);align-content:start}
+.rs .tese .tl .band{grid-auto-columns:1fr}
+.rs .tese .tg{display:grid;gap:clamp(6px,1cqw,12px);grid-row:1/3;grid-column:2}
+.rs .tese .tb{grid-column:1;min-height:0;display:grid}
+.rs .two2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4cqw,18px);min-height:0;align-items:stretch}
+.rs .cbox{background:#f4f6fd;padding:clamp(6px,1cqw,12px);display:flex;flex-direction:column;gap:4px;min-height:0}
+.rs .cbox h6{margin:0;font-size:clamp(8px,1.05cqw,13px);font-weight:600;color:#111}
+.rs .cbox svg{width:100%;flex:1;min-height:0}
+.rs .cbox .cl{font-size:12px;fill:#333}.rs .cbox .cv{font-size:12px;font-weight:700;fill:#111}.rs .cbox .cr{font-size:11px;fill:#d70015;font-weight:600}.rs .cbox .ca{font-size:11px;fill:#777}
+.rs .clg{display:flex;gap:12px;flex-wrap:wrap;font-size:clamp(7px,.85cqw,11px);color:#444}.rs .clg span{display:inline-flex;gap:5px;align-items:center}.rs .clg i{width:9px;height:9px;display:inline-block}
+.rs .stk{display:grid;gap:clamp(6px,1cqw,12px);padding:4px 0}
+.rs .stk>div{display:grid;grid-template-columns:22% 1fr;gap:4px 12px;align-items:center}
+.rs .stk .sl{font-size:clamp(8px,1cqw,12px);font-weight:600}
+.rs .stk .sb{display:flex;height:clamp(10px,1.4cqw,18px);background:#dfe3ee}
+.rs .stk .sb i{display:block;height:100%}.rs .stk .sb em{display:block;height:100%;background:repeating-linear-gradient(135deg,#c9cfdd 0 3px,#dfe3ee 3px 7px)}
+.rs .stk .sv{grid-column:2;font-size:clamp(7px,.9cqw,11px);color:#444}.rs .stk .sv b{color:var(--rb)}
 </style>
 
 <div class="site" id="v-landing">

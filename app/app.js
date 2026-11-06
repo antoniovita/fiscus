@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 
 /* ================= DADOS VERIFICADOS (gerados por pipeline/08_build_app.py) ================= */
 const DATA=/*__DATA__*/null;
-const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST,SETX}=DATA;
+const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST,SETX,SERIES}=DATA;
 const SXORDER=["bancos","energia","petroleo","mineracao","varejo"].filter(k=>SETX&&SETX[k]);
 const SXCOLS_STD=[["receita_12m","Receita 12m","mi"],["margem_ebitda_12m","Margem EBITDA","%"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["divida_liquida_ebitda","Dív.líq./EBITDA","x"],["p_l","P/L","x"],["p_vp","P/VP","x"],["ev_ebitda","EV/EBITDA","x"]];
 const SXCOLS_BANK=[["receita_intermediacao_12m","Receitas de intermediação 12m","mi"],["resultado_bruto_intermediacao_12m","Resultado bruto da intermediação","mi"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["margem_liquida_12m","Margem líquida","%"],["pl_controladores","Patrimônio líquido","mi"],["p_l","P/L","x"],["p_vp","P/VP","x"]];
@@ -68,6 +68,7 @@ function fmt(v,un){if(v==null)return "n.d.";
   if(un==="R$ mi")return (v<0?"−":"")+"R$ "+nf(Math.abs(v))+" mi"; if(un==="%")return (v<0?"−":"")+nf(Math.abs(v),1)+"%";
   if(un==="x")return (v<0?"−":"")+nf(Math.abs(v),Math.abs(v)<1?2:1)+"x"; if(un==="R$/t")return "R$ "+nf(v)+"/t"; return nf(v)+" "+un}
 const val=(k,e,i=0)=>(MET[k].vals[e]||[null,null])[i];
+const val0=id=>DATA.ITRX?.[id]??null;
 const per=(e,i=0)=>EMP[e].per[i];
 function chipOf(s){if(!s)return "";const c={verificado:["",`p.${s.pagina} ✓`],calculado:["calc","calc"],cvm:["cvm","CVM"],mercado:["cvm","B3"]}[s.tipo]||["",""];return `<span class="chip ${c[0]}">${c[1]}</span>`}
 function numB(k,e,i=0){const v=val(k,e,i);if(v==null){const r=ND[`${k}|${e}`]||"Não disponível";return `<span class="nd" title="${esc(r)}">n.d.</span>`}
@@ -477,6 +478,20 @@ function buildSlides(){const v=S.val&&S.val.done,base=[
   if(!v){base.splice(base.findIndex(x=>x.k==="cmp"),0,gl);return base}
   const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});
   return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},{k:"pillars",label:"Tese em 3 pilares"},gl,...base,{k:"concl",label:"Conclusão"}]}
+/* gráficos dos slides (SVG; escalas únicas; dados de DATA) */
+const RC={g:"#00468b",u:"#5a9e1b",c:"#c8102e"};
+function sHBarRef(title,rows,ref,refLbl,unit){const w=560,h=40+rows.length*46,L=110,R=60,mx=Math.max(ref,...rows.map(r=>Math.abs(r.v)))*1.15,mn=Math.min(0,...rows.map(r=>r.v))*1.15,sx=v=>L+(v-mn)/(mx-mn)*(w-L-R);
+  let s=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
+  rows.forEach((r,i)=>{const y=24+i*46,x0=sx(0),x1=sx(r.v);s+=`<text x="${L-10}" y="${y+18}" text-anchor="end" class="cl">${esc(r.l)}</text><rect x="${Math.min(x0,x1)}" y="${y}" width="${Math.max(2,Math.abs(x1-x0))}" height="26" fill="${r.c}"/><text x="${(r.v>=0?x1+6:x1-6)}" y="${y+18}" text-anchor="${r.v>=0?"start":"end"}" class="cv">${nf(r.v,1)}${unit}</text>`});
+  const xr=sx(ref);s+=`<line x1="${xr}" x2="${xr}" y1="14" y2="${h-6}" stroke="#d70015" stroke-width="2" stroke-dasharray="5 4"/><text x="${xr+5}" y="12" class="cr">${esc(refLbl)} ${nf(ref,2)}${unit}</text>`;
+  return `<div class="cbox"><h6>${esc(title)}</h6>${s}</svg></div>`}
+function sLines(title,series,unit,yref){const w=600,h=260,L=44,R=16,T=18,B=28,all=series.flatMap(x=>x.pts.map(p=>p[1])).filter(v=>v!=null);const mn=Math.min(...all,yref??Infinity,0),mx=Math.max(...all)*1.08;const n=series[0].pts.length,x=i=>L+i*(w-L-R)/(n-1),y=v=>T+(h-T-B)*(1-(v-mn)/(mx-mn));
+  let s=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;[mn,(mn+mx)/2,mx].forEach(t=>{s+=`<line x1="${L}" x2="${w-R}" y1="${y(t)}" y2="${y(t)}" stroke="#e3e6f3"/><text x="${L-6}" y="${y(t)+4}" text-anchor="end" class="ca">${nf(t,0)}${unit}</text>`});
+  if(mn<0)s+=`<line x1="${L}" x2="${w-R}" y1="${y(0)}" y2="${y(0)}" stroke="#999" stroke-width="1"/>`;
+  const step=Math.max(1,Math.ceil(n/6));series[0].pts.forEach((p,i)=>{if(i%step===0||i===n-1)s+=`<text x="${x(i)}" y="${h-8}" text-anchor="middle" class="ca">${esc(String(p[0]).slice(0,4))}</text>`});
+  series.forEach(se=>{const d=se.pts.map((p,i)=>p[1]==null?null:`${x(i)},${y(p[1])}`).filter(Boolean).join(" ");s+=`<polyline points="${d}" fill="none" stroke="${se.c}" stroke-width="2.6" stroke-linejoin="round"/>`;const lp=se.pts[se.pts.length-1];if(lp[1]!=null)s+=`<circle cx="${x(n-1)}" cy="${y(lp[1])}" r="4" fill="${se.c}"/><text x="${x(n-1)-6}" y="${y(lp[1])-8}" text-anchor="end" class="cv">${nf(lp[1],1)}${unit}</text>`});
+  return `<div class="cbox"><h6>${esc(title)}</h6>${s}</svg><div class="clg">${series.map(se=>`<span><i style="background:${se.c}"></i>${esc(se.n)}</span>`).join("")}</div></div>`}
+function sStack(title,rows){return `<div class="cbox"><h6>${esc(title)}</h6><div class="stk">${rows.map(r=>`<div><span class="sl">${esc(r.l)}</span><span class="sb"><i style="width:${r.v}%;background:var(--rb)"></i><em style="width:${100-r.v}%"></em></span><span class="sv"><b>${nf(r.v,1)}%</b> ${esc(r.a)} · ${nf(100-r.v,1)}% ${esc(r.b)}</span></div>`).join("")}</div></div>`}
 const RSNAV=["Visão geral","Setor","Comparativo","Valuation","Riscos","Metodologia"];
 const RSSEC={setnum:1,drivers:2,pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
 const BRANDC={g:"#00468b",u:"#5a9e1b",c:"#1f3b8f"};
@@ -515,6 +530,7 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
     const big=it.slice(0,4),small=it.slice(4);
     return F("O setor em números",`Siderurgia brasileira: <b>produção parada, capacidade ociosa e importado em alta</b>`,
      `<div class="setnum"><div class="sn-ic">${ic("industry")}</div><div class="sn-grid">${big.map(x=>`<div class="sn"><b>${x.v}</b><span>${esc(x.l)}</span></div>`).join("")}</div></div>
+      ${(()=>{const u=pick(/utilização/),im=pick(/penetração de importados/),co=pick(/construção civil/);return sStack("Onde está a folga do setor",[u?{l:"Capacidade instalada",v:u.v,a:"em uso",b:"ociosa"}:null,im?{l:"Consumo aparente",v:100-im.v,a:"nacional",b:"importado"}:null,co?{l:"Destino do aço",v:co.v,a:"construção civil",b:"demais setores"}:null].filter(Boolean))})()}
       <div class="band">${small.map(x=>`<div><b>${x.v}</b><span>${esc(x.l)}</span></div>`).join("")}</div>`,
      [...new Set(it.map(x=>x.f.split("–")[0].split("(")[0].trim()))].slice(0,3).join("; "))}
   if(s.k==="drivers"){const e=focusE(),E=EMP[e],Q=E.quali,pal=["var(--rb)","#9aa0a9","#cfd3da"];
@@ -523,9 +539,15 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
      `<div class="bm" style="grid-template-columns:1.2fr .8fr"><div class="bmc"><h5>O que acompanhar</h5>${dia(Q.r.map(esc))}<h5 style="margin-top:6px">Forças da empresa</h5>${dia(Q.f.map(esc))}</div>${mix}</div>
       <div class="sens">${SETOR.sens.slice(0,2).map(x=>`<div class="srow"><span>${esc(x.d)}</span><span class="lvlbar">${[1,2,3].map(i=>`<i class="${i<=x.n?"on":""}"></i>`).join("")}</span><span class="dado">${esc(x.dado)}</span></div>`).join("")}</div>`,
      `ITR ${E.nome} ${per(e)}, BCB, IBGE, Aço Brasil`)}
-  if(s.k==="cover")return F("Tese do setor",`Siderurgia brasileira: <b>${esc(V.nivel.toLowerCase())}</b> para o investidor no 3T26`,
-    band([[esc(V.nivel),"Veredito"],[esc(EMP[V.escolha].nome),"Empresa para a Etapa 2"],[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números verificados"],["7","Fontes oficiais"]])+dia([esc(V.frase),esc(V.porque)]),"Fiscus, Aço Brasil, ITRs 3T26, CVM");
-  if(s.k==="sens")return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026, produção siderúrgica (IBGE) contra cada driver. Correlação não é causalidade.</span>`,"BCB SGS, IBGE PIM-PF, Aço Brasil, Banco Mundial");
+  if(s.k==="cover"){const roe=["g","u","c"].map(e=>({l:EMP[e].nome+(e==="c"?" (2T26)":""),v:val("roe",e),c:RC[e]})).filter(r=>r.v!=null);
+    const seg=[{l:"Gerdau · América do Norte",v:val0("g_margem_an_3t26"),c:RC.g},{l:"Gerdau · Brasil",v:val0("g_margem_br_3t26"),c:RC.g+"88"},{l:"Usiminas · Siderurgia",v:val0("u_margem_sid_3t26"),c:RC.u}].filter(r=>r.v!=null);
+    const hist=["g","u","c"].filter(e=>HIST?.[e]).map(e=>({n:EMP[e].nome,c:RC[e],pts:Object.keys(HIST[e]).map(y=>[y,HIST[e][y].margem_ebitda])}));
+    return F("Tese do setor",`Siderurgia brasileira: <b>${esc(V.nivel.toLowerCase())}</b> para o investidor no 3T26`,
+    `<div class="tese"><div class="tl">${band([[esc(V.nivel),"Veredito"],[esc(EMP[V.escolha].nome),"Empresa para a Etapa 2"]])}${dia([esc(V.frase),esc(V.porque)])}</div>
+     <div class="tg">${sHBarRef("1. O setor não paga o custo de capital · ROE 12 meses",roe,VAL.selic,"Selic","%")}${sHBarRef("2. A margem está onde há proteção · margem EBITDA ajustada 3T26",seg,0,"","%").replace(/<line[^>]*stroke="#d70015"[^>]*\/><text[^>]*class="cr">[^<]*<\/text>/,"")}</div>
+     <div class="tb">${sLines("3. As margens voltaram ao piso do ciclo · margem EBITDA (CVM 156), 2021–2025",hist,"%")}</div></div>`,"CVM Dados Abertos (ITR e DFP), ITRs 3T26 (notas de segmentos), BCB SGS 432")}
+  if(s.k==="sens"){const pr=SERIES?.pim_siderurgia_var_12m||[],se=SERIES?.selic_meta||[],m=new Map(se.map(x=>[x[0],x[1]]));const pts=pr.map(x=>[x[0],x[1]]),pts2=pr.map(x=>[x[0],m.get(x[0])??null]);
+    return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="two2"><div class="sens">${sensRows()}</div>${sLines("Produção siderúrgica (var. 12m, IBGE) × Selic meta (% a.a.)",[{n:"Produção siderúrgica, var. 12 meses",c:"var(--rb)",pts},{n:"Selic meta",c:"#d70015",pts:pts2}],"%")}</div><span class="small">Correlação de Pearson, 2019–2026. Correlação não é causalidade: use como contexto.</span>`,"IBGE PIM-PF (tabela 8885), BCB SGS 432 e 3698, Aço Brasil, Banco Mundial")}
   if(s.k==="topics"){const Fx=SETOR.fatos||[],g=re=>Fx.find(x=>re.test(x.u));
     const reg=[[/imposto de importação acima da cota/,"Imposto acima da cota de importação",v=>nf(v,0)+"%"],[/antidumping/,"Antidumping sobre laminados chineses",v=>"US$ "+nf(v,0)+"/t"],[/Section 232/,"Tarifa dos EUA sobre aço importado",v=>nf(v,0)+"%"],[/tarifa efetiva/,"Tarifa efetiva no Brasil (Aço Brasil)",v=>nf(v,1)+"%"]].map(([re,l,fm])=>{const x=g(re);return x?`<div class="regc"><b>${fm(x.v)}</b><span>${l}</span></div>`:""}).join("");
     return F("Estrutura e regulação",`Oligopólio maduro, com o <b>preço limitado pelo aço importado</b>`,`<div class="two"><div>${dia([T[1],T[2],T[4],T[5]].map(x=>`<b>${esc(x.t)}.</b> ${esc(x.tese)}`))}</div><div class="regs"><h6>A proteção em números</h6>${reg}</div></div>`,"Aço Brasil, worldsteel, MDIC/Gecex, Casa Branca (Section 232), ITRs 3T26")}
@@ -537,7 +559,8 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
   if(s.k==="quali")return F("Leitura qualitativa e riscos",`O que <b>sustenta, ou ameaça</b>, o resultado do trimestre`,tabQuali());
   if(s.k==="val"){const Vv=S.val;return F("Valuation",Vv.price!=null?`Preço-alvo de <b>${brl(Vv.price)}</b> para ${esc(co(Vv.e).nome)} com as premissas escolhidas`:`O DCF não deixa valor para o acionista de ${esc(co(Vv.e).nome)}`,valResults(),`Fiscus, CVM, B3, U.S. Treasury (${esc(VAL.rf.data)}), BCB`)}
   if(s.k==="check")return F("Como sabemos que está certo",`Cada número é <b>conferido no documento de origem</b>`,
-    band([[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números conferidos na página"],[`${VERIF.cruzOk}/${VERIF.cruz}`,"Cruzamentos com as empresas"],[`${VERIF.armOk}/${VERIF.arm}`,"Armadilhas barradas"],[VERIF.ia.completo,"Teste de controle do Claude"]])+dia([esc(VERIF.cvm)+".",...VERIF.armadilhas.map(x=>`<b>${esc(x.caso)}:</b> ${esc(x.exp)}`)]),"Fiscus, pipeline/03_verificar.py, ITRs 3T26");
+    band([[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números conferidos na página"],[`${VERIF.cruzOk}/${VERIF.cruz}`,"Cruzamentos com as empresas"],[`${VERIF.armOk}/${VERIF.arm}`,"Armadilhas barradas"],[VERIF.ia.completo,"Teste de controle do Claude"]])+
+    `<div class="two2"><div class="tblwrap"><table><thead><tr><th>Cruzamento</th><th>Calculado</th><th>Publicado</th><th></th></tr></thead><tbody>${(VERIF.cruzDet||[]).map(c=>`<tr><td class="m">${esc(c.c)}</td><td>${nf(c.calc,1)}</td><td>${nf(c.pub,1)}</td><td>${c.ok?"✓":"✗"}</td></tr>`).join("")}</tbody></table></div><div>${dia([esc(VERIF.cvm)+".",...VERIF.armadilhas.map(x=>`<b>${esc(x.caso)}:</b> ${esc(x.exp)}`)])}</div></div>`,"Fiscus, pipeline/03_verificar.py, ITRs 3T26");
   if(s.k==="concl"){const Vv=S.val;return F("Conclusão",`<b>${esc(Vv.rec)}</b> para ${esc(co(Vv.e).nome)}${Vv.price!=null?`, com preço-alvo de <b>${brl(Vv.price)}</b> (${pct(Vv.up)})`:""}`,
     `<div class="bm"><div class="bmc"><h5>O que precisa acontecer</h5>${dia(Vv.trig.map(esc))}</div><div class="bmc"><h5>O que acompanhar</h5>${dia(["Margem EBITDA ajustada por segmento","Dívida líquida sobre EBITDA","Importações de aço e defesa comercial","Preço do minério e câmbio"])}</div></div><div class="read"><b>O que o mercado não está precificando:</b> ${esc(Vv.mkt)}</div>`)}
   const flow=`<div class="flowr">${[["PDF","ITRs 3T26",`${VERIF.metricas} métricas mapeadas`],["01","Extração","linha exata da página"],["02","Verificação",`${VERIF.aprovadas}/${VERIF.metricas} aprovadas`],["03","Cruzamentos",`${VERIF.cruzOk}/${VERIF.cruz} com as empresas`],["✓","Slide","só o que passou"]].map(([a,b2,c])=>`<div class="fs"><i>${a}</i><b>${b2}</b><span>${c}</span></div>`).join(`<span class="arr">›</span>`)}</div>`;

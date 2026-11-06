@@ -233,7 +233,10 @@ VERIF = {"metricas": vr["metricas"], "aprovadas": vr["aprovadas"], "cruz": vr["c
          "cvm": (lambda c: f"{sum(x['confere'] for x in c)} de {len(c)} números dos PDFs batem com a base da CVM"
                  + (", diferença zero" if all(x['diferenca'] == 0 for x in c) else ""))(load("financeiro.json")["cruzamento_pdf_itr"]),
          "ia": {"curado": f"{TIA['acertos_valor']}/{TIA['total']}", "completo": f"{TIC['acertos_valor']}/{TIC['total']}"},
-         "dataPreco": MER["data_referencia"], "selic": selic["valor"]}
+         "dataPreco": MER["data_referencia"], "selic": selic["valor"],
+         "cruzDet": [{"c": c["checagem"], "calc": c["calculado"], "pub": c["publicado"], "ok": c["ok"], "f": c["fonte"]} for c in VER["cruzamentos"]]}
+# séries para os gráficos dos slides (BCB SGS 432 e IBGE PIM-PF 8885), mensais desde 2019
+SERIES = {k2: [[d["data"], d["valor"]] for d in MACRO["series"][k2]["dados"] if d["data"] >= "2019-01"] for k2 in ["selic_meta", "pim_siderurgia_var_12m", "pim_siderurgia_indice"]}
 
 # logotipos (Wikimedia Commons, domínio público) embutidos como data URI; ver data/raw/logos/fontes.json
 import base64
@@ -320,7 +323,7 @@ for f in sorted((P / "setores").glob("*.json")):
                      "o": {x: {kk: (m.get(x) or {}).get(kk) for kk in ("conta", "formula", "motivo", "unidade")} for x in _SXM}})
     SETX[d["setor"]] = {"nome": d.get("nome"), "fonte": d.get("fonte"), "empresas": emps, "pend": d.get("pendencias", [])[:6]}
 
-DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST, "SETX": SETX}
+DATA = {"gerado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"), "SETOR": SETOR, "EMP": EMP, "MET": MET, "PROV": PROV, "ND": ND, "VERIF": VERIF, "ICONS": ICONS, "BRAND": BRAND, "VAL": VAL, "HIST": HIST, "SERIES": SERIES, "ITRX": {m: ITR[m]["valor"] for m in ["g_margem_an_3t26", "g_margem_br_3t26", "u_margem_sid_3t26", "g_peso_an_ebitda_3t26"]}, "SETX": SETX}
 
 
 def main():
