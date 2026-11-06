@@ -34,7 +34,7 @@ function save(){if(!S.msgs.length)return;S.updated=Date.now();const i=STORE.list
   STORE.list.sort((a,b)=>b.updated-a.updated);STORE.list=STORE.list.slice(0,30);try{localStorage.setItem(storeKey(),JSON.stringify(STORE))}catch(e){}}
 function openAnalysis(id){const a=STORE.list.find(x=>x.id===id);if(!a)return;S=JSON.parse(JSON.stringify(a));if(S.step==="building")S.step=S.title?"card":"metrics";seenMsgs=S.msgs.length;closeSide();vt(render)}
 function deleteAnalysis(id){STORE.list=STORE.list.filter(a=>a.id!==id);try{localStorage.setItem(storeKey(),JSON.stringify(STORE))}catch(e){}if(S.id===id)S=fresh();render()}
-const anTitle=a=>a.kind==="panorama"?`Panorama · ${SETX[a.sx]?.nome||""}`:a.picks?.length===2?`${EMP[a.picks[0]].nome} × ${EMP[a.picks[1]].nome}`:"Tese do setor";
+const anTitle=a=>a.kind==="panorama"?(a.sxPicks?.length===2&&SETX[a.sx]?`${SETX[a.sx].empresas[a.sxPicks[0]].tk} × ${SETX[a.sx].empresas[a.sxPicks[1]].tk}`:`Panorama · ${SETX[a.sx]?.nome||""}`):a.step==="sectorpick"?"Nova análise":a.picks?.length===2?`${EMP[a.picks[0]].nome} × ${EMP[a.picks[1]].nome}`:"Tese do setor";
 function when(t){const d=new Date(t),n=new Date(),hm=d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
   return d.toDateString()===n.toDateString()?`Hoje, ${hm}`:d.toLocaleDateString("pt-BR",{day:"2-digit",month:"short"})+", "+hm}
 let slide=0,sample=null,downloads=null,busy=false,editIdx=null,tabAnim=false;
@@ -154,6 +154,26 @@ async function confirmVal(){user("Confirmo a tese");S.step="building";const m=bo
   await writeThesis();S.val.done=true;m.thinking=false;m.text="Tese pronta. A primeira página traz a recomendação, o preço-alvo e os argumentos; a última retoma o que precisa acontecer para a tese se confirmar.";S.step="done";bot("","deck");render();scrollEnd()}
 function skipVal(){user("Pular o valuation");S.step="done";bot("Apresentação gerada com a tese do setor e o comparativo. Abra para apresentar ou baixe em PDF.","deck");render();scrollEnd()}
 
+/* ================= ESCOLHA DE SETOR E DE EMPRESAS ================= */
+const SECIC={siderurgia:"industry",bancos:"bank",energia:"flash",petroleo:"droplet",mineracao:"hammer",varejo:"shopping-bag"};
+function startAsk(q){S=fresh();S.view="chat";S.step="sectorpick";seenMsgs=0;user(q||"Quero analisar um setor",true);bot("Qual setor você quer analisar?","sectorpick");vt(render);scrollEnd()}
+function wSectorPick(i){const live=S.step==="sectorpick"&&S.msgs.findLastIndex(x=>x.w==="sectorpick")===i,chosen=S.kind==="panorama"?S.sx:(S.step!=="sectorpick"?"siderurgia":null);
+  const opts=[["siderurgia","Siderurgia","Análise completa · 3 empresas"],...SXORDER.map(k=>[k,SETX[k].nome,`Panorama · ${SETX[k].empresas.length} empresas`])];
+  return `<div class="widget ${live?"":"locked"}"><div class="secs">${opts.map(([k,n,h])=>`<button class="secc" data-secpick="${k}" aria-pressed="${chosen===k}" ${live?"":"disabled"}><span class="ic">${ic(SECIC[k]||"view-grid")}</span><span><b>${esc(n)}</b><small>${h}</small></span>${chosen===k?`<span class="ck2">${ic("check")}</span>`:""}</button>`).join("")}</div></div>`}
+async function pickSector(k){if(k==="siderurgia"){S.picks=[];user("Siderurgia");const m=bot("Lendo os dados do setor: produção, importação, juros, câmbio e os balanços das empresas",null,{thinking:true});S.step="building";render();scrollEnd();await wait(600);
+  m.thinking=false;m.text="Minha resposta para \"vale investir?\" está no topo. Abaixo, os drivers medidos e os 8 pontos que sustentam a tese, cada um com a fonte.";m.w="sector";S.step="sector";render();scrollEnd();return}
+  S.kind="panorama";S.sx=k;S.sxPicks=[];user(SETX[k].nome);S.step="sxpick";bot(`Estas são as ${SETX[k].empresas.length} empresas de ${SETX[k].nome} que temos na base. Escolha duas para comparar, ou veja o panorama do setor inteiro.`,"sxpick");render();scrollEnd()}
+function wSXPick(i){const live=S.step==="sxpick"&&S.msgs.findLastIndex(x=>x.w==="sxpick")===i,X=SETX[S.sx],sel=S.sxPicks||[];
+  return `<div class="widget ${live?"":"locked"}"><div class="cos sxcos">${X.empresas.map((e,ix)=>`<button class="coc" data-sxpick="${ix}" aria-pressed="${sel.includes(ix)}" ${live?"":"disabled"}><span class="h"><span class="tk2">${esc(e.tk)}</span><span class="ck">${sel.includes(ix)?ic("check"):""}</span></span><span><b>${esc(nomeBonito(e.nome||e.tk))}</b><small>${esc(e.per||e.db||"")}</small></span></button>`).join("")}</div>
+   ${live?`<div class="wfoot"><span class="note">${sel.length}/2 escolhidas</span><span class="choices"><button class="pill ghost" data-do="sx-all">Ver o setor inteiro</button><button class="pill dark" data-do="sx-cmp" ${sel.length!==2?"disabled":""}>Comparar estas duas</button></span></div>`:""}</div>`}
+function wSXCmp(i){const X=SETX[S.sx],[ia,ib]=S.sxPicks,A=X.empresas[ia],B=X.empresas[ib];
+  const rows=SXCOLS.map(([k,n,u])=>{const fa=sxFmt(A.v[k],u),fb=sxFmt(B.v[k],u);return `<tr><td class="m">${n}</td><td>${fa==null?`<span class="nd">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ia}" data-m="${k}">${esc(fa)}</button>`}</td><td>${fb==null?`<span class="nd">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ib}" data-m="${k}">${esc(fb)}</button>`}</td></tr>`}).join("");
+  const ks=S.sx==="bancos"?[["roe_12m","ROE 12m","%"],["p_vp","P/VP","x"]]:[["margem_ebitda_12m","Margem EBITDA 12m","%"],["ev_ebitda","EV/EBITDA","x"]];
+  const ch=ks.map(([k,n,u])=>gHBars(n,[{l:A.tk,v:A.v[k]},{l:B.tk,v:B.v[k]}],u)).join("");
+  return `<div class="widget"><div class="cmphead"><div><div class="eyebrow">Comparativo · ${esc(X.nome)}</div><h3 class="ctitle">${esc(A.tk)} × ${esc(B.tk)}</h3></div><span class="tag">Tese em construção</span></div>
+   <div class="charts">${ch}</div><div class="tblwrap"><table><thead><tr><th>12 meses</th><th>${esc(A.tk)} · ${esc((A.db||"").slice(0,7))}</th><th>${esc(B.tk)} · ${esc((B.db||"").slice(0,7))}</th></tr></thead><tbody>${rows}</tbody></table></div>
+   <span class="small">Fonte: ${esc(X.fonte||"CVM Dados Abertos + B3")}. Consolidado, R$ milhões, EBITDA pelo critério CVM 156. Base oficial da CVM, sem a verificação página a página feita na siderurgia. Clique em um número para ver a conta.</span></div>`}
+
 /* ================= PANORAMA DE OUTROS SETORES ================= */
 async function startPanorama(sx,q){S=fresh();S.kind="panorama";S.sx=sx;S.view="chat";S.step="panorama";seenMsgs=0;user(q||`Panorama de ${SETX[sx].nome}`,true);
   const m=bot("Lendo as demonstrações na base da CVM e os preços da B3",null,{thinking:true});vt(render);scrollEnd();await wait(500);
@@ -177,11 +197,11 @@ function openSX(sid,i,k){const e=SETX[sid].empresas[i],c=SXCOLS.find(x=>x[0]===k
 /* ================= GRÁFICOS (SVG, escala única, cores do tema) ================= */
 const CC={g:"var(--c-g)",u:"var(--c-u)",c:"var(--c-c)"};
 function gBars(title,k){const [a,b]=S.picks,m=MET[k];const vs=[[a,0],[a,1],[b,0],[b,1]].map(([e,i])=>val(k,e,i));if(vs.some(v=>v==null))return "";
-  const w=360,h=170,L=8,B=26,T=22,ih=h-T-B,mx=Math.max(...vs.map(Math.abs))*1.1||1,base=T+ih,bw=40,gw=(w-L*2)/2;
+  const w=380,h=180,L=8,B=26,T=26,ih=h-T-B,mx=Math.max(...vs.map(Math.abs))*1.1||1,base=T+ih,bw=46,gap=22,gw=(w-L*2)/2;
   let s=`<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(title)}">`;
   s+=`<line x1="${L}" x2="${w-L}" y1="${base}" y2="${base}" stroke="var(--line)"/>`;
-  [a,b].forEach((e,gi)=>{const cx=L+gw*gi+gw/2;[1,0].forEach((i,j2)=>{const v=val(k,e,i),hh=Math.max(1,Math.abs(v)/mx*ih),x=cx-bw-3+j2*(bw+6),y=v>=0?base-hh:base;
-    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${hh}" rx="4" fill="${CC[e]}" opacity="${i?0.35:1}"/><text x="${x+bw/2}" y="${v>=0?y-5:y+hh+12}" text-anchor="middle" class="val">${esc(fmt(v,m.un).replace(" mi",""))}</text>`});
+  [a,b].forEach((e,gi)=>{const cx=L+gw*gi+gw/2;[1,0].forEach((i,j2)=>{const v=val(k,e,i),hh=Math.max(1,Math.abs(v)/mx*ih),x=cx-bw-gap/2+j2*(bw+gap),y=v>=0?base-hh:base;
+    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${hh}" rx="4" fill="${CC[e]}" opacity="${i?0.35:1}"/><text x="${x+bw/2}" y="${v>=0?y-5:y+hh+12}" text-anchor="middle" class="val">${esc(fmt(v,m.un).replace(" mi","").replace("R$ ",""))}</text>`});
     s+=`<text x="${cx}" y="${h-8}" text-anchor="middle" style="fill:var(--ink);font-size:12px">${esc(co(e).nome)}</text>`});
   return `<div class="chartbox"><span class="t">${esc(title)} · ${per(a,1)} (claro) × ${per(a)} (escuro)</span>${s}</svg></div>`}
 function gLine(title,key,unit){const [a,b]=S.picks;const H=[a,b].map(e=>HIST?.[e]||{});const Y=Object.keys(H[0]);if(!Y.length)return "";
@@ -316,11 +336,11 @@ function renderThread(){
     if(m.role==="user"){if(editIdx===i)return `<div class="msg user"><div class="editbox"><textarea id="edit-ta">${esc(m.text)}</textarea><div class="macts"><button class="pill sm" data-edit-cancel>Cancelar</button><button class="pill dark sm" data-edit-send>Reenviar</button></div></div></div>`;
       return `<div class="msg user${f}"><div class="ub">${m.typed&&!busy?`<button class="edit" data-edit="${i}" aria-label="Editar mensagem">${ic("edit-pencil")}</button>`:""}<div class="bubble">${esc(m.text)}</div></div></div>`}
     const lc=S.step!=="companies"||S.msgs.findLastIndex(x=>x.w==="companies")!==i, lm=S.step!=="metrics"||S.msgs.findLastIndex(x=>x.w==="metrics")!==i;
-    const w=m.w==="sx"?wSX(i):m.w==="val"?wVal(i):m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
+    const w=m.w==="sectorpick"?wSectorPick(i):m.w==="sxpick"?wSXPick(i):m.w==="sxcmp"?wSXCmp(i):m.w==="sx"?wSX(i):m.w==="val"?wVal(i):m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
     return `<div class="msg bot${f}"><span class="who"><img src="${BRAND.mark}" alt="">Fiscus</span>${m.thinking?`<div class="bubble thinking">${esc(m.text||"Pensando")}</div>`:(m.text?`<div class="bubble">${esc(m.text)}</div>`:"")}${w}</div>`}).join("");
   const ch=S.step==="rejected"?["Trocar métricas","Gerar outro título","Trocar empresas"]:(S.step==="done"||S.step==="card")?["Quem está mais barata?","Qual tem melhor ROIC?","Como está o endividamento?"]:[];
   $("choices").innerHTML=ch.map(c=>`<button class="pill ghost sm" data-choice="${esc(c)}">${esc(c)}</button>`).join("");
-  $("q").placeholder={val:"Ajuste as premissas acima e confirme",sector:"Pergunte sobre o setor ou siga para as empresas",companies:"Escolha duas empresas acima",metrics:"Ajuste as métricas acima e confirme"}[S.step]||"Pergunte sobre as métricas";
+  $("q").placeholder={sectorpick:"Escolha um setor acima",sxpick:"Escolha duas empresas acima",val:"Ajuste as premissas acima e confirme",sector:"Pergunte sobre o setor ou siga para as empresas",companies:"Escolha duas empresas acima",metrics:"Ajuste as métricas acima e confirme"}[S.step]||"Pergunte sobre as métricas";
 }
 function renderSide(){const L=STORE.list;
   $("hist").innerHTML=L.length?L.map(a=>`<li class="${a.id===S.id&&S.view==="chat"?"cur":""}"><button class="open" data-an="${a.id}"><b>${esc(anTitle(a))}</b><span>${a.kind==="panorama"?"Outros setores":"Siderurgia"} · ${when(a.updated)}</span></button><button class="del " data-del="${a.id}" aria-label="Apagar análise">${ic("trash")}</button></li>`).join("")
@@ -499,7 +519,9 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const sec=t.closest("[data-sector]");if(sec){startSector(sec.dataset.sector);return}
   const pk=t.closest("[data-pick]");if(pk){const k=pk.dataset.pick;S.picks=S.picks.includes(k)?S.picks.filter(x=>x!==k):[...S.picks,k].slice(-2);render();return}
   const tb=t.closest("[data-tab]");if(tb){if(S.tab!==tb.dataset.tab){S.tab=tb.dataset.tab;tabAnim=true;render()}return}
-  const dz=t.closest("[data-do]");if(dz){if(dz.dataset.do==="pdf"){exportPDF(dz);return}({"go-cos":goCos,"confirm-cos":confirmCos,"confirm-mets":confirmMets,accept,reject,"val-ok":confirmVal,"val-skip":skipVal,"val-reset":()=>{S.val.prem=premDefaults();render()}})[dz.dataset.do]();return}
+  const dz=t.closest("[data-do]");if(dz){if(dz.dataset.do==="pdf"){exportPDF(dz);return}({"go-cos":goCos,"confirm-cos":confirmCos,"confirm-mets":confirmMets,accept,reject,"val-ok":confirmVal,"val-skip":skipVal,"val-reset":()=>{S.val.prem=premDefaults();render()},
+    "sx-cmp":()=>{const X=SETX[S.sx];user(S.sxPicks.map(ix=>X.empresas[ix].tk).join(" × "));S.step="sxdone";bot("Aqui está o comparativo com os números da base oficial. A tese completa deste setor está em construção.","sxcmp");render();scrollEnd()},
+    "sx-all":()=>{user("Ver o setor inteiro");S.step="panorama";bot("Panorama do setor, com todas as empresas.","sx");render();scrollEnd()}})[dz.dataset.do]();return}
   const ve=t.closest("[data-vale]");if(ve){S.val.e=ve.dataset.vale;render();return}
   const ch=t.closest("[data-choice]");if(ch){choice(ch.dataset.choice);return}
   const op=t.closest("[data-open]");if(op){openDeck(+op.dataset.open);return}
@@ -510,15 +532,17 @@ document.addEventListener("click",ev=>{const t=ev.target;
   const lg=t.closest("[data-login]");if(lg){const a=ACC.list.find(x=>x.id===lg.dataset.login);if(a){a.ultimo=Date.now();login(a.id)}return}
   if(t.closest("#mebtn")){const m=$("mepop"),o=m.hidden;m.hidden=!o;$("mebtn").setAttribute("aria-expanded",String(o));return}
   if($("mepop")&&!$("mepop").hidden&&!t.closest("#mepop")){$("mepop").hidden=true;$("mebtn").setAttribute("aria-expanded","false")}
+  const sp=t.closest("[data-secpick]");if(sp&&!sp.disabled){pickSector(sp.dataset.secpick);return}
+  const xp=t.closest("[data-sxpick]");if(xp&&!xp.disabled){const ix=+xp.dataset.sxpick;S.sxPicks=S.sxPicks.includes(ix)?S.sxPicks.filter(x=>x!==ix):[...S.sxPicks,ix].slice(-2);render();return}
   if(t.closest("#plusbtn")){togglePMenu();return}
   const ps=t.closest("[data-psec]");if(ps){pSec=ps.dataset.psec;renderPMenu();return}
   if(t.closest("[data-pback]")){pSec=null;renderPMenu();return}
-  const pa=t.closest("[data-pact]");if(pa){togglePMenu(false);startWith(null,"Este setor é um bom lugar para investir?");return}
+  const pa=t.closest("[data-pact]");if(pa){togglePMenu(false);startAsk("Este setor é um bom lugar para investir?");return}
   const pco=t.closest("[data-pco]");if(pco){const v=pco.dataset.pco;if(v.includes("|")){const [sx,i]=v.split("|"),e=SETX[sx].empresas[+i];togglePMenu(false);startPanorama(sx,`Panorama de ${SETX[sx].nome}: ${e.tk}`);return}
     DPICK=DPICK.includes(v)?DPICK.filter(x=>x!==v):[...DPICK,v].slice(-2);renderDChips();renderPMenu();if(DPICK.length===2)togglePMenu(false);$("dq").focus();return}
   const up=t.closest("[data-unpick]");if(up){DPICK=DPICK.filter(x=>x!==up.dataset.unpick);renderDChips();return}
   if(!t.closest("#pmenu")&&$("pmenu")&&!$("pmenu").hidden)togglePMenu(false);
-  const sg=t.closest("[data-sugg]");if(sg){const x=[...SUGG,SUGG_SX][+sg.dataset.sugg];if(x.sx)startPanorama(x.sx,x.t);else startWith(x.p,x.t);return}
+  const sg=t.closest("[data-sugg]");if(sg){const x=[...SUGG,SUGG_SX][+sg.dataset.sugg];if(x.sx)startPanorama(x.sx,x.t);else if(x.p)startWith(x.p,x.t);else startAsk(x.t);return}
   const sxt=t.closest("[data-sxtab]");if(sxt){S.sx=sxt.dataset.sxtab;tabAnim=true;render();return}
   const sxn=t.closest("[data-sxn]");if(sxn){openSX(sxn.dataset.sxn,+sxn.dataset.i,sxn.dataset.m);return}
   const th=t.closest("[data-slide]");if(th){slide=+th.dataset.slide;renderSlide();return}
@@ -539,7 +563,7 @@ $("signup").addEventListener("submit",e=>{e.preventDefault();const nome=$("su-no
   $("su-nome").value="";$("su-inst").value="";login(a.id)});
 $("dask").addEventListener("submit",e=>{e.preventDefault();const q=$("dq").value.trim();$("dq").value="";
   if(DPICK.length){const pk=DPICK.slice();DPICK=[];renderDChips();if(pk.length===2)startWith(pk,q||`Compare ${EMP[pk[0]].nome} e ${EMP[pk[1]].nome}`);else startWith(null,q||`Tese do setor, com foco em ${EMP[pk[0]].nome}`);return}
-  const sx=picksFrom(q).length?null:sxFrom(q);if(sx)startPanorama(sx,q);else startWith(picksFrom(q),q||"Tese do setor de siderurgia")});
+  const pf=picksFrom(q),sx=pf.length?null:sxFrom(q);if(sx)startPanorama(sx,q);else if(pf.length===2)startWith(pf,q);else startAsk(q||"Quero analisar um setor")});
 $("dq").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("dask").requestSubmit()}});
 $("ask").addEventListener("submit",e=>{e.preventDefault();const q=$("q").value;$("q").value="";ask(q)});
 $("new").onclick=()=>{S=fresh();closeSide();vt(render)};
