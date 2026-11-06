@@ -388,31 +388,41 @@ function buildSlides(){const v=S.val&&S.val.done,base=[
  {k:"cmp",label:S.title||"Comparativo"},{k:"kpis",label:"KPIs lado a lado"},{k:"modelo",label:"Modelos de negócio"},{k:"mult",label:"Múltiplos"},{k:"quali",label:"Leitura qualitativa e riscos"},
  {k:"check",label:"Como sabemos que está certo"},{k:"meth",label:"Fontes e metodologia"}];
   if(!v)return base;const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},...base,{k:"concl",label:"Conclusão"}]}
-function slideHTML(idx){const all=buildSlides(),s=all[idx],[a,b]=S.picks;
-  const top=l=>`<div class="top"><span>${l}</span><span>Siderurgia · ${co(a).nome} × ${co(b).nome} · 3T26</span></div>`;
-  const foot=`<div class="foot"><span class="bm-foot"><img src="${BRAND.mark}" alt="Fiscus">Fiscus · Fontes: ITRs 3T26, CVM Dados Abertos, B3, BCB, IBGE, Aço Brasil</span><span>Exercício acadêmico · não é recomendação de investimento</span></div>`;
-  const V=SETOR.veredito,T=SETOR.topicos;
-  if(s.k==="rec"){const V=S.val,r=dcf(V.e,V.prem),okp=r&&!r.erro&&r.eq>0,cls=okp?recOf(r.up)[1]:"sell";return `<div class="slide dark">${top("Recomendação · 12 meses")}<div class="sbody" style="gap:18px">
-    <div class="logos">${logo(V.e)}</div><div class="recline"><span class="rec ${cls} big">${V.rec}</span><span><span class="k">Preço-alvo</span><b>${okp?brl(r.price):"—"}</b></span><span><span class="k">Potencial</span><b>${okp?pct(r.up):"—"}</b></span><span><span class="k">Preço atual (B3, ${r.b.dataPreco.split("-").reverse().join("/")})</span><b>${brl(r.b.preco)}</b></span></div>
-    <ol class="concl">${V.args.map(x=>`<li>${esc(x)}</li>`).join("")}</ol><p class="lead"><b style="color:#fff">O que o mercado não está precificando:</b> ${esc(V.mkt)}</p></div>${foot}</div>`}
-  if(s.k==="val"){const V=S.val;return `<div class="slide">${top("Valuation")}<h2>${V.price!=null?`Preço-alvo de ${brl(V.price)} para ${co(V.e).nome} com as premissas escolhidas`:`Com as premissas escolhidas, o DCF não deixa valor para o acionista de ${co(V.e).nome}`}</h2><div class="sbody">${valResults()}</div>${foot}</div>`}
-  if(s.k==="concl"){const V=S.val,r=dcf(V.e,V.prem);return `<div class="slide">${top("Conclusão")}<h2>${V.rec} para ${co(V.e).nome}${V.price!=null?`, com preço-alvo de ${brl(V.price)} (${pct(V.up)})`:""}</h2><div class="sbody" style="gap:16px"><div class="bm">
-    <div class="bmc"><h5>O que precisa acontecer</h5><ul class="plainul">${V.trig.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
-    <div class="bmc"><h5>O que acompanhar</h5><ul class="plainul"><li>Margem EBITDA ajustada por segmento</li><li>Dívida líquida sobre EBITDA</li><li>Importações de aço e medidas de defesa comercial</li><li>Preço do minério e câmbio</li></ul></div></div></div>${foot}</div>`}
-  if(s.k==="cover")return `<div class="slide dark">${top("Comitê de Investimentos")}<div class="sbody" style="gap:22px"><span class="tag" style="background:var(--yellow);color:var(--ink)">Setor ${V.nivel.toLowerCase()}</span><h1>Siderurgia no 3T26: vale investir?</h1><p class="lead">${esc(V.frase)}</p></div><div class="foot"><span>Empresa para a próxima análise: ${EMP[V.escolha].nome}</span><span>Exercício acadêmico · não é recomendação de investimento</span></div></div>`;
-  if(s.k==="sens")return `<div class="slide">${top("Drivers")}<h2>Juros e importação pesam mais que a demanda física</h2><div class="sbody"><div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026. Correlação não é causalidade.</span></div>${foot}</div>`;
-  if(s.k==="topics")return `<div class="slide">${top("Setor")}<h2>Oligopólio maduro, com o preço limitado pelo aço importado</h2><div class="sbody"><ol class="concl">${[T[1],T[2],T[4],T[5]].map(t=>`<li><span><b>${esc(t.t)}.</b> ${esc(t.tese)}</span></li>`).join("")}</ol></div>${foot}</div>`;
-  if(s.k==="cmp")return `<div class="slide">${top("Comparativo")}<div class="sbody" style="gap:22px"><div class="logos">${logo(a)}<span class="note">×</span>${logo(b)}</div><h1>${esc(S.title)}</h1></div><ol class="concl">${S.concl.map(c=>`<li>${esc(c)}</li>`).join("")}</ol>${foot}</div>`;
-  if(s.k==="kpis")return `<div class="slide">${top("KPIs")}<h2>${esc(S.title)}</h2><div class="sbody">${kpiTable(S.metrics.filter(k=>!MET[k].mult).slice(0,8))}</div>${foot}</div>`;
-  if(s.k==="modelo")return `<div class="slide">${top("Modelo de negócio")}<h2>Modelos diferentes respondem a ciclos diferentes</h2><div class="sbody">${tabModelo()}</div>${foot}</div>`;
-  if(s.k==="mult")return `<div class="slide">${top("Múltiplos")}<h2>Barato não quer dizer bom: leia EV/EBITDA junto com ROIC</h2><div class="sbody">${tabMult()}</div>${foot}</div>`;
-  if(s.k==="quali")return `<div class="slide">${top("Qualitativo")}<h2>O que sustenta, ou ameaça, o resultado do trimestre</h2><div class="sbody">${tabQuali()}</div>${foot}</div>`;
-  if(s.k==="check")return `<div class="slide">${top("Verificação")}<h2>Como sabemos que cada número está certo</h2><div class="sbody"><div class="checks">
-    <div><b>${VERIF.aprovadas}/${VERIF.metricas}</b><span class="note">números do ITR conferidos na página e no trecho</span></div>
-    <div><b>${VERIF.cruzOk}/${VERIF.cruz}</b><span class="note">cruzamentos com reconciliações publicadas pelas empresas</span></div>
-    <div><b>${VERIF.armOk}/${VERIF.arm}</b><span class="note">armadilhas barradas: ${VERIF.armadilhas.map(x=>x.caso.toLowerCase()).join("; ")}</span></div></div>
-    <span class="small">${esc(VERIF.cvm)}. Teste de controle: o Claude extraiu ${VERIF.ia.completo} números certos lendo os ITRs inteiros; o verificador garante que um erro não chegaria ao comitê.</span></div>${foot}</div>`;
-  return `<div class="slide">${top("Metodologia")}<h2>Do PDF ao slide, sem número digitado à mão</h2><div class="sbody"><ol class="concl"><li>ITRs extraídos por página; cada número é lido da linha exata do documento.</li><li>Verificador independente confere página, trecho, unidade e reconciliações.</li><li>CVM Dados Abertos e B3 (preço de ${VERIF.dataPreco.split("-").reverse().join("/")}) para ROE, ROIC e múltiplos; BCB e IBGE para os drivers.</li><li>O assistente escreve as mensagens e escolhe o que mostrar; os números vêm só dos dados verificados.</li></ol></div>${foot}</div>`}
+const RSNAV=["Visão geral","Setor","Comparativo","Valuation","Riscos","Metodologia"];
+const RSSEC={rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
+function rsFrame(k,idx,n,title,sub,body,src){const [a,b]=S.picks,focus=S.val&&S.val.done?S.val.e:null;
+  const lg=focus?logo(focus):`<img class="fz" src="${BRAND.logo}" alt="Fiscus">`;
+  return `<div class="slide rs"><div class="rh"><div class="rt"><h2>${title}</h2><p>${sub}</p></div><div class="rlogo">${lg}</div></div>
+   <div class="rbody">${body}</div>
+   <div class="rf"><p class="src">Fonte: ${src||"Fiscus, ITRs 3T26, CVM Dados Abertos, B3"}</p><div class="rnav">${RSNAV.map((x,i)=>`<span class="${RSSEC[k]===i?"on":""}">${x}</span>`).join("")}<em>${idx+1}</em></div></div></div>`}
+const band=items=>`<div class="band">${items.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join("")}</div>`;
+const dia=items=>`<ul class="dia">${items.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.picks;const V=SETOR.veredito,T=SETOR.topicos,F=(...x)=>rsFrame(s.k,idx,n,...x);
+  const dt=VERIF.dataPreco.split("-").reverse().join("/");
+  if(s.k==="rec"){const Vv=S.val,r=dcf(Vv.e,Vv.prem),okp=r&&!r.erro&&r.eq>0,cls=okp?recOf(r.up)[1]:"sell";
+    const tiles=[["#1f3fd6",8,52],["#5b78ea",34,22],["#9fb0f3",58,48],["#00b050",34,74],["#cfd7fa",80,26],["#1f3fd6",80,72],["#e8ecfc",58,4]];
+    return `<div class="slide rs cover"><div class="cl"><div class="brandrow"><img src="${BRAND.logo}" alt="Fiscus"><i></i><span>Fiscus Research · Siderurgia</span></div>
+     <div class="co">${logo(Vv.e)}<span>(${EMP[Vv.e].tk}: B3)</span></div><div class="upd">Última atualização: 06/11/2026 · preço de ${dt}</div>
+     <div class="recbox"><div class="r1">Recomendação: <b class="${cls}">${esc(Vv.rec.toUpperCase())}</b></div>
+      <div class="r2"><span>Preço-alvo 12m: ${okp?brl(r.price):"—"}</span><span>Potencial: ${okp?pct(r.up):"—"}</span></div></div>
+     <div class="team">${esc(ACCT?.nome||"Fiscus")}${ACCT?.inst?" | "+esc(ACCT.inst):""} · Exercício acadêmico, não é recomendação de investimento</div></div>
+     <div class="cr">${tiles.map(([c,x,y])=>`<span class="dm" style="background:${c};left:${x-19}%;top:${y-19}%"></span>`).join("")}</div></div>`}
+  if(s.k==="cover")return F("Tese do setor",`Siderurgia brasileira: <b>${esc(V.nivel.toLowerCase())}</b> para o investidor no 3T26`,
+    band([[esc(V.nivel),"Veredito"],[esc(EMP[V.escolha].nome),"Empresa para a Etapa 2"],[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números verificados"],["7","Fontes oficiais"]])+dia([esc(V.frase),esc(V.porque)]),"Fiscus, Aço Brasil, ITRs 3T26, CVM");
+  if(s.k==="sens")return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026, produção siderúrgica (IBGE) contra cada driver. Correlação não é causalidade.</span>`,"BCB SGS, IBGE PIM-PF, Aço Brasil, Banco Mundial");
+  if(s.k==="topics")return F("Estrutura e regulação",`Oligopólio maduro, com o <b>preço limitado pelo aço importado</b>`,dia([T[1],T[2],T[4],T[5]].map(x=>`<b>${esc(x.t)}.</b> ${esc(x.tese)}`)),"Aço Brasil, worldsteel, MDIC, ITRs 3T26");
+  if(s.k==="cmp"){const m=mgn();return F(`${esc(co(a).nome)} × ${esc(co(b).nome)}`,esc(S.title),
+    band([[fmt(val(m,a),"%"),`Margem · ${co(a).nome}`],[fmt(val(m,b),"%"),`Margem · ${co(b).nome}`],[fmt(val("roic",a),"%"),`ROIC · ${co(a).nome}`],[fmt(val("roic",b),"%"),`ROIC · ${co(b).nome}`],[fmt(val("ev",a),"x"),`EV/EBITDA · ${co(a).nome}`]])+dia(S.concl.map(esc)))}
+  if(s.k==="kpis")return F("KPIs lado a lado",`Resultados do trimestre no <b>mesmo critério contábil</b>`,kpiTable(S.metrics.filter(k=>!MET[k].mult).slice(0,8)));
+  if(s.k==="modelo")return F("Modelos de negócio",`Modelos diferentes respondem a <b>ciclos diferentes</b>`,tabModelo(),"ITRs 3T26 (notas de segmentos), Formulários de Referência");
+  if(s.k==="mult")return F("Múltiplos",`Barato não quer dizer bom: leia <b>EV/EBITDA junto com ROIC</b>`,tabMult(),`B3 COTAHIST ${dt}, CVM Dados Abertos`);
+  if(s.k==="quali")return F("Leitura qualitativa e riscos",`O que <b>sustenta, ou ameaça</b>, o resultado do trimestre`,tabQuali());
+  if(s.k==="val"){const Vv=S.val;return F("Valuation",Vv.price!=null?`Preço-alvo de <b>${brl(Vv.price)}</b> para ${esc(co(Vv.e).nome)} com as premissas escolhidas`:`O DCF não deixa valor para o acionista de ${esc(co(Vv.e).nome)}`,valResults(),`Fiscus, CVM, B3, U.S. Treasury (${esc(VAL.rf.data)}), BCB`)}
+  if(s.k==="check")return F("Como sabemos que está certo",`Cada número é <b>conferido no documento de origem</b>`,
+    band([[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números conferidos na página"],[`${VERIF.cruzOk}/${VERIF.cruz}`,"Cruzamentos com as empresas"],[`${VERIF.armOk}/${VERIF.arm}`,"Armadilhas barradas"],[VERIF.ia.completo,"Teste de controle do Claude"]])+dia([esc(VERIF.cvm)+".",...VERIF.armadilhas.map(x=>`<b>${esc(x.caso)}:</b> ${esc(x.exp)}`)]),"Fiscus, pipeline/03_verificar.py, ITRs 3T26");
+  if(s.k==="concl"){const Vv=S.val;return F("Conclusão",`<b>${esc(Vv.rec)}</b> para ${esc(co(Vv.e).nome)}${Vv.price!=null?`, com preço-alvo de <b>${brl(Vv.price)}</b> (${pct(Vv.up)})`:""}`,
+    `<div class="bm"><div class="bmc"><h5>O que precisa acontecer</h5>${dia(Vv.trig.map(esc))}</div><div class="bmc"><h5>O que acompanhar</h5>${dia(["Margem EBITDA ajustada por segmento","Dívida líquida sobre EBITDA","Importações de aço e defesa comercial","Preço do minério e câmbio"])}</div></div><div class="read"><b>O que o mercado não está precificando:</b> ${esc(Vv.mkt)}</div>`)}
+  return F("Fontes e metodologia",`Do PDF ao slide, <b>sem número digitado à mão</b>`,dia(["ITRs extraídos por página; cada número é lido da linha exata do documento.","Verificador independente confere página, trecho, unidade e reconciliações.",`CVM Dados Abertos e B3 (preço de ${dt}) para ROE, ROIC e múltiplos; BCB e IBGE para os drivers.`,"O Claude escreve as mensagens e escolhe o que mostrar; os números vêm só dos dados verificados e das premissas do usuário."]),"Fiscus · docs/metodologia.md")}
 function renderSlide(){const all=buildSlides(),n=all.length;slide=Math.max(0,Math.min(n-1,slide));$("stage").innerHTML=slideHTML(slide);
   $("strip").innerHTML=all.map((x,i)=>`<button data-slide="${i}" aria-current="${i===slide}"><span>${i+1}</span>${esc(x.label)}</button>`).join("");
   $("scount").textContent=`${slide+1} / ${n}`;$("prev").disabled=slide===0;$("next").disabled=slide===n-1}
