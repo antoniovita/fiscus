@@ -11,7 +11,7 @@ const Titulo: React.FC = () => {
         <Kicker>Claude Lab PUC-Rio 2026 · Case 3</Kicker>
       </Appear>
       <Appear at={0.5}>
-        <Img src={staticFile('brand/fiscus-logo.png')} style={{width: 760, height: 'auto', display: 'block'}} />
+        <Img src={staticFile('brand/fiscus-logo.png')} style={{width: 760, height: 'auto', display: 'block', marginTop: 36}} />
       </Appear>
       <Appear at={1.1}>
         <div style={{fontSize: 48, color: C.muted, marginTop: 28, letterSpacing: '-0.02em', fontWeight: 500}}>
