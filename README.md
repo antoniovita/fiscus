@@ -1,12 +1,57 @@
-# Fiscus — Case 3: Comparativo de resultados (Gerdau × Usiminas, 3T26)
+<p align="center">
+  <img src="docs/img/fiscus-logo.png" alt="Fiscus" width="360">
+</p>
 
-> Claude Lab · Economia & Finanças · PUC-Rio · 06/11/2026
+<p align="center"><b>Research de ações com cada número rastreável até o documento oficial.</b><br>
+Claude Lab · Economia &amp; Finanças · PUC-Rio · 06/11/2026 · Case 3: comparativo de resultados (Gerdau × Usiminas, 3T26)</p>
 
-**Artefato público:** https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh
-**Vídeo (1:58, com narração):** [PREENCHER: link do YouTube não listado ou Drive] · arquivo no repositório: [`video/out/fiscus_com_narracao.mp4`](video/out/fiscus_com_narracao.mp4)
-**Código:** https://github.com/antoniovita/fiscus
+<p align="center">
+  <a href="https://claude.ai/artifact/D3PhJmUf6zBdb3waQL6mqh"><b>Abrir o app</b></a> ·
+  <a href="video/out/fiscus_com_narracao.mp4"><b>Vídeo de 1:58</b></a> ·
+  <a href="docs/SPEC.md">Especificação</a> ·
+  <a href="docs/metodologia.md">Metodologia</a>
+</p>
 
-> **Atenção antes de enviar:** o artefato nasce privado. É preciso deixar o link **público** (compartilhamento de "qualquer pessoa com o link") e abrir numa aba anônima para confirmar que abre sem login.
+---
+
+## Em uma frase
+
+O Fiscus responde se um setor vale o investimento e compara duas empresas lado a lado. Ele leva a análise até a recomendação com preço-alvo e uma apresentação pronta para o comitê, e **todo número mostra a página do ITR, a conta da CVM ou o arquivo da B3 de onde saiu**.
+
+## O que o Fiscus faz
+
+| Etapa | O que o usuário vê |
+|---|---|
+| **Setor** | Veredito (atrativo, seletivo ou pouco atrativo), sensibilidade a juros, câmbio, atividade e commodities, e os 8 pontos da tese com fontes |
+| **Empresas** | Todas as empresas do setor que estão na base: 3 em siderurgia e 44 em outros 5 setores |
+| **Comparativo** | KPIs, histórico de 2021 a 2025, modelo de negócio, múltiplos e leitura qualitativa, com gráficos e a fonte de cada número |
+| **Valuation** | DCF com as premissas do próprio usuário, sensibilidade WACC × g e recomendação |
+| **Apresentação** | Até 15 slides no estilo research report, exportáveis em PDF |
+
+## Por que confiar nos números
+
+| Verificação | Resultado |
+|---|---|
+| Números do ITR conferidos na página e no trecho | **85 de 85** |
+| Cruzamentos com reconciliações publicadas pelas empresas | **7 de 7** |
+| Armadilhas clássicas barradas (holding, unidade, página) | **3 de 3** |
+| Números dos PDFs iguais aos da base oficial da CVM | **8 de 8** |
+| Teste de controle: Claude lendo os ITRs inteiros | **8 de 8** |
+
+O modelo de IA escreve as mensagens e escolhe o que mostrar, **mas nunca escreve números**. Eles vêm de um pipeline em Python que lê cada valor da linha exata do documento e é conferido por um verificador independente.
+
+## Como rodar
+
+```bash
+make setup   # ambiente Python
+make tudo    # do PDF ao app: itr → verificar → mercado → historico → setores → macro → app
+make video   # vídeo (Remotion) com narração
+```
+
+O app gerado é `app/index.html`, publicado como Artifact no claude.ai. Os detalhes de cada etapa estão em [Como reproduzir](#como-reproduzir).
+
+> **Antes de enviar:** o artefato nasce privado. É preciso deixar o link **público** e abrir numa aba anônima para confirmar.
+> **Vídeo público:** [PREENCHER: link do YouTube não listado ou Drive]
 
 ## Equipe
 
