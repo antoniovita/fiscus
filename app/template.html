@@ -1138,6 +1138,36 @@ small.srcl{display:block;font-size:11px;color:var(--faint);font-weight:400;margi
 .rs .ratios table td.pj,.rs .ratios table th.pj{background:#eef3ff}
 .rs .ratios table thead th.pj{background:#7f95ea}
 .rs .ratios td,.rs .ratios th{text-align:right}
+
+/* correções: caixa do slide de preço, slides cheios, matrizes */
+.rs .pxb .ibox{border:1.5px solid #ddd;padding:clamp(10px,1.6cqw,22px);display:grid;gap:6px;font-size:clamp(11px,1.6cqw,22px);color:#eee;background:transparent}
+.rs .pxb .ibox h6{margin:0 0 6px;text-align:center;font-size:clamp(11px,1.5cqw,20px);font-weight:500;color:#eee}
+.rs .pxb .ibox b{color:#fff}
+.rs .pxb .ibox .rk{text-align:center;color:#8fb3d9;font-weight:600;font-size:clamp(14px,2.2cqw,30px);margin-top:6px}
+.rs .gl3{flex:1;min-height:0}
+.rs .glp{justify-content:space-between}
+.rs .glp .mixv{flex:1;align-content:space-evenly}
+.rs .glp .mini-bars{flex:1;height:auto;min-height:0}
+.rs .glp .kv{flex:1;align-items:center}
+.rs .concl3{flex:1;display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:clamp(8px,1.4cqw,18px);min-height:0}
+.rs .concl3 .bmc{min-height:0}
+.rs .concl3 table.sens2 td,.rs .concl3 table.sens2 th{font-size:clamp(7px,.8cqw,10px);padding:3px}
+.rs .sens-2.big{flex:1;gap:clamp(10px,2cqw,26px)}
+.rs .sens-2.big h6{margin:0 0 6px;font-size:clamp(10px,1.25cqw,16px);font-weight:600}
+.rs .sens-2.big table.sens2 td,.rs .sens-2.big table.sens2 th{font-size:clamp(9px,1.2cqw,16px);padding:clamp(6px,1.1cqw,14px) 6px}
+.rs .sens-2[hidden]{display:none}
+
+/* valuation no app: premissas em cima (2 colunas), resultados embaixo na largura toda */
+.widget .vgrid{grid-template-columns:minmax(0,1fr)}
+.widget .prems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+@media (max-width:640px){.widget .prems{grid-template-columns:1fr}}
+.widget .prems>.pill{grid-column:1/-1}
+.vres{min-width:0;overflow:hidden}
+.vres .vhead{grid-template-columns:auto repeat(3,minmax(0,1fr))}
+.vres .tblwrap{overflow-x:auto}
+.vres .sens-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vres .chartbox svg{max-height:260px}
+.widget .ptag{white-space:nowrap}
 </style>
 
 <div class="site" id="v-landing">
