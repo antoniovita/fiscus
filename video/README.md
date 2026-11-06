@@ -14,7 +14,7 @@ npm run roteiro       # regenera roteiro_narracao.md a partir de src/captions.js
 | Tempo | Cena | Arquivo |
 |---|---|---|
 | 0:00–0:20 | 1 · O problema | `src/scenes/Problema.tsx` |
-| 0:20–1:20 | 2 · A solução (início → tese do setor 0:20–0:33 → empresas 0:33–0:42 → comparativo + clique no número 0:42–1:04 → tese e preço-alvo 1:04–1:12 → apresentação/PDF 1:12–1:20) | `src/scenes/Solucao.tsx` |
+| 0:20–1:20 | 2 · A solução (início com menu “+” e etiquetas Gerdau/Usiminas → tese do setor 0:20–0:34 → comparativo: tabela, aba Gráficos e clique no número 0:34–0:56 → panorama de bancos 0:56–1:01 → tese e preço-alvo 1:01–1:08 → apresentação research report/PDF 1:08–1:20) | `src/scenes/Solucao.tsx` |
 | 1:20–1:40 | 3 · Como verificamos | `src/scenes/Verificacao.tsx` |
 | 1:40–1:58 | 4 · Impacto e próximos passos + aviso | `src/scenes/Impacto.tsx` |
 
@@ -24,7 +24,9 @@ A etapa "Tese e preço-alvo" aparece sem valores (recomendação, preço-alvo e 
 placeholders; sliders sem escala) porque esses números ainda não estão nos JSONs.
 `out/balanco-lado-a-lado.mp4` é a versão anterior ao novo nome.
 Todos os números vêm de `src/data.ts`, que importa direto `../app/data.json`,
-`../data/processed/verificacao.json`, `teste_ia_completo.json` e `metricas_itr.json`.
+`../data/processed/verificacao.json`, `teste_ia_completo.json`, `metricas_itr.json`,
+`historico.json` (margem EBITDA 2021–2025) e `setores/*.json` (menu “+” e panorama de bancos).
+A capa da apresentação mostra só os rótulos de recomendação, preço-alvo e potencial (barras cinza).
 
 ## Slot da gravação de tela (`public/demo.mp4`)
 

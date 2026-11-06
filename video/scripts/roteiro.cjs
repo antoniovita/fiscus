@@ -26,6 +26,9 @@ out += `
 - EBITDA ajustado R$ 3.770 mi, pág. 72, trecho “3.770.176 2.736.858”, R$ mil: \`app/data.json\` → \`PROV["ebitda_aj|g|0"]\`.
 - 85/85, 7/7, 3/3: \`verificacao.json\` → \`resumo\`; soma dos segmentos = R$ 3.770,2 mi: \`cruzamentos[0]\`.
 - Claude 8/8: \`teste_ia_completo.json\` → \`acertos_valor\`, \`acertos_pagina\`, \`total\`.
+- Gráfico de margem EBITDA anual 2021–2025 (GGBR4, USIM5): \`data/processed/historico.json\` → \`empresas.*.anos.*.margem_ebitda\`.
+- Menu “+” (contagem de empresas por setor) e panorama de bancos (tickers, P/L, P/VP, ROE 12m): \`data/processed/setores/*.json\` → \`empresas\`, \`metricas.roe_12m\`.
+- Capa da apresentação sem recomendação, preço-alvo e potencial: dependem das premissas do usuário e não estão em JSON.
 - CSN com dados do 2T26: \`app/data.json\` → \`EMP.c.aviso\`.
 `;
 fs.writeFileSync(path.join(root, 'roteiro_narracao.md'), out);

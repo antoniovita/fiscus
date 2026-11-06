@@ -13,16 +13,18 @@ O vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz:
 
 ## Cena 2 · A solução
 
-- **0:20–0:24** — Fiscus: um painel que responde em etapas, e você aprova cada uma.
-- **0:24–0:33** — Etapa 1, a tese do setor. Veredito: Seletivo. O setor não paga o custo de capital; vale só onde há proteção fora do Brasil.
-- **0:33–0:42** — Etapa 2: das siderúrgicas listadas na B3, escolhemos duas, Gerdau e Usiminas.
-- **0:42–0:48** — Lado a lado, no mesmo critério: margem EBITDA ajustada de 20,2% na Gerdau e 9,0% na Usiminas.
-- **0:48–0:55** — A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi.
-- **0:55–0:57.5** — O diferencial: clique em qualquer número.
-- **0:57.5–1:04** — EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado.
-- **1:04–1:12** — Etapa 3, tese e preço-alvo: você ajusta as premissas, como taxa livre de risco, beta e crescimento, e o Fiscus monta a recomendação.
-- **1:12–1:16.5** — Etapa 4: dez slides prontos para o comitê, exportados em PDF.
-- **1:16.5–1:20** — Do PDF do ITR ao slide, sem nenhum número digitado à mão.
+- **0:20–0:23.5** — Fiscus: um painel que responde em etapas, e você aprova cada uma.
+- **0:23.5–0:26.5** — No botão “+”, escolha o setor e as empresas: Gerdau e Usiminas viram etiquetas na pergunta.
+- **0:26.5–0:34** — Etapa 1, a tese do setor. Veredito: Seletivo. O setor não paga o custo de capital; vale só onde há proteção fora do Brasil.
+- **0:34–0:38.5** — Lado a lado, no mesmo critério: margem EBITDA ajustada de 20,2% na Gerdau e 9,0% na Usiminas.
+- **0:38.5–0:43** — A América do Norte gera 77,2% do EBITDA da Gerdau, com margem de 27,7%. Na Usiminas, o prejuízo do 3T25 veio de um impairment de R$ 2.226 mi.
+- **0:43–0:49** — Na aba de gráficos: a margem do 3T25 contra o 3T26 e a margem EBITDA anual de 2021 a 2025, da CVM.
+- **0:49–0:51** — O diferencial: clique em qualquer número.
+- **0:51–0:56** — EBITDA ajustado da Gerdau, R$ 3.770 mi: ITR página 72, trecho “3.770.176 2.736.858”, em R$ mil, consolidado.
+- **0:56–1:01** — E um panorama de outros setores: nos bancos, a tabela da CVM e o ROE de 12 meses de cada um.
+- **1:01–1:08** — Etapa 3, tese e preço-alvo: você ajusta as premissas e o Fiscus monta a recomendação.
+- **1:08–1:14** — Etapa 4: a apresentação no formato research report, pronta para o comitê e exportada em PDF.
+- **1:14–1:20** — Do PDF do ITR ao slide, sem nenhum número digitado à mão.
 
 ## Cena 3 · Como verificamos
 
@@ -48,4 +50,7 @@ O vídeo já tem estas falas como legenda, nos mesmos tempos. Para gravar a voz:
 - EBITDA ajustado R$ 3.770 mi, pág. 72, trecho “3.770.176 2.736.858”, R$ mil: `app/data.json` → `PROV["ebitda_aj|g|0"]`.
 - 85/85, 7/7, 3/3: `verificacao.json` → `resumo`; soma dos segmentos = R$ 3.770,2 mi: `cruzamentos[0]`.
 - Claude 8/8: `teste_ia_completo.json` → `acertos_valor`, `acertos_pagina`, `total`.
+- Gráfico de margem EBITDA anual 2021–2025 (GGBR4, USIM5): `data/processed/historico.json` → `empresas.*.anos.*.margem_ebitda`.
+- Menu “+” (contagem de empresas por setor) e panorama de bancos (tickers, P/L, P/VP, ROE 12m): `data/processed/setores/*.json` → `empresas`, `metricas.roe_12m`.
+- Capa da apresentação sem recomendação, preço-alvo e potencial: dependem das premissas do usuário e não estão em JSON.
 - CSN com dados do 2T26: `app/data.json` → `EMP.c.aviso`.
