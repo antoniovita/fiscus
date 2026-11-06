@@ -5,7 +5,10 @@ const $=id=>document.getElementById(id);
 const DATA=/*__DATA__*/null;
 const {SETOR,EMP,MET,PROV,ND,VERIF,ICONS,BRAND,VAL,HIST,SETX}=DATA;
 const SXORDER=["bancos","energia","petroleo","mineracao","varejo"].filter(k=>SETX&&SETX[k]);
-const SXCOLS=[["receita_12m","Receita 12m","mi"],["margem_ebitda_12m","Margem EBITDA","%"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["divida_liquida_ebitda","Dív.líq./EBITDA","x"],["p_l","P/L","x"],["p_vp","P/VP","x"],["ev_ebitda","EV/EBITDA","x"]];
+const SXCOLS_STD=[["receita_12m","Receita 12m","mi"],["margem_ebitda_12m","Margem EBITDA","%"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["divida_liquida_ebitda","Dív.líq./EBITDA","x"],["p_l","P/L","x"],["p_vp","P/VP","x"],["ev_ebitda","EV/EBITDA","x"]];
+const SXCOLS_BANK=[["receita_intermediacao_12m","Receitas de intermediação 12m","mi"],["resultado_bruto_intermediacao_12m","Resultado bruto da intermediação","mi"],["lucro_controladores_12m","Lucro 12m","mi"],["roe_12m","ROE","%"],["margem_liquida_12m","Margem líquida","%"],["pl_controladores","Patrimônio líquido","mi"],["p_l","P/L","x"],["p_vp","P/VP","x"]];
+const colsFor=sid=>sid==="bancos"?SXCOLS_BANK:SXCOLS_STD;
+let SXCOLS=SXCOLS_STD;
 const SXKW=[["banco","bancos"],["itaú","bancos"],["itau","bancos"],["bradesco","bancos"],["btg","bancos"],["santander","bancos"],["energia","energia"],["elétric","energia"],["eletric","energia"],["eletrobras","energia"],["equatorial","energia"],["petróleo","petroleo"],["petroleo","petroleo"],["gás","petroleo"],["petrobras","petroleo"],["prio","petroleo"],["minera","mineracao"],["vale","mineracao"],["varejo","varejo"],["magazine","varejo"],["renner","varejo"],["assaí","varejo"],["assai","varejo"]];
 const sxFrom=t=>{t=t.toLowerCase();const h=SXKW.find(([w])=>t.includes(w));return h&&SETX[h[1]]?h[1]:null};
 const PLANS={analista:{n:"Analista",p:"R$ 110/mês"},pro:{n:"Research Pro",p:"R$ 150/mês"}};
@@ -187,20 +190,20 @@ function wSXVerdict(){const v=sxVerdict(S.sx),X=SETX[S.sx];
 function wSXPick(i){const live=S.step==="sxpick"&&S.msgs.findLastIndex(x=>x.w==="sxpick")===i,X=SETX[S.sx],sel=S.sxPicks||[];
   return `<div class="widget ${live?"":"locked"}"><div class="cos sxcos">${X.empresas.map((e,ix)=>`<button class="coc" data-sxpick="${ix}" aria-pressed="${sel.includes(ix)}" ${live?"":"disabled"}><span class="h"><span class="tk2">${esc(e.tk)}</span><span class="ck">${sel.includes(ix)?ic("check"):""}</span></span><span><b>${esc(nomeBonito(e.nome||e.tk))}</b><small>${esc(e.per||e.db||"")}</small></span></button>`).join("")}</div>
    ${live?`<div class="wfoot"><span class="note">${sel.length}/2 escolhidas</span><span class="choices"><button class="pill ghost" data-do="sx-all">Ver o setor inteiro</button><button class="pill dark" data-do="sx-cmp" ${sel.length!==2?"disabled":""}>Comparar estas duas</button></span></div>`:""}</div>`}
-function wSXCmp(i){const X=SETX[S.sx],[ia,ib]=S.sxPicks,A=X.empresas[ia],B=X.empresas[ib];
-  const rows=SXCOLS.map(([k,n,u])=>{const fa=sxFmt(A.v[k],u),fb=sxFmt(B.v[k],u);return `<tr><td class="m">${n}</td><td>${fa==null?`<span class="nd">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ia}" data-m="${k}">${esc(fa)}</button>`}</td><td>${fb==null?`<span class="nd">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ib}" data-m="${k}">${esc(fb)}</button>`}</td></tr>`}).join("");
+function wSXCmp(i){const X=SETX[S.sx],[ia,ib]=S.sxPicks,A=X.empresas[ia],B=X.empresas[ib];SXCOLS=colsFor(S.sx);
+  const rows=SXCOLS.map(([k,n,u])=>{const fa=sxFmt(A.v[k],u),fb=sxFmt(B.v[k],u);return `<tr><td class="m">${n}</td><td>${fa==null?`<span class="nd" title="${esc(A.o[k]?.motivo||"Não disponível")}">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ia}" data-m="${k}">${esc(fa)}</button>`}</td><td>${fb==null?`<span class="nd" title="${esc(B.o[k]?.motivo||"Não disponível")}">n.d.</span>`:`<button class="num" data-sxn="${S.sx}" data-i="${ib}" data-m="${k}">${esc(fb)}</button>`}</td></tr>`}).join("");
   const ks=S.sx==="bancos"?[["roe_12m","ROE 12m","%"],["p_vp","P/VP","x"]]:[["margem_ebitda_12m","Margem EBITDA 12m","%"],["ev_ebitda","EV/EBITDA","x"]];
   const ch=ks.map(([k,n,u])=>gHBars(n,[{l:A.tk,v:A.v[k]},{l:B.tk,v:B.v[k]}],u)).join("");
   return `<div class="widget"><div class="cmphead"><div><div class="eyebrow">Comparativo · ${esc(X.nome)}</div><h3 class="ctitle">${esc(A.tk)} × ${esc(B.tk)}</h3></div><span class="tag">Tese em construção</span></div>
    <div class="charts">${ch}</div><div class="tblwrap"><table><thead><tr><th>12 meses</th><th>${esc(A.tk)} · ${esc((A.db||"").slice(0,7))}</th><th>${esc(B.tk)} · ${esc((B.db||"").slice(0,7))}</th></tr></thead><tbody>${rows}</tbody></table></div>
-   <span class="small">Fonte: ${esc(X.fonte||"CVM Dados Abertos + B3")}. Consolidado, R$ milhões, EBITDA pelo critério CVM 156. Base oficial da CVM, sem a verificação página a página feita na siderurgia. Clique em um número para ver a conta.</span></div>`}
+   <span class="small">Fonte: ${esc(X.fonte||"CVM Dados Abertos + B3")}. Consolidado, R$ milhões${S.sx==="bancos"?"; bancos usam o plano de contas de instituição financeira, então EBITDA, dívida líquida e EV não se aplicam":", EBITDA pelo critério CVM 156"}. Base oficial da CVM, sem a verificação página a página feita na siderurgia. Passe o mouse em "n.d." para ver o motivo.</span></div>`}
 
 /* ================= PANORAMA DE OUTROS SETORES ================= */
 async function startPanorama(sx,q){S=fresh();S.kind="panorama";S.sx=sx;S.view="chat";S.step="panorama";seenMsgs=0;user(q||`Panorama de ${SETX[sx].nome}`,true);
   const m=bot("Lendo as demonstrações na base da CVM e os preços da B3",null,{thinking:true});vt(render);scrollEnd();await wait(500);
   m.thinking=false;m.text="Este é o panorama financeiro do setor, com as principais empresas listadas. Troque de setor nas abas. A tese completa desses setores está em construção.";m.w="sx";render();scrollEnd()}
 const sxFmt=(v,u)=>v==null?null:u==="mi"?(v<0?"−":"")+"R$ "+nf(Math.abs(v)):u==="%"?nf(v,1)+"%":(v<0?"−":"")+nf(Math.abs(v),1)+"x";
-function wSX(i){const last=S.msgs.findLastIndex(x=>x.w==="sx")===i,sid=S.sx,X=SETX[sid];if(!X)return "";
+function wSX(i){const last=S.msgs.findLastIndex(x=>x.w==="sx")===i,sid=S.sx,X=SETX[sid];if(!X)return "";SXCOLS=colsFor(sid);
   const body=`<div class="tblwrap"><table class="sxt"><thead><tr><th>Empresa</th><th>Base</th>${SXCOLS.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead><tbody>${X.empresas.map((e,ix)=>`<tr><td class="m"><b>${esc(e.tk)}</b><small>${esc((e.nome||"").slice(0,28))}</small></td><td>${esc(e.per&&/3T26|2026-09/.test(e.db||"")?"3T26":(e.db||"").startsWith("2026-06")?"2T26":(e.db||"—"))}</td>${SXCOLS.map(([k,n,u])=>{const v=e.v[k],f=sxFmt(v,u);return `<td>${f==null?`<span class="nd" title="${esc(e.o[k]?.motivo||"Não se aplica ou não disponível")}">n.d.</span>`:`<button class="num" data-sxn="${sid}" data-i="${ix}" data-m="${k}">${esc(f)}</button>`}</td>`}).join("")}</tr>`).join("")}</tbody></table></div>`;
   const hk=sid==="bancos"?["roe_12m","ROE 12 meses","%"]:["margem_ebitda_12m","Margem EBITDA 12 meses (CVM 156)","%"];
   const hb=gHBars(hk[1],X.empresas.map(e=>({l:e.tk,v:e.v[hk[0]]})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9)),hk[2]);
@@ -208,7 +211,7 @@ function wSX(i){const last=S.msgs.findLastIndex(x=>x.w==="sx")===i,sid=S.sx,X=SE
    ${last?`<div class="tabs" role="tablist">${SXORDER.map(k=>`<button role="tab" aria-selected="${k===sid}" data-sxtab="${k}">${esc(SETX[k].nome)}</button>`).join("")}</div>`:""}
    <div class="tabbody${tabAnim&&last?" anim":""}">${hb}${body}
    <span class="small">Fonte: ${esc(X.fonte||"CVM Dados Abertos + B3")}. Valores em R$ milhões; 12 meses até a data-base de cada empresa; consolidado; EBITDA pelo critério CVM 156. Números lidos da base oficial da CVM, sem a verificação página a página feita na siderurgia.${sid==="bancos"?" Bancos: EBITDA, dívida líquida e EV não se aplicam.":""}</span></div></div>`}
-function openSX(sid,i,k){const e=SETX[sid].empresas[i],c=SXCOLS.find(x=>x[0]===k),o=e.o[k]||{};
+function openSX(sid,i,k){const e=SETX[sid].empresas[i],c=colsFor(sid).find(x=>x[0]===k),o=e.o[k]||{};
   $("drawer").innerHTML=`<header><div><div class="eyebrow">${esc(e.tk)} · ${esc(e.per||e.db||"")}</div><h4>${esc(c[1])}</h4></div><button class="ib" id="x" aria-label="Fechar">${ic("xmark")}</button></header>
    <div class="dbig">${esc(sxFmt(e.v[k],c[2]))}</div><span class="vst calc">Base oficial da CVM${/p_|ev/.test(k)?" + preço da B3":""}</span>
    <dl><dt>Empresa</dt><dd>${esc(e.nome||e.tk)}</dd><dt>Fonte</dt><dd>${esc(SETX[sid].fonte||"")}</dd>${o.conta?`<dt>Conta</dt><dd>${esc(o.conta)}</dd>`:""}${o.formula?`<dt>Fórmula</dt><dd>${esc(o.formula)}</dd>`:""}<dt>Data-base</dt><dd>${esc(e.db||"")}</dd></dl>

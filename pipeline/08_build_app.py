@@ -306,7 +306,8 @@ if (P / "historico.json").exists():
 
 # ---------------- panorama de outros setores (CVM Dados Abertos + B3; sem verificação por página)
 SETX = {}
-_SXM = ["receita_12m", "margem_ebitda_12m", "lucro_controladores_12m", "roe_12m", "divida_liquida_ebitda", "p_l", "p_vp", "ev_ebitda", "valor_mercado"]
+_SXM = ["receita_12m", "margem_ebitda_12m", "lucro_controladores_12m", "roe_12m", "divida_liquida_ebitda", "p_l", "p_vp", "ev_ebitda", "valor_mercado",
+        "receita_intermediacao_12m", "resultado_bruto_intermediacao_12m", "margem_liquida_12m", "pl_controladores"]
 for f in sorted((P / "setores").glob("*.json")):
     d = json.loads(f.read_text(encoding="utf-8"))
     emps = []

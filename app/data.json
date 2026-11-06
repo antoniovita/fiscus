@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T18:05:48+00:00",
+ "gerado_em": "2026-11-06T18:08:05+00:00",
  "SETOR": {
   "veredito": {
    "nivel": "Seletivo",
@@ -1524,7 +1524,11 @@
       "p_l": 9.9332,
       "p_vp": 2.1359,
       "ev_ebitda": null,
-      "valor_mercado": 465149.9382
+      "valor_mercado": 465149.9382,
+      "receita_intermediacao_12m": 385985.0,
+      "resultado_bruto_intermediacao_12m": 143714.0,
+      "margem_liquida_12m": 12.1321,
+      "pl_controladores": 217779.0
      },
      "o": {
       "receita_12m": {
@@ -1580,6 +1584,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas da Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.08 − participação de não controladores (2.08.09)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -1597,7 +1625,11 @@
       "p_l": 5.348,
       "p_vp": 0.717,
       "ev_ebitda": null,
-      "valor_mercado": 139842.0262
+      "valor_mercado": 139842.0262,
+      "receita_intermediacao_12m": 308041.395,
+      "resultado_bruto_intermediacao_12m": 84700.441,
+      "margem_liquida_12m": 8.4886,
+      "pl_controladores": 195045.587
      },
      "o": {
       "receita_12m": {
@@ -1653,6 +1685,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -1670,7 +1726,11 @@
       "p_l": 7.6712,
       "p_vp": 0.5059,
       "ev_ebitda": null,
-      "valor_mercado": 94140.9397
+      "valor_mercado": 94140.9397,
+      "receita_intermediacao_12m": 330956.647,
+      "resultado_bruto_intermediacao_12m": 102509.732,
+      "margem_liquida_12m": 3.7081,
+      "pl_controladores": 186079.471
      },
      "o": {
       "receita_12m": {
@@ -1726,6 +1786,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -1743,7 +1827,11 @@
       "p_l": null,
       "p_vp": null,
       "ev_ebitda": null,
-      "valor_mercado": null
+      "valor_mercado": null,
+      "receita_intermediacao_12m": 165983.511,
+      "resultado_bruto_intermediacao_12m": 56701.392,
+      "margem_liquida_12m": 7.929,
+      "pl_controladores": 128314.351
      },
      "o": {
       "receita_12m": {
@@ -1799,6 +1887,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": "composição do capital informa só 7,498,531 ações e não há LPA não-nulo (ITR 2026 nem DFP 2025) para confirmar se a escala é milhares; valor de mercado não calculado para não inventar escala",
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas da Intermediação Financeira",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto Intermediação Financeira",
+       "formula": "acumulado 2026-09-30 + DFP 2025-12-31 − acumulado 2025-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-09-30; VERSAO=2]",
+       "formula": "2.08 − participação de não controladores (2.08.09)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -1816,7 +1928,11 @@
       "p_l": 13.4814,
       "p_vp": 2.9933,
       "ev_ebitda": null,
-      "valor_mercado": 248840.7775
+      "valor_mercado": 248840.7775,
+      "receita_intermediacao_12m": 31200.736,
+      "resultado_bruto_intermediacao_12m": 30967.354,
+      "margem_liquida_12m": 59.1593,
+      "pl_controladores": 83132.955
      },
      "o": {
       "receita_12m": {
@@ -1870,6 +1986,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas da Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=3]",
+       "formula": "2.08 − participação de não controladores (2.08.09)",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -1889,7 +2029,11 @@
       "p_l": 3.6895,
       "p_vp": 0.5114,
       "ev_ebitda": null,
-      "valor_mercado": 6057.3975
+      "valor_mercado": 6057.3975,
+      "receita_intermediacao_12m": 23122.962,
+      "resultado_bruto_intermediacao_12m": 6557.542,
+      "margem_liquida_12m": 7.1003,
+      "pl_controladores": 11844.134
      },
      "o": {
       "receita_12m": {
@@ -1945,6 +2089,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -1962,7 +2130,11 @@
       "p_l": 5.578,
       "p_vp": 0.696,
       "ev_ebitda": null,
-      "valor_mercado": 3527.066
+      "valor_mercado": 3527.066,
+      "receita_intermediacao_12m": 9216.256,
+      "resultado_bruto_intermediacao_12m": 3089.252,
+      "margem_liquida_12m": 6.8608,
+      "pl_controladores": 5067.798
      },
      "o": {
       "receita_12m": {
@@ -2018,6 +2190,30 @@
        "formula": "Σ ações em circulação por classe × PREULT da classe",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas da Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.08 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.08 − participação de não controladores (2.08.09)",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2035,7 +2231,11 @@
       "p_l": 7.221,
       "p_vp": 1.9165,
       "ev_ebitda": null,
-      "valor_mercado": 6015.7153
+      "valor_mercado": 6015.7153,
+      "receita_intermediacao_12m": 9537.345,
+      "resultado_bruto_intermediacao_12m": 4316.407,
+      "margem_liquida_12m": 8.735,
+      "pl_controladores": 3138.956
      },
      "o": {
       "receita_12m": {
@@ -2089,6 +2289,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -2108,7 +2332,11 @@
       "p_l": 7.0835,
       "p_vp": 1.2484,
       "ev_ebitda": null,
-      "valor_mercado": 3135.7498
+      "valor_mercado": 3135.7498,
+      "receita_intermediacao_12m": 5816.125,
+      "resultado_bruto_intermediacao_12m": 1665.446,
+      "margem_liquida_12m": 7.6114,
+      "pl_controladores": 2511.779
      },
      "o": {
       "receita_12m": {
@@ -2162,6 +2390,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=1]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -2181,7 +2433,11 @@
       "p_l": 4.0928,
       "p_vp": 1.3703,
       "ev_ebitda": null,
-      "valor_mercado": 2468.2998
+      "valor_mercado": 2468.2998,
+      "receita_intermediacao_12m": 5617.233,
+      "resultado_bruto_intermediacao_12m": 1719.983,
+      "margem_liquida_12m": 10.7363,
+      "pl_controladores": 1801.25
      },
      "o": {
       "receita_12m": {
@@ -2235,6 +2491,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "Σ ações em circulação por classe × PREULT da classe",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": "3.01 Receitas de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": "3.03 Resultado Bruto de Intermediação Financeira",
+       "formula": "acumulado 2026-06-30 + DFP 2025-12-31 − acumulado 2025-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_intermediacao_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.07 Patrimônio Líquido Consolidado [data/raw/cvm/itr_cia_aberta_2026.zip::itr_cia_aberta_BPP_con_2026.csv; DT_REFER=2026-06-30; VERSAO=2]",
+       "formula": "2.07 − participação de não controladores (2.07.02)",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -2290,7 +2570,11 @@
       "p_l": 11.3475,
       "p_vp": 1.1191,
       "ev_ebitda": 11.1262,
-      "valor_mercado": 136802.5355
+      "valor_mercado": 136802.5355,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 27.0591,
+      "pl_controladores": 122244.292
      },
      "o": {
       "receita_12m": {
@@ -2346,6 +2630,30 @@
        "formula": "acoes_ON×preco_AXIA3 + acoes_PN×preco_AXIA7",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2363,7 +2671,11 @@
       "p_l": 43.4484,
       "p_vp": 1.5938,
       "ev_ebitda": 8.6564,
-      "valor_mercado": 41641.9377
+      "valor_mercado": 41641.9377,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 3.231,
+      "pl_controladores": 26126.664
      },
      "o": {
       "receita_12m": {
@@ -2419,6 +2731,30 @@
        "formula": "acoes_ON×preco_EQTL3",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2436,7 +2772,11 @@
       "p_l": 7.6858,
       "p_vp": 2.027,
       "ev_ebitda": 6.894,
-      "valor_mercado": 30430.841
+      "valor_mercado": 30430.841,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 30.8317,
+      "pl_controladores": 15012.81
      },
      "o": {
       "receita_12m": {
@@ -2492,6 +2832,30 @@
        "formula": "acoes_ON×preco_EGIE3",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2509,7 +2873,11 @@
       "p_l": 8.0976,
       "p_vp": 2.1405,
       "ev_ebitda": 5.5149,
-      "valor_mercado": 48625.1374
+      "valor_mercado": 48625.1374,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 13.7876,
+      "pl_controladores": 22717.183
      },
      "o": {
       "receita_12m": {
@@ -2565,6 +2933,30 @@
        "formula": "acoes_ON×preco_CPFE3",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2582,7 +2974,11 @@
       "p_l": 13.6938,
       "p_vp": 1.7788,
       "ev_ebitda": 8.8548,
-      "valor_mercado": 42918.2309
+      "valor_mercado": 42918.2309,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 11.4031,
+      "pl_controladores": 24128.112
      },
      "o": {
       "receita_12m": {
@@ -2638,6 +3034,30 @@
        "formula": "acoes_ON×preco_CPLE3",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2655,7 +3075,11 @@
       "p_l": 7.6762,
       "p_vp": 1.2087,
       "ev_ebitda": 6.4536,
-      "valor_mercado": 35272.8761
+      "valor_mercado": 35272.8761,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 10.51,
+      "pl_controladores": 29181.647
      },
      "o": {
       "receita_12m": {
@@ -2711,6 +3135,30 @@
        "formula": "acoes_ON×preco_CMIG3 + acoes_PN×preco_CMIG4",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2728,7 +3176,11 @@
       "p_l": 8.304,
       "p_vp": 1.683,
       "ev_ebitda": 8.0149,
-      "valor_mercado": 13583.0486
+      "valor_mercado": 13583.0486,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 36.4758,
+      "pl_controladores": 8070.915
      },
      "o": {
       "receita_12m": {
@@ -2784,6 +3236,30 @@
        "formula": "acoes_ON×preco_TAEE3 + acoes_PN×preco_TAEE4",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2801,7 +3277,11 @@
       "p_l": 15.7293,
       "p_vp": 1.2236,
       "ev_ebitda": 6.7747,
-      "valor_mercado": 23858.7251
+      "valor_mercado": 23858.7251,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 5.8815,
+      "pl_controladores": 19498.569
      },
      "o": {
       "receita_12m": {
@@ -2857,6 +3337,30 @@
        "formula": "acoes_ON×preco_ENGI3 + acoes_PN×preco_ENGI4",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2874,7 +3378,11 @@
       "p_l": 6.7757,
       "p_vp": 0.8614,
       "ev_ebitda": 7.0187,
-      "valor_mercado": 19088.1832
+      "valor_mercado": 19088.1832,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 25.3896,
+      "pl_controladores": 22159.43
      },
      "o": {
       "receita_12m": {
@@ -2930,6 +3438,30 @@
        "formula": "acoes_ON×preco_ISAE3 + acoes_PN×preco_ISAE4",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -2947,7 +3479,11 @@
       "p_l": -10.7204,
       "p_vp": 1.0149,
       "ev_ebitda": 9.4665,
-      "valor_mercado": 11679.0193
+      "valor_mercado": 11679.0193,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": -7.6448,
+      "pl_controladores": 11507.333
      },
      "o": {
       "receita_12m": {
@@ -3003,6 +3539,30 @@
        "formula": "acoes_ON×preco_AURE3",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-06-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3020,7 +3580,11 @@
       "p_l": null,
       "p_vp": null,
       "ev_ebitda": null,
-      "valor_mercado": null
+      "valor_mercado": null,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 9.3334,
+      "pl_controladores": 36146.0
      },
      "o": {
       "receita_12m": {
@@ -3076,6 +3640,30 @@
        "formula": null,
        "motivo": "sem cotação B3 em 05/11/2026 (ação não negociada/deslistada)",
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "BPP 2.03 − 2.03.09",
+       "formula": "saldo em 2026-09-30",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     }
@@ -3125,7 +3713,11 @@
       "p_l": 116.6431,
       "p_vp": 1.3104,
       "ev_ebitda": 7.5156,
-      "valor_mercado": 255215.1772
+      "valor_mercado": 255215.1772,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 1.0138,
+      "pl_controladores": 194758.0
      },
      "o": {
       "receita_12m": {
@@ -3181,6 +3773,30 @@
        "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09 (con) em 2026-09-30",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3198,7 +3814,11 @@
       "p_l": 11.3464,
       "p_vp": 3.6068,
       "ev_ebitda": 4.5384,
-      "valor_mercado": 26471.9336
+      "valor_mercado": 26471.9336,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 13.4139,
+      "pl_controladores": 7339.411
      },
      "o": {
       "receita_12m": {
@@ -3254,6 +3874,30 @@
        "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09 (con) em 2026-06-30",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3271,7 +3915,11 @@
       "p_l": 12.2499,
       "p_vp": 1.4463,
       "ev_ebitda": 5.8762,
-      "valor_mercado": 7324.5712
+      "valor_mercado": 7324.5712,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 6.4142,
+      "pl_controladores": 5064.325
      },
      "o": {
       "receita_12m": {
@@ -3327,6 +3975,30 @@
        "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / receita 12m",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09 (con) em 2026-06-30",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3344,7 +4016,11 @@
       "p_l": 12.3494,
       "p_vp": 0.8966,
       "ev_ebitda": null,
-      "valor_mercado": 7217.4462
+      "valor_mercado": 7217.4462,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": null,
+      "pl_controladores": 8049.611
      },
      "o": {
       "receita_12m": {
@@ -3400,6 +4076,30 @@
        "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / receita 12m",
+       "motivo": "holding: receita é equivalência patrimonial, margem não comparável",
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09 (ind) em 2026-06-30",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3417,7 +4117,11 @@
       "p_l": null,
       "p_vp": null,
       "ev_ebitda": null,
-      "valor_mercado": null
+      "valor_mercado": null,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": null,
+      "pl_controladores": 3575.769
      },
      "o": {
       "receita_12m": {
@@ -3472,6 +4176,30 @@
        "conta": null,
        "formula": "Σ ações em circulação × preço de fechamento 05/11/2026 (por classe)",
        "motivo": "insumo ausente",
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro controladores 12m / receita 12m",
+       "motivo": "holding: receita é equivalência patrimonial, margem não comparável",
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09 (ind) em 2026-06-30",
+       "formula": null,
+       "motivo": null,
        "unidade": "R$ mi"
       }
      }
@@ -3528,7 +4256,11 @@
       "p_l": 4.7657,
       "p_vp": 1.3216,
       "ev_ebitda": 3.4732,
-      "valor_mercado": 635625.4793
+      "valor_mercado": 635625.4793,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 24.3168,
+      "pl_controladores": 480950.0
      },
      "o": {
       "receita_12m": {
@@ -3584,6 +4316,30 @@
        "formula": "acoes_ON_circulacao × preco_PETR3 + acoes_PN_circulacao × preco_PETR4 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3601,7 +4357,11 @@
       "p_l": 12.6961,
       "p_vp": 1.741,
       "ev_ebitda": 5.6714,
-      "valor_mercado": 49119.9176
+      "valor_mercado": 49119.9176,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 18.1115,
+      "pl_controladores": 28214.097
      },
      "o": {
       "receita_12m": {
@@ -3657,6 +4417,30 @@
        "formula": "acoes_ON_circulacao × preco_PRIO3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3674,7 +4458,11 @@
       "p_l": 6.7666,
       "p_vp": 1.4538,
       "ev_ebitda": 5.0593,
-      "valor_mercado": 34211.6918
+      "valor_mercado": 34211.6918,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 2.4787,
+      "pl_controladores": 23532.0
      },
      "o": {
       "receita_12m": {
@@ -3730,6 +4518,30 @@
        "formula": "acoes_ON_circulacao × preco_VBBR3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3747,7 +4559,11 @@
       "p_l": 9.6547,
       "p_vp": 1.8586,
       "ev_ebitda": 5.1885,
-      "valor_mercado": 33376.8727
+      "valor_mercado": 33376.8727,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 2.2557,
+      "pl_controladores": 17958.39
      },
      "o": {
       "receita_12m": {
@@ -3803,6 +4619,30 @@
        "formula": "acoes_ON_circulacao × preco_UGPA3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3820,7 +4660,11 @@
       "p_l": -1.109,
       "p_vp": 1.9847,
       "ev_ebitda": 15.149,
-      "valor_mercado": 9860.9162
+      "valor_mercado": 9860.9162,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": -22.184,
+      "pl_controladores": 4968.466
      },
      "o": {
       "receita_12m": {
@@ -3876,6 +4720,30 @@
        "formula": "acoes_ON_circulacao × preco_CSAN3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3893,7 +4761,11 @@
       "p_l": 134.44,
       "p_vp": 0.5961,
       "ev_ebitda": 3.1149,
-      "valor_mercado": 7321.1993
+      "valor_mercado": 7321.1993,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 0.4413,
+      "pl_controladores": 12282.477
      },
      "o": {
       "receita_12m": {
@@ -3949,6 +4821,30 @@
        "formula": "acoes_ON_circulacao × preco_BRAV3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -3966,7 +4862,11 @@
       "p_l": 4.6711,
       "p_vp": 0.6726,
       "ev_ebitda": 3.3478,
-      "valor_mercado": 2981.7784
+      "valor_mercado": 2981.7784,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 21.4,
+      "pl_controladores": 4433.506
      },
      "o": {
       "receita_12m": {
@@ -4022,6 +4922,30 @@
        "formula": "acoes_ON_circulacao × preco_RECV3 / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -4039,7 +4963,11 @@
       "p_l": 12.1595,
       "p_vp": 2.3177,
       "ev_ebitda": 5.7925,
-      "valor_mercado": 13983.8421
+      "valor_mercado": 13983.8421,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 7.5869,
+      "pl_controladores": 6033.422
      },
      "o": {
       "receita_12m": {
@@ -4093,6 +5021,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_ON_circulacao × preco_PASS3 / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_controladores_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": null,
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4150,7 +5102,11 @@
       "p_l": 6.1322,
       "p_vp": 0.8836,
       "ev_ebitda": 2.5991,
-      "valor_mercado": 9161.027
+      "valor_mercado": 9161.027,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 9.3537,
+      "pl_controladores": 10367.784
      },
      "o": {
       "receita_12m": {
@@ -4204,6 +5160,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4223,7 +5203,11 @@
       "p_l": 47.5864,
       "p_vp": 0.3772,
       "ev_ebitda": 2.3735,
-      "valor_mercado": 4211.8253
+      "valor_mercado": 4211.8253,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 0.2312,
+      "pl_controladores": 11166.703
      },
      "o": {
       "receita_12m": {
@@ -4279,6 +5263,30 @@
        "formula": "acoes_circulacao × preco / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -4296,7 +5304,11 @@
       "p_l": 11.72,
       "p_vp": 1.7822,
       "ev_ebitda": 3.7234,
-      "valor_mercado": 11309.818
+      "valor_mercado": 11309.818,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 1.2441,
+      "pl_controladores": 6346.0
      },
      "o": {
       "receita_12m": {
@@ -4352,6 +5364,30 @@
        "formula": "acoes_circulacao × preco / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -4369,7 +5405,11 @@
       "p_l": 5.272,
       "p_vp": 0.7637,
       "ev_ebitda": 4.0524,
-      "valor_mercado": 8541.4656
+      "valor_mercado": 8541.4656,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 3.9885,
+      "pl_controladores": 11184.618
      },
      "o": {
       "receita_12m": {
@@ -4423,6 +5463,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4442,7 +5506,11 @@
       "p_l": 19.1346,
       "p_vp": 3.5231,
       "ev_ebitda": 5.6174,
-      "valor_mercado": 25685.9973
+      "valor_mercado": 25685.9973,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 2.8704,
+      "pl_controladores": 7290.78
      },
      "o": {
       "receita_12m": {
@@ -4496,6 +5564,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4515,7 +5607,11 @@
       "p_l": 8.7687,
       "p_vp": 0.3535,
       "ev_ebitda": 3.4091,
-      "valor_mercado": 2842.5931
+      "valor_mercado": 2842.5931,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 2.8524,
+      "pl_controladores": 8040.341
      },
      "o": {
       "receita_12m": {
@@ -4569,6 +5665,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4588,7 +5708,11 @@
       "p_l": 3.9696,
       "p_vp": 0.5869,
       "ev_ebitda": 1.407,
-      "valor_mercado": 2232.0976
+      "valor_mercado": 2232.0976,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 7.0161,
+      "pl_controladores": 3803.114
      },
      "o": {
       "receita_12m": {
@@ -4644,6 +5768,30 @@
        "formula": "acoes_circulacao × preco / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -4661,7 +5809,11 @@
       "p_l": null,
       "p_vp": null,
       "ev_ebitda": null,
-      "valor_mercado": 673.3365
+      "valor_mercado": 673.3365,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": -44.4168,
+      "pl_controladores": -8270.0
      },
      "o": {
       "receita_12m": {
@@ -4717,6 +5869,30 @@
        "formula": "acoes_circulacao × preco / 1e6",
        "motivo": null,
        "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
+       "motivo": null,
+       "unidade": "R$ mi"
       }
      }
     },
@@ -4734,7 +5910,11 @@
       "p_l": 5.0175,
       "p_vp": 1.3425,
       "ev_ebitda": 4.7774,
-      "valor_mercado": 4274.7552
+      "valor_mercado": 4274.7552,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 18.0422,
+      "pl_controladores": 3184.286
      },
      "o": {
       "receita_12m": {
@@ -4788,6 +5968,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
@@ -4807,7 +6011,11 @@
       "p_l": 5.3067,
       "p_vp": 0.5099,
       "ev_ebitda": 2.1502,
-      "valor_mercado": 1742.7573
+      "valor_mercado": 1742.7573,
+      "receita_intermediacao_12m": null,
+      "resultado_bruto_intermediacao_12m": null,
+      "margem_liquida_12m": 2.1026,
+      "pl_controladores": 3417.796
      },
      "o": {
       "receita_12m": {
@@ -4861,6 +6069,30 @@
       "valor_mercado": {
        "conta": null,
        "formula": "acoes_circulacao × preco / 1e6",
+       "motivo": null,
+       "unidade": "R$ mi"
+      },
+      "receita_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "resultado_bruto_intermediacao_12m": {
+       "conta": null,
+       "formula": null,
+       "motivo": null,
+       "unidade": null
+      },
+      "margem_liquida_12m": {
+       "conta": null,
+       "formula": "lucro_consolidado_12m / receita_12m × 100",
+       "motivo": null,
+       "unidade": "%"
+      },
+      "pl_controladores": {
+       "conta": "2.03 − 2.03.09",
+       "formula": "pl_total − não controladores",
        "motivo": null,
        "unidade": "R$ mi"
       }
