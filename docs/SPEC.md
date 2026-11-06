@@ -443,3 +443,20 @@ Estas decisões valem sobre qualquer trecho anterior desta spec que as contradig
 - [ ] Sair leva à landing e `#painel` passa a pedir login.
 - [ ] Duas contas no mesmo navegador têm históricos separados.
 - [ ] O centro vertical do bloco saudação + caixa coincide com o centro da área útil.
+
+## Registro de decisões · 06/11/2026, rodadas finais
+
+- **Fluxo:** toda entrada genérica pergunta primeiro o setor, num card com os 6 setores, e depois lista todas as empresas do setor que estão na base.
+  - Siderurgia segue o fluxo completo: tese, comparativo, valuation e apresentação.
+  - Os outros setores mostram um **veredito preliminar** calculado com as medianas do setor (ROE, margem, alavancagem e múltiplos) contra a Selic: Atrativo, Seletivo ou Pouco atrativo. A "empresa para a próxima etapa" é a de maior ROE ÷ P/VP. Depois vem o comparativo de duas empresas com dados da CVM e da B3.
+- **Menu +** na caixa de composição: setores → empresas. Na siderurgia, as empresas viram etiquetas; nos outros setores, abrem o panorama.
+- **Valuation:** DCF determinístico com premissas do usuário (T-bond de 10 anos e Selic são dados; o resto são sugestões ajustáveis). Inclui sensibilidade WACC × g, a ponte do valor da empresa até o valor do acionista e a recomendação por faixas (compra a partir de +15%, venda abaixo de −10%).
+- **Apresentação:** estilo research report (CFA Research Challenge e Poli Finance), com:
+  - abas de seção no topo;
+  - título com colchete azul;
+  - faixa de KPIs com divisórias verdes;
+  - marcadores em losango;
+  - capa com a recomendação;
+  - os slides "Tese em 3 pilares" (escuro) e "Empresa em uma página" (três painéis encadeados);
+  - gráficos nos cards e nos slides.
+- **Perfil:** uma linha no estilo do Claude (avatar azul, nome · plano), com um menu que traz os detalhes e "Sair".

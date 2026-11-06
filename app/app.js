@@ -162,7 +162,28 @@ function wSectorPick(i){const live=S.step==="sectorpick"&&S.msgs.findLastIndex(x
   return `<div class="widget ${live?"":"locked"}"><div class="secs">${opts.map(([k,n,h])=>`<button class="secc" data-secpick="${k}" aria-pressed="${chosen===k}" ${live?"":"disabled"}><span class="ic">${ic(SECIC[k]||"view-grid")}</span><span><b>${esc(n)}</b><small>${h}</small></span>${chosen===k?`<span class="ck2">${ic("check")}</span>`:""}</button>`).join("")}</div></div>`}
 async function pickSector(k){if(k==="siderurgia"){S.picks=[];user("Siderurgia");const m=bot("Lendo os dados do setor: produção, importação, juros, câmbio e os balanços das empresas",null,{thinking:true});S.step="building";render();scrollEnd();await wait(600);
   m.thinking=false;m.text="Minha resposta para \"vale investir?\" está no topo. Abaixo, os drivers medidos e os 8 pontos que sustentam a tese, cada um com a fonte.";m.w="sector";S.step="sector";render();scrollEnd();return}
-  S.kind="panorama";S.sx=k;S.sxPicks=[];user(SETX[k].nome);S.step="sxpick";bot(`Estas são as ${SETX[k].empresas.length} empresas de ${SETX[k].nome} que temos na base. Escolha duas para comparar, ou veja o panorama do setor inteiro.`,"sxpick");render();scrollEnd()}
+  S.kind="panorama";S.sx=k;S.sxPicks=[];user(SETX[k].nome);S.step="sxpick";
+  bot(`Minha leitura preliminar de ${SETX[k].nome}, a partir dos números de cada empresa:`,"sxverdict");
+  bot(`Estas são as ${SETX[k].empresas.length} empresas de ${SETX[k].nome} que temos na base. Escolha duas para comparar, ou veja o panorama do setor inteiro.`,"sxpick");render();scrollEnd()}
+const med=a=>{const v=a.filter(x=>x!=null&&isFinite(x)).sort((x,y)=>x-y);if(!v.length)return null;const m=Math.floor(v.length/2);return v.length%2?v[m]:(v[m-1]+v[m])/2};
+function sxVerdict(sid){const X=SETX[sid],E=X.empresas,sel=VAL.selic,banco=sid==="bancos";
+  const roe=med(E.map(e=>e.v.roe_12m)),mg=med(E.map(e=>e.v.margem_ebitda_12m)),dl=med(E.map(e=>e.v.divida_liquida_ebitda)),pvp=med(E.map(e=>e.v.p_vp)),ev=med(E.map(e=>e.v.ev_ebitda)),pl=med(E.map(e=>e.v.p_l));
+  const acima=E.filter(e=>e.v.roe_12m!=null&&e.v.roe_12m>sel).length,comROE=E.filter(e=>e.v.roe_12m!=null).length;
+  const nivel=roe!=null&&roe>sel+2?"Atrativo":roe!=null&&(roe>sel-3||acima>=Math.ceil(comROE/3))?"Seletivo":"Pouco atrativo";
+  const cand=E.filter(e=>e.v.roe_12m!=null&&e.v.p_vp!=null&&e.v.p_vp>0).map(e=>({e,s:e.v.roe_12m/e.v.p_vp})).sort((a,b)=>b.s-a.s)[0]?.e;
+  const f=v=>v==null?"n.d.":nf(v,1);
+  const frase={"Atrativo":`O retorno mediano do setor supera o custo do dinheiro no Brasil: vale investir, com preferência por quem combina retorno alto e preço razoável.`,
+    "Seletivo":`O setor paga perto do custo de capital, mas não de forma uniforme: vale investir só nas empresas que rendem acima da Selic.`,
+    "Pouco atrativo":`O retorno mediano fica abaixo do custo do dinheiro no Brasil: o setor hoje não remunera o capital, salvo exceções pontuais.`}[nivel];
+  const porque=cand?`${cand.tk} tem a melhor relação entre retorno e preço do grupo: ROE de ${f(cand.v.roe_12m)}% a ${f(cand.v.p_vp)}x o patrimônio.`:"Sem empresa com ROE e P/VP disponíveis para comparar.";
+  const kpis=banco?[[`${f(roe)}%`,"ROE mediano 12m"],[`${acima} de ${comROE}`,"com ROE acima da Selic"],[`${f(pvp)}x`,"P/VP mediano"],[`${f(pl)}x`,"P/L mediano"]]
+    :[[`${f(roe)}%`,"ROE mediano 12m"],[`${f(mg)}%`,"Margem EBITDA mediana"],[`${f(dl)}x`,"Dív. líq./EBITDA mediana"],[`${f(ev)}x`,"EV/EBITDA mediano"]];
+  return {nivel,frase,porque,cand,kpis,sel}}
+function wSXVerdict(){const v=sxVerdict(S.sx),X=SETX[S.sx];
+  return `<div class="widget"><div class="verdict"><div class="top"><span>${esc(X.nome)} é um bom lugar para investir?</span><span class="lvl">${v.nivel}</span></div><h3>${esc(v.frase)}</h3>
+   <div class="vk">${v.kpis.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}<div><b>${nf(v.sel,2)}%</b><span>Selic hoje</span></div></div>
+   ${v.cand?`<div class="pick"><span><b>Empresa para a próxima etapa: ${esc(v.cand.tk)}</b><br>${esc(v.porque)}</span></div>`:""}</div>
+   <span class="small">Tese preliminar calculada com as medianas de ${X.empresas.length} empresas (CVM Dados Abertos e B3), comparadas com a Selic. A tese completa deste setor, com drivers e os 8 pontos, está em construção.</span></div>`}
 function wSXPick(i){const live=S.step==="sxpick"&&S.msgs.findLastIndex(x=>x.w==="sxpick")===i,X=SETX[S.sx],sel=S.sxPicks||[];
   return `<div class="widget ${live?"":"locked"}"><div class="cos sxcos">${X.empresas.map((e,ix)=>`<button class="coc" data-sxpick="${ix}" aria-pressed="${sel.includes(ix)}" ${live?"":"disabled"}><span class="h"><span class="tk2">${esc(e.tk)}</span><span class="ck">${sel.includes(ix)?ic("check"):""}</span></span><span><b>${esc(nomeBonito(e.nome||e.tk))}</b><small>${esc(e.per||e.db||"")}</small></span></button>`).join("")}</div>
    ${live?`<div class="wfoot"><span class="note">${sel.length}/2 escolhidas</span><span class="choices"><button class="pill ghost" data-do="sx-all">Ver o setor inteiro</button><button class="pill dark" data-do="sx-cmp" ${sel.length!==2?"disabled":""}>Comparar estas duas</button></span></div>`:""}</div>`}
@@ -336,7 +357,7 @@ function renderThread(){
     if(m.role==="user"){if(editIdx===i)return `<div class="msg user"><div class="editbox"><textarea id="edit-ta">${esc(m.text)}</textarea><div class="macts"><button class="pill sm" data-edit-cancel>Cancelar</button><button class="pill dark sm" data-edit-send>Reenviar</button></div></div></div>`;
       return `<div class="msg user${f}"><div class="ub">${m.typed&&!busy?`<button class="edit" data-edit="${i}" aria-label="Editar mensagem">${ic("edit-pencil")}</button>`:""}<div class="bubble">${esc(m.text)}</div></div></div>`}
     const lc=S.step!=="companies"||S.msgs.findLastIndex(x=>x.w==="companies")!==i, lm=S.step!=="metrics"||S.msgs.findLastIndex(x=>x.w==="metrics")!==i;
-    const w=m.w==="sectorpick"?wSectorPick(i):m.w==="sxpick"?wSXPick(i):m.w==="sxcmp"?wSXCmp(i):m.w==="sx"?wSX(i):m.w==="val"?wVal(i):m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
+    const w=m.w==="sxverdict"?wSXVerdict():m.w==="sectorpick"?wSectorPick(i):m.w==="sxpick"?wSXPick(i):m.w==="sxcmp"?wSXCmp(i):m.w==="sx"?wSX(i):m.w==="val"?wVal(i):m.w==="sector"?wSector():m.w==="companies"?wCompanies(lc):m.w==="metrics"?wMetrics(lm):m.w==="card"?wCard(i):m.w==="deck"?wDeck():m.w==="mini"?wMini(m.keys):"";
     return `<div class="msg bot${f}"><span class="who"><img src="${BRAND.mark}" alt="">Fiscus</span>${m.thinking?`<div class="bubble thinking">${esc(m.text||"Pensando")}</div>`:(m.text?`<div class="bubble">${esc(m.text)}</div>`:"")}${w}</div>`}).join("");
   const ch=S.step==="rejected"?["Trocar métricas","Gerar outro título","Trocar empresas"]:(S.step==="done"||S.step==="card")?["Quem está mais barata?","Qual tem melhor ROIC?","Como está o endividamento?"]:[];
   $("choices").innerHTML=ch.map(c=>`<button class="pill ghost sm" data-choice="${esc(c)}">${esc(c)}</button>`).join("");
@@ -441,14 +462,18 @@ function buildSlides(){const v=S.val&&S.val.done,base=[
  {k:"cover",label:"Tese do setor"},{k:"sens",label:"O que move o setor"},{k:"topics",label:"Estrutura, cadeia e regulação"},
  {k:"cmp",label:S.title||"Comparativo"},{k:"kpis",label:"KPIs lado a lado"},{k:"modelo",label:"Modelos de negócio"},{k:"mult",label:"Múltiplos"},{k:"quali",label:"Leitura qualitativa e riscos"},
  {k:"check",label:"Como sabemos que está certo"},{k:"meth",label:"Fontes e metodologia"}];
-  if(!v)return base;const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},...base,{k:"concl",label:"Conclusão"}]}
+  const gl={k:"glance",label:"Visão geral da empresa"};
+  if(!v){base.splice(base.findIndex(x=>x.k==="cmp"),0,gl);return base}
+  const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});
+  return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},{k:"pillars",label:"Tese em 3 pilares"},gl,...base,{k:"concl",label:"Conclusão"}]}
 const RSNAV=["Visão geral","Setor","Comparativo","Valuation","Riscos","Metodologia"];
-const RSSEC={rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
+const RSSEC={pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
 function rsFrame(k,idx,n,title,sub,body,src){const [a,b]=S.picks,focus=S.val&&S.val.done?S.val.e:null;
   const lg=focus?logo(focus):`<img class="fz" src="${BRAND.logo}" alt="Fiscus">`;
-  return `<div class="slide rs"><div class="rh"><div class="rt"><h2>${title}</h2><p>${sub}</p></div><div class="rlogo">${lg}</div></div>
+  return `<div class="slide rs"><div class="ttabs">${RSNAV.map((x,i)=>`<span class="${RSSEC[k]===i?"on":""}">${x}</span>`).join("")}<span class="tlogo">${lg}</span></div>
+   <div class="rh"><div class="rt"><h2>${title}</h2><p>${sub}</p></div></div>
    <div class="rbody">${body}</div>
-   <div class="rf"><p class="src">Fonte: ${src||"Fiscus, ITRs 3T26, CVM Dados Abertos, B3"}</p><div class="rnav">${RSNAV.map((x,i)=>`<span class="${RSSEC[k]===i?"on":""}">${x}</span>`).join("")}<em>${idx+1}</em></div></div></div>`}
+   <div class="rf2"><em>${idx+1}</em><p class="src">Fonte: ${src||"Fiscus, ITRs 3T26, CVM Dados Abertos, B3"}</p><img src="${BRAND.logo}" alt="Fiscus"></div></div>`}
 const band=items=>`<div class="band">${items.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join("")}</div>`;
 const dia=items=>`<ul class="dia">${items.map(x=>`<li>${x}</li>`).join("")}</ul>`;
 function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.picks;const V=SETOR.veredito,T=SETOR.topicos,F=(...x)=>rsFrame(s.k,idx,n,...x);
@@ -461,6 +486,16 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
       <div class="r2"><span>Preço-alvo 12m: ${okp?brl(r.price):"—"}</span><span>Potencial: ${okp?pct(r.up):"—"}</span></div></div>
      <div class="team">${esc(ACCT?.nome||"Fiscus")}${ACCT?.inst?" | "+esc(ACCT.inst):""} · Exercício acadêmico, não é recomendação de investimento</div></div>
      <div class="cr">${tiles.map(([c,x,y])=>`<span class="dm" style="background:${c};left:${x-19}%;top:${y-19}%"></span>`).join("")}</div></div>`}
+  if(s.k==="pillars"){const Vv=S.val,nm=["Posição","Resultado","Valor"];
+    return `<div class="slide rs dark2"><div class="rh"><div class="rt light"><h2><span class="hl2">Tese de investimento</span> sustentada por 3 pilares…</h2></div></div>
+     <div class="pillars">${Vv.args.map((x,i)=>`<div class="pil" style="margin-left:${i*16}%;opacity:${1-i*.12}"><div class="pt"><b>${nm[i]||"Pilar "+(i+1)}:</b> ${esc(x)}</div><div class="pcol"><i></i><i></i><i></i></div></div>`).join("")}</div>
+     <div class="rf2"><em>${idx+1}</em><p class="src" style="color:#9aa">Tese escrita pelo Claude a partir dos dados verificados e das premissas do usuário</p><img src="${BRAND.logoWhite}" alt="Fiscus"></div></div>`}
+  if(s.k==="glance"){const e=S.val&&S.val.done?S.val.e:S.picks[0],E=EMP[e],H=HIST?.[e]||{},Y=Object.keys(H);const pal=["#1f3fd6","#7f95ea","#c9d2f8","#9aa0a9"];
+    const hb=Y.length?`<div class="mini-bars">${Y.map(y=>{const v=H[y].receita,mx=Math.max(...Y.map(z=>H[z].receita||0));return `<div><b>${nf(v/1000,0)}</b><i style="height:${v/mx*100}%"></i><span>${y.slice(2)}</span></div>`}).join("")}</div>`:"";
+    return F(`${esc(E.nome)} em uma página`,`Uma das maiores siderúrgicas listadas, com <b>${esc(E.desc.split("·")[1]||E.desc)}</b>`,
+     `<div class="gl3"><div class="glp"><h6>A receita vem de ${E.mix?E.mix.length:"vários"} segmentos…</h6>${E.mix?`<div class="mixv">${E.mix.map((m,i)=>`<div><span>${esc(m[0])}</span><i style="width:${m[1]}%;background:${pal[i]}"></i><b>${m[1]}%</b></div>`).join("")}</div><small>Participação no EBITDA ajustado, ${per(e)}</small>`:`<p>${esc(E.mixFonte)}</p>`}</div>
+      <div class="glp"><h6>…com receita que acompanha o ciclo…</h6>${hb}<small>Receita anual, R$ bi · CVM, DFP</small></div>
+      <div class="glp"><h6>…e um balanço que decide o ciclo</h6><div class="kv"><span>Dív. líq./EBITDA</span><b>${fmt(val("alav",e),"x")}</b></div><div class="kv"><span>ROIC 12m</span><b>${fmt(val("roic",e),"%")}</b></div><div class="kv"><span>EV/EBITDA</span><b>${fmt(val("ev",e),"x")}</b></div><small>CVM Dados Abertos e B3, ${VERIF.dataPreco.split("-").reverse().join("/")}</small></div></div>`,"ITRs 3T26, CVM Dados Abertos (DFP 2021–2025), B3")}
   if(s.k==="cover")return F("Tese do setor",`Siderurgia brasileira: <b>${esc(V.nivel.toLowerCase())}</b> para o investidor no 3T26`,
     band([[esc(V.nivel),"Veredito"],[esc(EMP[V.escolha].nome),"Empresa para a Etapa 2"],[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números verificados"],["7","Fontes oficiais"]])+dia([esc(V.frase),esc(V.porque)]),"Fiscus, Aço Brasil, ITRs 3T26, CVM");
   if(s.k==="sens")return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026, produção siderúrgica (IBGE) contra cada driver. Correlação não é causalidade.</span>`,"BCB SGS, IBGE PIM-PF, Aço Brasil, Banco Mundial");
