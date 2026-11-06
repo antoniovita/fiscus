@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-06T18:23:34+00:00",
+ "gerado_em": "2026-11-06T18:27:22+00:00",
  "SETOR": {
   "veredito": {
    "nivel": "Seletivo",
@@ -312,6 +312,216 @@
       "p": 10
      }
     ]
+   }
+  ],
+  "fatos": [
+   {
+    "v": 33.409,
+    "u": "mil t de aço bruto",
+    "t": "O setor transforma minério de ferro (via alto-forno/aciaria LD) ou sucata (aciaria elétrica) em aço bruto e laminados planos e longos. Em 2025 a produção brasileira de aço bruto foi de 33,4 Mt (31,6 Mt em 2016; pico de 36,1 Mt em 2021), o que põe o Brasil em 9º lugar no mundo.",
+    "f": "Instituto Aço Brasil – Anuário Estatístico 2026 (dados 2016–2025)",
+    "p": 16,
+    "top": "introducao"
+   },
+   {
+    "v": 0.6,
+    "u": "% a.a. (CAGR produção 2016–2025)",
+    "t": "O CAGR da produção de aço bruto foi de +0,6% a.a. entre 2016 e 2025 (31,6 para 33,4 Mt) e de +1,2% a.a. entre 2020 e 2025. O consumo aparente cresceu +4,2% a.a. entre 2016 e 2025 (18,5 para 26,8 Mt). Ressalva: 2016 foi um ano de recessão.",
+    "f": "Instituto Aço Brasil – Anuário Estatístico 2026 (dados 2016–2025)",
+    "p": 16,
+    "top": "introducao"
+   },
+   {
+    "v": 65.6,
+    "u": "% de utilização da capacidade (2025)",
+    "t": "Capacidade instalada de 50,95 Mt/ano em 2025 contra produção de 33,4 Mt, o que dá utilização de ~66%. O faturamento do setor foi de US$ 29,4 bi em 2025 (US$ 22,1 bi no mercado interno), com 116 mil colaboradores.",
+    "f": "Instituto Aço Brasil – Anuário Estatístico 2026 (dados 2016–2025)",
+    "p": "15-16",
+    "top": "introducao"
+   },
+   {
+    "v": 24.566,
+    "u": "mil t de aço bruto (jan–set/2026)",
+    "t": "Em 2026, até setembro: produção de 24,6 Mt (−1,7% a/a), consumo aparente de 19,7 Mt (−3,6%) e importações de 4,3 Mt (−15,4%). Em dez/2025 o Aço Brasil projetava para 2026 produção de 32,4 Mt (−2,2%) e consumo de 27,0 Mt (+1%).",
+    "f": "Instituto Aço Brasil – Estatística Mensal nº 138, dados set/2026",
+    "p": 2,
+    "top": "introducao"
+   },
+   {
+    "v": 52.0,
+    "u": "% da produção mundial (China, 2025)",
+    "t": "No mundo, a produção de 2025 foi de 1.848,9 Mt. A China respondeu por 960,8 Mt (~52%).",
+    "f": "worldsteel – World Steel in Figures 2026",
+    "p": 5,
+    "top": "introducao"
+   },
+   {
+    "v": 90.3,
+    "u": "% da produção 2025 (CR5 por grupo)",
+    "t": "Participação na produção de aço bruto em 2025: ArcelorMittal (Tubarão, Pecém e Aços Longos) 13,7 Mt (41%); Gerdau 6,0 Mt (18%); Ternium Brasil 4,3 Mt (13%); Usiminas 3,1 Mt (9%); CSN 3,1 Mt (9%). Os cinco grupos somam ~90%.",
+    "f": "Instituto Aço Brasil – Anuário Estatístico 2026 (dados 2016–2025)",
+    "p": 22,
+    "top": "estrutura"
+   },
+   {
+    "v": 16.369,
+    "u": "mil t (consumo aparente de planos, 2025)",
+    "t": "Planos e longos têm tamanhos parecidos: em 2025 o consumo aparente foi de 16,4 Mt de planos e 10,4 Mt de longos. A penetração de importados foi de 24,0% nos planos e 15,8% nos longos.",
+    "f": "Instituto Aço Brasil – Estatística Mensal, dados dez/2025",
+    "p": 8,
+    "top": "estrutura"
+   },
+   {
+    "v": 76.0,
+    "u": "% da produção via LD/oxigênio (2025)",
+    "t": "Rotas: em 2025, 76,0% do aço bruto brasileiro saiu de aciarias a oxigênio (LD, integradas a alto-forno), 22,9% de aciarias elétricas e 1,1% de EOF. No mundo, as aciarias elétricas respondem por ~30%.",
+    "f": "Instituto Aço Brasil – Anuário Estatístico 2026 (dados 2016–2025)",
+    "p": 21,
+    "top": "cadeia"
+   },
+   {
+    "v": 32.0,
+    "u": "% das vendas internas da Usiminas via distribuição (3T26)",
+    "t": "Etapas e agentes: minério (Vale e outros; mineração cativa de CSN, Usiminas e Gerdau/Miguel Burnier); redução e aciaria (integradas: ArcelorMittal Tubarão, Usiminas Ipatinga, CSN Volta Redonda, Ternium; semi-integradas a sucata: Gerdau e ArcelorMittal Longos); laminação; distribuição. Na Usiminas, a 'Grande Rede' (distribuição) respondeu por 32,0% das vendas internas no 3T26, contra 38,2% do automotivo e 29,8% da indústria.",
+    "f": "ITR Usiminas 3T26, pág. 37",
+    "p": 37,
+    "top": "cadeia"
+   },
+   {
+    "v": 10.0,
+    "u": "% margem EBITDA ajustada siderurgia Usiminas 3T26",
+    "t": "Margens por elo no 3T26 (Usiminas): margem EBITDA ajustada de 10% na siderurgia e de 3% na mineração, esta pressionada pela queda de 7,9% no preço de referência do minério e pelo frete alto. Uma das plantas de mineração foi paralisada temporariamente.",
+    "f": "ITR Usiminas 3T26, pág. 23",
+    "p": 23,
+    "top": "cadeia"
+   },
+   {
+    "v": 10.5,
+    "u": "% margem EBITDA ajustada siderurgia CSN 2T26",
+    "t": "Na CSN (2T26), a margem EBITDA ajustada foi de 32,0% na mineração, 45,2% na logística, 30,8% em cimento e 10,5% na siderurgia. A siderurgia gerou só ~23% do EBITDA ajustado consolidado (R$ 636 mi de R$ 2.773 mi).",
+    "f": "CSN – Release de resultados 2T26 (Form 6-K, SEC, 12/08/2026)",
+    "p": null,
+    "top": "cadeia"
+   },
+   {
+    "v": 37.3,
+    "u": "% do consumo de aço (construção civil, 2024)",
+    "t": "Demanda por setor (2024): construção civil 37,3% do consumo de aço, automotivo 24,8%, bens de capital 19,2%.",
+    "f": "Instituto Aço Brasil – Mercado Brasileiro do Aço: Análise Setorial e Regional 2025 (dados 2024)",
+    "p": 5,
+    "top": "drivers"
+   },
+   {
+    "v": 20.8,
+    "u": "% de penetração de importados no consumo aparente (2025)",
+    "t": "Importações: 6,4 Mt em 2025 (+7,4%), sendo 61,9% da China (3,96 Mt). A penetração de importados no consumo aparente foi de 20,8% em 2025 (18,5% em 2024), e o patamar histórico citado pelo Aço Brasil é de 9,7%. Em jan–set/2026 a penetração caiu para 18,5%, com importações de 4,3 Mt (−15,4%) e participação chinesa de 47,0%.",
+    "f": "Instituto Aço Brasil – Estatística Mensal, dados dez/2025",
+    "p": 8,
+    "top": "drivers"
+   },
+   {
+    "v": 6.135,
+    "u": "Mt de aço contido (importação indireta, 2025)",
+    "t": "Importação indireta (aço contido em bens importados): 6,13 Mt em 2025 (+3,5%), quase igual à importação direta. A Usiminas aponta os automóveis importados ou só montados no país como pressão sobre a demanda.",
+    "f": "Instituto Aço Brasil – Estatística Mensal, dados dez/2025",
+    "p": 15,
+    "top": "drivers"
+   },
+   {
+    "v": 13.75,
+    "u": "% a.a. (meta Selic, BCB SGS 432, último valor disponível em 06/11/2026)",
+    "t": "Juros: a meta Selic está em 13,75% a.a. Segundo a Gerdau, a demanda no 3T26 ficou fraca 'principalmente pelo impacto dos juros altos na atividade industrial', e os veículos importados foram 20,3% dos emplacamentos em set/2026.",
+    "f": "Gerdau – Release de resultados 3T26 (26/10/2026; Form 6-K na SEC)",
+    "p": null,
+    "top": "drivers"
+   },
+   {
+    "v": 75.1,
+    "u": "% do EBITDA ajustado dos segmentos vindo da América do Norte (Gerdau, 9M26)",
+    "t": "Diversificação geográfica da Gerdau: nos 9M26 a América do Norte gerou R$ 7,76 bi de EBITDA ajustado (75% da soma dos segmentos), contra R$ 2,02 bi do Brasil (R$ 2,74 bi nos 9M25). A receita da região foi 56% do total.",
+    "f": "ITR Gerdau 3T26, pág. 73",
+    "p": 73,
+    "top": "moats"
+   },
+   {
+    "v": 0.69,
+    "u": "tCO2/t aço bruto (scrap-EAF, dados 2024)",
+    "t": "Custo e carbono via sucata: a Gerdau diz que quase 70% de sua produção vem de sucata (cerca de 10 Mt/ano). A intensidade média mundial é de 0,69 tCO2/t na rota sucata-EAF contra 2,34 tCO2/t na rota BF-BOF.",
+    "f": "worldsteel – World Steel in Figures 2026",
+    "p": 4,
+    "top": "moats"
+   },
+   {
+    "v": 7.7,
+    "u": "Mt/ano de capacidade de aço bruto da Gerdau no Brasil",
+    "t": "A Gerdau reduziu a capacidade de aço bruto no Brasil de 7,9 para 7,7 Mt/ano ao fechar a aciaria da Açonorte (PE) no 3T26, com utilização de 77% no Brasil contra 83% na América do Norte.",
+    "f": "Gerdau – Release de resultados 3T26 (26/10/2026; Form 6-K na SEC)",
+    "p": null,
+    "top": "moats"
+   },
+   {
+    "v": 25,
+    "u": "% de imposto de importação acima da cota",
+    "t": "Cota-tarifa: em 23/04/2024 o Gecex elevou para 25% o imposto de importação de 11 NCMs de aço acima de cotas de volume, por 12 meses. A medida foi prorrogada e ampliada em 2025. Em 28/01/2026 mais 9 NCMs passaram a 25%, e em 28/05/2026 o Gecex renovou as elevações de 19 produtos e incluiu mais um.",
+    "f": "MDIC – Gecex delibera sobre apoio às exportações, defesa comercial e redução de impostos (237ª reunião, 28/05/2026)",
+    "p": null,
+    "top": "regulacao"
+   },
+   {
+    "v": 581.25,
+    "u": "US$/t (direito antidumping para os demais produtores chineses, laminados a frio)",
+    "t": "Antidumping: a Resolução Gecex nº 854, de 12/02/2026, aplicou direito definitivo por até 5 anos sobre laminados a frio da China (US$ 322,93 a 641,73/t por produtor). Na mesma reunião foram aprovados direitos sobre laminados revestidos da China, e em 28/01/2026 sobre pré-pintados da China e da Índia.",
+    "f": "DOU nº 31, 13/02/2026, Seção 1 – Resolução Gecex nº 854/2026 (cópia do DOU hospedada por Poder360; verificável em in.gov.br/autenticidade.html, código 05152026021300005)",
+    "p": 1,
+    "top": "regulacao"
+   },
+   {
+    "v": 50,
+    "u": "% tarifa Section 232 sobre aço (desde 04/06/2025)",
+    "t": "Section 232 (EUA): a tarifa adicional sobre aço importado subiu de 25% para 50% ad valorem a partir de 04/06/2025. A Gerdau, que produz localmente, registrou margem EBITDA de 27,7% na América do Norte no 3T26 (cálculo sobre a nota 22) e cita um cenário 'mais favorável para produtores locais' e a queda das importações. Ligar esse resultado à tarifa é interpretação.",
+    "f": "The White House – Proclamation 'Adjusting Imports of Aluminum and Steel' (03/06/2025)",
+    "p": null,
+    "top": "regulacao"
+   },
+   {
+    "v": 25000,
+    "u": "tCO2e/ano (limite para conciliação de obrigações no SBCE)",
+    "t": "Descarbonização: a Lei 15.042/2024 criou o SBCE (mercado regulado de carbono), com obrigação de relato acima de 10 mil tCO2e/ano e de conciliação acima de 25 mil tCO2e/ano. O CBAM da UE, que cobre ferro e aço, está em regime definitivo desde 01/01/2026.",
+    "f": "Planalto – Lei nº 15.042, de 11/12/2024 (SBCE)",
+    "p": null,
+    "top": "regulacao"
+   },
+   {
+    "v": 133.6,
+    "u": "Mt exportadas pela China (2025)",
+    "t": "China: exportou 133,6 Mt de aço em 2025 (exportação líquida de 126,6 Mt), cerca de 4 vezes a produção brasileira.",
+    "f": "worldsteel – World Steel in Figures 2026",
+    "p": 14,
+    "top": "riscos"
+   },
+   {
+    "v": 7.2,
+    "u": "% (tarifa efetiva de importação estimada pelo Aço Brasil)",
+    "t": "Proteção incompleta: o Aço Brasil estima a tarifa efetiva sobre aço importado em 7,2%, contra 25% do mecanismo e 12,8% fora dele, por causa de acordos comerciais, regimes especiais e incentivos de ICMS.",
+    "f": "Instituto Aço Brasil – comunicado 16/12/2025 'Recorde em 2025, importação de aço já custou 5 mil vagas...' (projeções 2026)",
+    "p": null,
+    "top": "riscos"
+   },
+   {
+    "v": -3.6,
+    "u": "% consumo aparente jan–set/2026 a/a",
+    "t": "Ciclo e demanda: o consumo aparente caiu 3,6% em jan–set/2026, contra a projeção de +1% para o ano. O 4T26 deve ter resultado menor segundo Usiminas (mix pior, custos maiores) e Gerdau (compressão de margem no Brasil).",
+    "f": "Instituto Aço Brasil – Estatística Mensal nº 138, dados set/2026",
+    "p": 2,
+    "top": "riscos"
+   },
+   {
+    "v": 58.5,
+    "u": "% das exportações brasileiras de aço para os EUA (2025)",
+    "t": "Dependência dos EUA: 58,5% das exportações brasileiras de aço em 2025 foram para os EUA (6,43 Mt de 10,98 Mt, sobretudo semiacabados), o que expõe o setor às regras da Section 232.",
+    "f": "Instituto Aço Brasil – Estatística Mensal, dados dez/2025",
+    "p": 10,
+    "top": "riscos"
    }
   ]
  },

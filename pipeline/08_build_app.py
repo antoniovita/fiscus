@@ -216,12 +216,14 @@ SENS = [
     {"d": "Atividade (IBC-Br)", "n": 2, "dado": f"r = {c2(corr('ibcbr_var12m_pct', 0, 'amostra_completa'))} no mesmo mês, mas {c2(corr('ibcbr_var12m_pct', 0, 'sem_pandemia'))} sem a pandemia", "f": "BCB SGS 24363 · IBGE PIM 8885"},
     {"d": "Minério de ferro", "n": 1, "dado": f"r = {c2(corr('minerio_var12m_pct', 0, 'amostra_completa'))}, mas o sinal some sem a pandemia ({c2(corr('minerio_var12m_pct', 0, 'sem_pandemia'))})", "f": "Banco Mundial · Pink Sheet"},
 ]
+FATOS = [{"v": p["dado"].get("valor"), "u": p["dado"].get("unidade", ""), "t": p["texto"], "f": p.get("fonte", ""), "p": p.get("pagina"), "top": tk}
+         for tk, tt in SET["topicos"].items() for p in tt["pontos"] if p.get("dado") and p["dado"].get("valor") is not None]
 SETOR = {
     "veredito": {"nivel": "Seletivo",
                  "frase": "Hoje o setor não paga o custo de capital: produção parada há uma década, um terço da capacidade ociosa e o importado limitando o preço. Vale só onde há proteção fora do Brasil.",
                  "escolha": "g",
                  "porque": f"No Brasil, a margem da Gerdau ({f1(ITR['g_margem_br_3t26']['valor'])}%) é parecida com a da siderurgia da Usiminas ({f1(ITR['u_margem_sid_3t26']['valor'])}%). A diferença está nos EUA, que geram {f1(ITR['g_peso_an_ebitda_3t26']['valor'])}% do EBITDA da Gerdau sob tarifa de 50% sobre o aço importado."},
-    "sens": SENS, "sensNota": SEN.get("nota", ""), "topicos": topicos,
+    "sens": SENS, "sensNota": SEN.get("nota", ""), "topicos": topicos, "fatos": FATOS,
 }
 
 vr = VER["resumo"]

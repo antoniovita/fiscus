@@ -472,15 +472,19 @@ function buildSlides(){const v=S.val&&S.val.done,base=[
  {k:"cover",label:"Tese do setor"},{k:"sens",label:"O que move o setor"},{k:"topics",label:"Estrutura, cadeia e regulação"},
  {k:"cmp",label:S.title||"Comparativo"},{k:"kpis",label:"KPIs lado a lado"},{k:"modelo",label:"Modelos de negócio"},{k:"mult",label:"Múltiplos"},{k:"quali",label:"Leitura qualitativa e riscos"},
  {k:"check",label:"Como sabemos que está certo"},{k:"meth",label:"Fontes e metodologia"}];
-  const gl={k:"glance",label:"Visão geral da empresa"};
+  const gl={k:"glance",label:"Visão geral da empresa"},sn={k:"setnum",label:"O setor em números"},dr={k:"drivers",label:`O que move ${co(focusE()).nome}`};
+  base.splice(base.findIndex(x=>x.k==="sens"),0,sn);base.splice(base.findIndex(x=>x.k==="cmp"),0,dr);
   if(!v){base.splice(base.findIndex(x=>x.k==="cmp"),0,gl);return base}
   const i=base.findIndex(x=>x.k==="check");base.splice(i,0,{k:"val",label:"Valuation e sensibilidade"});
   return [{k:"rec",label:`${S.val.rec} · ${co(S.val.e).nome}`},{k:"pillars",label:"Tese em 3 pilares"},gl,...base,{k:"concl",label:"Conclusão"}]}
 const RSNAV=["Visão geral","Setor","Comparativo","Valuation","Riscos","Metodologia"];
-const RSSEC={pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
+const RSSEC={setnum:1,drivers:2,pillars:0,glance:0,rec:0,cover:1,sens:1,topics:1,cmp:2,kpis:2,modelo:2,mult:2,quali:4,val:3,check:5,meth:5,concl:0};
+const BRANDC={g:"#00468b",u:"#5a9e1b",c:"#1f3b8f"};
+const focusE=()=>S.val&&S.val.done?S.val.e:(S.picks.includes(SETOR.veredito.escolha)?SETOR.veredito.escolha:S.picks[0]);
+const themeStyle=()=>{const c=BRANDC[focusE()]||"#1f3fd6";return `style="--rb:${c}"`};
 function rsFrame(k,idx,n,title,sub,body,src){const [a,b]=S.picks,focus=S.val&&S.val.done?S.val.e:null;
   const lg=focus?logo(focus):`<img class="fz" src="${BRAND.logo}" alt="Fiscus">`;
-  return `<div class="slide rs"><div class="ttabs">${RSNAV.map((x,i)=>`<span class="${RSSEC[k]===i?"on":""}">${x}</span>`).join("")}<span class="tlogo">${lg}</span></div>
+  return `<div class="slide rs" ${themeStyle()}><div class="ttabs">${RSNAV.map((x,i)=>`<span class="${RSSEC[k]===i?"on":""}">${x}</span>`).join("")}<span class="tlogo">${lg}</span></div>
    <div class="rh"><div class="rt"><h2>${title}</h2><p>${sub}</p></div></div>
    <div class="rbody">${body}</div>
    <div class="rf2"><em>${idx+1}</em><p class="src">Fonte: ${src||"Fiscus, ITRs 3T26, CVM Dados Abertos, B3"}</p><img src="${BRAND.logo}" alt="Fiscus"></div></div>`}
@@ -489,8 +493,8 @@ const dia=items=>`<ul class="dia">${items.map(x=>`<li>${x}</li>`).join("")}</ul>
 function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.picks;const V=SETOR.veredito,T=SETOR.topicos,F=(...x)=>rsFrame(s.k,idx,n,...x);
   const dt=VERIF.dataPreco.split("-").reverse().join("/");
   if(s.k==="rec"){const Vv=S.val,r=dcf(Vv.e,Vv.prem),okp=r&&!r.erro&&r.eq>0,cls=okp?recOf(r.up)[1]:"sell";
-    const tiles=[["#1f3fd6",8,52],["#5b78ea",34,22],["#9fb0f3",58,48],["#00b050",34,74],["#cfd7fa",80,26],["#1f3fd6",80,72],["#e8ecfc",58,4]];
-    return `<div class="slide rs cover"><div class="cl"><div class="brandrow"><img src="${BRAND.logo}" alt="Fiscus"><i></i><span>Fiscus Research · Siderurgia</span></div>
+    const bc=BRANDC[Vv.e]||"#1f3fd6",tiles=[[bc,8,52],[bc+"cc",34,22],[bc+"66",58,48],["#00b050",34,74],[bc+"33",80,26],[bc,80,72],[bc+"1a",58,4]];
+    return `<div class="slide rs cover" style="--rb:${bc}"><div class="cl"><div class="brandrow"><img src="${BRAND.logo}" alt="Fiscus"><i></i><span>Fiscus Research · Siderurgia</span></div>
      <div class="co">${logo(Vv.e)}<span>(${EMP[Vv.e].tk}: B3)</span></div><div class="upd">Última atualização: 06/11/2026 · preço de ${dt}</div>
      <div class="recbox"><div class="r1">Recomendação: <b class="${cls}">${esc(Vv.rec.toUpperCase())}</b></div>
       <div class="r2"><span>Preço-alvo 12m: ${okp?brl(r.price):"—"}</span><span>Potencial: ${okp?pct(r.up):"—"}</span></div></div>
@@ -506,6 +510,19 @@ function slideHTML(idx){const all=buildSlides(),s=all[idx],n=all.length,[a,b]=S.
      `<div class="gl3"><div class="glp"><h6>A receita vem de ${E.mix?E.mix.length:"vários"} segmentos…</h6>${E.mix?`<div class="mixv">${E.mix.map((m,i)=>`<div><span>${esc(m[0])}</span><i style="width:${m[1]}%;background:${pal[i]}"></i><b>${m[1]}%</b></div>`).join("")}</div><small>Participação no EBITDA ajustado, ${per(e)}</small>`:`<p>${esc(E.mixFonte)}</p>`}</div>
       <div class="glp"><h6>…com receita que acompanha o ciclo…</h6>${hb}<small>Receita anual, R$ bi · CVM, DFP</small></div>
       <div class="glp"><h6>…e um balanço que decide o ciclo</h6><div class="kv"><span>Dív. líq./EBITDA</span><b>${fmt(val("alav",e),"x")}</b></div><div class="kv"><span>ROIC 12m</span><b>${fmt(val("roic",e),"%")}</b></div><div class="kv"><span>EV/EBITDA</span><b>${fmt(val("ev",e),"x")}</b></div><small>CVM Dados Abertos e B3, ${VERIF.dataPreco.split("-").reverse().join("/")}</small></div></div>`,"ITRs 3T26, CVM Dados Abertos (DFP 2021–2025), B3")}
+  if(s.k==="setnum"){const Fx=SETOR.fatos||[],pick=re=>Fx.find(x=>re.test(x.u));
+    const it=[[/aço bruto$|^mil t de aço bruto$/,"Mt de aço bruto produzidas em 2025",v=>nf(v>1000?v/1000:v,1)],[/utilização/,"da capacidade em uso",v=>nf(v,1)+"%"],[/CR5/,"da produção em 5 grupos",v=>nf(v,1)+"%"],[/penetração de importados/,"do consumo vem de importados",v=>nf(v,1)+"%"],[/construção civil/,"do aço vai para a construção",v=>nf(v,1)+"%"],[/Section 232/,"de tarifa dos EUA sobre aço importado",v=>nf(v,0)+"%"],[/exportadas pela China/,"Mt exportadas pela China em 2025",v=>nf(v,1)],[/tarifa efetiva/,"de tarifa efetiva no Brasil",v=>nf(v,1)+"%"]].map(([re,l,fm])=>{const x=pick(re);return x?{v:fm(x.v),l,f:x.f}:null}).filter(Boolean);
+    const big=it.slice(0,4),small=it.slice(4);
+    return F("O setor em números",`Siderurgia brasileira: <b>produção parada, capacidade ociosa e importado em alta</b>`,
+     `<div class="setnum"><div class="sn-ic">${ic("industry")}</div><div class="sn-grid">${big.map(x=>`<div class="sn"><b>${x.v}</b><span>${esc(x.l)}</span></div>`).join("")}</div></div>
+      <div class="band">${small.map(x=>`<div><b>${x.v}</b><span>${esc(x.l)}</span></div>`).join("")}</div>`,
+     [...new Set(it.map(x=>x.f.split("–")[0].split("(")[0].trim()))].slice(0,3).join("; "))}
+  if(s.k==="drivers"){const e=focusE(),E=EMP[e],Q=E.quali,pal=["var(--rb)","#9aa0a9","#cfd3da"];
+    const mix=E.mix?`<div class="bmc"><h5>Onde está o resultado</h5>${E.mix.map((m,i)=>`<div class="kv"><span>${esc(m[0])}</span><b>${m[1]}%</b></div>`).join("")}<small class="small">${esc(E.mixFonte)}</small></div>`:"";
+    return F(`O que move ${esc(E.nome)}`,`Os fatores que <b>decidem o resultado de ${esc(E.nome)}</b> nos próximos trimestres`,
+     `<div class="bm" style="grid-template-columns:1.2fr .8fr"><div class="bmc"><h5>O que acompanhar</h5>${dia(Q.r.map(esc))}<h5 style="margin-top:6px">Forças da empresa</h5>${dia(Q.f.map(esc))}</div>${mix}</div>
+      <div class="sens">${SETOR.sens.slice(0,3).map(x=>`<div class="srow"><span>${esc(x.d)}</span><span class="lvlbar">${[1,2,3].map(i=>`<i class="${i<=x.n?"on":""}"></i>`).join("")}</span><span class="dado">${esc(x.dado)}</span></div>`).join("")}</div>`,
+     `ITR ${E.nome} ${per(e)}, BCB, IBGE, Aço Brasil`)}
   if(s.k==="cover")return F("Tese do setor",`Siderurgia brasileira: <b>${esc(V.nivel.toLowerCase())}</b> para o investidor no 3T26`,
     band([[esc(V.nivel),"Veredito"],[esc(EMP[V.escolha].nome),"Empresa para a Etapa 2"],[`${VERIF.aprovadas}/${VERIF.metricas}`,"Números verificados"],["7","Fontes oficiais"]])+dia([esc(V.frase),esc(V.porque)]),"Fiscus, Aço Brasil, ITRs 3T26, CVM");
   if(s.k==="sens")return F("O que move o setor",`<b>Juros</b> e <b>importação</b> pesam mais que a demanda física`,`<div class="sens">${sensRows()}</div><span class="small">Correlação de Pearson, 2019–2026, produção siderúrgica (IBGE) contra cada driver. Correlação não é causalidade.</span>`,"BCB SGS, IBGE PIM-PF, Aço Brasil, Banco Mundial");
